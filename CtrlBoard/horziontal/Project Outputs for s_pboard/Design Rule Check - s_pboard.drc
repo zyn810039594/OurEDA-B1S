@@ -1,7 +1,7 @@
 Protel Design System Design Rule Check
 PCB File : D:\Emb\B1ROV\OurEDA-B1S\CtrlBoard\horziontal\s_pboard.PcbDoc
-Date     : 2021/4/23 星期五
-Time     : 16:16:45
+Date     : 2021/4/26 星期一
+Time     : 12:38:17
 
 Processing Rule : Clearance Constraint (Gap=10mil) (All),(All)
 Rule Violations :0
@@ -31,21 +31,18 @@ Processing Rule : Power Plane Connect Rule(Relief Connect )(Expansion=20mil) (Co
 Rule Violations :0
 
 Processing Rule : Hole Size Constraint (Min=1mil) (Max=100mil) (All)
-   Violation between Hole Size Constraint: (125mil > 100mil) Pad JP1-1(2165mil,2100mil) on Multi-Layer Actual Hole Size = 125mil
-   Violation between Hole Size Constraint: (125mil > 100mil) Pad JP2-1(1950mil,4450mil) on Multi-Layer Actual Hole Size = 125mil
-   Violation between Hole Size Constraint: (125mil > 100mil) Pad JP3-1(3360mil,4450mil) on Multi-Layer Actual Hole Size = 125mil
-   Violation between Hole Size Constraint: (125mil > 100mil) Pad JP4-1(3175mil,2100mil) on Multi-Layer Actual Hole Size = 125mil
-   Violation between Hole Size Constraint: (125mil > 100mil) Pad JP5-1(2655mil,4450mil) on Multi-Layer Actual Hole Size = 125mil
+   Violation between Hole Size Constraint: (125mil > 100mil) Pad JP1-1(2165mil,1950mil) on Multi-Layer Actual Hole Size = 125mil
+   Violation between Hole Size Constraint: (125mil > 100mil) Pad JP2-1(1950mil,4600mil) on Multi-Layer Actual Hole Size = 125mil
+   Violation between Hole Size Constraint: (125mil > 100mil) Pad JP3-1(3360mil,4600mil) on Multi-Layer Actual Hole Size = 125mil
+   Violation between Hole Size Constraint: (125mil > 100mil) Pad JP4-1(3175mil,1950mil) on Multi-Layer Actual Hole Size = 125mil
+   Violation between Hole Size Constraint: (125mil > 100mil) Pad JP5-1(2655mil,4600mil) on Multi-Layer Actual Hole Size = 125mil
 Rule Violations :5
 
 Processing Rule : Hole To Hole Clearance (Gap=10mil) (All),(All)
 Rule Violations :0
 
 Processing Rule : Minimum Solder Mask Sliver (Gap=10mil) (All),(All)
-   Violation between Minimum Solder Mask Sliver Constraint: (8.489mil < 10mil) Between Pad C3-2(2903.898mil,3255mil) on Multi-Layer And Pad E2-1(3031mil,3185mil) on Top Layer [Top Solder] Mask Sliver [8.489mil]
-   Violation between Minimum Solder Mask Sliver Constraint: (9.106mil < 10mil) Between Pad L6-1(2472.835mil,2915mil) on Top Layer And Pad U2-6(2550mil,2880mil) on Multi-Layer [Top Solder] Mask Sliver [9.106mil]
-   Violation between Minimum Solder Mask Sliver Constraint: (9.106mil < 10mil) Between Pad L6-2(2327.165mil,2915mil) on Top Layer And Pad U2-1(2250mil,2880mil) on Multi-Layer [Top Solder] Mask Sliver [9.106mil]
-Rule Violations :3
+Rule Violations :0
 
 Processing Rule : Net Antennae (Tolerance=0mil) (All)
 Rule Violations :0
@@ -54,6 +51,6 @@ Processing Rule : Height Constraint (Min=0mil) (Max=1000mil) (Prefered=500mil) (
 Rule Violations :0
 
 
-Violations Detected : 8
+Violations Detected : 5
 Waived Violations : 0
-Time Elapsed        : 00:00:01
+Time Elapsed        : 00:00:00

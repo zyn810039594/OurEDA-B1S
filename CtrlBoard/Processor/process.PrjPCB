@@ -69,7 +69,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=CJGQYMMF
+DocumentUniqueId=SPPFSEKH
 
 [Document3]
 DocumentPath=..\..\..\..\..\ADFile\connect1\杂元件库.SCHLIB
@@ -86,7 +86,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=DDBITIJY
+DocumentUniqueId=SVCKTMXJ
 
 [Document4]
 DocumentPath=..\..\..\..\..\ADFile\connect1\语音芯片.SchLib
@@ -103,7 +103,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=VABMQEPV
+DocumentUniqueId=HFIVNBUG
 
 [Document5]
 DocumentPath=..\..\..\..\..\ADFile\connect1\液晶.SchLib
@@ -120,7 +120,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=KOPEPOSQ
+DocumentUniqueId=PSBIVGFS
 
 [Document6]
 DocumentPath=..\..\..\..\..\ADFile\connect1\稳压器件.SchLib
@@ -137,7 +137,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=TCSQTEMV
+DocumentUniqueId=NMJFKPCV
 
 [Document7]
 DocumentPath=..\..\..\..\..\ADFile\connect1\数字集成电路1.SCHLIB
@@ -154,7 +154,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=RPPJPAUV
+DocumentUniqueId=EKBJWFEA
 
 [Document8]
 DocumentPath=..\..\..\..\..\ADFile\connect1\数字符号.SCHLIB
@@ -171,7 +171,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=BUCAWLBQ
+DocumentUniqueId=GXGYJWSC
 
 [Document9]
 DocumentPath=..\..\..\..\..\ADFile\connect1\数字电路CMOS&TTL74.SCHLIB
@@ -188,7 +188,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=EWKIIMLN
+DocumentUniqueId=QIKGDVGR
 
 [Document10]
 DocumentPath=..\..\..\..\..\ADFile\connect1\数码管.SchLib
@@ -205,7 +205,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=JMPTATKJ
+DocumentUniqueId=XITXLCAM
 
 [Document11]
 DocumentPath=..\..\..\..\..\ADFile\connect1\时钟芯片.SchLib
@@ -222,7 +222,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=OIOYAIJP
+DocumentUniqueId=MLCAETLD
 
 [Document12]
 DocumentPath=..\..\..\..\..\ADFile\connect1\声亮元件.SCHLIB
@@ -239,7 +239,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=WPISPXDE
+DocumentUniqueId=TNKQEEMM
 
 [Document13]
 DocumentPath=..\..\..\..\..\ADFile\connect1\模拟器件.SchLib
@@ -256,7 +256,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=UQHRMRDN
+DocumentUniqueId=GBMNFXAL
 
 [Document14]
 DocumentPath=..\..\..\..\..\ADFile\connect1\模拟集成电路.SCHLIB
@@ -273,7 +273,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=SJJEOAXN
+DocumentUniqueId=RFBXWLOP
 
 [Document15]
 DocumentPath=..\..\..\..\..\ADFile\connect1\模拟符号.SCHLIB
@@ -290,7 +290,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=NNWMGERJ
+DocumentUniqueId=MFFYMTAJ
 
 [Document16]
 DocumentPath=..\..\..\..\..\ADFile\connect1\可控硅.SchLib
@@ -307,7 +307,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=UUYTJTDP
+DocumentUniqueId=XQBMIFNT
 
 [Document17]
 DocumentPath=..\..\..\..\..\ADFile\connect1\开关及电源.SCHLIB
@@ -324,7 +324,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=AHNMBNNF
+DocumentUniqueId=YQWTGQQN
 
 [Document18]
 DocumentPath=..\..\..\..\..\ADFile\connect1\开关.SCHLIB
@@ -341,7 +341,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=EWERQJGI
+DocumentUniqueId=NWGFESKA
 
 [Document19]
 DocumentPath=..\..\..\..\..\ADFile\connect1\接口与插座.SCHLIB
@@ -358,7 +358,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=CDBYWAXU
+DocumentUniqueId=IMJOWBUW
 
 [Document20]
 DocumentPath=..\..\..\..\..\ADFile\connect1\接口器件.SchLib
@@ -375,7 +375,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=UWRPMHXS
+DocumentUniqueId=TTXCNLXF
 
 [Document21]
 DocumentPath=..\..\..\..\..\ADFile\connect1\接插件.SCHLIB
@@ -392,7 +392,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=RTAJXOQU
+DocumentUniqueId=BQTCPEGS
 
 [Document22]
 DocumentPath=..\..\..\..\..\ADFile\connect1\继电器类元件.SCHLIB
@@ -409,7 +409,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=TYOQXSBN
+DocumentUniqueId=AFMUTSGL
 
 [Document23]
 DocumentPath=..\..\..\..\..\ADFile\connect1\集成电路.SCHLIB
@@ -426,7 +426,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=CGQYGFGK
+DocumentUniqueId=KUJDRFVD
 
 [Document24]
 DocumentPath=..\..\..\..\..\ADFile\connect1\光电元件数码管.SCHLIB
@@ -443,7 +443,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=QYWSSEJR
+DocumentUniqueId=HTBLKCMQ
 
 [Document25]
 DocumentPath=..\..\..\..\..\ADFile\connect1\光电器件.SchLib
@@ -460,7 +460,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=YFVOUWPN
+DocumentUniqueId=YGBGTJHP
 
 [Document26]
 DocumentPath=..\..\..\..\..\ADFile\connect1\感应元件.SCHLIB
@@ -477,7 +477,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=DVPKTFBP
+DocumentUniqueId=OCVMNBKT
 
 [Document27]
 DocumentPath=..\..\..\..\..\ADFile\connect1\二极管.SCHLIB
@@ -494,7 +494,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=CMFAXYAF
+DocumentUniqueId=FERLVQYT
 
 [Document28]
 DocumentPath=..\..\..\..\..\ADFile\connect1\电子管.SchLib
@@ -511,7 +511,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=GOITYEWY
+DocumentUniqueId=AVDMJTDA
 
 [Document29]
 DocumentPath=..\..\..\..\..\ADFile\connect1\电源.SCHLIB
@@ -528,7 +528,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=GHSKWVNN
+DocumentUniqueId=YVJUXBIM
 
 [Document30]
 DocumentPath=..\..\..\..\..\ADFile\connect1\电控开关.SchLib
@@ -545,7 +545,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=WGOHLNWL
+DocumentUniqueId=JXFQSMWG
 
 [Document31]
 DocumentPath=..\..\..\..\..\ADFile\connect1\电池及电源.SCHLIB
@@ -562,7 +562,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=RMBYFGAJ
+DocumentUniqueId=XUCQVSCH
 
 [Document32]
 DocumentPath=..\..\..\..\..\ADFile\connect1\单片机及相关.SCHLIB
@@ -579,7 +579,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=FJGXAQLR
+DocumentUniqueId=IRHKUDJK
 
 [Document33]
 DocumentPath=..\..\..\..\..\ADFile\connect1\存储器.SchLib
@@ -596,7 +596,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=DJXJVMAE
+DocumentUniqueId=XAYBLOPY
 
 [Document34]
 DocumentPath=..\..\..\..\..\ADFile\connect1\传感器.SchLib
@@ -613,7 +613,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=HUXWQFFE
+DocumentUniqueId=MVAYYKBW
 
 [Document35]
 DocumentPath=..\..\..\..\..\ADFile\connect1\场效应管及可控硅.SCHLIB
@@ -630,7 +630,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=HJOWGJSA
+DocumentUniqueId=EVXUSWJO
 
 [Document36]
 DocumentPath=..\..\..\..\..\ADFile\connect1\场效应管.SchLib
@@ -647,7 +647,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=KITAAFCL
+DocumentUniqueId=WOHKXHAN
 
 [Document37]
 DocumentPath=..\..\..\..\..\ADFile\connect1\常用元件库.SCHLIB
@@ -664,7 +664,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=VFOJMMVT
+DocumentUniqueId=KPSCFEHC
 
 [Document38]
 DocumentPath=..\..\..\..\..\ADFile\connect1\常用2.SchLib
@@ -681,7 +681,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=NPVQKETB
+DocumentUniqueId=KFDUBOQY
 
 [Document39]
 DocumentPath=..\..\..\..\..\ADFile\connect1\常用1.SchLib
@@ -698,7 +698,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=GFAOGRLY
+DocumentUniqueId=BRYKUSUN
 
 [Document40]
 DocumentPath=..\..\..\..\..\ADFile\connect1\插件.SCHLIB
@@ -715,7 +715,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=GCCJKPMR
+DocumentUniqueId=XXBDNYIG
 
 [Document41]
 DocumentPath=..\..\..\..\..\ADFile\connect1\变压器.SchLib
@@ -732,7 +732,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=CENREWOY
+DocumentUniqueId=AEKBRUCT
 
 [Document42]
 DocumentPath=..\..\..\..\..\ADFile\connect1\TTL74系列IC.SCHLIB
@@ -749,7 +749,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=KIXWGICN
+DocumentUniqueId=ACIWOYVC
 
 [Document43]
 DocumentPath=..\..\..\..\..\ADFile\connect1\TTL74系列.SchLib
@@ -766,7 +766,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=BIVHELPA
+DocumentUniqueId=FJVECRKT
 
 [Document44]
 DocumentPath=..\..\..\..\..\ADFile\connect1\TMS320f2812.SchLib
@@ -783,7 +783,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=XTPMJXFU
+DocumentUniqueId=GXKPGARI
 
 [Document45]
 DocumentPath=..\..\..\..\..\ADFile\connect1\SLE4442.SchLib
@@ -800,7 +800,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=EFGHESUL
+DocumentUniqueId=OSKOXBCH
 
 [Document46]
 DocumentPath=..\..\..\..\..\ADFile\connect1\rest.SCHLIB
@@ -817,7 +817,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=WQWBPITU
+DocumentUniqueId=SPFXJVVM
 
 [Document47]
 DocumentPath=..\..\..\..\..\ADFile\connect1\PIC单片机.SchLib
@@ -834,7 +834,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=LSKIQCAD
+DocumentUniqueId=UXHGOUAE
 
 [Document48]
 DocumentPath=..\..\..\..\..\ADFile\connect1\photounit.SCHLIB
@@ -851,7 +851,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=KXEIEBHH
+DocumentUniqueId=CNQJBBRU
 
 [Document49]
 DocumentPath=..\..\..\..\..\ADFile\connect1\my lib1.SCHLIB
@@ -868,7 +868,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=SRFXYNQX
+DocumentUniqueId=QXAAYLIU
 
 [Document50]
 DocumentPath=..\..\..\..\..\ADFile\connect1\MSP430.SchLib
@@ -885,7 +885,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=JYLKQKTB
+DocumentUniqueId=NHXODMUM
 
 [Document51]
 DocumentPath=..\..\..\..\..\ADFile\connect1\MISCESCH.SCHLIB
@@ -902,7 +902,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=MKVYMHYT
+DocumentUniqueId=KKABUSBG
 
 [Document52]
 DocumentPath=..\..\..\..\..\ADFile\connect1\Miscellaneous Devices.SCHLIB
@@ -919,7 +919,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=RKVBVKJH
+DocumentUniqueId=MHQPVRBK
 
 [Document53]
 DocumentPath=..\..\..\..\..\ADFile\connect1\ICD2.SchLib
@@ -936,7 +936,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=QANPUJLM
+DocumentUniqueId=YBLPHXRS
 
 [Document54]
 DocumentPath=..\..\..\..\..\ADFile\connect1\IC.SCHLIB
@@ -953,7 +953,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=VJDXDCAF
+DocumentUniqueId=QRMASOCX
 
 [Document55]
 DocumentPath=..\..\..\..\..\ADFile\connect1\HT单片机.SchLib
@@ -970,7 +970,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=YSTGWGJC
+DocumentUniqueId=QSINWPWW
 
 [Document56]
 DocumentPath=..\..\..\..\..\ADFile\connect1\CMOS系列.SchLib
@@ -987,7 +987,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=DSITOHHI
+DocumentUniqueId=RONWRYFX
 
 [Document57]
 DocumentPath=..\..\..\..\..\ADFile\connect1\CMOS&TTL74.SCHLIB
@@ -1004,7 +1004,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=MNSCHVSC
+DocumentUniqueId=XCYQWYWG
 
 [Document58]
 DocumentPath=..\..\..\..\..\ADFile\connect1\CHXXXSCH.SchLib
@@ -1021,7 +1021,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=RMHDRBVN
+DocumentUniqueId=UKJMXPEY
 
 [Document59]
 DocumentPath=..\..\..\..\..\ADFile\connect1\CH375.SchLib
@@ -1038,7 +1038,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=CENRMPWX
+DocumentUniqueId=VVUXMCTO
 
 [Document60]
 DocumentPath=..\..\..\..\..\ADFile\connect1\CD4000系列IC.SCHLIB
@@ -1055,7 +1055,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=NKUYELQU
+DocumentUniqueId=RHPOSCEM
 
 [Document61]
 DocumentPath=..\..\..\..\..\ADFile\connect1\C8051Fx.SchLib
@@ -1072,7 +1072,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=MNINBKHN
+DocumentUniqueId=YXVVCTND
 
 [Document62]
 DocumentPath=..\..\..\..\..\ADFile\connect1\BIS0001.SchLib
@@ -1089,7 +1089,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=UDIPDDMD
+DocumentUniqueId=RAUNLAFT
 
 [Document63]
 DocumentPath=..\..\..\..\..\ADFile\connect1\AVR单片机.SchLib
@@ -1106,7 +1106,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=GYBEBDIT
+DocumentUniqueId=LDSIOOKI
 
 [Document64]
 DocumentPath=..\..\..\..\..\ADFile\connect1\ARM.SchLib
@@ -1123,7 +1123,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=URKCCSBD
+DocumentUniqueId=LWKKMFDQ
 
 [Document65]
 DocumentPath=..\..\..\..\..\ADFile\connect1\AD转换器件.SchLib
@@ -1140,7 +1140,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=EOXUKNMH
+DocumentUniqueId=HCPDCANS
 
 [Document66]
 DocumentPath=..\..\..\..\..\ADFile\connect1\AD7416.SchLib
@@ -1157,7 +1157,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=REXDGBJC
+DocumentUniqueId=VBVREBFY
 
 [Document67]
 DocumentPath=..\..\..\..\..\ADFile\connect1\555.SchLib
@@ -1174,7 +1174,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=VHCTPYFD
+DocumentUniqueId=MHQRNCJL
 
 [Document68]
 DocumentPath=..\..\..\..\..\ADFile\connect1\328p.SchLib
@@ -1191,7 +1191,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=IAVERXFJ
+DocumentUniqueId=NFXRJPJH
 
 [Document69]
 DocumentPath=..\..\..\..\..\ADFile\connect1\78稳压块.SCHLIB
@@ -1208,7 +1208,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=OADBKCFU
+DocumentUniqueId=ESVHJOJG
 
 [Document70]
 DocumentPath=..\..\..\..\..\ADFile\connect1\74HC595.SchLib
@@ -1225,7 +1225,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=MAVVQKIQ
+DocumentUniqueId=DQSIYGJD
 
 [Document71]
 DocumentPath=..\..\..\..\..\ADFile\connect1\74HC164.SchLib
@@ -1242,7 +1242,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=IDBJPACR
+DocumentUniqueId=SQWMJXDC
 
 [Document72]
 DocumentPath=..\..\..\..\..\ADFile\connect1\51单片机.SchLib
@@ -1259,7 +1259,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=FJUCYWTE
+DocumentUniqueId=EPVUGROM
 
 [Document73]
 DocumentPath=..\..\..\..\..\ADFile\connect2\音频接口.PcbLib
@@ -2636,7 +2636,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=DKIRRJEC
+DocumentUniqueId=VUVOOJFW
 
 [Document154]
 DocumentPath=..\..\..\..\..\ADFile\connect3\杂元件库.SCHLIB
@@ -2653,7 +2653,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=PMMCHGSP
+DocumentUniqueId=XLGWLLJQ
 
 [Document155]
 DocumentPath=..\..\..\..\..\ADFile\connect3\语音芯片.SchLib
@@ -2670,7 +2670,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=LXTXVROO
+DocumentUniqueId=SCSFFWMX
 
 [Document156]
 DocumentPath=..\..\..\..\..\ADFile\connect3\液晶.SchLib
@@ -2687,7 +2687,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=OPPEYXMY
+DocumentUniqueId=LNBRSTDJ
 
 [Document157]
 DocumentPath=..\..\..\..\..\ADFile\connect3\稳压器件.SchLib
@@ -2704,7 +2704,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=LAFRKNRU
+DocumentUniqueId=YVGHYRUB
 
 [Document158]
 DocumentPath=..\..\..\..\..\ADFile\connect3\数字集成电路1.SCHLIB
@@ -2721,7 +2721,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=VTDBNNUF
+DocumentUniqueId=LDODLHRN
 
 [Document159]
 DocumentPath=..\..\..\..\..\ADFile\connect3\数字符号.SCHLIB
@@ -2738,7 +2738,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=IALQHKXX
+DocumentUniqueId=JTVEAFWJ
 
 [Document160]
 DocumentPath=..\..\..\..\..\ADFile\connect3\数字电路CMOS&TTL74.SCHLIB
@@ -2755,7 +2755,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=TOJLWPAH
+DocumentUniqueId=YCLQQNST
 
 [Document161]
 DocumentPath=..\..\..\..\..\ADFile\connect3\数码管.SchLib
@@ -2772,7 +2772,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=FBBPNWHW
+DocumentUniqueId=RBQRSITY
 
 [Document162]
 DocumentPath=..\..\..\..\..\ADFile\connect3\时钟芯片.SchLib
@@ -2789,7 +2789,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=RXQLHPYH
+DocumentUniqueId=JWNHPXFK
 
 [Document163]
 DocumentPath=..\..\..\..\..\ADFile\connect3\声亮元件.SCHLIB
@@ -2806,7 +2806,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=INMNCIPR
+DocumentUniqueId=UFAKVRPU
 
 [Document164]
 DocumentPath=..\..\..\..\..\ADFile\connect3\模拟器件.SchLib
@@ -2823,7 +2823,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=GBSGNOTP
+DocumentUniqueId=OQODAFIT
 
 [Document165]
 DocumentPath=..\..\..\..\..\ADFile\connect3\模拟集成电路.SCHLIB
@@ -2840,7 +2840,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=RKFIADPP
+DocumentUniqueId=MJYDJVHG
 
 [Document166]
 DocumentPath=..\..\..\..\..\ADFile\connect3\模拟符号.SCHLIB
@@ -2857,7 +2857,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=GUDAKDDJ
+DocumentUniqueId=GCTTHKYX
 
 [Document167]
 DocumentPath=..\..\..\..\..\ADFile\connect3\可控硅.SchLib
@@ -2874,7 +2874,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=LJKUNYJW
+DocumentUniqueId=IVFKAHDX
 
 [Document168]
 DocumentPath=..\..\..\..\..\ADFile\connect3\开关及电源.SCHLIB
@@ -2891,7 +2891,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=PJOHLWFC
+DocumentUniqueId=DGVDHJNB
 
 [Document169]
 DocumentPath=..\..\..\..\..\ADFile\connect3\开关.SCHLIB
@@ -2908,7 +2908,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=SYWRGCWV
+DocumentUniqueId=OYXNETSM
 
 [Document170]
 DocumentPath=..\..\..\..\..\ADFile\connect3\接口与插座.SCHLIB
@@ -2925,7 +2925,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=ALMKPEFA
+DocumentUniqueId=SGNBPTVB
 
 [Document171]
 DocumentPath=..\..\..\..\..\ADFile\connect3\接口器件.SchLib
@@ -2942,7 +2942,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=WYYTXFPU
+DocumentUniqueId=MGPGROLX
 
 [Document172]
 DocumentPath=..\..\..\..\..\ADFile\connect3\接插件.SCHLIB
@@ -2959,7 +2959,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=VXPTEBNO
+DocumentUniqueId=QKMIBBNW
 
 [Document173]
 DocumentPath=..\..\..\..\..\ADFile\connect3\继电器类元件.SCHLIB
@@ -2976,7 +2976,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=UVRPAGMY
+DocumentUniqueId=AHKRTKLT
 
 [Document174]
 DocumentPath=..\..\..\..\..\ADFile\connect3\集成电路.SCHLIB
@@ -2993,7 +2993,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=LGAOTUHI
+DocumentUniqueId=MJVVEDYS
 
 [Document175]
 DocumentPath=..\..\..\..\..\ADFile\connect3\光电元件数码管.SCHLIB
@@ -3010,7 +3010,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=KUXXLKOQ
+DocumentUniqueId=JQJLWTEY
 
 [Document176]
 DocumentPath=..\..\..\..\..\ADFile\connect3\光电器件.SchLib
@@ -3027,7 +3027,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=QVPLBUGW
+DocumentUniqueId=FRGJCTQQ
 
 [Document177]
 DocumentPath=..\..\..\..\..\ADFile\connect3\感应元件.SCHLIB
@@ -3044,7 +3044,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=RHANUUVR
+DocumentUniqueId=GRDUUOSG
 
 [Document178]
 DocumentPath=..\..\..\..\..\ADFile\connect3\二极管.SCHLIB
@@ -3061,7 +3061,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=NVXTTOUG
+DocumentUniqueId=KJFQGODK
 
 [Document179]
 DocumentPath=..\..\..\..\..\ADFile\connect3\电子管.SchLib
@@ -3078,7 +3078,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=FOXFHEXR
+DocumentUniqueId=DELCDNXN
 
 [Document180]
 DocumentPath=..\..\..\..\..\ADFile\connect3\电源.SCHLIB
@@ -3095,7 +3095,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=MNISDLTJ
+DocumentUniqueId=XAIPBHHV
 
 [Document181]
 DocumentPath=..\..\..\..\..\ADFile\connect3\电控开关.SchLib
@@ -3112,7 +3112,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=PMUJVQUS
+DocumentUniqueId=JXPGOABE
 
 [Document182]
 DocumentPath=..\..\..\..\..\ADFile\connect3\电池及电源.SCHLIB
@@ -3129,7 +3129,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=KNWESKVO
+DocumentUniqueId=HIMPAJNQ
 
 [Document183]
 DocumentPath=..\..\..\..\..\ADFile\connect3\单片机及相关.SCHLIB
@@ -3146,7 +3146,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=MAEALKVG
+DocumentUniqueId=NWDOBDYX
 
 [Document184]
 DocumentPath=..\..\..\..\..\ADFile\connect3\存储器.SchLib
@@ -3163,7 +3163,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=MXLWGJFL
+DocumentUniqueId=XAINXBYL
 
 [Document185]
 DocumentPath=..\..\..\..\..\ADFile\connect3\传感器.SchLib
@@ -3180,7 +3180,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=BPMRIAFD
+DocumentUniqueId=SPOSKRAT
 
 [Document186]
 DocumentPath=..\..\..\..\..\ADFile\connect3\场效应管及可控硅.SCHLIB
@@ -3197,7 +3197,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=PUNQNVDV
+DocumentUniqueId=CGWKYSKE
 
 [Document187]
 DocumentPath=..\..\..\..\..\ADFile\connect3\场效应管.SchLib
@@ -3214,7 +3214,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=XGOLBSFH
+DocumentUniqueId=OHIVWMVA
 
 [Document188]
 DocumentPath=..\..\..\..\..\ADFile\connect3\常用元件库.SCHLIB
@@ -3231,7 +3231,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=NVBBGSBJ
+DocumentUniqueId=SAKGTTFA
 
 [Document189]
 DocumentPath=..\..\..\..\..\ADFile\connect3\常用2.SchLib
@@ -3248,7 +3248,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=VEFMPGFV
+DocumentUniqueId=SFWQCJAK
 
 [Document190]
 DocumentPath=..\..\..\..\..\ADFile\connect3\常用1.SchLib
@@ -3265,7 +3265,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=BRYKUSUN
+DocumentUniqueId=TLWTNEUW
 
 [Document191]
 DocumentPath=..\..\..\..\..\ADFile\connect3\插件.SCHLIB
@@ -3282,7 +3282,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=MXUCYXBA
+DocumentUniqueId=WATAFMWB
 
 [Document192]
 DocumentPath=..\..\..\..\..\ADFile\connect3\变压器.SchLib
@@ -3299,7 +3299,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=MMFRTFQL
+DocumentUniqueId=IEPRNLFK
 
 [Document193]
 DocumentPath=..\..\..\..\..\ADFile\connect3\TTL74系列IC.SCHLIB
@@ -3316,7 +3316,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=IGPVUULL
+DocumentUniqueId=BGLVHJLE
 
 [Document194]
 DocumentPath=..\..\..\..\..\ADFile\connect3\TTL74系列.SchLib
@@ -3333,7 +3333,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=QFJSKNIV
+DocumentUniqueId=VXGXFFUN
 
 [Document195]
 DocumentPath=..\..\..\..\..\ADFile\connect3\TMS320f2812.SchLib
@@ -3350,7 +3350,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=TWWSNALK
+DocumentUniqueId=XFIKDXPR
 
 [Document196]
 DocumentPath=..\..\..\..\..\ADFile\connect3\SLE4442.SchLib
@@ -3367,7 +3367,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=QTKTSHFN
+DocumentUniqueId=OPRSCQAU
 
 [Document197]
 DocumentPath=..\..\..\..\..\ADFile\connect3\rest.SCHLIB
@@ -3384,7 +3384,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=ANOXBYAR
+DocumentUniqueId=EQRDQLHL
 
 [Document198]
 DocumentPath=..\..\..\..\..\ADFile\connect3\PIC单片机.SchLib
@@ -3401,7 +3401,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=WTMKDFMV
+DocumentUniqueId=FGEUHQOE
 
 [Document199]
 DocumentPath=..\..\..\..\..\ADFile\connect3\photounit.SCHLIB
@@ -3418,7 +3418,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=JAQLWKQQ
+DocumentUniqueId=XASYRTRF
 
 [Document200]
 DocumentPath=..\..\..\..\..\ADFile\connect3\my lib1.SCHLIB
@@ -3435,7 +3435,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=FMHFPOYF
+DocumentUniqueId=MGUGEHJI
 
 [Document201]
 DocumentPath=..\..\..\..\..\ADFile\connect3\MSP430.SchLib
@@ -3452,7 +3452,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=SEBCDHSA
+DocumentUniqueId=YPROHRAR
 
 [Document202]
 DocumentPath=..\..\..\..\..\ADFile\connect3\MISCESCH.SCHLIB
@@ -3469,7 +3469,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=ACKOIXYE
+DocumentUniqueId=FOGYVBMJ
 
 [Document203]
 DocumentPath=..\..\..\..\..\ADFile\connect3\Miscellaneous Devices.SCHLIB
@@ -3486,7 +3486,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=XICQFKGA
+DocumentUniqueId=NTUEDYYJ
 
 [Document204]
 DocumentPath=..\..\..\..\..\ADFile\connect3\IR2104.SchLib
@@ -3503,7 +3503,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=EPQNEWYG
+DocumentUniqueId=RNQPOCXW
 
 [Document205]
 DocumentPath=..\..\..\..\..\ADFile\connect3\ICD2.SchLib
@@ -3520,7 +3520,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=RKHGWQSU
+DocumentUniqueId=TCANGNSK
 
 [Document206]
 DocumentPath=..\..\..\..\..\ADFile\connect3\IC.SCHLIB
@@ -3537,7 +3537,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=JKWFUCIY
+DocumentUniqueId=LIXEBDYP
 
 [Document207]
 DocumentPath=..\..\..\..\..\ADFile\connect3\HT单片机.SchLib
@@ -3554,7 +3554,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=RYXLQXVW
+DocumentUniqueId=OMPNWUKL
 
 [Document208]
 DocumentPath=..\..\..\..\..\ADFile\connect3\CMOS系列.SchLib
@@ -3571,7 +3571,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=SBOKHDLJ
+DocumentUniqueId=LLIDWXOR
 
 [Document209]
 DocumentPath=..\..\..\..\..\ADFile\connect3\CMOS&TTL74.SCHLIB
@@ -3588,7 +3588,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=NESHLXKV
+DocumentUniqueId=NUWYBVHO
 
 [Document210]
 DocumentPath=..\..\..\..\..\ADFile\connect3\CHXXXSCH.SchLib
@@ -3605,7 +3605,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=EETERFFP
+DocumentUniqueId=SOYCVYQN
 
 [Document211]
 DocumentPath=..\..\..\..\..\ADFile\connect3\CH375.SchLib
@@ -3622,7 +3622,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=XHXXMPUF
+DocumentUniqueId=KUGBRMHQ
 
 [Document212]
 DocumentPath=..\..\..\..\..\ADFile\connect3\CD4000系列IC.SCHLIB
@@ -3639,7 +3639,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=MAQVFAUY
+DocumentUniqueId=SESEGSWE
 
 [Document213]
 DocumentPath=..\..\..\..\..\ADFile\connect3\C8051Fx.SchLib
@@ -3656,7 +3656,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=WKAEWJIO
+DocumentUniqueId=LLSCDWDX
 
 [Document214]
 DocumentPath=..\..\..\..\..\ADFile\connect3\BIS0001.SchLib
@@ -3673,7 +3673,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=KOENEPVN
+DocumentUniqueId=OAUPEBYW
 
 [Document215]
 DocumentPath=..\..\..\..\..\ADFile\connect3\AVR单片机.SchLib
@@ -3690,7 +3690,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=LDSIOOKI
+DocumentUniqueId=MPIFYQWS
 
 [Document216]
 DocumentPath=..\..\..\..\..\ADFile\connect3\ARM.SchLib
@@ -3707,7 +3707,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=INCKFLBG
+DocumentUniqueId=DBGKNNUI
 
 [Document217]
 DocumentPath=..\..\..\..\..\ADFile\connect3\AD转换器件.SchLib
@@ -3724,7 +3724,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=SWEGKNTH
+DocumentUniqueId=PKMGKFCF
 
 [Document218]
 DocumentPath=..\..\..\..\..\ADFile\connect3\AD7416.SchLib
@@ -3741,7 +3741,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=NHJKIQSF
+DocumentUniqueId=HLOYODVB
 
 [Document219]
 DocumentPath=..\..\..\..\..\ADFile\connect3\555.SchLib
@@ -3758,7 +3758,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=NIPCKVIN
+DocumentUniqueId=CGFCQNBN
 
 [Document220]
 DocumentPath=..\..\..\..\..\ADFile\connect3\328p.SchLib
@@ -3775,7 +3775,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=NFXRJPJH
+DocumentUniqueId=YSMTJKKT
 
 [Document221]
 DocumentPath=..\..\..\..\..\ADFile\connect3\78稳压块.SCHLIB
@@ -3792,7 +3792,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=MDTOODFW
+DocumentUniqueId=HGWMBKJW
 
 [Document222]
 DocumentPath=..\..\..\..\..\ADFile\connect3\74HC595.SchLib
@@ -3809,7 +3809,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=TIUGYNQR
+DocumentUniqueId=XVENQYVY
 
 [Document223]
 DocumentPath=..\..\..\..\..\ADFile\connect3\74HC164.SchLib
@@ -3826,7 +3826,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=XEJNKDRD
+DocumentUniqueId=VXSIPFSS
 
 [Document224]
 DocumentPath=..\..\..\..\..\ADFile\connect3\51单片机.SchLib
@@ -3843,7 +3843,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=BBRNFMLM
+DocumentUniqueId=NGCYODLR
 
 [Document225]
 DocumentPath=..\..\..\..\..\ADFile\connect3\15.1 - 未分类器件.SchLib
@@ -4030,7 +4030,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=NCMGEYYE
+DocumentUniqueId=GGKCBOFV
 
 [Document236]
 DocumentPath=..\..\..\..\..\ADFile\connect3\6.1   - 场效应管-可控硅.SchLib
@@ -4115,7 +4115,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=OSAIBFJJ
+DocumentUniqueId=LVVTOMJM
 
 [Document241]
 DocumentPath=..\..\..\..\..\ADFile\connect3\4.11 - 接插件-脚距7.62.SchLib
@@ -4132,7 +4132,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=LVVTOMJM
+DocumentUniqueId=XKIRHGBP
 
 [Document242]
 DocumentPath=..\..\..\..\..\ADFile\connect3\4.10 - 接插件-脚距5.08.SchLib
@@ -4285,7 +4285,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=CCPBEMSB
+DocumentUniqueId=JFGPDXFI
 
 [Document251]
 DocumentPath=..\..\..\..\..\ADFile\connect3\4.1   - 接口类.SchLib
@@ -4319,7 +4319,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=JFGPDXFI
+DocumentUniqueId=CRHKNKGE
 
 [Document253]
 DocumentPath=..\..\..\..\..\ADFile\connect3\3.1   - 电阻-电容-电感.SchLib
@@ -4353,7 +4353,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=RJHRKJYL
+DocumentUniqueId=BGGWLSRH
 
 [Document255]
 DocumentPath=..\..\..\..\..\ADFile\connect3\2.4   - Atmel系列单片机.SchLib
@@ -4370,7 +4370,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=IYJNJBWC
+DocumentUniqueId=UJEEUCXY
 
 [Document256]
 DocumentPath=..\..\..\..\..\ADFile\connect3\2.3   - STC系列单片机.SchLib
@@ -4387,7 +4387,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=GPCMEETB
+DocumentUniqueId=SKQBIDPM
 
 [Document257]
 DocumentPath=..\..\..\..\..\ADFile\connect3\2.2   - STM8系列单片机.SchLib
@@ -4438,7 +4438,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=EQKKWURS
+DocumentUniqueId=YBSKNDMN
 
 [Document260]
 DocumentPath=..\..\..\..\..\ADFile\connect3\1.3   - 电源类芯片.SchLib
@@ -4455,7 +4455,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=XYXKLYYR
+DocumentUniqueId=HOIESFYM
 
 [Document261]
 DocumentPath=..\..\..\..\..\ADFile\connect3\1.2   - 74系列芯片.SchLib
@@ -4489,7 +4489,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=AQYXFIHE
+DocumentUniqueId=RKJJBVJH
 
 [Document263]
 DocumentPath=..\..\..\..\..\ADFile\h7\零散元件库.SCHLIB
@@ -4645,7 +4645,7 @@ GenerateClassCluster=0
 DocumentUniqueId=NIXCBSSQ
 
 [Document272]
-DocumentPath=PRO.PcbDoc
+DocumentPath=PRO2.PcbDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -4677,6 +4677,44 @@ ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=ACGPFEKX
+
+[Document274]
+DocumentPath=PRO2.SchDoc
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=HVNHBUPU
+
+[Document275]
+DocumentPath=PRO3.SchDoc
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=HKIXKUCM
+
+[GeneratedDocument1]
+DocumentPath=Project Outputs for process\Design Rule Check - PRO2.html
+DItemRevisionGUID=
 
 [Configuration1]
 Name=Sources

@@ -1,0 +1,130 @@
+Removed Pin From Net: NetName=P1_D_N Pin=T1-2
+Removed Pin From Net: NetName=P1_D_P Pin=T1-3
+Removed Pin From Net: NetName=P1_C_N Pin=T1-5
+Removed Pin From Net: NetName=P1_C_P Pin=T1-6
+Removed Pin From Net: NetName=P1_B_N Pin=T1-8
+Removed Pin From Net: NetName=P1_B_P Pin=T1-9
+Removed Pin From Net: NetName=P1_A_N Pin=T1-11
+Removed Pin From Net: NetName=P1_A_P Pin=T1-12
+Removed Pin From Net: NetName=P0_D_N Pin=T1-14
+Removed Pin From Net: NetName=P0_D_P Pin=T1-15
+Removed Pin From Net: NetName=P0_C_N Pin=T1-17
+Removed Pin From Net: NetName=P0_C_P Pin=T1-18
+Removed Pin From Net: NetName=P0_B_N Pin=T1-20
+Removed Pin From Net: NetName=P0_B_P Pin=T1-21
+Removed Pin From Net: NetName=P0_A_N Pin=T1-23
+Removed Pin From Net: NetName=P0_A_P Pin=T1-24
+Removed Pin From Net: NetName=P3_D_N Pin=T2-2
+Removed Pin From Net: NetName=P3_D_P Pin=T2-3
+Removed Pin From Net: NetName=P3_C_N Pin=T2-5
+Removed Pin From Net: NetName=P3_C_P Pin=T2-6
+Removed Pin From Net: NetName=P3_B_N Pin=T2-8
+Removed Pin From Net: NetName=P3_B_P Pin=T2-9
+Removed Pin From Net: NetName=P3_A_N Pin=T2-11
+Removed Pin From Net: NetName=P3_A_P Pin=T2-12
+Removed Pin From Net: NetName=P2_D_N Pin=T2-14
+Removed Pin From Net: NetName=P2_D_P Pin=T2-15
+Removed Pin From Net: NetName=P2_C_N Pin=T2-17
+Removed Pin From Net: NetName=P2_C_P Pin=T2-18
+Removed Pin From Net: NetName=P2_B_N Pin=T2-20
+Removed Pin From Net: NetName=P2_B_P Pin=T2-21
+Removed Pin From Net: NetName=P2_A_N Pin=T2-23
+Removed Pin From Net: NetName=P2_A_P Pin=T2-24
+Removed Pin From Net: NetName=P4_D_N Pin=T3-2
+Removed Pin From Net: NetName=P4_D_P Pin=T3-3
+Removed Pin From Net: NetName=P4_C_N Pin=T3-5
+Removed Pin From Net: NetName=P4_C_P Pin=T3-6
+Removed Pin From Net: NetName=P4_B_N Pin=T3-8
+Removed Pin From Net: NetName=P4_B_P Pin=T3-9
+Removed Pin From Net: NetName=P4_A_N Pin=T3-11
+Removed Pin From Net: NetName=P4_A_P Pin=T3-12
+Change component parameters: Designator = "C8"; Footprint = "C 0603_M"; UniqueID = "\XOXUYSSD"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "BOM名称"; Value = "无极性贴片电容"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Change component parameters: Designator = "C9"; Footprint = "C 0603_M"; UniqueID = "\DUKPBJLR"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "BOM名称"; Value = "无极性贴片电容"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Change component parameters: Designator = "C10"; Footprint = "C 0603_M"; UniqueID = "\TJJYIYXR"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "BOM名称"; Value = "无极性贴片电容"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Change component parameters: Designator = "C19"; Footprint = "C 0603_M"; UniqueID = "\IEWKYKWO"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "BOM名称"; Value = "无极性贴片电容"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Change component parameters: Designator = "C20"; Footprint = "C 0603_M"; UniqueID = "\CBRSDPYA"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "BOM名称"; Value = "无极性贴片电容"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Change component parameters: Designator = "C21"; Footprint = "C 0603_M"; UniqueID = "\AWKYPNXF"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "BOM名称"; Value = "无极性贴片电容"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Change component parameters: Designator = "C22"; Footprint = "C 0603_M"; UniqueID = "\AQSXJLNK"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "BOM名称"; Value = "无极性贴片电容"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Change component parameters: Designator = "C24"; Footprint = "C 0603_M"; UniqueID = "\LCDDLEQV"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "BOM名称"; Value = "无极性贴片电容"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Change component parameters: Designator = "C30"; Footprint = "C 0603_M"; UniqueID = "\XEFMRFEA"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "BOM名称"; Value = "无极性贴片电容"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Change component parameters: Designator = "C31"; Footprint = "C 0603_M"; UniqueID = "\OFKGYJGX"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "BOM名称"; Value = "无极性贴片电容"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=P0_A_P Pin=T1-2
+Added Pin To Net: NetName=P0_A_N Pin=T1-3
+Added Pin To Net: NetName=P0_B_P Pin=T1-5
+Added Pin To Net: NetName=P0_B_N Pin=T1-6
+Added Pin To Net: NetName=P0_C_P Pin=T1-8
+Added Pin To Net: NetName=P0_C_N Pin=T1-9
+Added Pin To Net: NetName=P0_D_P Pin=T1-11
+Added Pin To Net: NetName=P0_D_N Pin=T1-12
+Added Pin To Net: NetName=P1_A_P Pin=T1-14
+Added Pin To Net: NetName=P1_A_N Pin=T1-15
+Added Pin To Net: NetName=P1_B_P Pin=T1-17
+Added Pin To Net: NetName=P1_B_N Pin=T1-18
+Added Pin To Net: NetName=P1_C_P Pin=T1-20
+Added Pin To Net: NetName=P1_C_N Pin=T1-21
+Added Pin To Net: NetName=P1_D_P Pin=T1-23
+Added Pin To Net: NetName=P1_D_N Pin=T1-24
+Added Pin To Net: NetName=P2_A_P Pin=T2-2
+Added Pin To Net: NetName=P2_A_N Pin=T2-3
+Added Pin To Net: NetName=P2_B_P Pin=T2-5
+Added Pin To Net: NetName=P2_B_N Pin=T2-6
+Added Pin To Net: NetName=P2_C_P Pin=T2-8
+Added Pin To Net: NetName=P2_C_N Pin=T2-9
+Added Pin To Net: NetName=P2_D_P Pin=T2-11
+Added Pin To Net: NetName=P2_D_N Pin=T2-12
+Added Pin To Net: NetName=P3_A_P Pin=T2-14
+Added Pin To Net: NetName=P3_A_N Pin=T2-15
+Added Pin To Net: NetName=P3_B_P Pin=T2-17
+Added Pin To Net: NetName=P3_B_N Pin=T2-18
+Added Pin To Net: NetName=P3_C_P Pin=T2-20
+Added Pin To Net: NetName=P3_C_N Pin=T2-21
+Added Pin To Net: NetName=P3_D_P Pin=T2-23
+Added Pin To Net: NetName=P3_D_N Pin=T2-24
+Added Pin To Net: NetName=P4_A_P Pin=T3-2
+Added Pin To Net: NetName=P4_A_N Pin=T3-3
+Added Pin To Net: NetName=P4_B_P Pin=T3-5
+Added Pin To Net: NetName=P4_B_N Pin=T3-6
+Added Pin To Net: NetName=P4_C_P Pin=T3-8
+Added Pin To Net: NetName=P4_C_N Pin=T3-9
+Added Pin To Net: NetName=P4_D_P Pin=T3-11
+Added Pin To Net: NetName=P4_D_N Pin=T3-12
