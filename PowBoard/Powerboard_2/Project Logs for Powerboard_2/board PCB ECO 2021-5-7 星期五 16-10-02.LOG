@@ -1,0 +1,59 @@
+Added Component: Designator=JK?(SLA-xxVDC-SL-A)
+Add component (AddParameter): Name = "BOM名称"; Value = "12V继电器"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Added Component: Designator=JP1(KF7620-12P)
+Add component (AddParameter): Name = "BOM名称"; Value = "12P接插件"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Added Component: Designator=JP2(XH2.54-WI-2P)
+Add component (AddParameter): Name = "BOM名称"; Value = "2P接插件"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Added Component: Designator=M1(PM)
+Added Component: Designator=M2(PM)
+Added Component: Designator=M3(PM)
+Added Component: Designator=M4(PM)
+Added Component: Designator=M5(PM)
+Added Pin To Net: NetName=+12d Pin=JP1-9
+Added Pin To Net: NetName=+12d Pin=JP1-11
+Added Net: Name=+12d
+Added Pin To Net: NetName=+12 Pin=JK?-4
+Added Pin To Net: NetName=+12 Pin=JP1-3
+Added Pin To Net: NetName=+12 Pin=JP1-4
+Added Pin To Net: NetName=+12 Pin=JP1-5
+Added Net: Name=+12
+Added Pin To Net: NetName=+24 Pin=JP1-1
+Added Pin To Net: NetName=+24 Pin=M1-1
+Added Pin To Net: NetName=+24 Pin=M2-1
+Added Pin To Net: NetName=+24 Pin=M3-1
+Added Pin To Net: NetName=+24 Pin=M4-1
+Added Pin To Net: NetName=+24 Pin=M5-1
+Added Net: Name=+24
+Added Pin To Net: NetName=GND Pin=JK?-2
+Added Pin To Net: NetName=GND Pin=JP1-2
+Added Pin To Net: NetName=GND Pin=JP1-6
+Added Pin To Net: NetName=GND Pin=JP1-7
+Added Pin To Net: NetName=GND Pin=JP1-8
+Added Pin To Net: NetName=GND Pin=JP1-10
+Added Pin To Net: NetName=GND Pin=JP1-12
+Added Pin To Net: NetName=GND Pin=M1-3
+Added Pin To Net: NetName=GND Pin=M1-4
+Added Pin To Net: NetName=GND Pin=M2-4
+Added Pin To Net: NetName=GND Pin=M3-4
+Added Pin To Net: NetName=GND Pin=M4-4
+Added Pin To Net: NetName=GND Pin=M5-4
+Added Net: Name=GND
+Added Pin To Net: NetName=NetJK?_1 Pin=JK?-1
+Added Pin To Net: NetName=NetJK?_1 Pin=JP2-1
+Added Pin To Net: NetName=NetJK?_1 Pin=JP2-2
+Added Net: Name=NetJK?_1
+Added Pin To Net: NetName=NetJK?_3 Pin=JK?-3
+Added Pin To Net: NetName=NetJK?_3 Pin=M1-5
+Added Pin To Net: NetName=NetJK?_3 Pin=M2-5
+Added Pin To Net: NetName=NetJK?_3 Pin=M3-5
+Added Pin To Net: NetName=NetJK?_3 Pin=M4-5
+Added Pin To Net: NetName=NetJK?_3 Pin=M5-5
+Added Net: Name=NetJK?_3
+Added Class: Name=board
+Added Room: Name=board

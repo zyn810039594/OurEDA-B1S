@@ -1,0 +1,15 @@
+Removed Pin From Net: NetName=+12d Pin=JP1-11
+Removed Pin From Net: NetName=GND Pin=JP1-12
+Change Component Footprint: Designator=JP1 Old Footprint=KF7620-12P New Footprint=KF7620-10P
+Change Component Comment : Designator=JP1 Old Comment=HDR-1X12 New Comment=HDR-1X10
+Change component parameters: Designator = "JP1" ("JP1"); Footprint = "KF7620-12P"; UniqueID = "\PGSSUZCZ" ("\PGSSUZCZ")
+Change component parameters (AddParameter): Name = "BOM名称"; Value = "10P接插件"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Added Component: Designator=JP3(KF7620-2P)
+Add component (AddParameter): Name = "BOM名称"; Value = "2P接插件"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=+12d Pin=JP3-1
+Added Pin To Net: NetName=GND Pin=JP3-2
+Added Member To Class: ClassName=board Member=Component JP3 HDR-1X2

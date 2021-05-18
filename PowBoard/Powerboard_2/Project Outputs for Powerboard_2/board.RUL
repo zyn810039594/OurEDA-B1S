@@ -1,0 +1,10 @@
+DRC Rules Export File for PCB: D:\work\Emb\B1ROV\OurEDA-B1S\PowBoard\Powerboard_2\board.PcbDoc
+RuleKind=Width|RuleName=Width_12vin|Scope=Board|Minimum=314.96
+RuleKind=Width|RuleName=Width_12vd|Scope=Board|Minimum=314.96
+RuleKind=Width|RuleName=Width_24v|Scope=Board|Minimum=196.85
+RuleKind=Width|RuleName=Width_gnd|Scope=Board|Minimum=196.85
+RuleKind=Width|RuleName=Width_12v|Scope=Board|Minimum=314.96
+RuleKind=SolderMaskExpansion|RuleName=SolderMaskExpansion|Scope=Board|Minimum=4.00
+RuleKind=Width|RuleName=Width|Scope=Board|Minimum=10.00
+RuleKind=Clearance|RuleName=Clearance|Scope=Board|Minimum=10.00
+RuleKind=ShortCircuit|RuleName=ShortCircuit|Scope=Board|Allowed=0

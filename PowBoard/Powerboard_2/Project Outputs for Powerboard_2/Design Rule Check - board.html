@@ -1,0 +1,415 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 {
+			font-family : segoe ui;
+			color : black;
+			background-color : #EDE7D9;
+			padding: 0.3em;
+		}
+
+		h1 {
+			font-size: 1.2em;
+		}		
+
+		h2 {
+			font-size: 1.2em;
+		}
+
+		body {
+			font-family : segoe ui;
+		}
+
+		td, th {
+			padding: 0.5em;
+			text-align : left;
+			width: 10em;
+		}
+		th {
+			background-color : #EEEEEE;
+
+		}
+		th.column1, td.column1 {
+			text-align: left;
+			width : auto;
+		}
+		table {
+			width : 100%;
+			font-size: 0.9em;
+		}
+
+		.DRC_summary_header {
+			padding-bottom : 0.1em;
+			border : 0px solid black;
+			width: 100%;
+			align: left;
+		}
+
+		.DRC_summary_header_col1,
+		.DRC_summary_header_col2, 
+		.DRC_summary_header_col3 {
+			color : black;
+			font-size:100%;
+			padding : 0em;
+			padding-top : 0.2em;
+			padding-bottom 0.2em;
+			border : 0px solid black;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.DRC_summary_header_col1 {
+			font-weight: bold;
+			width: 8em;
+		}
+
+		.DRC_summary_header_col2 {
+			width: 0.1em;
+		
+		}
+
+		.DRC_summary_header_col3 {
+			width : auto;
+		}
+
+		.header_holder {
+		    Width = 100%;
+		    border = 0px solid green;
+		    padding = 0;
+		}
+
+
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+		{
+			left : 0;
+			top : 0;
+			padding: 0em;
+			padding-top : 0.1em;
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.front_matter_column1 {
+			width : 8em;
+			font-weight: bold;
+		}
+
+		.front_matter_column2 {
+			width: 0.1em;
+		}
+
+		.front_matter_column3 {
+			width : auto;
+		}
+
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : left;
+		}
+		.warning, .error {
+			color : red;
+			font-weight : bold;
+		}
+		tr.onmouseout_odd {
+			background-color : #white;
+		}
+		tr.onmouseout_even { 
+			background-color : #FAFAFA;
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : #EEEEEE;
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #21489e;
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}
+	</script><title>Design Rule Verification Report</title>
+</head>
+<body onload=""><img ALT="Altium" src="
+			file://C:\Users\Public\Documents\Altium\AD21\Templates\AD_logo.png
+		"><h1>Design Rule Verification Report</h1>
+<table class="header_holder">
+<td class="column1">
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">2021/5/7 ÐÇÆÚÎå</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">18:18:30</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">00:00:02</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3"><a href="file:///D:\work\Emb\B1ROV\OurEDA-B1S\PowBoard\Powerboard_2\board.PcbDoc" class="file"><acronym title="D:\work\Emb\B1ROV\OurEDA-B1S\PowBoard\Powerboard_2\board.PcbDoc">D:\work\Emb\B1ROV\OurEDA-B1S\PowBoard\Powerboard_2\board.PcbDoc</acronym></a></td>
+</tr>
+</table>
+</td>
+<td class="column2">
+<table class="DRC_summary_header">
+<tr>
+<td class="DRC_summary_header_col1">Warnings:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3">0</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Rule Violations:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">21</td></tr>
+</table>
+</td>
+</table><a name="IDMKZWA2RU0SSOFOUDPLXNZO0HRH0OZGO01RMPUIJ3QW3E1E0LSXWK"><h2>Summary</h2></a><table>
+<tr>
+<th class="column1">Warnings</th>
+<th class="column2">Count</th>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">0</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Rule Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDQ5GLZH3SCRCIBBDMFWJWJXAWXDQXI0VGJ2R2EWHIRBY1VEOHZVLL">Clearance Constraint (Gap=0.254mm) (All),(All)</a></td>
+<td class="column2">9</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDICVPX3AMMPPSI55FYQAA2MBM3NE4C3C1SYLUCZOIYHMCN551KHQM">Short-Circuit Constraint (Allowed=No) (All),(All)</a></td>
+<td class="column2">9</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDASTJSFCEYLSNLTJCWZIWRHGVFMA3PKYEJLNRNZMWCKWIOAWQHZLH">Un-Routed Net Constraint ( (All) )</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID0OCLANAAROGFM5JC45EJFSRF2LABZF0G5U2WZHNN0RJB0PHNTOYM">Modified Polygon (Allow modified: No), (Allow shelved: No)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDGGXZWJMFZJ4DNOZMPNKP2JAQ5I32P5V4CAWR1OJLUSY50YQGX1MK">Width Constraint (Min=8mm) (Max=50mm) (Preferred=10mm) (InNet('+12d'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID4QP0JAADESX3DDPIY43QS4IXEI54RXNPL0SPGCOOBOQGNMHHVM">Width Constraint (Min=0.254mm) (Max=50mm) (Preferred=0.254mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDAIP1DBNL0QFFM22T5SQZ1PA4LISNBOXPON5S5IKH4AD0C2IQ0Q0">Width Constraint (Min=8mm) (Max=50mm) (Preferred=8mm) (InNet('NetJK1_3'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID4CPQWSRPC00PPDCRBBMFNAFETNJZ0QI5OOAQNNC1IHPGYGUPFGUK">Width Constraint (Min=5mm) (Max=50mm) (Preferred=15mm) (InNet('GND'))</a></td>
+<td class="column2">2</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDQZKOZXZ1PCW2EYN42HKZI4DDGJIVG4D5HV4LHKJG5NQWB00LIJYP">Width Constraint (Min=8mm) (Max=50mm) (Preferred=8mm) (InNet('+12'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDZKSJNQV4UIARGIBTUUJ5S0IE2JGNKC4KUCY0IBDRMXB3FIQ4OLQ">Width Constraint (Min=5mm) (Max=50mm) (Preferred=10mm) (InNet('+24'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDSH0MHT4C2NOMCH5XMKANXEITDCP24T0CFIHMKGOQ4N3FFQHU0HF">Power Plane Connect Rule(Relief Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID45EXG2FKZKFZPIOUQ33RURQH2PMSLQAG3W5LVPMLGMVBJFYSBD3O">Hole Size Constraint (Min=0.025mm) (Max=2.54mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDHHBBQYMHQ2UFOBBWFNECQQBWLMSUU1YPWVPKOCKLOTGR53T0KEQI">Hole To Hole Clearance (Gap=0.254mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDL20KYU2UXKX3HX53WEBHOD3SNKRPKOUXA1BVMIEEDQO33LFTOPSM">Minimum Solder Mask Sliver (Gap=0.254mm) (All),(All)</a></td>
+<td class="column2">1</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDFDQ4ZQUPCKDOML4XXO2ZSN0QRIUWFLIVYTUPQBLEF3MOC5ZBUC0B">Net Antennae (Tolerance=0mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDC0TIS0SX5DXYOMYLKIKRKR341C4UPR34FB222CJ0JJI3ZKB25SVK">Height Constraint (Min=0mm) (Max=25.4mm) (Prefered=12.7mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">21</td>
+</tr>
+</table><br><a name="IDQ5GLZH3SCRCIBBDMFWJWJXAWXDQXI0VGJ2R2EWHIRBY1VEOHZVLL"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Clearance Constraint (Gap=0.254mm) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\work\Emb\B1ROV\OurEDA-B1S\PowBoard\Powerboard_2\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4395.576mil|Location2.X=4403.243mil|Location1.Y=2585.379mil|Location2.Y=2593.046mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\work\Emb\B1ROV\OurEDA-B1S\PowBoard\Powerboard_2\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4395.576mil|Location2.X=4403.243mil|Location1.Y=2585.379mil|Location2.Y=2593.046mil|Absolute=True">Clearance Constraint: (Collision &lt; 0.254mm) Between Pad JK1-3(111.745mm,65.766mm) on Multi-Layer And Track (111.745mm,65.766mm)(111.745mm,66.279mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\work\Emb\B1ROV\OurEDA-B1S\PowBoard\Powerboard_2\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4395.576mil|Location2.X=4403.243mil|Location1.Y=2585.379mil|Location2.Y=2593.046mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\work\Emb\B1ROV\OurEDA-B1S\PowBoard\Powerboard_2\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4395.576mil|Location2.X=4403.243mil|Location1.Y=2585.379mil|Location2.Y=2593.046mil|Absolute=True">Clearance Constraint: (Collision &lt; 0.254mm) Between Pad JK1-3(111.745mm,65.766mm) on Multi-Layer And Track (111.745mm,65.766mm)(111.745mm,66.279mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\work\Emb\B1ROV\OurEDA-B1S\PowBoard\Powerboard_2\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4395.576mil|Location2.X=4403.243mil|Location1.Y=2585.379mil|Location2.Y=2593.046mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\work\Emb\B1ROV\OurEDA-B1S\PowBoard\Powerboard_2\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4395.576mil|Location2.X=4403.243mil|Location1.Y=2585.379mil|Location2.Y=2593.046mil|Absolute=True">Clearance Constraint: (Collision &lt; 0.254mm) Between Pad JK1-3(111.745mm,65.766mm) on Multi-Layer And Track (111.745mm,65.766mm)(111.994mm,65.766mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\work\Emb\B1ROV\OurEDA-B1S\PowBoard\Powerboard_2\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4395.576mil|Location2.X=4403.243mil|Location1.Y=2595.478mil|Location2.Y=2603.144mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\work\Emb\B1ROV\OurEDA-B1S\PowBoard\Powerboard_2\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4395.576mil|Location2.X=4403.243mil|Location1.Y=2595.478mil|Location2.Y=2603.144mil|Absolute=True">Clearance Constraint: (Collision &lt; 0.254mm) Between Track (111.745mm,65.766mm)(111.745mm,66.279mm) on Bottom Layer And Track (111.745mm,66.023mm)(128.651mm,82.929mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\work\Emb\B1ROV\OurEDA-B1S\PowBoard\Powerboard_2\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4395.576mil|Location2.X=4403.243mil|Location1.Y=2595.478mil|Location2.Y=2603.144mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\work\Emb\B1ROV\OurEDA-B1S\PowBoard\Powerboard_2\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4395.576mil|Location2.X=4403.243mil|Location1.Y=2595.478mil|Location2.Y=2603.144mil|Absolute=True">Clearance Constraint: (Collision &lt; 0.254mm) Between Track (111.745mm,65.766mm)(111.745mm,66.279mm) on Bottom Layer And Track (111.745mm,66.023mm)(128.651mm,82.929mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\work\Emb\B1ROV\OurEDA-B1S\PowBoard\Powerboard_2\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4395.576mil|Location2.X=4403.243mil|Location1.Y=2585.379mil|Location2.Y=2593.046mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\work\Emb\B1ROV\OurEDA-B1S\PowBoard\Powerboard_2\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4395.576mil|Location2.X=4403.243mil|Location1.Y=2585.379mil|Location2.Y=2593.046mil|Absolute=True">Clearance Constraint: (Collision &lt; 0.254mm) Between Track (111.745mm,65.766mm)(111.994mm,65.766mm) on Bottom Layer And Track (111.745mm,66.023mm)(128.651mm,82.929mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\work\Emb\B1ROV\OurEDA-B1S\PowBoard\Powerboard_2\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5061.167mil|Location2.X=5068.833mil|Location1.Y=3261.068mil|Location2.Y=3268.735mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\work\Emb\B1ROV\OurEDA-B1S\PowBoard\Powerboard_2\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5061.167mil|Location2.X=5068.833mil|Location1.Y=3261.068mil|Location2.Y=3268.735mil|Absolute=True">Clearance Constraint: (Collision &lt; 0.254mm) Between Track (111.745mm,66.023mm)(128.651mm,82.929mm) on Bottom Layer And Track (128.651mm,82.929mm)(128.651mm,83.566mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\work\Emb\B1ROV\OurEDA-B1S\PowBoard\Powerboard_2\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5066.167mil|Location2.X=5073.833mil|Location1.Y=3261.068mil|Location2.Y=3268.735mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\work\Emb\B1ROV\OurEDA-B1S\PowBoard\Powerboard_2\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5066.167mil|Location2.X=5073.833mil|Location1.Y=3261.068mil|Location2.Y=3268.735mil|Absolute=True">Clearance Constraint: (Collision &lt; 0.254mm) Between Track (128.651mm,82.929mm)(128.651mm,83.566mm) on Bottom Layer And Track (128.778mm,82.55mm)(128.778mm,88.392mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\work\Emb\B1ROV\OurEDA-B1S\PowBoard\Powerboard_2\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5066.167mil|Location2.X=5073.833mil|Location1.Y=3476.167mil|Location2.Y=3483.833mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\work\Emb\B1ROV\OurEDA-B1S\PowBoard\Powerboard_2\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5066.167mil|Location2.X=5073.833mil|Location1.Y=3476.167mil|Location2.Y=3483.833mil|Absolute=True">Clearance Constraint: (Collision &lt; 0.254mm) Between Track (128.651mm,82.929mm)(128.651mm,83.566mm) on Bottom Layer And Track (128.778mm,88.392mm)(128.778mm,91.186mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDICVPX3AMMPPSI55FYQAA2MBM3NE4C3C1SYLUCZOIYHMCN551KHQM"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Short-Circuit Constraint (Allowed=No) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\work\Emb\B1ROV\OurEDA-B1S\PowBoard\Powerboard_2\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4381.881mil|Location2.X=4416.938mil|Location1.Y=2581.782mil|Location2.Y=2616.84mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\work\Emb\B1ROV\OurEDA-B1S\PowBoard\Powerboard_2\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4381.881mil|Location2.X=4416.938mil|Location1.Y=2581.782mil|Location2.Y=2616.84mil|Absolute=True">Short-Circuit Constraint: Between Pad JK1-3(111.745mm,65.766mm) on Multi-Layer And Track (111.745mm,65.766mm)(111.745mm,66.279mm) on Bottom Layer Location : [X = 111.745mm][Y = 66.022mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\work\Emb\B1ROV\OurEDA-B1S\PowBoard\Powerboard_2\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4381.881mil|Location2.X=4416.938mil|Location1.Y=2581.782mil|Location2.Y=2616.84mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\work\Emb\B1ROV\OurEDA-B1S\PowBoard\Powerboard_2\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4381.881mil|Location2.X=4416.938mil|Location1.Y=2581.782mil|Location2.Y=2616.84mil|Absolute=True">Short-Circuit Constraint: Between Pad JK1-3(111.745mm,65.766mm) on Multi-Layer And Track (111.745mm,65.766mm)(111.745mm,66.279mm) on Bottom Layer Location : [X = 111.745mm][Y = 66.022mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\work\Emb\B1ROV\OurEDA-B1S\PowBoard\Powerboard_2\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4391.587mil|Location2.X=4417.035mil|Location1.Y=2576.488mil|Location2.Y=2601.937mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\work\Emb\B1ROV\OurEDA-B1S\PowBoard\Powerboard_2\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4391.587mil|Location2.X=4417.035mil|Location1.Y=2576.488mil|Location2.Y=2601.937mil|Absolute=True">Short-Circuit Constraint: Between Pad JK1-3(111.745mm,65.766mm) on Multi-Layer And Track (111.745mm,65.766mm)(111.994mm,65.766mm) on Bottom Layer Location : [X = 111.869mm][Y = 65.766mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\work\Emb\B1ROV\OurEDA-B1S\PowBoard\Powerboard_2\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4381.881mil|Location2.X=4416.938mil|Location1.Y=2581.782mil|Location2.Y=2616.84mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\work\Emb\B1ROV\OurEDA-B1S\PowBoard\Powerboard_2\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4381.881mil|Location2.X=4416.938mil|Location1.Y=2581.782mil|Location2.Y=2616.84mil|Absolute=True">Short-Circuit Constraint: Between Track (111.745mm,65.766mm)(111.745mm,66.279mm) on Bottom Layer And Track (111.745mm,66.023mm)(128.651mm,82.929mm) on Bottom Layer Location : [X = 111.745mm][Y = 66.022mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\work\Emb\B1ROV\OurEDA-B1S\PowBoard\Powerboard_2\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4381.881mil|Location2.X=4416.938mil|Location1.Y=2581.782mil|Location2.Y=2616.84mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\work\Emb\B1ROV\OurEDA-B1S\PowBoard\Powerboard_2\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4381.881mil|Location2.X=4416.938mil|Location1.Y=2581.782mil|Location2.Y=2616.84mil|Absolute=True">Short-Circuit Constraint: Between Track (111.745mm,65.766mm)(111.745mm,66.279mm) on Bottom Layer And Track (111.745mm,66.023mm)(128.651mm,82.929mm) on Bottom Layer Location : [X = 111.745mm][Y = 66.022mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\work\Emb\B1ROV\OurEDA-B1S\PowBoard\Powerboard_2\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4391.587mil|Location2.X=4417.035mil|Location1.Y=2576.488mil|Location2.Y=2601.937mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\work\Emb\B1ROV\OurEDA-B1S\PowBoard\Powerboard_2\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4391.587mil|Location2.X=4417.035mil|Location1.Y=2576.488mil|Location2.Y=2601.937mil|Absolute=True">Short-Circuit Constraint: Between Track (111.745mm,65.766mm)(111.994mm,65.766mm) on Bottom Layer And Track (111.745mm,66.023mm)(128.651mm,82.929mm) on Bottom Layer Location : [X = 111.869mm][Y = 65.766mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\work\Emb\B1ROV\OurEDA-B1S\PowBoard\Powerboard_2\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5045.131mil|Location2.X=5084.869mil|Location1.Y=3257.582mil|Location2.Y=3297.32mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\work\Emb\B1ROV\OurEDA-B1S\PowBoard\Powerboard_2\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5045.131mil|Location2.X=5084.869mil|Location1.Y=3257.582mil|Location2.Y=3297.32mil|Absolute=True">Short-Circuit Constraint: Between Track (111.745mm,66.023mm)(128.651mm,82.929mm) on Bottom Layer And Track (128.651mm,82.929mm)(128.651mm,83.566mm) on Bottom Layer Location : [X = 128.651mm][Y = 83.247mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\work\Emb\B1ROV\OurEDA-B1S\PowBoard\Powerboard_2\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5045.131mil|Location2.X=5084.869mil|Location1.Y=3257.582mil|Location2.Y=3297.32mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\work\Emb\B1ROV\OurEDA-B1S\PowBoard\Powerboard_2\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5045.131mil|Location2.X=5084.869mil|Location1.Y=3257.582mil|Location2.Y=3297.32mil|Absolute=True">Short-Circuit Constraint: Between Track (128.651mm,82.929mm)(128.651mm,83.566mm) on Bottom Layer And Track (128.778mm,82.55mm)(128.778mm,88.392mm) on Bottom Layer Location : [X = 128.651mm][Y = 83.247mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\work\Emb\B1ROV\OurEDA-B1S\PowBoard\Powerboard_2\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5055.606mil|Location2.X=5074.394mil|Location1.Y=3279.677mil|Location2.Y=3298.465mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\work\Emb\B1ROV\OurEDA-B1S\PowBoard\Powerboard_2\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5055.606mil|Location2.X=5074.394mil|Location1.Y=3279.677mil|Location2.Y=3298.465mil|Absolute=True">Short-Circuit Constraint: Between Track (128.651mm,82.929mm)(128.651mm,83.566mm) on Bottom Layer And Track (128.778mm,88.392mm)(128.778mm,91.186mm) on Bottom Layer Location : [X = 128.651mm][Y = 83.542mm]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="ID4CPQWSRPC00PPDCRBBMFNAFETNJZ0QI5OOAQNNC1IHPGYGUPFGUK"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Width Constraint (Min=5mm) (Max=50mm) (Preferred=15mm) (InNet('GND'))</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\work\Emb\B1ROV\OurEDA-B1S\PowBoard\Powerboard_2\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1981mil|Location2.X=1996.583mil|Location1.Y=1141mil|Location2.Y=1154mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\work\Emb\B1ROV\OurEDA-B1S\PowBoard\Powerboard_2\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1981mil|Location2.X=1996.583mil|Location1.Y=1141mil|Location2.Y=1154mil|Absolute=True">Width Constraint: Track (43.815mm,35.814mm)(57.15mm,22.479mm) on Bottom Layer Actual Width = 0.254mm, Target Width = 5mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\work\Emb\B1ROV\OurEDA-B1S\PowBoard\Powerboard_2\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2273.815mil|Location2.X=2290.915mil|Location1.Y=878.5mil|Location2.Y=891.5mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\work\Emb\B1ROV\OurEDA-B1S\PowBoard\Powerboard_2\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2273.815mil|Location2.X=2290.915mil|Location1.Y=878.5mil|Location2.Y=891.5mil|Absolute=True">Width Constraint: Track (57.15mm,22.479mm)(58.69mm,22.479mm) on Bottom Layer Actual Width = 0.254mm, Target Width = 5mm</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDL20KYU2UXKX3HX53WEBHOD3SNKRPKOUXA1BVMIEEDQO33LFTOPSM"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Minimum Solder Mask Sliver (Gap=0.254mm) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\work\Emb\B1ROV\OurEDA-B1S\PowBoard\Powerboard_2\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3959.375mil|Location2.X=3970.625mil|Location1.Y=3509.375mil|Location2.Y=3520.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\work\Emb\B1ROV\OurEDA-B1S\PowBoard\Powerboard_2\board.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3959.375mil|Location2.X=3970.625mil|Location1.Y=3509.375mil|Location2.Y=3520.625mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.128mm &lt; 0.254mm) Between Track (104.775mm,89.281mm)(109.245mm,84.811mm) on Top Solder And Track (81.407mm,74.041mm)(96.647mm,89.281mm) on Top Solder [Top Solder] Mask Sliver [0.128mm]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br></body>
+</html>

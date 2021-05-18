@@ -1,0 +1,4 @@
+Change Component Footprint: Designator=JP8 Old Footprint=PHD2.0-LI-2x4P New Footprint=PHB2.0-LI-2x4P
+Added Room: Name=PRO1
+Added Room: Name=PRO2
+Added Room: Name=PRO3

@@ -1,0 +1,18 @@
+Change component parameters: Designator = "JP2"; Footprint = "KF128-5.08-2P"; UniqueID = "\SDHVSKRH\OWNLFYWS"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "BOM名称"; Value = "2P接插件"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Change component parameters: Designator = "JP10"; Footprint = "KF128-5.08-2P"; UniqueID = "\WJTQAXLB\KTGQQKJR"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "BOM名称"; Value = "2P接插件"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=NetJ12_1 Pin=J12-2
+Added Pin To Net: NetName=NetJ19_1 Pin=U3-12
+Added Net: Name=NetJ19_1
+Added Room: Name=Designator
+Added Room: Name=ISOLATOR
+Added Room: Name=OUTPUT
+Added Room: Name=POWER
+Added Room: Name=STM32
