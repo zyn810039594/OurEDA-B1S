@@ -1,9 +1,9 @@
 Protel Design System Design Rule Check
-PCB File : D:\Emb\B1ROV\OurEDA-B1S\CtrlBoard\Processor\PRO2.PcbDoc
-Date     : 2021/4/29 星期四
-Time     : 16:12:42
+PCB File : D:\work\Emb\B1ROV\OurEDA-B1S\CtrlBoard\Processor\PRO2.PcbDoc
+Date     : 2021/6/3 星期四
+Time     : 20:51:18
 
-Processing Rule : Clearance Constraint (Gap=8mil) (All),(All)
+Processing Rule : Clearance Constraint (Gap=6mil) (All),(All)
 Rule Violations :0
 
 Processing Rule : Short-Circuit Constraint (Allowed=No) (All),(All)
@@ -49,9 +49,9 @@ Processing Rule : Hole To Hole Clearance (Gap=10mil) (All),(All)
 Rule Violations :1
 
 Processing Rule : Minimum Solder Mask Sliver (Gap=10mil) (All),(All)
-   Violation between Minimum Solder Mask Sliver Constraint: (9.716mil < 10mil) Between Pad JP5-1(6630.638mil,1119mil) on Top Layer And Pad JP5-2(6679.85mil,1119mil) on Top Layer [Top Solder] Mask Sliver [9.716mil]
-   Violation between Minimum Solder Mask Sliver Constraint: (9.718mil < 10mil) Between Pad JP5-2(6679.85mil,1119mil) on Top Layer And Pad JP5-3(6729.064mil,1119mil) on Top Layer [Top Solder] Mask Sliver [9.718mil]
-   Violation between Minimum Solder Mask Sliver Constraint: (9.716mil < 10mil) Between Pad JP5-3(6729.064mil,1119mil) on Top Layer And Pad JP5-4(6778.276mil,1119mil) on Top Layer [Top Solder] Mask Sliver [9.716mil]
+   Violation between Minimum Solder Mask Sliver Constraint: (9.716mil < 10mil) Between Pad JP5-1(6630.638mil,1114mil) on Top Layer And Pad JP5-2(6679.85mil,1114mil) on Top Layer [Top Solder] Mask Sliver [9.716mil]
+   Violation between Minimum Solder Mask Sliver Constraint: (9.718mil < 10mil) Between Pad JP5-2(6679.85mil,1114mil) on Top Layer And Pad JP5-3(6729.064mil,1114mil) on Top Layer [Top Solder] Mask Sliver [9.718mil]
+   Violation between Minimum Solder Mask Sliver Constraint: (9.716mil < 10mil) Between Pad JP5-3(6729.064mil,1114mil) on Top Layer And Pad JP5-4(6778.276mil,1114mil) on Top Layer [Top Solder] Mask Sliver [9.716mil]
    Violation between Minimum Solder Mask Sliver Constraint: (6.567mil < 10mil) Between Pad M6-1(6523.566mil,1623.852mil) on Multi-Layer And Pad M6-2(6473.566mil,1623.852mil) on Multi-Layer [Top Solder] Mask Sliver [6.567mil] / [Bottom Solder] Mask Sliver [6.567mil]
    Violation between Minimum Solder Mask Sliver Constraint: (6.567mil < 10mil) Between Pad M6-10(6073.566mil,1623.852mil) on Multi-Layer And Pad M6-11(6023.566mil,1623.852mil) on Multi-Layer [Top Solder] Mask Sliver [6.567mil] / [Bottom Solder] Mask Sliver [6.567mil]
    Violation between Minimum Solder Mask Sliver Constraint: (6.567mil < 10mil) Between Pad M6-10(6073.566mil,1623.852mil) on Multi-Layer And Pad M6-9(6123.566mil,1623.852mil) on Multi-Layer [Top Solder] Mask Sliver [6.567mil] / [Bottom Solder] Mask Sliver [6.567mil]

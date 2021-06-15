@@ -1,0 +1,160 @@
+Added Component: Designator=LED0_1(LED 0603W)
+Add component (AddParameter): Name = "BOM名称"; Value = "贴片LED"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Added Component: Designator=LED0_2(LED 0603W)
+Add component (AddParameter): Name = "BOM名称"; Value = "贴片LED"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Added Component: Designator=LED1_1(LED 0603R)
+Add component (AddParameter): Name = "BOM名称"; Value = "贴片LED"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Added Component: Designator=LED1_2(LED 0603R)
+Add component (AddParameter): Name = "BOM名称"; Value = "贴片LED"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Added Component: Designator=LED2_1(LED 0603B)
+Add component (AddParameter): Name = "BOM名称"; Value = "贴片LED"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Added Component: Designator=LED2_2(LED 0603B)
+Add component (AddParameter): Name = "BOM名称"; Value = "贴片LED"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Added Component: Designator=LED3_1(LED 0603G)
+Add component (AddParameter): Name = "BOM名称"; Value = "贴片LED"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Added Component: Designator=LED3_2(LED 0603G)
+Add component (AddParameter): Name = "BOM名称"; Value = "贴片LED"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Added Component: Designator=LED4_1(LED 0603Y)
+Add component (AddParameter): Name = "BOM名称"; Value = "贴片LED"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Added Component: Designator=LED4_2(LED 0603Y)
+Add component (AddParameter): Name = "BOM名称"; Value = "贴片LED"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Added Component: Designator=RL0(R 0603_M)
+Add component (AddParameter): Name = "BOM名称"; Value = "贴片电阻"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Added Component: Designator=RL1(R 0603_M)
+Add component (AddParameter): Name = "BOM名称"; Value = "贴片电阻"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Added Component: Designator=RL2(R 0603_M)
+Add component (AddParameter): Name = "BOM名称"; Value = "贴片电阻"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Added Component: Designator=RL3(R 0603_M)
+Add component (AddParameter): Name = "BOM名称"; Value = "贴片电阻"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Added Component: Designator=RL4(R 0603_M)
+Add component (AddParameter): Name = "BOM名称"; Value = "贴片电阻"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Added Component: Designator=RL5(R 0603_M)
+Add component (AddParameter): Name = "BOM名称"; Value = "贴片电阻"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Added Component: Designator=RL6(R 0603_M)
+Add component (AddParameter): Name = "BOM名称"; Value = "贴片电阻"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Added Component: Designator=RL7(R 0603_M)
+Add component (AddParameter): Name = "BOM名称"; Value = "贴片电阻"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Added Component: Designator=RL8(R 0603_M)
+Add component (AddParameter): Name = "BOM名称"; Value = "贴片电阻"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Added Component: Designator=RL9(R 0603_M)
+Add component (AddParameter): Name = "BOM名称"; Value = "贴片电阻"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GND Pin=LED0_1-2
+Added Pin To Net: NetName=+3.3 Pin=LED0_2-1
+Added Pin To Net: NetName=GND Pin=LED1_1-2
+Added Pin To Net: NetName=+3.3 Pin=LED1_2-1
+Added Pin To Net: NetName=GND Pin=LED2_1-2
+Added Pin To Net: NetName=+3.3 Pin=LED2_2-1
+Added Pin To Net: NetName=GND Pin=LED3_1-2
+Added Pin To Net: NetName=+3.3 Pin=LED3_2-1
+Added Pin To Net: NetName=GND Pin=LED4_1-2
+Added Pin To Net: NetName=+3.3 Pin=LED4_2-1
+Added Pin To Net: NetName=NetLED0_1_1 Pin=LED0_1-1
+Added Pin To Net: NetName=NetLED0_1_1 Pin=RL0-1
+Added Net: Name=NetLED0_1_1
+Added Pin To Net: NetName=NetLED0_2_2 Pin=LED0_2-2
+Added Pin To Net: NetName=NetLED0_2_2 Pin=RL1-1
+Added Net: Name=NetLED0_2_2
+Added Pin To Net: NetName=NetLED1_1_1 Pin=LED1_1-1
+Added Pin To Net: NetName=NetLED1_1_1 Pin=RL2-1
+Added Net: Name=NetLED1_1_1
+Added Pin To Net: NetName=NetLED1_2_2 Pin=LED1_2-2
+Added Pin To Net: NetName=NetLED1_2_2 Pin=RL3-1
+Added Net: Name=NetLED1_2_2
+Added Pin To Net: NetName=NetLED2_1_1 Pin=LED2_1-1
+Added Pin To Net: NetName=NetLED2_1_1 Pin=RL4-1
+Added Net: Name=NetLED2_1_1
+Added Pin To Net: NetName=NetLED2_2_2 Pin=LED2_2-2
+Added Pin To Net: NetName=NetLED2_2_2 Pin=RL5-1
+Added Net: Name=NetLED2_2_2
+Added Pin To Net: NetName=NetLED3_1_1 Pin=LED3_1-1
+Added Pin To Net: NetName=NetLED3_1_1 Pin=RL6-1
+Added Net: Name=NetLED3_1_1
+Added Pin To Net: NetName=NetLED3_2_2 Pin=LED3_2-2
+Added Pin To Net: NetName=NetLED3_2_2 Pin=RL7-1
+Added Net: Name=NetLED3_2_2
+Added Pin To Net: NetName=NetLED4_1_1 Pin=LED4_1-1
+Added Pin To Net: NetName=NetLED4_1_1 Pin=RL8-1
+Added Net: Name=NetLED4_1_1
+Added Pin To Net: NetName=NetLED4_2_2 Pin=LED4_2-2
+Added Pin To Net: NetName=NetLED4_2_2 Pin=RL9-1
+Added Net: Name=NetLED4_2_2
+Added Pin To Net: NetName=NLED0 Pin=M6-75
+Added Pin To Net: NetName=NLED0 Pin=RL0-2
+Added Pin To Net: NetName=NLED0 Pin=RL1-2
+Added Net: Name=NLED0
+Added Pin To Net: NetName=NLED1 Pin=M6-74
+Added Pin To Net: NetName=NLED1 Pin=RL2-2
+Added Pin To Net: NetName=NLED1 Pin=RL3-2
+Added Net: Name=NLED1
+Added Pin To Net: NetName=NLED2 Pin=M6-73
+Added Pin To Net: NetName=NLED2 Pin=RL4-2
+Added Pin To Net: NetName=NLED2 Pin=RL5-2
+Added Net: Name=NLED2
+Added Pin To Net: NetName=NLED3 Pin=M6-72
+Added Pin To Net: NetName=NLED3 Pin=RL6-2
+Added Pin To Net: NetName=NLED3 Pin=RL7-2
+Added Net: Name=NLED3
+Added Pin To Net: NetName=NLED4 Pin=M6-71
+Added Pin To Net: NetName=NLED4 Pin=RL8-2
+Added Pin To Net: NetName=NLED4 Pin=RL9-2
+Added Net: Name=NLED4
+Added Member To Class: ClassName=PRO2 Member=Component LED0_1 白色
+Added Member To Class: ClassName=PRO2 Member=Component LED0_2 白色
+Added Member To Class: ClassName=PRO2 Member=Component LED1_1 红色
+Added Member To Class: ClassName=PRO2 Member=Component LED1_2 红色
+Added Member To Class: ClassName=PRO2 Member=Component LED2_1 蓝色
+Added Member To Class: ClassName=PRO2 Member=Component LED2_2 蓝色
+Added Member To Class: ClassName=PRO2 Member=Component LED3_1 绿色
+Added Member To Class: ClassName=PRO2 Member=Component LED3_2 绿色
+Added Member To Class: ClassName=PRO2 Member=Component LED4_1 黄色
+Added Member To Class: ClassName=PRO2 Member=Component LED4_2 黄色
+Added Member To Class: ClassName=PRO2 Member=Component RL0 4.7K
+Added Member To Class: ClassName=PRO2 Member=Component RL1 4.7K
+Added Member To Class: ClassName=PRO2 Member=Component RL2 4.7K
+Added Member To Class: ClassName=PRO2 Member=Component RL3 4.7K
+Added Member To Class: ClassName=PRO2 Member=Component RL4 4.7K
+Added Member To Class: ClassName=PRO2 Member=Component RL5 4.7K
+Added Member To Class: ClassName=PRO2 Member=Component RL6 4.7K
+Added Member To Class: ClassName=PRO2 Member=Component RL7 4.7K
+Added Member To Class: ClassName=PRO2 Member=Component RL8 4.7K
+Added Member To Class: ClassName=PRO2 Member=Component RL9 4.7K

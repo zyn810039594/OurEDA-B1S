@@ -1,0 +1,7 @@
+Added Component: Designator=SW1(TSW SMD-3*6*2.5)
+Add component (AddParameter): Name = "BOM名称"; Value = "3x6轻触开关"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=NetC0_2 Pin=SW1-1
+Added Pin To Net: NetName=GND Pin=SW1-2
+Added Member To Class: ClassName=PRO1 Member=Component SW1 3x6x5

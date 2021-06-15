@@ -1,22 +1,22 @@
 /* USER CODE BEGIN Header */
 /**
-  ******************************************************************************
-  * @file           : main.h
-  * @brief          : Header for main.c file.
-  *                   This file contains the common defines of the application.
-  ******************************************************************************
-  * @attention
-  *
-  * <h2><center>&copy; Copyright (c) 2021 STMicroelectronics.
-  * All rights reserved.</center></h2>
-  *
-  * This software component is licensed by ST under Ultimate Liberty license
-  * SLA0044, the "License"; You may not use this file except in compliance with
-  * the License. You may obtain a copy of the License at:
-  *                             www.st.com/SLA0044
-  *
-  ******************************************************************************
-  */
+ ******************************************************************************
+ * @file           : main.h
+ * @brief          : Header for main.c file.
+ *                   This file contains the common defines of the application.
+ ******************************************************************************
+ * @attention
+ *
+ * <h2><center>&copy; Copyright (c) 2021 STMicroelectronics.
+ * All rights reserved.</center></h2>
+ *
+ * This software component is licensed by ST under Ultimate Liberty license
+ * SLA0044, the "License"; You may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at:
+ *                             www.st.com/SLA0044
+ *
+ ******************************************************************************
+ */
 /* USER CODE END Header */
 
 /* Define to prevent recursive inclusion -------------------------------------*/
@@ -33,12 +33,15 @@ extern "C" {
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "Sensor.h"
-
+#include "BasicCtrl.h"
+#include "Setting.h"
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
 /* USER CODE BEGIN ET */
-
+typedef unsigned char u8;
+typedef unsigned short u16;
+typedef long unsigned int u32;
 /* USER CODE END ET */
 
 /* Exported constants --------------------------------------------------------*/
@@ -48,10 +51,14 @@ extern "C" {
 
 /* Exported macro ------------------------------------------------------------*/
 /* USER CODE BEGIN EM */
-extern u8 ChangedFlag;
-extern u8 SensorFlag;
-extern u8 UpFlag;
-extern u8 DownFlag;
+extern u8 UpSideFinish;
+extern u8 DownSideFinish;
+extern u8 WT931Len;
+
+extern u8 DeepFinish;
+extern u8 GY39Finish;
+extern u8 WT931Finish;
+
 /* USER CODE END EM */
 
 /* Exported functions prototypes ---------------------------------------------*/
@@ -72,7 +79,6 @@ void Error_Handler(void);
 #define UART4TXLen 20
 #define UART8RXLen 41
 #define UART8TXLen 30
-
 
 /* USER CODE END Private defines */
 

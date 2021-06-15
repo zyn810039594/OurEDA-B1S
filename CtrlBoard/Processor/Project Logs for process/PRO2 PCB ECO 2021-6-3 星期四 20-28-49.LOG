@@ -1,0 +1,116 @@
+Removed Pin From Net: NetName=GND Pin=C0-1
+Removed Pin From Net: NetName=NetC0_2 Pin=C0-2
+Removed Pin From Net: NetName=GND Pin=C1-1
+Removed Pin From Net: NetName=+3.3 Pin=C1-2
+Removed Pin From Net: NetName=GND Pin=C6-1
+Removed Pin From Net: NetName=NetC6_2 Pin=C6-2
+Removed Pin From Net: NetName=GND Pin=C13-1
+Removed Pin From Net: NetName=NetC13_2 Pin=C13-2
+Removed Pin From Net: NetName=GND Pin=C18-1
+Removed Pin From Net: NetName=NetC18_2 Pin=C18-2
+Removed Pin From Net: NetName=RX1 Pin=JP_Ser-1
+Removed Pin From Net: NetName=TX1 Pin=JP_Ser-2
+Removed Pin From Net: NetName=GND Pin=JP_Ser-3
+Change Component Footprint: Designator=JP_Ser Old Footprint=HDR2.54-LI-3P New Footprint=HDR2.54-LI-4P
+Change Component Comment : Designator=JP_Ser Old Comment=HDR-1X3 New Comment=HDR-1X4
+Change Component Designator: OldDesignator= NewDesignator=LED0_1
+Change Component Designator: OldDesignator= NewDesignator=LED0_2
+Change Component Designator: OldDesignator= NewDesignator=LED1_1
+Change Component Designator: OldDesignator= NewDesignator=LED1_2
+Change Component Designator: OldDesignator= NewDesignator=LED2_1
+Change Component Designator: OldDesignator= NewDesignator=LED2_2
+Change Component Designator: OldDesignator= NewDesignator=LED3_1
+Change Component Designator: OldDesignator= NewDesignator=LED3_2
+Change Component Designator: OldDesignator= NewDesignator=LED4_1
+Change Component Designator: OldDesignator= NewDesignator=LED4_2
+Change Component Designator: OldDesignator= NewDesignator=RL0
+Change Component Designator: OldDesignator= NewDesignator=RL1
+Change Component Designator: OldDesignator= NewDesignator=RL2
+Change Component Designator: OldDesignator= NewDesignator=RL3
+Change Component Designator: OldDesignator= NewDesignator=RL4
+Change Component Designator: OldDesignator= NewDesignator=RL5
+Change Component Designator: OldDesignator= NewDesignator=RL6
+Change Component Designator: OldDesignator= NewDesignator=RL7
+Change Component Designator: OldDesignator= NewDesignator=RL8
+Change Component Designator: OldDesignator= NewDesignator=RL9
+Change component parameters: Designator = "JP_Ser" ("JP_Ser"); Footprint = "HDR2.54-LI-3P"; UniqueID = "\FQBBUYIZ" ("\FQBBUYIZ")
+Change component parameters (AddParameter): Name = "BOM名称"; Value = "4P接插件"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Added Component: Designator=C0(C 0603_M)
+Add component (AddParameter): Name = "BOM名称"; Value = "无极性贴片电容"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Added Component: Designator=C1(C 0603_M)
+Add component (AddParameter): Name = "BOM名称"; Value = "无极性贴片电容"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Added Component: Designator=C6(C 0603_M)
+Add component (AddParameter): Name = "BOM名称"; Value = "无极性贴片电容"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Added Component: Designator=C13(C 0603_M)
+Add component (AddParameter): Name = "BOM名称"; Value = "无极性贴片电容"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Added Component: Designator=C18(C 0603_M)
+Add component (AddParameter): Name = "BOM名称"; Value = "无极性贴片电容"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Added Component: Designator=ET0(CD A(3216))
+Add component (AddParameter): Name = "BOM名称"; Value = "贴片钽电容"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Added Component: Designator=ET1(CD A(3216))
+Add component (AddParameter): Name = "BOM名称"; Value = "贴片钽电容"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Added Component: Designator=V0(SOT223_M)
+Add component (AddParameter): Name = "BOM名称"; Value = "稳压芯片"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GND Pin=C0-1
+Added Pin To Net: NetName=NetC0_2 Pin=C0-2
+Added Pin To Net: NetName=GND Pin=C1-1
+Added Pin To Net: NetName=+3.3 Pin=C1-2
+Added Pin To Net: NetName=GND Pin=C6-1
+Added Pin To Net: NetName=NetC6_2 Pin=C6-2
+Added Pin To Net: NetName=GND Pin=C13-1
+Added Pin To Net: NetName=NetC13_2 Pin=C13-2
+Added Pin To Net: NetName=GND Pin=C18-1
+Added Pin To Net: NetName=NetC18_2 Pin=C18-2
+Added Pin To Net: NetName=GND Pin=ET0-2
+Added Pin To Net: NetName=+3.3 Pin=ET1-1
+Added Pin To Net: NetName=GND Pin=ET1-2
+Added Pin To Net: NetName=RX1 Pin=JP_Ser-2
+Added Pin To Net: NetName=TX1 Pin=JP_Ser-3
+Added Pin To Net: NetName=GND Pin=JP_Ser-4
+Added Pin To Net: NetName=GND Pin=V0-1
+Added Pin To Net: NetName=+3.3 Pin=V0-2
+Added Pin To Net: NetName=+3.3 Pin=V0-2
+Added Pin To Net: NetName=+5T Pin=ET0-1
+Added Pin To Net: NetName=+5T Pin=JP_Ser-1
+Added Pin To Net: NetName=+5T Pin=V0-3
+Added Net: Name=+5T
+Added Member To Class: ClassName=PRO2 Member=Component ET0 10uF/6.3V
+Added Member To Class: ClassName=PRO2 Member=Component ET1 22uF/6.3V
+Added Member To Class: ClassName=PRO2 Member=Component LED0_2 白色
+Added Member To Class: ClassName=PRO2 Member=Component LED1_1 红色
+Added Member To Class: ClassName=PRO2 Member=Component LED1_2 红色
+Added Member To Class: ClassName=PRO2 Member=Component LED2_1 蓝色
+Added Member To Class: ClassName=PRO2 Member=Component LED2_2 蓝色
+Added Member To Class: ClassName=PRO2 Member=Component LED3_1 绿色
+Added Member To Class: ClassName=PRO2 Member=Component LED3_2 绿色
+Added Member To Class: ClassName=PRO2 Member=Component LED4_1 黄色
+Added Member To Class: ClassName=PRO2 Member=Component LED4_2 黄色
+Added Member To Class: ClassName=PRO2 Member=Component RL0 4.7K
+Added Member To Class: ClassName=PRO2 Member=Component RL1 4.7K
+Added Member To Class: ClassName=PRO2 Member=Component RL2 4.7K
+Added Member To Class: ClassName=PRO2 Member=Component RL3 4.7K
+Added Member To Class: ClassName=PRO2 Member=Component RL4 4.7K
+Added Member To Class: ClassName=PRO2 Member=Component RL5 4.7K
+Added Member To Class: ClassName=PRO2 Member=Component RL6 4.7K
+Added Member To Class: ClassName=PRO2 Member=Component RL7 4.7K
+Added Member To Class: ClassName=PRO2 Member=Component RL8 4.7K
+Added Member To Class: ClassName=PRO2 Member=Component RL9 4.7K
+Added Member To Class: ClassName=PRO2 Member=Component V0 AMS1117-3V3

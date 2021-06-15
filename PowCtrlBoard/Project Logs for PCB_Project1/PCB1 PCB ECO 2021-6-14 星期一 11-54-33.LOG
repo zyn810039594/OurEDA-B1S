@@ -1,0 +1,35 @@
+Added Component: Designator=M1(FK750M2-VBT6(¾«¼ò°æ))
+Added Pin To Net: NetName=GND Pin=M1-1
+Added Pin To Net: NetName=GND Pin=M1-2
+Added Pin To Net: NetName=NetM1_3 Pin=M1-3
+Added Pin To Net: NetName=NetJ14_2 Pin=M1-4
+Added Pin To Net: NetName=NetM1_5 Pin=M1-5
+Added Pin To Net: NetName=NetJ11_2 Pin=M1-6
+Added Pin To Net: NetName=NetM1_7 Pin=M1-7
+Added Pin To Net: NetName=NetJ11_1 Pin=M1-9
+Added Pin To Net: NetName=NetM1_11 Pin=M1-11
+Added Pin To Net: NetName=NetM1_12 Pin=M1-12
+Added Pin To Net: NetName=NetJ14_3 Pin=M1-14
+Added Pin To Net: NetName=NetM1_23 Pin=M1-23
+Added Pin To Net: NetName=NetM1_26 Pin=M1-26
+Added Pin To Net: NetName=NetM1_27 Pin=M1-27
+Added Pin To Net: NetName=NetM1_29 Pin=M1-29
+Added Pin To Net: NetName=NetM1_31 Pin=M1-31
+Added Pin To Net: NetName=NetM1_33 Pin=M1-33
+Added Pin To Net: NetName=NetM1_34 Pin=M1-34
+Added Pin To Net: NetName=NetM1_36 Pin=M1-36
+Added Pin To Net: NetName=+3.3 Pin=M1-41
+Added Pin To Net: NetName=+5 Pin=M1-42
+Added Pin To Net: NetName=NetM1_48 Pin=M1-48
+Added Pin To Net: NetName=NetM1_49 Pin=M1-49
+Added Pin To Net: NetName=NetM1_50 Pin=M1-50
+Added Pin To Net: NetName=NetM1_52 Pin=M1-52
+Added Pin To Net: NetName=NetJ16_6 Pin=M1-57
+Added Pin To Net: NetName=NetJ16_7 Pin=M1-58
+Added Pin To Net: NetName=NetM1_60 Pin=M1-60
+Added Member To Class: ClassName=STM32 Member=Component M1 FK750M2-VBT6ºËÐÄ°å
+Added Room: Name=Designator
+Added Room: Name=ISOLATOR
+Added Room: Name=OUTPUT
+Added Room: Name=POWER
+Added Room: Name=STM32
