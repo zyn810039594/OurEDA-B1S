@@ -1,0 +1,6 @@
+Added Component: Designator=U2(10D12B-10WDCDC)
+Added Pin To Net: NetName=NetC5_1 Pin=U2-1
+Added Pin To Net: NetName=NetC4_2 Pin=U2-2
+Added Pin To Net: NetName=GND Pin=U2-3
+Added Pin To Net: NetName=+5 Pin=U2-4
+Added Member To Class: ClassName=Hpowerv2 Member=Component U2 10D1205B
