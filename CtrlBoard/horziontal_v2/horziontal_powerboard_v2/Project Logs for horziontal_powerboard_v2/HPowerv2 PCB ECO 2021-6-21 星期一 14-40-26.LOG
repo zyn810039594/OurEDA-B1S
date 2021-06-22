@@ -1,0 +1,19 @@
+Change Component Comment : Designator=E2 Old Comment=10uF/10V New Comment=470uF/50V
+Change Component Comment : Designator=E4 Old Comment=10uF/10V New Comment=470uF/50V
+Change Component Comment : Designator=L1 Old Comment=10uH New Comment=2mH
+Change Component Comment : Designator=L3 Old Comment=10uH New Comment=2mH
+Added Component: Designator=CY1(CY 7.5*10*4)
+Add component (AddParameter): Name = "BOM名称"; Value = "高压陶瓷电容，Y电容"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Added Component: Designator=CY2(CY 7.5*10*4)
+Add component (AddParameter): Name = "BOM名称"; Value = "高压陶瓷电容，Y电容"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=NetC1_2 Pin=CY1-1
+Added Pin To Net: NetName=GND Pin=CY1-2
+Added Pin To Net: NetName=NetC4_2 Pin=CY2-1
+Added Pin To Net: NetName=GND Pin=CY2-2
+Added Member To Class: ClassName=Hpowerv2 Member=Component CY1 1nF/250V
+Added Member To Class: ClassName=Hpowerv2 Member=Component CY2 1nF/250V
+Added Room: Name=Hpowerv2
