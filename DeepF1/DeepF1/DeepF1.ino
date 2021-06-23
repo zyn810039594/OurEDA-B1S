@@ -12,7 +12,8 @@ u16* WDepth=0;
 
 u8 LightFlag=0;
 
-void setup() {
+void setup()
+{
   pinMode(LED_BUILTIN, OUTPUT);
   digitalWrite(LED_BUILTIN, LOW);
   WString=(u8*)malloc(4);
@@ -37,7 +38,8 @@ void setup() {
   sensor.setFluidDensity(997); // kg/m^3 (freshwater, 1029 for seawater)
 }
 
-void loop() {
+void loop()
+{
   // Update pressure and temperature readings
   sensor.read();
   if(LightFlag==0)
