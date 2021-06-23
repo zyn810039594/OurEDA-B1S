@@ -34,7 +34,8 @@ const u8 TSendStr[3] =
 //水深数据指针定向
 void DeepPoint(u8 *SerialData)
 {
-
+	DDepthPos = (u16*) (SerialData);
+	DWaterTemperturePos = (u16*) (SerialData + 2);
 }
 
 ////水深数据请求
@@ -46,7 +47,8 @@ void DeepPoint(u8 *SerialData)
 //水深数据输出
 void DeepTake(u16 *DepthNum, u16 *WaterTempertureNum)
 {
-
+	*DepthNum = *DDepthPos;
+	*WaterTempertureNum = *DWaterTemperturePos;
 }
 
 //WT931数据指针定向

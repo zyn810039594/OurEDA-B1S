@@ -75,7 +75,7 @@ void Error_Handler(void);
 #define UART2RXLen 15
 #define UART2TXLen 3
 #define UART3RXLen 60
-#define UART4RXLen 20
+#define UART4RXLen 4
 #define UART4TXLen 20
 #define UART8RXLen 41
 #define UART8TXLen 30
