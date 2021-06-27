@@ -2,6 +2,8 @@
 
 一个水下机器人（ROV）的控制系统
 
+请使用Arduino、CubeMX、CubeIDE访问相关代码，使用AD打开硬件原理图和PCB Layout设计
+
 ### 目录说明
 
 * CtrlBoard
