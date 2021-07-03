@@ -39,6 +39,7 @@ extern "C" {
 
 /* Exported types ------------------------------------------------------------*/
 /* USER CODE BEGIN ET */
+//STP库的惯用表示
 typedef unsigned char u8;
 typedef unsigned short u16;
 typedef long unsigned int u32;
@@ -51,13 +52,13 @@ typedef long unsigned int u32;
 
 /* Exported macro ------------------------------------------------------------*/
 /* USER CODE BEGIN EM */
-extern u8 UpSideFinish;
-extern u8 DownSideFinish;
-extern u8 WT931Len;
+extern u8 UpSideFinish; 	//上位机接收完毕标志位
+extern u8 DownSideFinish; 	//下位机接收完毕标志位
+extern u8 WT931Len; 		//传感器数据长度
 
-extern u8 DeepFinish;
-extern u8 GY39Finish;
-extern u8 WT931Finish;
+extern u8 DeepFinish; 		//水深传感器读取完成标志位
+extern u8 GY39Finish; 		//温湿度大气压传感器读取完成标志位
+extern u8 WT931Finish; 		//九轴读取完成标志位
 
 /* USER CODE END EM */
 

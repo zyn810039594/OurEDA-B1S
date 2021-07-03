@@ -1,0 +1,14 @@
+Removed Pin From Net: NetName=NetL1_1 Pin=L1-1
+Removed Pin From Net: NetName=PGND Pin=L1-2
+Removed Pin From Net: NetName=NetC1_2 Pin=L1-3
+Removed Pin From Net: NetName=NetC1_1 Pin=L1-4
+Removed Pin From Net: NetName=PGND Pin=L3-2
+Removed Pin From Net: NetName=NetC4_1 Pin=L3-4
+Added Pin To Net: NetName=PGND Pin=L1-1
+Added Pin To Net: NetName=NetC1_2 Pin=L1-2
+Added Pin To Net: NetName=NetC1_1 Pin=L1-3
+Added Pin To Net: NetName=NetL1_1 Pin=L1-4
+Added Pin To Net: NetName=NetC4_1 Pin=L3-2
+Added Pin To Net: NetName=PGND Pin=L3-4
+Change Net Name : Old Net Name=NetL1_1 New Net Name=NetL1_4
+Added Room: Name=Hpowerv2

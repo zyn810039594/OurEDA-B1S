@@ -1,0 +1,7 @@
+Removed Pin From Net: NetName=+5 Pin=Q2-3
+Added Pin To Net: NetName=+12P Pin=Q2-3
+Added Room: Name=Designator
+Added Room: Name=ISOLATOR
+Added Room: Name=OUTPUT
+Added Room: Name=POWER
+Added Room: Name=STM32

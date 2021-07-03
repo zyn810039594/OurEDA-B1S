@@ -1,9 +1,11 @@
-#include "main.h"
+#include "Sensor.h"
+/* 这里原来用的是main.h，感觉不太对劲改成了Sensor.h */
 
 //传感器预置指针
 //水深指针
 static u16 *DDepthPos = 0;
 static u16 *DWaterTemperturePos = 0;
+
 //WT931指针
 static u16 *PAccPos[3] =
 { 0 };
@@ -15,6 +17,7 @@ static u16 *PMagPos[3] =
 { 0 };
 static u16 *PInsTemPos[4] =
 { 0 };
+
 //GY39指针
 static u16 *TTemPos = 0;
 static u16 *TBaroPos[2] =

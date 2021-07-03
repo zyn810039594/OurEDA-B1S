@@ -221,22 +221,27 @@ int main(void)
 
 	/* Create the thread(s) */
 	/* definition and creation of InitialTask */
+	//初始化任务
 	osThreadDef(InitialTask, InitialTaskF, osPriorityRealtime, 0, 128);
 	InitialTaskHandle = osThreadCreate(osThread(InitialTask), NULL);
 
 	/* definition and creation of SensorTask */
+	//读取传感器任务
 	osThreadDef(SensorTask, SensorTaskF, osPriorityNormal, 0, 128);
 	SensorTaskHandle = osThreadCreate(osThread(SensorTask), NULL);
 
 	/* definition and creation of UpTask */
+	//上传数据任务
 	osThreadDef(UpTask, UpTaskF, osPriorityNormal, 0, 128);
 	UpTaskHandle = osThreadCreate(osThread(UpTask), NULL);
 
 	/* definition and creation of CtrlTask */
+	//控制PWM任务
 	osThreadDef(CtrlTask, CtrlTaskF, osPriorityNormal, 0, 128);
 	CtrlTaskHandle = osThreadCreate(osThread(CtrlTask), NULL);
 
 	/* definition and creation of EmptyTask */
+	//空任务
 	osThreadDef(EmptyTask, EmptyTaskF, osPriorityIdle, 0, 128);
 	EmptyTaskHandle = osThreadCreate(osThread(EmptyTask), NULL);
 
@@ -253,7 +258,7 @@ int main(void)
 	while (1)
 	{
 		/* USER CODE END WHILE */
-
+		osDelay(1);
 		/* USER CODE BEGIN 3 */
 	}
 	/* USER CODE END 3 */
@@ -345,7 +350,7 @@ void PeriphCommonClock_Config(void)
 	PeriphClkInitStruct.PLL3.PLL3VCOSEL = RCC_PLL3VCOWIDE;
 	PeriphClkInitStruct.PLL3.PLL3FRACN = 0;
 	PeriphClkInitStruct.Usart234578ClockSelection =
-			RCC_USART234578CLKSOURCE_PLL3;
+	RCC_USART234578CLKSOURCE_PLL3;
 	PeriphClkInitStruct.Usart16ClockSelection = RCC_USART16CLKSOURCE_PLL3;
 	if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInitStruct) != HAL_OK)
 	{
@@ -905,12 +910,17 @@ static void MX_GPIO_Init(void)
 void InitialTaskF(void const *argument)
 {
 	/* USER CODE BEGIN 5 */
+	//挂起要执行的任务
 	vTaskSuspend(SensorTaskHandle);
 	vTaskSuspend(UpTaskHandle);
 	vTaskSuspend(CtrlTaskHandle);
+	//继电器打开
 	HAL_GPIO_WritePin(GPIOD, GPIO_PIN_11, GPIO_PIN_RESET);
+	//初始化回传指针
 	SendBackPoint(UART3TXCache, NULL, &WT931IO, &GY39IO);
+	//初始化下传数据接收缓存
 	DownDetectPoint(UpCache);
+	/* 初始化一大堆PWM */
 	HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_1);
 	HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_2);
 	HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_3);
@@ -927,10 +937,13 @@ void InitialTaskF(void const *argument)
 	HAL_TIM_PWM_Start(&htim5, TIM_CHANNEL_2);
 	HAL_TIM_PWM_Start(&htim5, TIM_CHANNEL_3);
 	HAL_TIM_PWM_Start(&htim5, TIM_CHANNEL_4);
+	//开启其他任务
 	vTaskResume(UpTaskHandle);
 	vTaskResume(SensorTaskHandle);
 	vTaskResume(CtrlTaskHandle);
+	//喂狗
 	HAL_IWDG_Refresh(&hiwdg1);
+	//挂起初始化任务不再执行
 	vTaskSuspend(InitialTaskHandle);
 	/* Infinite loop */
 	for (;;)
@@ -1046,15 +1059,17 @@ void UpTaskF(void const *argument)
 void CtrlTaskF(void const *argument)
 {
 	/* USER CODE BEGIN CtrlTaskF */
-	while (!DoingEnable)
-	{
-		osDelay(1);
-	}
 	static u16 RStraightNum = 0;
 	static u16 RRotateNum = 0;
 	static u16 RVerticalNum = 0;
 	static u8 RMode = 0;
 	static u8 RRelay = 0;
+
+	while (!DoingEnable)
+	{
+		osDelay(1);
+	}
+
 	/* Infinite loop */
 	for (;;)
 	{
@@ -1063,9 +1078,12 @@ void CtrlTaskF(void const *argument)
 			osDelay(1);
 		}
 		UpIO = 1;
+		/* 接收并处理下传数据 */
 		DownDetectReceive(&RStraightNum, &RRotateNum, &RVerticalNum, LightPWM,
 				THPWM, TranspPWM, ArmPWM, ReservePWM, &RMode, &RRelay);
+		//控制继电器
 		HAL_GPIO_WritePin(GPIOD, GPIO_PIN_11, RRelay);
+		//通过控制PWM操作推进器来处理机器人运动
 		MoveControl(RStraightNum, RRotateNum, RVerticalNum, RMode, ThrusterPWM);
 		HAL_IWDG_Refresh(&hiwdg1);
 	}
@@ -1085,7 +1103,7 @@ void EmptyTaskF(void const *argument)
 	/* Infinite loop */
 	for (;;)
 	{
-		HAL_IWDG_Refresh(&hiwdg1);
+		HAL_IWDG_Refresh(&hiwdg1); //喂狗
 	}
 	/* USER CODE END EmptyTaskF */
 }

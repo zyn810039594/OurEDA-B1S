@@ -181,10 +181,11 @@ u16 SpecialMovePID(u8 ModeType, u16 SetValue, u16 ActualValue)
 		u16 PIDLoc;
 		Ek = (float) (SetValue - ActualValue);
 		LocSum += Ek;
-		PIDLoc = (u16) (1500
-				+ range(
-						(int16_t ) (PID_D_Kp * Ek + (PID_D_Ki * LocSum)
-								+ PID_D_Kd * (Ek1 - Ek)), -1000, 1000));
+		PIDLoc =
+				(u16) (1500
+						+ range(
+								(int16_t ) (PID_D_Kp * Ek + (PID_D_Ki * LocSum) + PID_D_Kd * (Ek1 - Ek)),
+								-1000, 1000));
 		return PIDLoc;
 	}
 	else if (ModeType == 2)
@@ -193,10 +194,11 @@ u16 SpecialMovePID(u8 ModeType, u16 SetValue, u16 ActualValue)
 		u16 PIDLoc;
 		Ek = (float) (SetValue - ActualValue);
 		LocSum += Ek;
-		PIDLoc = (u16) (1500
-				+ range(
-						(int16_t ) (PID_O_Kp * Ek + (PID_O_Ki * LocSum)
-								+ PID_O_Kd * (Ek1 - Ek)), -1000, 1000));
+		PIDLoc =
+				(u16) (1500
+						+ range(
+								(int16_t ) (PID_O_Kp * Ek + (PID_O_Ki * LocSum) + PID_O_Kd * (Ek1 - Ek)),
+								-1000, 1000));
 		return PIDLoc;
 	}
 	else

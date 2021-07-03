@@ -1,0 +1,6 @@
+Change Component Comment : Designator=R7 Old Comment=10K¦¸ (1002) ¡À1% New Comment=300¦¸
+Added Room: Name=Designator
+Added Room: Name=ISOLATOR
+Added Room: Name=OUTPUT
+Added Room: Name=POWER
+Added Room: Name=STM32

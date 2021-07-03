@@ -31,15 +31,15 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  13 .debug_ranges 00001528  00000000  00000000  0004f1f8  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 14 .debug_macro  00039311  00000000  00000000  00050720  2**0
+ 14 .debug_macro  00039331  00000000  00000000  00050720  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 15 .debug_line   0001c484  00000000  00000000  00089a31  2**0
+ 15 .debug_line   0001c474  00000000  00000000  00089a51  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_str    0016b806  00000000  00000000  000a5eb5  2**0
+ 16 .debug_str    0016b83c  00000000  00000000  000a5ec5  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .comment      00000053  00000000  00000000  002116bb  2**0
+ 17 .comment      00000053  00000000  00000000  00211701  2**0
                   CONTENTS, READONLY
- 18 .debug_frame  00005dd0  00000000  00000000  00211710  2**2
+ 18 .debug_frame  00005dd0  00000000  00000000  00211754  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -537,8 +537,9 @@ u16 SpecialMovePID(u8 ModeType, u16 SetValue, u16 ActualValue)
  8000704:	ee77 7a27 	vadd.f32	s15, s14, s15
  8000708:	4b8f      	ldr	r3, [pc, #572]	; (8000948 <SpecialMovePID+0x284>)
  800070a:	edc3 7a00 	vstr	s15, [r3]
-		PIDLoc = (u16) (1500
-				+ range(
+		PIDLoc =
+				(u16) (1500
+						+ range(
  800070e:	4b8d      	ldr	r3, [pc, #564]	; (8000944 <SpecialMovePID+0x280>)
  8000710:	edd3 7a00 	vldr	s15, [r3]
  8000714:	ed9f 7a8d 	vldr	s14, [pc, #564]	; 800094c <SpecialMovePID+0x288>
@@ -558,10 +559,10 @@ u16 SpecialMovePID(u8 ModeType, u16 SetValue, u16 ActualValue)
  8000746:	eefd 7ae7 	vcvt.s32.f32	s15, s15
  800074a:	ee17 3a90 	vmov	r3, s15
  800074e:	b21b      	sxth	r3, r3
-		PIDLoc = (u16) (1500
+				(u16) (1500
  8000750:	f5b3 7f7a 	cmp.w	r3, #1000	; 0x3e8
  8000754:	da4c      	bge.n	80007f0 <SpecialMovePID+0x12c>
-				+ range(
+						+ range(
  8000756:	4b7b      	ldr	r3, [pc, #492]	; (8000944 <SpecialMovePID+0x280>)
  8000758:	edd3 7a00 	vldr	s15, [r3]
  800075c:	ed9f 7a7b 	vldr	s14, [pc, #492]	; 800094c <SpecialMovePID+0x288>
@@ -608,11 +609,12 @@ u16 SpecialMovePID(u8 ModeType, u16 SetValue, u16 ActualValue)
  80007e8:	e004      	b.n	80007f4 <SpecialMovePID+0x130>
  80007ea:	f44f 73fa 	mov.w	r3, #500	; 0x1f4
  80007ee:	e001      	b.n	80007f4 <SpecialMovePID+0x130>
-		PIDLoc = (u16) (1500
+				(u16) (1500
  80007f0:	f640 13c4 	movw	r3, #2500	; 0x9c4
+		PIDLoc =
  80007f4:	81bb      	strh	r3, [r7, #12]
-						(int16_t ) (PID_D_Kp * Ek + (PID_D_Ki * LocSum)
-								+ PID_D_Kd * (Ek1 - Ek)), -1000, 1000));
+								(int16_t ) (PID_D_Kp * Ek + (PID_D_Ki * LocSum) + PID_D_Kd * (Ek1 - Ek)),
+								-1000, 1000));
 		return PIDLoc;
  80007f6:	89bb      	ldrh	r3, [r7, #12]
  80007f8:	e09b      	b.n	8000932 <SpecialMovePID+0x26e>
@@ -643,8 +645,9 @@ u16 SpecialMovePID(u8 ModeType, u16 SetValue, u16 ActualValue)
  8000828:	ee77 7a27 	vadd.f32	s15, s14, s15
  800082c:	4b46      	ldr	r3, [pc, #280]	; (8000948 <SpecialMovePID+0x284>)
  800082e:	edc3 7a00 	vstr	s15, [r3]
-		PIDLoc = (u16) (1500
-				+ range(
+		PIDLoc =
+				(u16) (1500
+						+ range(
  8000832:	4b44      	ldr	r3, [pc, #272]	; (8000944 <SpecialMovePID+0x280>)
  8000834:	edd3 7a00 	vldr	s15, [r3]
  8000838:	ed9f 7a47 	vldr	s14, [pc, #284]	; 8000958 <SpecialMovePID+0x294>
@@ -663,10 +666,10 @@ u16 SpecialMovePID(u8 ModeType, u16 SetValue, u16 ActualValue)
  8000866:	eefd 7ae7 	vcvt.s32.f32	s15, s15
  800086a:	ee17 3a90 	vmov	r3, s15
  800086e:	b21b      	sxth	r3, r3
-		PIDLoc = (u16) (1500
+				(u16) (1500
  8000870:	f5b3 7f7a 	cmp.w	r3, #1000	; 0x3e8
  8000874:	da48      	bge.n	8000908 <SpecialMovePID+0x244>
-				+ range(
+						+ range(
  8000876:	4b33      	ldr	r3, [pc, #204]	; (8000944 <SpecialMovePID+0x280>)
  8000878:	edd3 7a00 	vldr	s15, [r3]
  800087c:	ed9f 7a36 	vldr	s14, [pc, #216]	; 8000958 <SpecialMovePID+0x294>
@@ -711,11 +714,12 @@ u16 SpecialMovePID(u8 ModeType, u16 SetValue, u16 ActualValue)
  8000900:	e004      	b.n	800090c <SpecialMovePID+0x248>
  8000902:	f44f 73fa 	mov.w	r3, #500	; 0x1f4
  8000906:	e001      	b.n	800090c <SpecialMovePID+0x248>
-		PIDLoc = (u16) (1500
+				(u16) (1500
  8000908:	f640 13c4 	movw	r3, #2500	; 0x9c4
+		PIDLoc =
  800090c:	81fb      	strh	r3, [r7, #14]
-						(int16_t ) (PID_O_Kp * Ek + (PID_O_Ki * LocSum)
-								+ PID_O_Kd * (Ek1 - Ek)), -1000, 1000));
+								(int16_t ) (PID_O_Kp * Ek + (PID_O_Ki * LocSum) + PID_O_Kd * (Ek1 - Ek)),
+								-1000, 1000));
 		return PIDLoc;
  800090e:	89fb      	ldrh	r3, [r7, #14]
  8000910:	e00f      	b.n	8000932 <SpecialMovePID+0x26e>
@@ -1873,11 +1877,11 @@ __STATIC_FORCEINLINE void __DSB(void)
  800102e:	f000 fa2d 	bl	800148c <MX_USART2_UART_Init>
 	MX_USART3_UART_Init();
  8001032:	f000 fa77 	bl	8001524 <MX_USART3_UART_Init>
-	/* add queues, ... */
 	/* USER CODE END RTOS_QUEUES */
 
 	/* Create the thread(s) */
 	/* definition and creation of UpTask */
+	//上传数据到上位仓任务
 	osThreadDef(UpTask, UpTaskF, osPriorityNormal, 0, 128);
  8001036:	4b31      	ldr	r3, [pc, #196]	; (80010fc <main+0x1d4>)
  8001038:	f107 0470 	add.w	r4, r7, #112	; 0x70
@@ -1896,6 +1900,7 @@ __STATIC_FORCEINLINE void __DSB(void)
  800105a:	6013      	str	r3, [r2, #0]
 
 	/* definition and creation of DownTask */
+	//下位自主任务
 	osThreadDef(DownTask, DownTaskF, osPriorityNormal, 0, 128);
  800105c:	4b29      	ldr	r3, [pc, #164]	; (8001104 <main+0x1dc>)
  800105e:	f107 0454 	add.w	r4, r7, #84	; 0x54
@@ -1914,6 +1919,7 @@ __STATIC_FORCEINLINE void __DSB(void)
  8001080:	6013      	str	r3, [r2, #0]
 
 	/* definition and creation of InitialTask */
+	//初始化任务
 	osThreadDef(InitialTask, InitialTaskF, osPriorityRealtime, 0, 128);
  8001082:	4b22      	ldr	r3, [pc, #136]	; (800110c <main+0x1e4>)
  8001084:	f107 0438 	add.w	r4, r7, #56	; 0x38
@@ -1932,6 +1938,7 @@ __STATIC_FORCEINLINE void __DSB(void)
  80010a6:	6013      	str	r3, [r2, #0]
 
 	/* definition and creation of SensorTask */
+	//传感器数据接收任务
 	osThreadDef(SensorTask, SensorTaskF, osPriorityNormal, 0, 128);
  80010a8:	4b1a      	ldr	r3, [pc, #104]	; (8001114 <main+0x1ec>)
  80010aa:	f107 041c 	add.w	r4, r7, #28
@@ -1950,6 +1957,7 @@ __STATIC_FORCEINLINE void __DSB(void)
  80010cc:	6013      	str	r3, [r2, #0]
 
 	/* definition and creation of EmptyTask */
+	//空闲任务
 	osThreadDef(EmptyTask, EmptyTaskF, osPriorityIdle, 0, 128);
  80010ce:	4b13      	ldr	r3, [pc, #76]	; (800111c <main+0x1f4>)
  80010d0:	463c      	mov	r4, r7
@@ -3167,7 +3175,7 @@ void UpTaskF(void const *argument)
  80017de:	73fb      	strb	r3, [r7, #15]
  80017e0:	e008      	b.n	80017f4 <UpTaskF+0x5c>
 			{
-				UpCache[i] = UART1RXCache[i];
+				UpCache[i] = UART1RXCache[i]; //存储上位机发来的数据
  80017e2:	7bfa      	ldrb	r2, [r7, #15]
  80017e4:	7bfb      	ldrb	r3, [r7, #15]
  80017e6:	4937      	ldr	r1, [pc, #220]	; (80018c4 <UpTaskF+0x12c>)
@@ -3195,15 +3203,17 @@ void UpTaskF(void const *argument)
  8001808:	681b      	ldr	r3, [r3, #0]
  800180a:	f042 0210 	orr.w	r2, r2, #16
  800180e:	601a      	str	r2, [r3, #0]
-		HAL_UART_Receive_DMA(&huart1, UART1RXCache, UART1RXLen);
+		HAL_UART_Receive_DMA(&huart1, UART1RXCache, UART1RXLen); //接收上位机发来的数据
  8001810:	221e      	movs	r2, #30
  8001812:	492c      	ldr	r1, [pc, #176]	; (80018c4 <UpTaskF+0x12c>)
  8001814:	482e      	ldr	r0, [pc, #184]	; (80018d0 <UpTaskF+0x138>)
  8001816:	f007 fb9d 	bl	8008f54 <HAL_UART_Receive_DMA>
-		DownEn = 1;
+
+		DownEn = 1; //开启PID定向定深
  800181a:	4b2e      	ldr	r3, [pc, #184]	; (80018d4 <UpTaskF+0x13c>)
  800181c:	2201      	movs	r2, #1
  800181e:	701a      	strb	r2, [r3, #0]
+
 		if (SensorCabin)
  8001820:	4b2d      	ldr	r3, [pc, #180]	; (80018d8 <UpTaskF+0x140>)
  8001822:	781b      	ldrb	r3, [r3, #0]
@@ -3232,7 +3242,7 @@ void UpTaskF(void const *argument)
  8001842:	73bb      	strb	r3, [r7, #14]
  8001844:	e008      	b.n	8001858 <UpTaskF+0xc0>
 			{
-				UART1TXCache_P[i] = DownCache[i];
+				UART1TXCache_P[i] = DownCache[i]; //接收下位机回传的数据
  8001846:	7bba      	ldrb	r2, [r7, #14]
  8001848:	7bbb      	ldrb	r3, [r7, #14]
  800184a:	4925      	ldr	r1, [pc, #148]	; (80018e0 <UpTaskF+0x148>)
@@ -3251,7 +3261,7 @@ void UpTaskF(void const *argument)
  800185e:	4b1f      	ldr	r3, [pc, #124]	; (80018dc <UpTaskF+0x144>)
  8001860:	2200      	movs	r2, #0
  8001862:	701a      	strb	r2, [r3, #0]
-			HAL_UART_Transmit_DMA(&huart1, UART1TXCache_P, UART1TXLen);
+			HAL_UART_Transmit_DMA(&huart1, UART1TXCache_P, UART1TXLen); //转发下位机数据给上位机
  8001864:	2229      	movs	r2, #41	; 0x29
  8001866:	491f      	ldr	r1, [pc, #124]	; (80018e4 <UpTaskF+0x14c>)
  8001868:	4819      	ldr	r0, [pc, #100]	; (80018d0 <UpTaskF+0x138>)
@@ -3260,6 +3270,7 @@ void UpTaskF(void const *argument)
 		}
 		else
 		{
+			/* 上传数据处理 */
 			SendBack(WaterDetect, TemCache, BaroCache, HumCache,
  8001870:	4b1d      	ldr	r3, [pc, #116]	; (80018e8 <UpTaskF+0x150>)
  8001872:	7818      	ldrb	r0, [r3, #0]
@@ -3292,7 +3303,7 @@ void UpTaskF(void const *argument)
  80018a4:	480a      	ldr	r0, [pc, #40]	; (80018d0 <UpTaskF+0x138>)
  80018a6:	f007 fad5 	bl	8008e54 <HAL_UART_Transmit_DMA>
 		}
-		SensorCabin = ~SensorCabin;
+		SensorCabin = ~SensorCabin; //每间隔一次任务执行一次上传数据处理
  80018aa:	4b0b      	ldr	r3, [pc, #44]	; (80018d8 <UpTaskF+0x140>)
  80018ac:	781b      	ldrb	r3, [r3, #0]
  80018ae:	43db      	mvns	r3, r3
@@ -3310,21 +3321,21 @@ void UpTaskF(void const *argument)
  80018c8:	20000399 	.word	0x20000399
  80018cc:	200046a0 	.word	0x200046a0
  80018d0:	20004558 	.word	0x20004558
- 80018d4:	2000039a 	.word	0x2000039a
+ 80018d4:	2000039b 	.word	0x2000039b
  80018d8:	20000390 	.word	0x20000390
- 80018dc:	2000039b 	.word	0x2000039b
+ 80018dc:	2000039a 	.word	0x2000039a
  80018e0:	20004230 	.word	0x20004230
  80018e4:	20004924 	.word	0x20004924
- 80018e8:	2000039c 	.word	0x2000039c
- 80018ec:	200003be 	.word	0x200003be
- 80018f0:	200003c4 	.word	0x200003c4
- 80018f4:	200003c8 	.word	0x200003c8
- 80018f8:	200003c6 	.word	0x200003c6
- 80018fc:	200003b8 	.word	0x200003b8
- 8001900:	200003b0 	.word	0x200003b0
- 8001904:	200003a8 	.word	0x200003a8
- 8001908:	200003a0 	.word	0x200003a0
- 800190c:	200003c0 	.word	0x200003c0
+ 80018e8:	200003a0 	.word	0x200003a0
+ 80018ec:	200003c2 	.word	0x200003c2
+ 80018f0:	200003c8 	.word	0x200003c8
+ 80018f4:	200003cc 	.word	0x200003cc
+ 80018f8:	200003ca 	.word	0x200003ca
+ 80018fc:	200003bc 	.word	0x200003bc
+ 8001900:	200003b4 	.word	0x200003b4
+ 8001904:	200003ac 	.word	0x200003ac
+ 8001908:	200003a4 	.word	0x200003a4
+ 800190c:	200003c4 	.word	0x200003c4
  8001910:	200046c0 	.word	0x200046c0
  8001914:	20004218 	.word	0x20004218
 
@@ -3340,13 +3351,13 @@ void DownTaskF(void const *argument)
  800191c:	af00      	add	r7, sp, #0
  800191e:	6078      	str	r0, [r7, #4]
 	/* USER CODE BEGIN DownTaskF */
-	while (!DownEn)
+	while (!DownEn) //不允许自主定向定深时
  8001920:	e002      	b.n	8001928 <DownTaskF+0x10>
 	{
-		osDelay(1);
+		osDelay(1); //不会启动该任务
  8001922:	2001      	movs	r0, #1
  8001924:	f009 f8e9 	bl	800aafa <osDelay>
-	while (!DownEn)
+	while (!DownEn) //不允许自主定向定深时
  8001928:	4b4e      	ldr	r3, [pc, #312]	; (8001a64 <DownTaskF+0x14c>)
  800192a:	781b      	ldrb	r3, [r3, #0]
  800192c:	2b00      	cmp	r3, #0
@@ -3355,6 +3366,7 @@ void DownTaskF(void const *argument)
 	/* Infinite loop */
 	for (;;)
 	{
+		/* 自动开启PID定向定深 */
 		if (DownMoveDetect() == 2)
  8001930:	f7fe feb8 	bl	80006a4 <DownMoveDetect>
  8001934:	4603      	mov	r3, r0
@@ -3421,11 +3433,12 @@ void DownTaskF(void const *argument)
 		}
 		else
 		{
-			DIPFlag = 0;
+			DIPFlag = 0; //不开启定向定深
  8001994:	4b34      	ldr	r3, [pc, #208]	; (8001a68 <DownTaskF+0x150>)
  8001996:	2200      	movs	r2, #0
  8001998:	701a      	strb	r2, [r3, #0]
 		}
+
 		while (UpIO)
  800199a:	e002      	b.n	80019a2 <DownTaskF+0x8a>
 		{
@@ -3443,6 +3456,7 @@ void DownTaskF(void const *argument)
  80019ac:	4b32      	ldr	r3, [pc, #200]	; (8001a78 <DownTaskF+0x160>)
  80019ae:	2201      	movs	r2, #1
  80019b0:	701a      	strb	r2, [r3, #0]
+
 		for (u8 i = 0; i < UART8TXLen; ++i)
  80019b2:	2300      	movs	r3, #0
  80019b4:	73fb      	strb	r3, [r7, #15]
@@ -3472,6 +3486,7 @@ void DownTaskF(void const *argument)
  80019d8:	4929      	ldr	r1, [pc, #164]	; (8001a80 <DownTaskF+0x168>)
  80019da:	482a      	ldr	r0, [pc, #168]	; (8001a84 <DownTaskF+0x16c>)
  80019dc:	f007 fa3a 	bl	8008e54 <HAL_UART_Transmit_DMA>
+
 		while (!DownSideFinish)
  80019e0:	e002      	b.n	80019e8 <DownTaskF+0xd0>
 		{
@@ -3557,18 +3572,18 @@ void DownTaskF(void const *argument)
 		if (DownMoveDetect() == 2)
  8001a60:	e766      	b.n	8001930 <DownTaskF+0x18>
  8001a62:	bf00      	nop
- 8001a64:	2000039a 	.word	0x2000039a
- 8001a68:	200003cb 	.word	0x200003cb
- 8001a6c:	200003b0 	.word	0x200003b0
- 8001a70:	200003cc 	.word	0x200003cc
- 8001a74:	200003c6 	.word	0x200003c6
+ 8001a64:	2000039b 	.word	0x2000039b
+ 8001a68:	2000039c 	.word	0x2000039c
+ 8001a6c:	200003b4 	.word	0x200003b4
+ 8001a70:	2000039e 	.word	0x2000039e
+ 8001a74:	200003ca 	.word	0x200003ca
  8001a78:	20000399 	.word	0x20000399
  8001a7c:	200046a0 	.word	0x200046a0
  8001a80:	200048fc 	.word	0x200048fc
  8001a84:	20004710 	.word	0x20004710
  8001a88:	20000392 	.word	0x20000392
  8001a8c:	20004674 	.word	0x20004674
- 8001a90:	2000039b 	.word	0x2000039b
+ 8001a90:	2000039a 	.word	0x2000039a
  8001a94:	20004230 	.word	0x20004230
  8001a98:	20004218 	.word	0x20004218
 
@@ -3584,6 +3599,7 @@ void InitialTaskF(void const *argument)
  8001aa0:	af00      	add	r7, sp, #0
  8001aa2:	6078      	str	r0, [r7, #4]
 	/* USER CODE BEGIN InitialTaskF */
+	//挂起任务防止初始化进程被打断
 	vTaskSuspend(SensorTaskHandle);
  8001aa4:	4b1b      	ldr	r3, [pc, #108]	; (8001b14 <InitialTaskF+0x78>)
  8001aa6:	681b      	ldr	r3, [r3, #0]
@@ -3599,6 +3615,7 @@ void InitialTaskF(void const *argument)
  8001aba:	681b      	ldr	r3, [r3, #0]
  8001abc:	4618      	mov	r0, r3
  8001abe:	f009 faab 	bl	800b018 <vTaskSuspend>
+	//初始化下位机
 	HAL_GPIO_WritePin(GPIOE, GPIO_PIN_4, GPIO_PIN_RESET);
  8001ac2:	2200      	movs	r2, #0
  8001ac4:	2110      	movs	r1, #16
@@ -3609,15 +3626,18 @@ void InitialTaskF(void const *argument)
  8001ace:	2110      	movs	r1, #16
  8001ad0:	4813      	ldr	r0, [pc, #76]	; (8001b20 <InitialTaskF+0x84>)
  8001ad2:	f004 faab 	bl	800602c <HAL_GPIO_WritePin>
+	//初始化回传指针
 	SendBackPoint(UART1TXCache_C, &DeepIO, &WT931IO, &GY39IO);
  8001ad6:	4b13      	ldr	r3, [pc, #76]	; (8001b24 <InitialTaskF+0x88>)
  8001ad8:	4a13      	ldr	r2, [pc, #76]	; (8001b28 <InitialTaskF+0x8c>)
  8001ada:	4914      	ldr	r1, [pc, #80]	; (8001b2c <InitialTaskF+0x90>)
  8001adc:	4814      	ldr	r0, [pc, #80]	; (8001b30 <InitialTaskF+0x94>)
  8001ade:	f7fe ff3f 	bl	8000960 <SendBackPoint>
+	//初始化下传数据读取指针
 	DownDetectPoint(UpCache);
  8001ae2:	4814      	ldr	r0, [pc, #80]	; (8001b34 <InitialTaskF+0x98>)
  8001ae4:	f7fe fd78 	bl	80005d8 <DownDetectPoint>
+	//先开启上传任务和传感器处理任务
 	vTaskResume(UpTaskHandle);
  8001ae8:	4b0b      	ldr	r3, [pc, #44]	; (8001b18 <InitialTaskF+0x7c>)
  8001aea:	681b      	ldr	r3, [r3, #0]
@@ -3628,9 +3648,11 @@ void InitialTaskF(void const *argument)
  8001af4:	681b      	ldr	r3, [r3, #0]
  8001af6:	4618      	mov	r0, r3
  8001af8:	f009 fb52 	bl	800b1a0 <vTaskResume>
+	//然后喂狗
 	HAL_IWDG_Refresh(&hiwdg1);
  8001afc:	480e      	ldr	r0, [pc, #56]	; (8001b38 <InitialTaskF+0x9c>)
  8001afe:	f004 fafd 	bl	80060fc <HAL_IWDG_Refresh>
+	//挂起初始化任务不再执行
 	vTaskSuspend(InitialTaskHandle);
  8001b02:	4b0e      	ldr	r3, [pc, #56]	; (8001b3c <InitialTaskF+0xa0>)
  8001b04:	681b      	ldr	r3, [r3, #0]
@@ -3667,9 +3689,11 @@ void SensorTaskF(void const *argument)
  8001b44:	af00      	add	r7, sp, #0
  8001b46:	6078      	str	r0, [r7, #4]
 	/* USER CODE BEGIN SensorTaskF */
+	//初始化九轴对应DMA
 	WT931Point(UART8RXCache);
  8001b48:	484c      	ldr	r0, [pc, #304]	; (8001c7c <SensorTaskF+0x13c>)
  8001b4a:	f7ff f8c7 	bl	8000cdc <WT931Point>
+	//初始化温湿度气压传感器对应DMA
 	GY39InitStr(UART2TXCache);
  8001b4e:	484c      	ldr	r0, [pc, #304]	; (8001c80 <SensorTaskF+0x140>)
  8001b50:	f7ff f972 	bl	8000e38 <GY39InitStr>
@@ -3681,13 +3705,14 @@ void SensorTaskF(void const *argument)
 	GY39Point(UART3RXCache);
  8001b5e:	484a      	ldr	r0, [pc, #296]	; (8001c88 <SensorTaskF+0x148>)
  8001b60:	f7ff f980 	bl	8000e64 <GY39Point>
+	//初始化深度传感器对应DMA
 	DeepPoint(UART4TXCache);
  8001b64:	4849      	ldr	r0, [pc, #292]	; (8001c8c <SensorTaskF+0x14c>)
  8001b66:	f7ff f889 	bl	8000c7c <DeepPoint>
 	/* Infinite loop */
 	for (;;)
 	{
-		WaterDetect = HAL_GPIO_ReadPin(GPIOE, GPIO_PIN_6);
+		WaterDetect = HAL_GPIO_ReadPin(GPIOE, GPIO_PIN_6); //检测漏水
  8001b6a:	2140      	movs	r1, #64	; 0x40
  8001b6c:	4848      	ldr	r0, [pc, #288]	; (8001c90 <SensorTaskF+0x150>)
  8001b6e:	f004 fa45 	bl	8005ffc <HAL_GPIO_ReadPin>
@@ -3695,6 +3720,7 @@ void SensorTaskF(void const *argument)
  8001b74:	461a      	mov	r2, r3
  8001b76:	4b47      	ldr	r3, [pc, #284]	; (8001c94 <SensorTaskF+0x154>)
  8001b78:	701a      	strb	r2, [r3, #0]
+
 		if (WT931Finish)
  8001b7a:	4b47      	ldr	r3, [pc, #284]	; (8001c98 <SensorTaskF+0x158>)
  8001b7c:	781b      	ldrb	r3, [r3, #0]
@@ -3730,7 +3756,7 @@ void SensorTaskF(void const *argument)
  8001ba6:	4941      	ldr	r1, [pc, #260]	; (8001cac <SensorTaskF+0x16c>)
  8001ba8:	4841      	ldr	r0, [pc, #260]	; (8001cb0 <SensorTaskF+0x170>)
  8001baa:	f7ff f8eb 	bl	8000d84 <WT931Take>
-						MagnetisCache);
+						MagnetisCache); //读取九轴数据
 			}
 			WT931Finish = 0;
  8001bae:	4b3a      	ldr	r3, [pc, #232]	; (8001c98 <SensorTaskF+0x158>)
@@ -3755,6 +3781,7 @@ void SensorTaskF(void const *argument)
  8001bd2:	701a      	strb	r2, [r3, #0]
 
 		}
+
 		if (GY39Finish)
  8001bd4:	4b38      	ldr	r3, [pc, #224]	; (8001cb8 <SensorTaskF+0x178>)
  8001bd6:	781b      	ldrb	r3, [r3, #0]
@@ -3778,7 +3805,7 @@ void SensorTaskF(void const *argument)
  8001bee:	4b33      	ldr	r3, [pc, #204]	; (8001cbc <SensorTaskF+0x17c>)
  8001bf0:	2201      	movs	r2, #1
  8001bf2:	701a      	strb	r2, [r3, #0]
-			GY39Take(&TemCache, BaroCache, &HumCache);
+			GY39Take(&TemCache, BaroCache, &HumCache); //读取温湿度大气压传感器数据
  8001bf4:	4a32      	ldr	r2, [pc, #200]	; (8001cc0 <SensorTaskF+0x180>)
  8001bf6:	4933      	ldr	r1, [pc, #204]	; (8001cc4 <SensorTaskF+0x184>)
  8001bf8:	4833      	ldr	r0, [pc, #204]	; (8001cc8 <SensorTaskF+0x188>)
@@ -3806,6 +3833,7 @@ void SensorTaskF(void const *argument)
  8001c22:	701a      	strb	r2, [r3, #0]
 
 		}
+
 		if (DeepFinish)
  8001c24:	4b2a      	ldr	r3, [pc, #168]	; (8001cd0 <SensorTaskF+0x190>)
  8001c26:	781b      	ldrb	r3, [r3, #0]
@@ -3829,7 +3857,7 @@ void SensorTaskF(void const *argument)
  8001c3e:	4b25      	ldr	r3, [pc, #148]	; (8001cd4 <SensorTaskF+0x194>)
  8001c40:	2201      	movs	r2, #1
  8001c42:	701a      	strb	r2, [r3, #0]
-			DeepTake(&DepthCache, &WaterTempertureCache);
+			DeepTake(&DepthCache, &WaterTempertureCache); //读取深度传感器数据
  8001c44:	4924      	ldr	r1, [pc, #144]	; (8001cd8 <SensorTaskF+0x198>)
  8001c46:	4825      	ldr	r0, [pc, #148]	; (8001cdc <SensorTaskF+0x19c>)
  8001c48:	f7ff f82e 	bl	8000ca8 <DeepTake>
@@ -3854,12 +3882,11 @@ void SensorTaskF(void const *argument)
  8001c6c:	4b19      	ldr	r3, [pc, #100]	; (8001cd4 <SensorTaskF+0x194>)
  8001c6e:	2200      	movs	r2, #0
  8001c70:	701a      	strb	r2, [r3, #0]
-
 		}
 		HAL_IWDG_Refresh(&hiwdg1);
  8001c72:	481d      	ldr	r0, [pc, #116]	; (8001ce8 <SensorTaskF+0x1a8>)
  8001c74:	f004 fa42 	bl	80060fc <HAL_IWDG_Refresh>
-		WaterDetect = HAL_GPIO_ReadPin(GPIOE, GPIO_PIN_6);
+		WaterDetect = HAL_GPIO_ReadPin(GPIOE, GPIO_PIN_6); //检测漏水
  8001c78:	e777      	b.n	8001b6a <SensorTaskF+0x2a>
  8001c7a:	bf00      	nop
  8001c7c:	20004674 	.word	0x20004674
@@ -3868,25 +3895,25 @@ void SensorTaskF(void const *argument)
  8001c88:	200047a0 	.word	0x200047a0
  8001c8c:	200045e8 	.word	0x200045e8
  8001c90:	58021000 	.word	0x58021000
- 8001c94:	2000039c 	.word	0x2000039c
+ 8001c94:	200003a0 	.word	0x200003a0
  8001c98:	20000395 	.word	0x20000395
  8001c9c:	20000398 	.word	0x20000398
- 8001ca0:	200003ca 	.word	0x200003ca
- 8001ca4:	200003b8 	.word	0x200003b8
- 8001ca8:	200003b0 	.word	0x200003b0
- 8001cac:	200003a8 	.word	0x200003a8
- 8001cb0:	200003a0 	.word	0x200003a0
+ 8001ca0:	200003ce 	.word	0x200003ce
+ 8001ca4:	200003bc 	.word	0x200003bc
+ 8001ca8:	200003b4 	.word	0x200003b4
+ 8001cac:	200003ac 	.word	0x200003ac
+ 8001cb0:	200003a4 	.word	0x200003a4
  8001cb4:	200042d4 	.word	0x200042d4
  8001cb8:	20000394 	.word	0x20000394
  8001cbc:	20000397 	.word	0x20000397
- 8001cc0:	200003c4 	.word	0x200003c4
- 8001cc4:	200003c0 	.word	0x200003c0
- 8001cc8:	200003be 	.word	0x200003be
+ 8001cc0:	200003c8 	.word	0x200003c8
+ 8001cc4:	200003c4 	.word	0x200003c4
+ 8001cc8:	200003c2 	.word	0x200003c2
  8001ccc:	20004364 	.word	0x20004364
  8001cd0:	20000393 	.word	0x20000393
  8001cd4:	20000396 	.word	0x20000396
- 8001cd8:	200003c8 	.word	0x200003c8
- 8001cdc:	200003c6 	.word	0x200003c6
+ 8001cd8:	200003cc 	.word	0x200003cc
+ 8001cdc:	200003ca 	.word	0x200003ca
  8001ce0:	20004228 	.word	0x20004228
  8001ce4:	200047dc 	.word	0x200047dc
  8001ce8:	20004218 	.word	0x20004218
@@ -3906,7 +3933,7 @@ void EmptyTaskF(void const *argument)
 	/* Infinite loop */
 	for (;;)
 	{
-		HAL_IWDG_Refresh(&hiwdg1);
+		HAL_IWDG_Refresh(&hiwdg1); //空闲时喂狗
  8001cf4:	4801      	ldr	r0, [pc, #4]	; (8001cfc <EmptyTaskF+0x10>)
  8001cf6:	f004 fa01 	bl	80060fc <HAL_IWDG_Refresh>
  8001cfa:	e7fb      	b.n	8001cf4 <EmptyTaskF+0x8>
@@ -5815,7 +5842,7 @@ void USART3_IRQHandler(void)
  800291c:	40020488 	.word	0x40020488
  8002920:	400204a0 	.word	0x400204a0
  8002924:	400204b8 	.word	0x400204b8
- 8002928:	200003ca 	.word	0x200003ca
+ 8002928:	200003ce 	.word	0x200003ce
  800292c:	20000395 	.word	0x20000395
 
 08002930 <DMA1_Stream7_IRQHandler>:

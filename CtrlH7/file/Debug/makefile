@@ -54,6 +54,9 @@ default.size.stdout \
 OBJDUMP_LIST += \
 CtrlH7.list \
 
+OBJCOPY_HEX += \
+CtrlH7.hex \
+
 OBJCOPY_BIN += \
 CtrlH7.bin \
 
@@ -65,8 +68,8 @@ all: main-build
 main-build: CtrlH7.elf secondary-outputs
 
 # Tool invocations
-CtrlH7.elf: $(OBJS) $(USER_OBJS) F:\Git_repository\OUREDA\OurEDA-B1S\CtrlH7\file\STM32H750VBTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "CtrlH7.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m7 -T"F:\Git_repository\OUREDA\OurEDA-B1S\CtrlH7\file\STM32H750VBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CtrlH7.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+CtrlH7.elf: $(OBJS) $(USER_OBJS) F:\Git_repository\OurEDA\OurEDA-B1S\CtrlH7\file\STM32H750VBTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "CtrlH7.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m7 -T"F:\Git_repository\OurEDA\OurEDA-B1S\CtrlH7\file\STM32H750VBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CtrlH7.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -80,6 +83,11 @@ CtrlH7.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	@echo 'Finished building: $@'
 	@echo ' '
 
+CtrlH7.hex: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objcopy  -O ihex $(EXECUTABLES) "CtrlH7.hex"
+	@echo 'Finished building: $@'
+	@echo ' '
+
 CtrlH7.bin: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	arm-none-eabi-objcopy  -O binary $(EXECUTABLES) "CtrlH7.bin"
 	@echo 'Finished building: $@'
@@ -90,7 +98,7 @@ clean:
 	-$(RM) *
 	-@echo ' '
 
-secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST) $(OBJCOPY_BIN)
+secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST) $(OBJCOPY_HEX) $(OBJCOPY_BIN)
 
 fail-specified-linker-script-missing:
 	@echo 'Error: Cannot find the specified linker script. Check the linker settings in the build configuration.'

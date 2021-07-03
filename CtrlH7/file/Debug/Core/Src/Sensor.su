@@ -1,7 +1,7 @@
-Sensor.c:35:6:DeepPoint	16	static
-Sensor.c:48:6:DeepTake	16	static
-Sensor.c:55:6:WT931Point	16	static
-Sensor.c:76:6:WT931Take	24	static
-Sensor.c:95:6:GY39InitStr	16	static
-Sensor.c:111:6:GY39Point	16	static
-Sensor.c:120:6:GY39Take	24	static
+Sensor.c:38:6:DeepPoint	16	static
+Sensor.c:51:6:DeepTake	16	static
+Sensor.c:58:6:WT931Point	16	static
+Sensor.c:79:6:WT931Take	24	static
+Sensor.c:98:6:GY39InitStr	16	static
+Sensor.c:114:6:GY39Point	16	static
+Sensor.c:123:6:GY39Take	24	static

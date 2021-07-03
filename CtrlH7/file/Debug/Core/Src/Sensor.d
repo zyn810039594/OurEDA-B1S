@@ -1,5 +1,5 @@
-Core/Src/Sensor.o: ../Core/Src/Sensor.c ../Core/Inc/main.h \
- ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h \
+Core/Src/Sensor.o: ../Core/Src/Sensor.c ../Core/Inc/Sensor.h \
+ ../Core/Inc/main.h ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h \
  ../Core/Inc/stm32h7xx_hal_conf.h \
  ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_rcc.h \
  ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_def.h \
@@ -32,8 +32,9 @@ Core/Src/Sensor.o: ../Core/Src/Sensor.c ../Core/Inc/main.h \
  ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h \
  ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart.h \
  ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h \
- ../Core/Inc/Sensor.h ../Core/Inc/main.h ../Core/Inc/BasicCtrl.h \
- ../Core/Inc/Setting.h
+ ../Core/Inc/Sensor.h ../Core/Inc/BasicCtrl.h ../Core/Inc/Setting.h
+
+../Core/Inc/Sensor.h:
 
 ../Core/Inc/main.h:
 
@@ -104,8 +105,6 @@ Core/Src/Sensor.o: ../Core/Src/Sensor.c ../Core/Inc/main.h \
 ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h:
 
 ../Core/Inc/Sensor.h:
-
-../Core/Inc/main.h:
 
 ../Core/Inc/BasicCtrl.h:
 

@@ -37,42 +37,36 @@
 /* Private macro -------------------------------------------------------------*/
 /* USER CODE BEGIN PM */
 
-//上传传感器仓位标志位
-u8 SensorCabin = 0;
+/* 这些全局变量标志位计划以后使用 RTOS 的信号量和互斥量实现 */
 
-//上位机接收完毕标志位
-u8 UpSideFinish = 0;
-
-//下位机接收完毕标志位
-u8 DownSideFinish = 0;
+u8 SensorCabin = 0; 		//上传传感器仓位标志位
+u8 UpSideFinish = 0; 		//上位机接收完毕标志位
+u8 DownSideFinish = 0; 		//下位机接收完毕标志位
 
 //传感器读取完成标志位
-u8 DeepFinish = 0;
-u8 GY39Finish = 0;
-u8 WT931Finish = 0;
+u8 DeepFinish = 0;			//水深传感器读取完成标志位
+u8 GY39Finish = 0;			//温湿度大气压传感器读取完成标志位
+u8 WT931Finish = 0;			//九轴读取完成标志位
 
 //传感器缓存读写标志位
-volatile u8 DeepIO = 0;
-volatile u8 GY39IO = 0;
-volatile u8 WT931IO = 0;
+volatile u8 DeepIO = 0;		//水深传感器缓存读写标志位
+volatile u8 GY39IO = 0;		//温湿度大气压传感器缓存读写标志位
+volatile u8 WT931IO = 0;	//九轴缓存读写标志位
 
-//上位发送数据读写标志位
-volatile u8 UpIO = 0;
+volatile u8 UpIO = 0; 		//上位发送数据读写标志位
+volatile u8 DownIO = 0;		//下位回传数据读写标志位
 
-//上位发送数据缓存
-u8 UpCache[UART1RXLen];
+u8 DownEn = 0; 				//下位激活标志位
 
-//下位激活标志位
-u8 DownEn = 0;
+u8 UpCache[UART1RXLen]; 	//上位发送数据缓存
+u8 DownCache[UART8RXLen]; 	//下位回传数据缓存
 
-//下位回传数据读写标志位
-volatile u8 DownIO = 0;
+u8 DIPFlag = 0; 			//定向定深开始标志位
+u16 DIPStartNum = 0; 		//定向定深初始位
 
-//下位回传数据缓存
-u8 DownCache[UART8RXLen];
+u8 WaterDetect = 0;			//漏水检测标志位
 
 //传感器缓存
-u8 WaterDetect = 0;
 u16 AccelerationCache[3] =
 { 0 };
 u16 RotSpeedCache[3] =
@@ -90,13 +84,7 @@ u16 HumCache = 0;
 u16 DepthCache = 0;
 u16 WaterTempertureCache = 0;
 
-//传感器数据长度
-u8 WT931Len = 0;
-
-//定向定深开始标志位
-u8 DIPFlag = 0;
-//定向定深初始位
-u16 DIPStartNum = 0;
+u8 WT931Len = 0; //传感器数据长度
 
 //串口1DMA缓存
 u8 UART1RXCache[UART1RXLen];
@@ -236,22 +224,27 @@ int main(void)
 
 	/* Create the thread(s) */
 	/* definition and creation of UpTask */
+	//上传数据到上位仓任务
 	osThreadDef(UpTask, UpTaskF, osPriorityNormal, 0, 128);
 	UpTaskHandle = osThreadCreate(osThread(UpTask), NULL);
 
 	/* definition and creation of DownTask */
+	//下位自主任务
 	osThreadDef(DownTask, DownTaskF, osPriorityNormal, 0, 128);
 	DownTaskHandle = osThreadCreate(osThread(DownTask), NULL);
 
 	/* definition and creation of InitialTask */
+	//初始化任务
 	osThreadDef(InitialTask, InitialTaskF, osPriorityRealtime, 0, 128);
 	InitialTaskHandle = osThreadCreate(osThread(InitialTask), NULL);
 
 	/* definition and creation of SensorTask */
+	//传感器数据接收任务
 	osThreadDef(SensorTask, SensorTaskF, osPriorityNormal, 0, 128);
 	SensorTaskHandle = osThreadCreate(osThread(SensorTask), NULL);
 
 	/* definition and creation of EmptyTask */
+	//空闲任务
 	osThreadDef(EmptyTask, EmptyTaskF, osPriorityIdle, 0, 128);
 	EmptyTaskHandle = osThreadCreate(osThread(EmptyTask), NULL);
 
@@ -755,13 +748,15 @@ void UpTaskF(void const *argument)
 			UpIO = 1;
 			for (u8 i = 0; i < UART1RXLen; ++i)
 			{
-				UpCache[i] = UART1RXCache[i];
+				UpCache[i] = UART1RXCache[i]; //存储上位机发来的数据
 			}
 			UpIO = 0;
 		}
 		__HAL_UART_ENABLE_IT(&huart1, UART_IT_IDLE);
-		HAL_UART_Receive_DMA(&huart1, UART1RXCache, UART1RXLen);
-		DownEn = 1;
+		HAL_UART_Receive_DMA(&huart1, UART1RXCache, UART1RXLen); //接收上位机发来的数据
+
+		DownEn = 1; //开启PID定向定深
+
 		if (SensorCabin)
 		{
 			while (DownIO)
@@ -771,19 +766,20 @@ void UpTaskF(void const *argument)
 			DownIO = 1;
 			for (u8 i = 0; i < UART1TXLen; ++i)
 			{
-				UART1TXCache_P[i] = DownCache[i];
+				UART1TXCache_P[i] = DownCache[i]; //接收下位机回传的数据
 			}
 			DownIO = 0;
-			HAL_UART_Transmit_DMA(&huart1, UART1TXCache_P, UART1TXLen);
+			HAL_UART_Transmit_DMA(&huart1, UART1TXCache_P, UART1TXLen); //转发下位机数据给上位机
 		}
 		else
 		{
+			/* 上传数据处理 */
 			SendBack(WaterDetect, TemCache, BaroCache, HumCache,
 					AccelerationCache, RotSpeedCache, EulerAngleCache,
 					MagnetisCache, WaterTempertureCache, DepthCache);
 			HAL_UART_Transmit_DMA(&huart1, UART1TXCache_C, UART1TXLen);
 		}
-		SensorCabin = ~SensorCabin;
+		SensorCabin = ~SensorCabin; //每间隔一次任务执行一次上传数据处理
 		HAL_IWDG_Refresh(&hiwdg1);
 	}
 	/* USER CODE END 5 */
@@ -799,13 +795,14 @@ void UpTaskF(void const *argument)
 void DownTaskF(void const *argument)
 {
 	/* USER CODE BEGIN DownTaskF */
-	while (!DownEn)
+	while (!DownEn) //不允许自主定向定深时
 	{
-		osDelay(1);
+		osDelay(1); //不会启动该任务
 	}
 	/* Infinite loop */
 	for (;;)
 	{
+		/* 自动开启PID定向定深 */
 		if (DownMoveDetect() == 2)
 		{
 			if (DIPFlag == 0)
@@ -826,19 +823,22 @@ void DownTaskF(void const *argument)
 		}
 		else
 		{
-			DIPFlag = 0;
+			DIPFlag = 0; //不开启定向定深
 		}
+
 		while (UpIO)
 		{
 			osDelay(1);
 		}
 		UpIO = 1;
+
 		for (u8 i = 0; i < UART8TXLen; ++i)
 		{
 			UART8TXCache[i] = UpCache[i];
 		}
 		UpIO = 0;
 		HAL_UART_Transmit_DMA(&huart8, UART8TXCache, UART8TXLen);
+
 		while (!DownSideFinish)
 		{
 			osDelay(1);
@@ -874,16 +874,23 @@ void DownTaskF(void const *argument)
 void InitialTaskF(void const *argument)
 {
 	/* USER CODE BEGIN InitialTaskF */
+	//挂起任务防止初始化进程被打断
 	vTaskSuspend(SensorTaskHandle);
 	vTaskSuspend(UpTaskHandle);
 	vTaskSuspend(DownTaskHandle);
+	//初始化下位机
 	HAL_GPIO_WritePin(GPIOE, GPIO_PIN_4, GPIO_PIN_RESET);
 	HAL_GPIO_WritePin(GPIOE, GPIO_PIN_4, GPIO_PIN_SET);
+	//初始化回传指针
 	SendBackPoint(UART1TXCache_C, &DeepIO, &WT931IO, &GY39IO);
+	//初始化下传数据读取指针
 	DownDetectPoint(UpCache);
+	//先开启上传任务和传感器处理任务
 	vTaskResume(UpTaskHandle);
 	vTaskResume(SensorTaskHandle);
+	//然后喂狗
 	HAL_IWDG_Refresh(&hiwdg1);
+	//挂起初始化任务不再执行
 	vTaskSuspend(InitialTaskHandle);
 	/* Infinite loop */
 	for (;;)
@@ -903,15 +910,19 @@ void InitialTaskF(void const *argument)
 void SensorTaskF(void const *argument)
 {
 	/* USER CODE BEGIN SensorTaskF */
+	//初始化九轴对应DMA
 	WT931Point(UART8RXCache);
+	//初始化温湿度气压传感器对应DMA
 	GY39InitStr(UART2TXCache);
 	HAL_UART_Transmit_DMA(&huart2, UART2TXCache, UART2TXLen);
 	GY39Point(UART3RXCache);
+	//初始化深度传感器对应DMA
 	DeepPoint(UART4TXCache);
 	/* Infinite loop */
 	for (;;)
 	{
-		WaterDetect = HAL_GPIO_ReadPin(GPIOE, GPIO_PIN_6);
+		WaterDetect = HAL_GPIO_ReadPin(GPIOE, GPIO_PIN_6); //检测漏水
+
 		if (WT931Finish)
 		{
 			while (WT931IO)
@@ -922,7 +933,7 @@ void SensorTaskF(void const *argument)
 			if (WT931Len == 44)
 			{
 				WT931Take(AccelerationCache, RotSpeedCache, EulerAngleCache,
-						MagnetisCache);
+						MagnetisCache); //读取九轴数据
 			}
 			WT931Finish = 0;
 			HAL_UART_Receive_DMA(&huart3, UART3RXCache, UART3RXLen);
@@ -930,6 +941,7 @@ void SensorTaskF(void const *argument)
 			WT931IO = 0;
 
 		}
+
 		if (GY39Finish)
 		{
 			while (GY39IO)
@@ -937,13 +949,14 @@ void SensorTaskF(void const *argument)
 				osDelay(1);
 			}
 			GY39IO = 1;
-			GY39Take(&TemCache, BaroCache, &HumCache);
+			GY39Take(&TemCache, BaroCache, &HumCache); //读取温湿度大气压传感器数据
 			GY39Finish = 0;
 			HAL_UART_Receive_DMA(&huart2, UART2RXCache, UART2RXLen);
 			__HAL_UART_ENABLE_IT(&huart2, UART_IT_IDLE);
 			GY39IO = 0;
 
 		}
+
 		if (DeepFinish)
 		{
 			while (DeepIO)
@@ -951,12 +964,11 @@ void SensorTaskF(void const *argument)
 				osDelay(1);
 			}
 			DeepIO = 1;
-			DeepTake(&DepthCache, &WaterTempertureCache);
+			DeepTake(&DepthCache, &WaterTempertureCache); //读取深度传感器数据
 			DeepFinish = 0;
 			HAL_UART_Receive_DMA(&huart4, UART4RXCache, UART4RXLen);
 			__HAL_UART_ENABLE_IT(&huart4, UART_IT_IDLE);
 			DeepIO = 0;
-
 		}
 		HAL_IWDG_Refresh(&hiwdg1);
 	}
@@ -976,7 +988,7 @@ void EmptyTaskF(void const *argument)
 	/* Infinite loop */
 	for (;;)
 	{
-		HAL_IWDG_Refresh(&hiwdg1);
+		HAL_IWDG_Refresh(&hiwdg1); //空闲时喂狗
 	}
 	/* USER CODE END EmptyTaskF */
 }

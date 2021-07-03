@@ -3,7 +3,7 @@ BasicCtrl.c:66:6:DownDetectReceive	24	static
 BasicCtrl.c:99:4:DownMoveDetect	4	static
 BasicCtrl.c:110:6:MoveControl	24	static
 BasicCtrl.c:167:5:SpecialMovePID	24	static
-BasicCtrl.c:216:6:SendBackPoint	32	static
-BasicCtrl.c:249:6:SendBack	32	static
-BasicCtrl.c:296:4:IdTest	24	static
-BasicCtrl.c:326:4:XorCaculate	24	static
+BasicCtrl.c:218:6:SendBackPoint	32	static
+BasicCtrl.c:251:6:SendBack	32	static
+BasicCtrl.c:298:4:IdTest	24	static
+BasicCtrl.c:328:4:XorCaculate	24	static

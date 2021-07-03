@@ -1,3 +1,1 @@
-Record=TopLevelDocument|FileName=PRO1.SchDoc|SheetNumber= 
-Record=NoMainPathDocument|SourceDocument=PRO1.SchDoc|FileName=PRO2.SchDoc|SheetNumber= 
-Record=NoMainPathDocument|SourceDocument=PRO1.SchDoc|FileName=PRO3.SchDoc|SheetNumber= 
+Record=TopLevelDocument|FileName=PRO1.SchDoc

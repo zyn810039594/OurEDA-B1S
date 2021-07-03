@@ -1,0 +1,12 @@
+Removed Pin From Net: NetName=+5 Pin=R3-1
+Removed Pin From Net: NetName=+5 Pin=R28-1
+Change component parameters: Designator = "C31"; Footprint = "C 0603_M"; UniqueID = "\OFKGYJGX"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "BOM名称"; Value = "无极性贴片电容"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=+3.3 Pin=R3-1
+Added Pin To Net: NetName=+3.3 Pin=R28-1
+Added Room: Name=PRO1
+Added Room: Name=PRO2
+Added Room: Name=PRO3

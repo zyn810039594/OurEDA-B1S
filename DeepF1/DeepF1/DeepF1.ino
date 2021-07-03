@@ -28,7 +28,8 @@ void setup()
   // Initialize pressure sensor
   // Returns true if initialization was successful
   // We can't continue with the rest of the program unless we can initialize the sensor
-  while (!sensor.init()) {
+  while (!sensor.init()) 
+  {
     digitalWrite(LED_BUILTIN, HIGH);
     delay(1000);
   }
