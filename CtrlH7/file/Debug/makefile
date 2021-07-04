@@ -60,6 +60,15 @@ CtrlH7.hex \
 OBJCOPY_BIN += \
 CtrlH7.bin \
 
+OBJCOPY_VERILOG += \
+CtrlH7.verilog \
+
+OBJCOPY_SREC += \
+CtrlH7.srec \
+
+OBJCOPY_SYMBOLSREC += \
+CtrlH7.symbolsrec \
+
 
 # All Target
 all: main-build
@@ -93,12 +102,27 @@ CtrlH7.bin: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	@echo 'Finished building: $@'
 	@echo ' '
 
+CtrlH7.verilog: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objcopy  -O verilog $(EXECUTABLES) "CtrlH7.verilog"
+	@echo 'Finished building: $@'
+	@echo ' '
+
+CtrlH7.srec: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objcopy  -O srec $(EXECUTABLES) "CtrlH7.srec"
+	@echo 'Finished building: $@'
+	@echo ' '
+
+CtrlH7.symbolsrec: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objcopy  -O symbolsrec $(EXECUTABLES) "CtrlH7.symbolsrec"
+	@echo 'Finished building: $@'
+	@echo ' '
+
 # Other Targets
 clean:
 	-$(RM) *
 	-@echo ' '
 
-secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST) $(OBJCOPY_HEX) $(OBJCOPY_BIN)
+secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST) $(OBJCOPY_HEX) $(OBJCOPY_BIN) $(OBJCOPY_VERILOG) $(OBJCOPY_SREC) $(OBJCOPY_SYMBOLSREC)
 
 fail-specified-linker-script-missing:
 	@echo 'Error: Cannot find the specified linker script. Check the linker settings in the build configuration.'
