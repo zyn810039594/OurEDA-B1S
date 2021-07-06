@@ -23,23 +23,23 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   ALLOC
   9 .ARM.attributes 0000002e  00000000  00000000  00020014  2**0
                   CONTENTS, READONLY
- 10 .debug_info   000293d0  00000000  00000000  00020042  2**0
+ 10 .debug_info   000293db  00000000  00000000  00020042  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 11 .debug_abbrev 00004751  00000000  00000000  00049412  2**0
+ 11 .debug_abbrev 0000476d  00000000  00000000  0004941d  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 12 .debug_aranges 00001690  00000000  00000000  0004db68  2**3
+ 12 .debug_aranges 00001690  00000000  00000000  0004db90  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 13 .debug_ranges 00001528  00000000  00000000  0004f1f8  2**3
+ 13 .debug_ranges 00001528  00000000  00000000  0004f220  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 14 .debug_macro  00039331  00000000  00000000  00050720  2**0
+ 14 .debug_macro  00039331  00000000  00000000  00050748  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 15 .debug_line   0001c474  00000000  00000000  00089a51  2**0
+ 15 .debug_line   0001c487  00000000  00000000  00089a79  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_str    0016b83c  00000000  00000000  000a5ec5  2**0
+ 16 .debug_str    0016b808  00000000  00000000  000a5f00  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .comment      00000053  00000000  00000000  00211701  2**0
+ 17 .comment      00000053  00000000  00000000  00211708  2**0
                   CONTENTS, READONLY
- 18 .debug_frame  00005dd0  00000000  00000000  00211754  2**2
+ 18 .debug_frame  00005dd0  00000000  00000000  0021175c  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -348,20 +348,21 @@ Disassembly of section .text:
  80005d6:	bf00      	nop
 
 080005d8 <DownDetectPoint>:
-static u8 *GY39SensorIO = 0;
-static u8 *WT931SensorIO = 0;
+static u8 *GY39SensorIO = 0; 	//温湿度和大气压传感器
+static u8 *WT931SensorIO = 0; 	//九轴传感器
 
-//下传数据读取初始化
+//下传数据读取格式化
 void DownDetectPoint(u8 *RXString)
 {
  80005d8:	b480      	push	{r7}
  80005da:	b083      	sub	sp, #12
  80005dc:	af00      	add	r7, sp, #0
  80005de:	6078      	str	r0, [r7, #4]
-	PDBegin = RXString;
+	PDBegin = RXString; //起始位对准
  80005e0:	4a24      	ldr	r2, [pc, #144]	; (8000674 <DownDetectPoint+0x9c>)
  80005e2:	687b      	ldr	r3, [r7, #4]
  80005e4:	6013      	str	r3, [r2, #0]
+	/* 其他各位对齐 */
 	PDStraight = (u16*) (RXString + 1);
  80005e6:	687b      	ldr	r3, [r7, #4]
  80005e8:	3301      	adds	r3, #1
@@ -437,7 +438,7 @@ void DownDetectPoint(u8 *RXString)
  8000658:	331c      	adds	r3, #28
  800065a:	4a10      	ldr	r2, [pc, #64]	; (800069c <DownDetectPoint+0xc4>)
  800065c:	6013      	str	r3, [r2, #0]
-	PDEnd = RXString + 29;
+	PDEnd = RXString + 29; //结束位对准
  800065e:	687b      	ldr	r3, [r7, #4]
  8000660:	331d      	adds	r3, #29
  8000662:	4a0f      	ldr	r2, [pc, #60]	; (80006a0 <DownDetectPoint+0xc8>)
@@ -449,24 +450,24 @@ void DownDetectPoint(u8 *RXString)
  800066c:	f85d 7b04 	ldr.w	r7, [sp], #4
  8000670:	4770      	bx	lr
  8000672:	bf00      	nop
- 8000674:	20000030 	.word	0x20000030
- 8000678:	20000034 	.word	0x20000034
- 800067c:	20000038 	.word	0x20000038
- 8000680:	2000003c 	.word	0x2000003c
- 8000684:	20000040 	.word	0x20000040
- 8000688:	20000044 	.word	0x20000044
- 800068c:	20000048 	.word	0x20000048
- 8000690:	2000004c 	.word	0x2000004c
- 8000694:	20000064 	.word	0x20000064
- 8000698:	20000068 	.word	0x20000068
- 800069c:	2000006c 	.word	0x2000006c
- 80006a0:	20000070 	.word	0x20000070
+ 8000674:	20000034 	.word	0x20000034
+ 8000678:	20000038 	.word	0x20000038
+ 800067c:	2000003c 	.word	0x2000003c
+ 8000680:	20000040 	.word	0x20000040
+ 8000684:	20000044 	.word	0x20000044
+ 8000688:	20000048 	.word	0x20000048
+ 800068c:	2000004c 	.word	0x2000004c
+ 8000690:	20000050 	.word	0x20000050
+ 8000694:	20000068 	.word	0x20000068
+ 8000698:	2000006c 	.word	0x2000006c
+ 800069c:	20000070 	.word	0x20000070
+ 80006a0:	20000074 	.word	0x20000074
 
 080006a4 <DownMoveDetect>:
 
-}
-
-//运动模式判断
+/* 运动模式判断
+ * 主控制端使用&6模式，推进器控制端使用&4模式
+ * */
 u8 DownMoveDetect(void)
 {
  80006a4:	b480      	push	{r7}
@@ -488,13 +489,13 @@ u8 DownMoveDetect(void)
  80006b8:	f85d 7b04 	ldr.w	r7, [sp], #4
  80006bc:	4770      	bx	lr
  80006be:	bf00      	nop
- 80006c0:	20000068 	.word	0x20000068
+ 80006c0:	2000006c 	.word	0x2000006c
 
 080006c4 <SpecialMovePID>:
 
-}
-
-//特殊运动模式处理
+/* 特殊运动模式处理
+ * 使用PID算法实现机器人自主定向定深
+ * */
 u16 SpecialMovePID(u8 ModeType, u16 SetValue, u16 ActualValue)
 {
  80006c4:	b480      	push	{r7}
@@ -537,9 +538,8 @@ u16 SpecialMovePID(u8 ModeType, u16 SetValue, u16 ActualValue)
  8000704:	ee77 7a27 	vadd.f32	s15, s14, s15
  8000708:	4b8f      	ldr	r3, [pc, #572]	; (8000948 <SpecialMovePID+0x284>)
  800070a:	edc3 7a00 	vstr	s15, [r3]
-		PIDLoc =
-				(u16) (1500
-						+ range(
+		PIDLoc = (u16) (1500
+				+ RANGE(
  800070e:	4b8d      	ldr	r3, [pc, #564]	; (8000944 <SpecialMovePID+0x280>)
  8000710:	edd3 7a00 	vldr	s15, [r3]
  8000714:	ed9f 7a8d 	vldr	s14, [pc, #564]	; 800094c <SpecialMovePID+0x288>
@@ -559,10 +559,10 @@ u16 SpecialMovePID(u8 ModeType, u16 SetValue, u16 ActualValue)
  8000746:	eefd 7ae7 	vcvt.s32.f32	s15, s15
  800074a:	ee17 3a90 	vmov	r3, s15
  800074e:	b21b      	sxth	r3, r3
-				(u16) (1500
+		PIDLoc = (u16) (1500
  8000750:	f5b3 7f7a 	cmp.w	r3, #1000	; 0x3e8
  8000754:	da4c      	bge.n	80007f0 <SpecialMovePID+0x12c>
-						+ range(
+				+ RANGE(
  8000756:	4b7b      	ldr	r3, [pc, #492]	; (8000944 <SpecialMovePID+0x280>)
  8000758:	edd3 7a00 	vldr	s15, [r3]
  800075c:	ed9f 7a7b 	vldr	s14, [pc, #492]	; 800094c <SpecialMovePID+0x288>
@@ -609,12 +609,11 @@ u16 SpecialMovePID(u8 ModeType, u16 SetValue, u16 ActualValue)
  80007e8:	e004      	b.n	80007f4 <SpecialMovePID+0x130>
  80007ea:	f44f 73fa 	mov.w	r3, #500	; 0x1f4
  80007ee:	e001      	b.n	80007f4 <SpecialMovePID+0x130>
-				(u16) (1500
+		PIDLoc = (u16) (1500
  80007f0:	f640 13c4 	movw	r3, #2500	; 0x9c4
-		PIDLoc =
  80007f4:	81bb      	strh	r3, [r7, #12]
-								(int16_t ) (PID_D_Kp * Ek + (PID_D_Ki * LocSum) + PID_D_Kd * (Ek1 - Ek)),
-								-1000, 1000));
+						(int16_t) (PID_D_Kp * Ek + (PID_D_Ki * LocSum)
+								+ PID_D_Kd * (Ek1 - Ek)), -1000, 1000));
 		return PIDLoc;
  80007f6:	89bb      	ldrh	r3, [r7, #12]
  80007f8:	e09b      	b.n	8000932 <SpecialMovePID+0x26e>
@@ -645,9 +644,8 @@ u16 SpecialMovePID(u8 ModeType, u16 SetValue, u16 ActualValue)
  8000828:	ee77 7a27 	vadd.f32	s15, s14, s15
  800082c:	4b46      	ldr	r3, [pc, #280]	; (8000948 <SpecialMovePID+0x284>)
  800082e:	edc3 7a00 	vstr	s15, [r3]
-		PIDLoc =
-				(u16) (1500
-						+ range(
+		PIDLoc = (u16) (1500
+				+ RANGE(
  8000832:	4b44      	ldr	r3, [pc, #272]	; (8000944 <SpecialMovePID+0x280>)
  8000834:	edd3 7a00 	vldr	s15, [r3]
  8000838:	ed9f 7a47 	vldr	s14, [pc, #284]	; 8000958 <SpecialMovePID+0x294>
@@ -666,10 +664,10 @@ u16 SpecialMovePID(u8 ModeType, u16 SetValue, u16 ActualValue)
  8000866:	eefd 7ae7 	vcvt.s32.f32	s15, s15
  800086a:	ee17 3a90 	vmov	r3, s15
  800086e:	b21b      	sxth	r3, r3
-				(u16) (1500
+		PIDLoc = (u16) (1500
  8000870:	f5b3 7f7a 	cmp.w	r3, #1000	; 0x3e8
  8000874:	da48      	bge.n	8000908 <SpecialMovePID+0x244>
-						+ range(
+				+ RANGE(
  8000876:	4b33      	ldr	r3, [pc, #204]	; (8000944 <SpecialMovePID+0x280>)
  8000878:	edd3 7a00 	vldr	s15, [r3]
  800087c:	ed9f 7a36 	vldr	s14, [pc, #216]	; 8000958 <SpecialMovePID+0x294>
@@ -714,12 +712,11 @@ u16 SpecialMovePID(u8 ModeType, u16 SetValue, u16 ActualValue)
  8000900:	e004      	b.n	800090c <SpecialMovePID+0x248>
  8000902:	f44f 73fa 	mov.w	r3, #500	; 0x1f4
  8000906:	e001      	b.n	800090c <SpecialMovePID+0x248>
-				(u16) (1500
+		PIDLoc = (u16) (1500
  8000908:	f640 13c4 	movw	r3, #2500	; 0x9c4
-		PIDLoc =
  800090c:	81fb      	strh	r3, [r7, #14]
-								(int16_t ) (PID_O_Kp * Ek + (PID_O_Ki * LocSum) + PID_O_Kd * (Ek1 - Ek)),
-								-1000, 1000));
+						(int16_t) (PID_O_Kp * Ek + (PID_O_Ki * LocSum)
+								+ PID_O_Kd * (Ek1 - Ek)), -1000, 1000));
 		return PIDLoc;
  800090e:	89fb      	ldrh	r3, [r7, #14]
  8000910:	e00f      	b.n	8000932 <SpecialMovePID+0x26e>
@@ -766,8 +763,10 @@ u16 SpecialMovePID(u8 ModeType, u16 SetValue, u16 ActualValue)
  800095c:	43160000 	.word	0x43160000
 
 08000960 <SendBackPoint>:
-
-//回传指针初始化
+/* 上传指针数据格式化
+ * 将读取到的传感器数据合并
+ * 然后格式化成可以上传的十六进制数据
+ * */
 void SendBackPoint(u8 *TXString, u8 *DeepSIO, u8 *WT931SIO, u8 *GY39SIO)
 {
  8000960:	b590      	push	{r4, r7, lr}
@@ -777,32 +776,33 @@ void SendBackPoint(u8 *TXString, u8 *DeepSIO, u8 *WT931SIO, u8 *GY39SIO)
  8000968:	60b9      	str	r1, [r7, #8]
  800096a:	607a      	str	r2, [r7, #4]
  800096c:	603b      	str	r3, [r7, #0]
-	DeepSensorIO = DeepSIO;
+	DeepSensorIO = DeepSIO; //深度传感器数据
  800096e:	4a39      	ldr	r2, [pc, #228]	; (8000a54 <SendBackPoint+0xf4>)
  8000970:	68bb      	ldr	r3, [r7, #8]
  8000972:	6013      	str	r3, [r2, #0]
-	WT931SensorIO = WT931SIO;
+	WT931SensorIO = WT931SIO; //九轴传感器数据
  8000974:	4a38      	ldr	r2, [pc, #224]	; (8000a58 <SendBackPoint+0xf8>)
  8000976:	687b      	ldr	r3, [r7, #4]
  8000978:	6013      	str	r3, [r2, #0]
-	GY39SensorIO = GY39SIO;
+	GY39SensorIO = GY39SIO; //温湿度气压传感器数据
  800097a:	4a38      	ldr	r2, [pc, #224]	; (8000a5c <SendBackPoint+0xfc>)
  800097c:	683b      	ldr	r3, [r7, #0]
  800097e:	6013      	str	r3, [r2, #0]
-	TXString[0] = 0x25;
+	TXString[0] = 0x25; //起始位
  8000980:	68fb      	ldr	r3, [r7, #12]
  8000982:	2225      	movs	r2, #37	; 0x25
  8000984:	701a      	strb	r2, [r3, #0]
-	TXString[39] = 0xFF;
+	TXString[39] = 0xFF; //结束位
  8000986:	68fb      	ldr	r3, [r7, #12]
  8000988:	3327      	adds	r3, #39	; 0x27
  800098a:	22ff      	movs	r2, #255	; 0xff
  800098c:	701a      	strb	r2, [r3, #0]
-	TXString[40] = 0xFF;
+	TXString[40] = 0xFF; //结束位
  800098e:	68fb      	ldr	r3, [r7, #12]
  8000990:	3328      	adds	r3, #40	; 0x28
  8000992:	22ff      	movs	r2, #255	; 0xff
  8000994:	701a      	strb	r2, [r3, #0]
+	/* 封装数据 */
 	PUString = TXString;
  8000996:	4a32      	ldr	r2, [pc, #200]	; (8000a60 <SendBackPoint+0x100>)
  8000998:	68fb      	ldr	r3, [r7, #12]
@@ -907,7 +907,7 @@ void SendBackPoint(u8 *TXString, u8 *DeepSIO, u8 *WT931SIO, u8 *GY39SIO)
  8000a36:	3326      	adds	r3, #38	; 0x26
  8000a38:	4a14      	ldr	r2, [pc, #80]	; (8000a8c <SendBackPoint+0x12c>)
  8000a3a:	6013      	str	r3, [r2, #0]
-	*PUId = XorCaculate(TXString, 38);
+	*PUId = XorCaculate(TXString, 38); //获取并封装奇偶校验位
  8000a3c:	4b13      	ldr	r3, [pc, #76]	; (8000a8c <SendBackPoint+0x12c>)
  8000a3e:	681c      	ldr	r4, [r3, #0]
  8000a40:	2126      	movs	r1, #38	; 0x26
@@ -923,7 +923,7 @@ void SendBackPoint(u8 *TXString, u8 *DeepSIO, u8 *WT931SIO, u8 *GY39SIO)
  8000a54:	200000c8 	.word	0x200000c8
  8000a58:	200000d0 	.word	0x200000d0
  8000a5c:	200000cc 	.word	0x200000cc
- 8000a60:	20000074 	.word	0x20000074
+ 8000a60:	20000030 	.word	0x20000030
  8000a64:	20000078 	.word	0x20000078
  8000a68:	2000007c 	.word	0x2000007c
  8000a6c:	20000080 	.word	0x20000080
@@ -937,8 +937,8 @@ void SendBackPoint(u8 *TXString, u8 *DeepSIO, u8 *WT931SIO, u8 *GY39SIO)
  8000a8c:	200000c4 	.word	0x200000c4
 
 08000a90 <SendBack>:
-
-//上传数据处理
+ * 将封装好的传感器数据再解析成能够回传到上位机和其他舱室的数据
+ * */
 void SendBack(u8 WaterDetect, u16 TempNum, u16 BaroNum[2], u16 HumNum,
 		u16 AccNum[3], u16 RotNum[3], u16 EulNum[3], u16 MagNum[3],
 		u16 WaterTNum, u16 WaterDNum)
@@ -959,7 +959,8 @@ void SendBack(u8 WaterDetect, u16 TempNum, u16 BaroNum[2], u16 HumNum,
  8000aa8:	681b      	ldr	r3, [r3, #0]
  8000aaa:	2200      	movs	r2, #0
  8000aac:	701a      	strb	r2, [r3, #0]
-	if (WaterDetect)
+
+	if (WaterDetect) //漏水检测
  8000aae:	7bfb      	ldrb	r3, [r7, #15]
  8000ab0:	2b00      	cmp	r3, #0
  8000ab2:	d007      	beq.n	8000ac4 <SendBack+0x34>
@@ -974,7 +975,7 @@ void SendBack(u8 WaterDetect, u16 TempNum, u16 BaroNum[2], u16 HumNum,
  8000ac0:	b2d2      	uxtb	r2, r2
  8000ac2:	701a      	strb	r2, [r3, #0]
 	}
-	if (!(*GY39SensorIO))
+	if (!(*GY39SensorIO)) //温湿度大气压传感器
  8000ac4:	4b3a      	ldr	r3, [pc, #232]	; (8000bb0 <SendBack+0x120>)
  8000ac6:	681b      	ldr	r3, [r3, #0]
  8000ac8:	781b      	ldrb	r3, [r3, #0]
@@ -1004,7 +1005,7 @@ void SendBack(u8 WaterDetect, u16 TempNum, u16 BaroNum[2], u16 HumNum,
  8000aee:	88fa      	ldrh	r2, [r7, #6]
  8000af0:	801a      	strh	r2, [r3, #0]
 	}
-	if (!(*WT931SensorIO))
+	if (!(*WT931SensorIO)) //九轴传感器
  8000af2:	4b33      	ldr	r3, [pc, #204]	; (8000bc0 <SendBack+0x130>)
  8000af4:	681b      	ldr	r3, [r3, #0]
  8000af6:	781b      	ldrb	r3, [r3, #0]
@@ -1085,6 +1086,7 @@ void SendBack(u8 WaterDetect, u16 TempNum, u16 BaroNum[2], u16 HumNum,
  8000b72:	801a      	strh	r2, [r3, #0]
 	}
 #ifdef CtrlSide
+	//主控制仓有水深传感器，需要先检测是否正常连接
 	if (!(*DeepSensorIO))
  8000b74:	4b17      	ldr	r3, [pc, #92]	; (8000bd4 <SendBack+0x144>)
  8000b76:	681b      	ldr	r3, [r3, #0]
@@ -1102,8 +1104,8 @@ void SendBack(u8 WaterDetect, u16 TempNum, u16 BaroNum[2], u16 HumNum,
  8000b88:	681b      	ldr	r3, [r3, #0]
  8000b8a:	8eba      	ldrh	r2, [r7, #52]	; 0x34
  8000b8c:	801a      	strh	r2, [r3, #0]
-
 #ifdef PowerSide
+	//推进器控制仓没有水深传感器
 	*PUWaterT = NULL;
 	*PUWaterD = NULL;
 #endif
@@ -1136,7 +1138,7 @@ void SendBack(u8 WaterDetect, u16 TempNum, u16 BaroNum[2], u16 HumNum,
  8000bd4:	200000c8 	.word	0x200000c8
  8000bd8:	200000bc 	.word	0x200000bc
  8000bdc:	200000c0 	.word	0x200000c0
- 8000be0:	20000074 	.word	0x20000074
+ 8000be0:	20000030 	.word	0x20000030
  8000be4:	200000c4 	.word	0x200000c4
 
 08000be8 <IdTest>:
@@ -1423,7 +1425,7 @@ void WT931Point(u8 *SerialData)
 
 08000d84 <WT931Take>:
 
-//WT931数据输出
+//WT931数据取出
 void WT931Take(u16 *AccelerationNum, u16 *RotSpeedNum, u16 *EulerAngleNum,
 		u16 *MagnetismNum)
 {
@@ -1434,7 +1436,6 @@ void WT931Take(u16 *AccelerationNum, u16 *RotSpeedNum, u16 *EulerAngleNum,
  8000d8c:	60b9      	str	r1, [r7, #8]
  8000d8e:	607a      	str	r2, [r7, #4]
  8000d90:	603b      	str	r3, [r7, #0]
-
 	AccelerationNum[0] = *PAccPos[0];
  8000d92:	4b25      	ldr	r3, [pc, #148]	; (8000e28 <WT931Take+0xa4>)
  8000d94:	681b      	ldr	r3, [r3, #0]

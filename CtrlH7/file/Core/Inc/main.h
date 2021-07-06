@@ -39,7 +39,7 @@ extern "C" {
 
 /* Exported types ------------------------------------------------------------*/
 /* USER CODE BEGIN ET */
-//STP库的惯用表示
+/* STP库的惯用表示 */
 typedef unsigned char u8;
 typedef unsigned short u16;
 typedef long unsigned int u32;

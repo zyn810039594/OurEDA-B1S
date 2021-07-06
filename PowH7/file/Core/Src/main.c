@@ -39,15 +39,20 @@
 /* USER CODE BEGIN PM */
 
 //上传传感器仓位标志位
+/* 0 控制仓
+ * 1 电源仓
+ * 2 控水
+ * 4 电水
+ * */
 u8 SensorCabin = 0;
 
-//上位机接收完毕标志位
+//上位仓接收完毕标志位
 u8 UpSideFinish = 0;
 
-//上位机缓存读写标志位
+//上位仓缓存读写标志位
 volatile u8 UpIO = 0;
 
-//上位机接收缓存
+//上位仓接收缓存
 u8 UpCache[UART3RXLen];
 
 //传感器读取完成标志位
@@ -58,7 +63,7 @@ u8 GY39Finish = 0;
 volatile u8 WT931IO = 0;
 volatile u8 GY39IO = 0;
 
-//传感器缓存
+//传感器数据缓存
 u8 WaterDetect = 0;
 u16 AccelerationCache[3] =
 { 0 };
@@ -68,11 +73,11 @@ u16 EulerAngleCache[3] =
 { 0 };
 u16 MagnetisCache[3] =
 { 0 };
-
 u16 TemCache = 0;
 u16 BaroCache[2] =
 { 0 };
 u16 HumCache = 0;
+
 //传感器数据长度
 u8 WT931Len = 0;
 
@@ -87,13 +92,19 @@ u8 UART3RXCache[UART3RXLen];
 u8 UART3TXCache[UART3TXLen];
 
 //PWM端口定向指针
+//推进器PWM
 static u32 *ThrusterPWM[6] =
 { &TIM4->CCR1, &TIM4->CCR3, &TIM4->CCR2, &TIM4->CCR4, &TIM2->CCR4, &TIM2->CCR3 };
+//机械臂PWM
 static u32 *ArmPWM[6] =
 { &TIM5->CCR4, &TIM5->CCR3, &TIM5->CCR2, &TIM3->CCR1, &TIM3->CCR4, &TIM3->CCR3 };
+//灯光PWM
 static u32 *LightPWM = &TIM2->CCR2;
+//云台PWM
 static u32 *THPWM = &TIM2->CCR1;
+//传送带PWM
 static u32 *TranspPWM = &TIM5->CCR1;
+//保留PWM
 static u32 *ReservePWM = &TIM3->CCR2;
 
 /* USER CODE END PM */
@@ -258,7 +269,6 @@ int main(void)
 	while (1)
 	{
 		/* USER CODE END WHILE */
-		osDelay(1);
 		/* USER CODE BEGIN 3 */
 	}
 	/* USER CODE END 3 */
@@ -914,11 +924,11 @@ void InitialTaskF(void const *argument)
 	vTaskSuspend(SensorTaskHandle);
 	vTaskSuspend(UpTaskHandle);
 	vTaskSuspend(CtrlTaskHandle);
-	//继电器打开
-	HAL_GPIO_WritePin(GPIOD, GPIO_PIN_11, GPIO_PIN_RESET);
+	//继电器闭合
+	HAL_GPIO_WritePin(GPIOD, GPIO_PIN_11, GPIO_PIN_SET);
 	//初始化回传指针
 	SendBackPoint(UART3TXCache, NULL, &WT931IO, &GY39IO);
-	//初始化下传数据接收缓存
+	//初始化并格式化下传数据缓存
 	DownDetectPoint(UpCache);
 	/* 初始化一大堆PWM */
 	HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_1);
@@ -1040,7 +1050,7 @@ void UpTaskF(void const *argument)
 		}
 		DoingEnable = 1;
 		__HAL_UART_ENABLE_IT(&huart3, UART_IT_IDLE);
-		HAL_UART_Receive_DMA(&huart3, UART1RXCache, UART1RXLen);
+		HAL_UART_Receive_DMA(&huart3, UART3RXCache, UART3RXLen);
 		SendBack(WaterDetect, TemCache, BaroCache, HumCache, AccelerationCache,
 				RotSpeedCache, EulerAngleCache, MagnetisCache, NULL, NULL);
 		HAL_UART_Transmit_DMA(&huart3, UART3TXCache, UART3TXLen);
