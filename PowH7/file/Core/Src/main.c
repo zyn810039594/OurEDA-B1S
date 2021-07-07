@@ -64,19 +64,20 @@ volatile u8 WT931IO = 0;
 volatile u8 GY39IO = 0;
 
 //传感器数据缓存
-u8 WaterDetect = 0;
+u8 WaterDetect = 0; //漏水检测
 u16 AccelerationCache[3] =
-{ 0 };
+{ 0 }; //加速度值缓存
 u16 RotSpeedCache[3] =
-{ 0 };
+{ 0 }; //角速度值缓存
 u16 EulerAngleCache[3] =
-{ 0 };
+{ 0 }; //角度值缓存
 u16 MagnetisCache[3] =
-{ 0 };
-u16 TemCache = 0;
+{ 0 }; //磁场值缓存
+u16 TemCache = 0; //温度值缓存
 u16 BaroCache[2] =
-{ 0 };
-u16 HumCache = 0;
+{ 0 }; //大气压值缓存
+u16 HumCache = 0; //湿度值缓存
+//本仓没有水深水温传感器
 
 //传感器数据长度
 u8 WT931Len = 0;
@@ -85,11 +86,11 @@ u8 WT931Len = 0;
 u8 DoingEnable = 0;
 
 //串口收发缓存
-u8 UART1RXCache[UART1RXLen];
-u8 UART1TXCache[UART1TXLen];
-u8 UART2RXCache[UART2RXLen];
-u8 UART3RXCache[UART3RXLen];
-u8 UART3TXCache[UART3TXLen];
+u8 UART1RXCache[UART1RXLen]; //温湿度大气压传感器数据串口缓存
+u8 UART1TXCache[UART1TXLen]; //温湿度大气压传感器指令串口缓存
+u8 UART2RXCache[UART2RXLen]; //九轴传感器数据串口缓存
+u8 UART3RXCache[UART3RXLen]; //上传数据串口缓存
+u8 UART3TXCache[UART3TXLen]; //下传指令串口缓存
 
 //PWM端口定向指针
 //推进器PWM
@@ -959,6 +960,7 @@ void InitialTaskF(void const *argument)
 	for (;;)
 	{
 		osDelay(1);
+		HAL_IWDG_Refresh(&hiwdg1);
 	}
 	/* USER CODE END 5 */
 }
@@ -973,44 +975,46 @@ void InitialTaskF(void const *argument)
 void SensorTaskF(void const *argument)
 {
 	/* USER CODE BEGIN SensorTaskF */
-	WT931Point(UART2RXCache);
-	GY39InitStr(UART1TXCache);
-	HAL_UART_Transmit_DMA(&huart1, UART1TXCache, UART1TXLen);
+	WT931Point(UART2RXCache); //九轴传感器读取指针定向
+
+	GY39InitStr(UART1TXCache); //温湿度大气压传感器串口缓存区定向
 	GY39Point(UART1RXCache);
+	//向传感器发送初始化指令
+	HAL_UART_Transmit_DMA(&huart1, UART1TXCache, UART1TXLen);
 	/* Infinite loop */
 	for (;;)
 	{
-		WaterDetect = HAL_GPIO_ReadPin(GPIOD, GPIO_PIN_10);
-		if (WT931Finish)
+		WaterDetect = HAL_GPIO_ReadPin(GPIOD, GPIO_PIN_10); //检测是否漏水
+		if (WT931Finish) //如果传感器读取完成
 		{
-			while (WT931IO)
+			while (WT931IO) //等待传感器读写
 			{
 				osDelay(1);
 			}
-			WT931IO = 1;
-			if (WT931Len == 44)
+			WT931IO = 1; //正在读写传感器缓存
+			if (WT931Len == 44) //检测传感器数据长度是否正确
 			{
 				WT931Take(AccelerationCache, RotSpeedCache, EulerAngleCache,
 						MagnetisCache);
 			}
-			WT931Finish = 0;
-			HAL_UART_Receive_DMA(&huart3, UART3RXCache, UART3RXLen);
-			__HAL_UART_ENABLE_IT(&huart3, UART_IT_IDLE);
-			WT931IO = 0;
-
+			WT931Finish = 0; //已完成传感器数据取出
+			HAL_UART_Receive_DMA(&huart2, UART2RXCache, UART2RXLen); //接收上位机指令数据
+			__HAL_UART_ENABLE_IT(&huart2, UART_IT_IDLE);
+			WT931IO = 0; //传感器缓存读写完毕
 		}
-		if (GY39Finish)
+
+		if (GY39Finish) //如果传感器读取完成
 		{
-			while (GY39IO)
+			while (GY39IO) //等待传感器读写
 			{
 				osDelay(1);
 			}
-			GY39IO = 1;
+			GY39IO = 1; //正在读写传感器缓存
 			GY39Take(&TemCache, BaroCache, &HumCache);
-			GY39Finish = 0;
-			HAL_UART_Receive_DMA(&huart2, UART2RXCache, UART2RXLen);
-			__HAL_UART_ENABLE_IT(&huart2, UART_IT_IDLE);
-			GY39IO = 0;
+			GY39Finish = 0; //已完成传感器数据取出
+			HAL_UART_Receive_DMA(&huart1, UART1RXCache, UART1RXLen); //接收九轴传感器数据
+			__HAL_UART_ENABLE_IT(&huart1, UART_IT_IDLE);
+			GY39IO = 0; //传感器缓存读写完毕
 		}
 		HAL_IWDG_Refresh(&hiwdg1);
 	}
@@ -1030,30 +1034,35 @@ void UpTaskF(void const *argument)
 	/* Infinite loop */
 	for (;;)
 	{
-		while (!UpSideFinish)
+		while (!UpSideFinish) //等待数据下传
 		{
 			osDelay(1);
 		}
 		UpSideFinish = 0;
-		if (IdTest(UART3RXCache, 0))
+		if (IdTest(UART3RXCache, 0)) //下传指令数据校验
 		{
-			while (UpIO)
+			while (UpIO) //等待IO空闲
 			{
 				osDelay(1);
 			}
-			UpIO = 1;
-			for (u8 i = 0; i < UART1RXLen; ++i)
+			UpIO = 1; //正在收取下传数据
+			for (u8 i = 0; i < UART3RXLen; ++i)
 			{
 				UpCache[i] = UART3RXCache[i];
 			}
-			UpIO = 0;
+			UpIO = 0; //收取结束
 		}
-		DoingEnable = 1;
-		__HAL_UART_ENABLE_IT(&huart3, UART_IT_IDLE);
+		DoingEnable = 1; //可以开始作业
+
+		//从DMA读取下传指令数据到缓存区
 		HAL_UART_Receive_DMA(&huart3, UART3RXCache, UART3RXLen);
+		__HAL_UART_ENABLE_IT(&huart3, UART_IT_IDLE);
+
+		//上传传感器数据
 		SendBack(WaterDetect, TemCache, BaroCache, HumCache, AccelerationCache,
 				RotSpeedCache, EulerAngleCache, MagnetisCache, NULL, NULL);
 		HAL_UART_Transmit_DMA(&huart3, UART3TXCache, UART3TXLen);
+
 		HAL_IWDG_Refresh(&hiwdg1);
 	}
 	/* USER CODE END UpTaskF */
@@ -1075,7 +1084,7 @@ void CtrlTaskF(void const *argument)
 	static u8 RMode = 0;
 	static u8 RRelay = 0;
 
-	while (!DoingEnable)
+	while (!DoingEnable) //等待允许作业的指令
 	{
 		osDelay(1);
 	}
@@ -1083,18 +1092,22 @@ void CtrlTaskF(void const *argument)
 	/* Infinite loop */
 	for (;;)
 	{
-		while (UpIO)
+		while (UpIO) //不打扰上传或收取数据
 		{
 			osDelay(1);
 		}
 		UpIO = 1;
-		/* 接收并处理下传数据 */
+
+		/* 接收并处理解析数据 */
 		DownDetectReceive(&RStraightNum, &RRotateNum, &RVerticalNum, LightPWM,
 				THPWM, TranspPWM, ArmPWM, ReservePWM, &RMode, &RRelay);
-		//控制继电器
+
+		//根据指令控制继电器
 		HAL_GPIO_WritePin(GPIOD, GPIO_PIN_11, RRelay);
-		//通过控制PWM操作推进器来处理机器人运动
+
+		//根据指令控制PWM操作推进器来处理机器人运动
 		MoveControl(RStraightNum, RRotateNum, RVerticalNum, RMode, ThrusterPWM);
+
 		HAL_IWDG_Refresh(&hiwdg1);
 	}
 	/* USER CODE END CtrlTaskF */

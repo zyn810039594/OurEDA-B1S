@@ -39,10 +39,10 @@ static u16 *THumPos = 0; 				//湿度数据
 //水深初始化字符串
 const u8 DSendStr[3];					//水深数据
 
-//GY39初始化字符串
+//GY39初始化字符串，不要改动
 const u8 TInitStr[3] =
 { 0xA5, 0x80, 0x25 };
-//GY39请求温湿度气压字符串
+//GY39请求一次温湿度气压字符串，不要改动
 const u8 TSendStr[3] =
 { 0xA5, 0x52, 0xF7 };
 
