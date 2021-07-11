@@ -2,7 +2,7 @@
 VP_TIM5_VS_ClockSourceINT.Mode=Internal
 Dma.USART1_TX.4.SyncSignalID=NONE
 VP_SYS_VS_tim6.Mode=TIM6
-USART2.IPParameters=VirtualMode-Asynchronous
+USART2.IPParameters=VirtualMode-Asynchronous,BaudRate
 VP_TIM5_VS_ClockSourceINT.Signal=TIM5_VS_ClockSourceINT
 NVIC.TIM6_DAC_IRQn=true\:0\:0\:false\:false\:true\:false\:false\:true
 Dma.USART1_TX.4.SyncEnable=DISABLE
@@ -121,6 +121,7 @@ Dma.USART3_TX.3.SignalID=NONE
 TIM5.Channel-PWM\ Generation3\ CH3=TIM_CHANNEL_3
 RCC.QSPIFreq_Value=200000000
 PD6.Mode=Asynchronous
+USART2.BaudRate=921600
 Dma.USART3_TX.3.PeriphInc=DMA_PINC_DISABLE
 PD10.Signal=GPIO_Input
 RCC.D1CPREFreq_Value=400000000

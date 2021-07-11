@@ -78,25 +78,25 @@ void DownDetectReceive(u16 *StraightNum, u16 *RotateNum, u16 *VerticalNum,
 	if (IdTest(PDString, 0)) //如果开启数据校验，则自动对校验位进行检测
 	{
 #endif
-		if ((*PDBegin == 0x25) && (*PDEnd == 0x21)) //识别起始和结束位
-		{
-			/* 保存各控制位数据 */
-			*StraightNum = *PDStraight;
-			*RotateNum = *PDRotate;
-			*VerticalNum = *PDVertical;
-			*LightNum = *PDLight;
-			*THNum = *PDTH;
-			*TranspNum = *PDTransp;
-			*ArmNum[0] = *PDArm[0];
-			*ArmNum[1] = *PDArm[1];
-			*ArmNum[2] = *PDArm[2];
-			*ArmNum[3] = *PDArm[3];
-			*ArmNum[4] = *PDArm[4];
-			*ArmNum[5] = *PDArm[5];
-			*ResPWM = *PDRes;
-			*ModeNum = (*PDMode & 7);
-			*RelaySW = (*PDMode & 8);
-		}
+	if ((*PDBegin == 0x25) && (*PDEnd == 0x21)) //识别起始和结束位
+	{
+		/* 保存各控制位数据 */
+		*StraightNum = *PDStraight;
+		*RotateNum = *PDRotate;
+		*VerticalNum = *PDVertical;
+		*LightNum = *PDLight;
+		*THNum = *PDTH;
+		*TranspNum = *PDTransp;
+		*ArmNum[0] = *PDArm[0];
+		*ArmNum[1] = *PDArm[1];
+		*ArmNum[2] = *PDArm[2];
+		*ArmNum[3] = *PDArm[3];
+		*ArmNum[4] = *PDArm[4];
+		*ArmNum[5] = *PDArm[5];
+		*ResPWM = *PDRes;
+		*ModeNum = (*PDMode & 7);
+		*RelaySW = (*PDMode & 8);
+	}
 #ifdef DataIdentify
 	}
 #endif
@@ -189,7 +189,7 @@ u16 SpecialMovePID(u8 ModeType, u16 SetValue, u16 ActualValue)
 	//数据清空标志位
 	static u8 PIDData = 0;
 
-	if (ModeType == 4)
+	if (ModeType == 4) //定向模式
 	{
 		PIDData = 0;
 		u16 PIDLoc;
@@ -202,7 +202,7 @@ u16 SpecialMovePID(u8 ModeType, u16 SetValue, u16 ActualValue)
 								-1000, 1000));
 		return PIDLoc;
 	}
-	else if (ModeType == 2)
+	else if (ModeType == 2) //定深模式
 	{
 		PIDData = 0;
 		u16 PIDLoc;
@@ -215,7 +215,7 @@ u16 SpecialMovePID(u8 ModeType, u16 SetValue, u16 ActualValue)
 								-1000, 1000));
 		return PIDLoc;
 	}
-	else
+	else //不使用自主定向定深
 	{
 		if (!PIDData)
 		{
