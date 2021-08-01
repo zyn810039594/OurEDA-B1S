@@ -178,7 +178,12 @@ void DMA1_Stream0_IRQHandler(void)
   /* USER CODE END DMA1_Stream0_IRQn 0 */
   HAL_DMA_IRQHandler(&hdma_usart1_rx);
   /* USER CODE BEGIN DMA1_Stream0_IRQn 1 */
-
+//	huart1.gState = HAL_UART_STATE_READY;
+//	hdma_usart1_rx.State = HAL_DMA_STATE_READY;
+//	__HAL_DMA_CLEAR_FLAG(&hdma_usart1_rx, DMA_FLAG_TCIF3_7);
+//	__HAL_DMA_CLEAR_FLAG(&hdma_usart1_rx, DMA_FLAG_HTIF3_7);
+//	__HAL_DMA_CLEAR_FLAG(&hdma_usart1_rx, DMA_FLAG_FEIF3_7);
+//	__HAL_UNLOCK(&hdma_usart1_rx);
   /* USER CODE END DMA1_Stream0_IRQn 1 */
 }
 
@@ -192,7 +197,12 @@ void DMA1_Stream1_IRQHandler(void)
   /* USER CODE END DMA1_Stream1_IRQn 0 */
   HAL_DMA_IRQHandler(&hdma_usart2_rx);
   /* USER CODE BEGIN DMA1_Stream1_IRQn 1 */
-
+//	huart2.gState = HAL_UART_STATE_READY;
+//	hdma_usart2_rx.State = HAL_DMA_STATE_READY;
+//	__HAL_DMA_CLEAR_FLAG(&hdma_usart2_rx, DMA_FLAG_TCIF3_7);
+//	__HAL_DMA_CLEAR_FLAG(&hdma_usart2_rx, DMA_FLAG_HTIF3_7);
+//	__HAL_DMA_CLEAR_FLAG(&hdma_usart2_rx, DMA_FLAG_FEIF3_7);
+//	__HAL_UNLOCK(&hdma_usart2_rx);
   /* USER CODE END DMA1_Stream1_IRQn 1 */
 }
 
@@ -206,7 +216,12 @@ void DMA1_Stream2_IRQHandler(void)
   /* USER CODE END DMA1_Stream2_IRQn 0 */
   HAL_DMA_IRQHandler(&hdma_usart3_rx);
   /* USER CODE BEGIN DMA1_Stream2_IRQn 1 */
-
+//	huart3.gState = HAL_UART_STATE_READY;
+//	hdma_usart3_rx.State = HAL_DMA_STATE_READY;
+//	__HAL_DMA_CLEAR_FLAG(&hdma_usart3_rx, DMA_FLAG_TCIF3_7);
+//	__HAL_DMA_CLEAR_FLAG(&hdma_usart3_rx, DMA_FLAG_HTIF3_7);
+//	__HAL_DMA_CLEAR_FLAG(&hdma_usart3_rx, DMA_FLAG_FEIF3_7);
+//	__HAL_UNLOCK(&hdma_usart3_rx);
   /* USER CODE END DMA1_Stream2_IRQn 1 */
 }
 
@@ -220,7 +235,12 @@ void DMA1_Stream3_IRQHandler(void)
   /* USER CODE END DMA1_Stream3_IRQn 0 */
   HAL_DMA_IRQHandler(&hdma_usart3_tx);
   /* USER CODE BEGIN DMA1_Stream3_IRQn 1 */
-
+//	huart3.gState = HAL_UART_STATE_READY;
+//	hdma_usart3_tx.State = HAL_DMA_STATE_READY;
+//	__HAL_DMA_CLEAR_FLAG(&hdma_usart3_tx, DMA_FLAG_TCIF3_7);
+//	__HAL_DMA_CLEAR_FLAG(&hdma_usart3_tx, DMA_FLAG_HTIF3_7);
+//	__HAL_DMA_CLEAR_FLAG(&hdma_usart3_tx, DMA_FLAG_FEIF3_7);
+//	__HAL_UNLOCK(&hdma_usart3_tx);
   /* USER CODE END DMA1_Stream3_IRQn 1 */
 }
 
@@ -234,7 +254,12 @@ void DMA1_Stream4_IRQHandler(void)
   /* USER CODE END DMA1_Stream4_IRQn 0 */
   HAL_DMA_IRQHandler(&hdma_usart1_tx);
   /* USER CODE BEGIN DMA1_Stream4_IRQn 1 */
-
+//	huart1.gState = HAL_UART_STATE_READY;
+//	hdma_usart1_tx.State = HAL_DMA_STATE_READY;
+//	__HAL_DMA_CLEAR_FLAG(&hdma_usart1_tx, DMA_FLAG_TCIF3_7);
+//	__HAL_DMA_CLEAR_FLAG(&hdma_usart1_tx, DMA_FLAG_HTIF3_7);
+//	__HAL_DMA_CLEAR_FLAG(&hdma_usart1_tx, DMA_FLAG_FEIF3_7);
+//	__HAL_UNLOCK(&hdma_usart1_tx);
   /* USER CODE END DMA1_Stream4_IRQn 1 */
 }
 
@@ -250,8 +275,8 @@ void USART1_IRQHandler(void)
 	{
 		__HAL_UART_CLEAR_IDLEFLAG(&huart1);
 		HAL_UART_DMAStop(&huart1);
-		__HAL_UART_DISABLE_IT(&huart1, UART_IT_IDLE);
 		GY39Finish = 1;
+		__HAL_UART_DISABLE_IT(&huart1, UART_IT_IDLE);
 	}
   /* USER CODE END USART1_IRQn 0 */
   HAL_UART_IRQHandler(&huart1);
@@ -273,8 +298,8 @@ void USART2_IRQHandler(void)
 		__HAL_UART_CLEAR_IDLEFLAG(&huart2);
 		HAL_UART_DMAStop(&huart2);
 		WT931Len = __HAL_DMA_GET_COUNTER(&hdma_usart2_rx);
-		__HAL_UART_DISABLE_IT(&huart2, UART_IT_IDLE);
 		WT931Finish = 1;
+		__HAL_UART_DISABLE_IT(&huart2, UART_IT_IDLE);
 	}
   /* USER CODE END USART2_IRQn 0 */
   HAL_UART_IRQHandler(&huart2);
@@ -296,8 +321,8 @@ void USART3_IRQHandler(void)
 		__HAL_UART_CLEAR_IDLEFLAG(&huart3);
 		HAL_UART_DMAStop(&huart3);
 		__HAL_DMA_GET_COUNTER(&hdma_usart3_rx);
-		__HAL_UART_DISABLE_IT(&huart3, UART_IT_IDLE);
 		UpSideFinish = 1;
+		__HAL_UART_DISABLE_IT(&huart3, UART_IT_IDLE);
 	}
   /* USER CODE END USART3_IRQn 0 */
   HAL_UART_IRQHandler(&huart3);

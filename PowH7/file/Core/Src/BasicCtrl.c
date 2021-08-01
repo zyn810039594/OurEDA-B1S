@@ -2,48 +2,52 @@
 
 //接收指针定义
 static u8 *PDString = 0;
-static u8 *PDBegin = 0;
-static u16 *PDStraight = 0;
-static u16 *PDRotate = 0;
-static u16 *PDVertical = 0;
-static u16 *PDLight = 0;
-static u16 *PDTH = 0;
-static u16 *PDTransp = 0;
-static u16 *PDArm[6] =
-{ 0 };
-static u16 *PDRes = 0;
-static u8 *PDMode = 0;
-static u8 *PDId = 0;
-static u8 *PDEnd = 0;
-
 //上传指针定义
 static u8 *PUString = 0;
-static u8 *PUCabin = 0;
-static u16 *PUTemp = 0;
+
+static u8 *PDBegin = 0; 	//起始位，应为0x25
+static u16 *PDStraight = 0; //前进后退
+static u16 *PDRotate = 0; 	//旋转侧推
+static u16 *PDVertical = 0; //垂直
+static u16 *PDLight = 0; 	//灯光
+static u16 *PDTH = 0; 		//云台
+static u16 *PDTransp = 0; 	//传送
+static u16 *PDArm[6] =
+{ 0 }; 						//机械臂1-6
+static u16 *PDRes = 0; 		//预留PWM
+static u8 *PDMode = 0; 		//模式开关
+static u8 *PDId = 0; 		//验证位
+static u8 *PDEnd = 0; 		//结束位，应为0x21
+
+//起始位，应为0x25
+static u8 *PUCabin = 0; 	//仓位
+static u16 *PUTemp = 0; 	//温度
 static u16 *PUBaro[2] =
-{ 0 };
-static u16 *PUHum = 0;
+{ 0 }; 						//气压
+static u16 *PUHum = 0; 		//湿度
 static u16 *PUAcc[3] =
-{ 0 };
+{ 0 }; 						//加速度x、y、z
 static u16 *PURot[3] =
-{ 0 };
+{ 0 }; 						//角速度x、y、z
 static u16 *PUEul[3] =
-{ 0 };
+{ 0 }; 						//角度Roll、Pitch、Yaw
 static u16 *PUMag[3] =
-{ 0 };
-static u16 *PUWaterT = 0;
-static u16 *PUWaterD = 0;
-static u8 *PUId = 0;
+{ 0 }; 						//磁场x、y、z
+static u16 *PUWaterT = 0; 	//水温
+static u16 *PUWaterD = 0; 	//水深
+static u8 *PUId = 0; 		//确认位
+//结束位，应为0xFF
 
 //传感器IO读写位指针
-static u8 *DeepSensorIO = 0;
-static u8 *GY39SensorIO = 0;
-static u8 *WT931SensorIO = 0;
+static u8 *DeepSensorIO = 0; 	//深度传感器
+static u8 *GY39SensorIO = 0; 	//温湿度和大气压传感器
+static u8 *WT931SensorIO = 0; 	//九轴传感器
 
-//下传数据读取初始化
+//下传数据读取格式化
 void DownDetectPoint(u8 *RXString)
 {
-	PDBegin = RXString;
+	PDBegin = RXString; //起始位对准
+	/* 其他各位对齐 */
 	PDStraight = (u16*) (RXString + 1);
 	PDRotate = (u16*) (RXString + 3);
 	PDVertical = (u16*) (RXString + 5);
@@ -59,43 +63,49 @@ void DownDetectPoint(u8 *RXString)
 	PDRes = (u16*) (RXString + 25);
 	PDMode = RXString + 27;
 	PDId = RXString + 28;
-	PDEnd = RXString + 29;
+	PDEnd = RXString + 29; //结束位对准
 }
 
-//下传数据处理
+/* 下传数据解析
+ * 从下传数据中获取控制数据
+ * 并保存到控制指针
+ * */
 void DownDetectReceive(u16 *StraightNum, u16 *RotateNum, u16 *VerticalNum,
 		u32 *LightNum, u32 *THNum, u32 *TranspNum, u32 *ArmNum[6], u32 *ResPWM,
 		u8 *ModeNum, u8 *RelaySW)
 {
 #ifdef DataIdentify
-	if (IdTest(PDString, 0))
+	if (IdTest(PDString, 0)) //如果开启数据校验，则自动对校验位进行检测
 	{
 #endif
-		if ((*PDBegin == 0x25) && (*PDEnd == 0x21))
-		{
-			*StraightNum = *PDStraight;
-			*RotateNum = *PDRotate;
-			*VerticalNum = *PDVertical;
-			*LightNum = *PDLight;
-			*THNum = *PDTH;
-			*TranspNum = *PDTransp;
-			*ArmNum[0] = *PDArm[0];
-			*ArmNum[1] = *PDArm[1];
-			*ArmNum[2] = *PDArm[2];
-			*ArmNum[3] = *PDArm[3];
-			*ArmNum[4] = *PDArm[4];
-			*ArmNum[5] = *PDArm[5];
-			*ResPWM = *PDRes;
-			*ModeNum = (*PDMode & 7);
-			*RelaySW = (*PDMode & 8);
-		}
+	if ((*PDBegin == 0x25) && (*PDEnd == 0x21)) //识别起始和结束位
+	{
+		/* 保存各控制位数据 */
+		*StraightNum = *PDStraight;
+		*RotateNum = *PDRotate;
+		*VerticalNum = *PDVertical;
+		*LightNum = *PDLight;
+		*THNum = *PDTH;
+		*TranspNum = *PDTransp;
+		*ArmNum[0] = *PDArm[0];
+		*ArmNum[1] = *PDArm[1];
+		*ArmNum[2] = *PDArm[2];
+		*ArmNum[3] = *PDArm[3];
+		*ArmNum[4] = *PDArm[4];
+		*ArmNum[5] = *PDArm[5];
+		*ResPWM = *PDRes;
+		*ModeNum = (*PDMode & 7);
+		*RelaySW = (*PDMode & 8);
+	}
 #ifdef DataIdentify
 	}
 #endif
 
 }
 
-//运动模式判断
+/* 运动模式判断
+ * 主控制端使用&6模式，推进器控制端使用&4模式
+ * */
 u8 DownMoveDetect(void)
 {
 #ifdef CtrlSide
@@ -106,7 +116,10 @@ u8 DownMoveDetect(void)
 #endif
 }
 
-//机器人正常运动处理函数
+/* 机器人正常运动处理函数
+ * 使用经验公式解算推进器参数
+ * 最好不要修改这部分代码
+ * */
 void MoveControl(u16 StraightNum, u16 RotateNum, u16 VerticalNum, u8 ModeNum,
 		u32 *MoveThruster[6])
 {
@@ -160,10 +173,11 @@ void MoveControl(u16 StraightNum, u16 RotateNum, u16 VerticalNum, u8 ModeNum,
 		*MoveThruster[4] = (u32) (VerticalNum);
 		*MoveThruster[5] = (u32) (VerticalNum);
 	}
-
 }
 
-//特殊运动模式处理
+/* 特殊运动模式处理
+ * 使用PID算法实现机器人自主定向定深
+ * */
 u16 SpecialMovePID(u8 ModeType, u16 SetValue, u16 ActualValue)
 {
 	//当前误差
@@ -175,7 +189,7 @@ u16 SpecialMovePID(u8 ModeType, u16 SetValue, u16 ActualValue)
 	//数据清空标志位
 	static u8 PIDData = 0;
 
-	if (ModeType == 4)
+	if (ModeType == 4) //定向模式
 	{
 		PIDData = 0;
 		u16 PIDLoc;
@@ -183,12 +197,12 @@ u16 SpecialMovePID(u8 ModeType, u16 SetValue, u16 ActualValue)
 		LocSum += Ek;
 		PIDLoc =
 				(u16) (1500
-						+ range(
-								(int16_t ) (PID_D_Kp * Ek + (PID_D_Ki * LocSum) + PID_D_Kd * (Ek1 - Ek)),
+						+ RANGE(
+								(int16_t) (PID_D_Kp * Ek + (PID_D_Ki * LocSum) + PID_D_Kd * (Ek1 - Ek)),
 								-1000, 1000));
 		return PIDLoc;
 	}
-	else if (ModeType == 2)
+	else if (ModeType == 2) //定深模式
 	{
 		PIDData = 0;
 		u16 PIDLoc;
@@ -196,12 +210,12 @@ u16 SpecialMovePID(u8 ModeType, u16 SetValue, u16 ActualValue)
 		LocSum += Ek;
 		PIDLoc =
 				(u16) (1500
-						+ range(
-								(int16_t ) (PID_O_Kp * Ek + (PID_O_Ki * LocSum) + PID_O_Kd * (Ek1 - Ek)),
+						+ RANGE(
+								(int16_t) (PID_O_Kp * Ek + (PID_O_Ki * LocSum) + PID_O_Kd * (Ek1 - Ek)),
 								-1000, 1000));
 		return PIDLoc;
 	}
-	else
+	else //不使用自主定向定深
 	{
 		if (!PIDData)
 		{
@@ -214,15 +228,19 @@ u16 SpecialMovePID(u8 ModeType, u16 SetValue, u16 ActualValue)
 
 }
 
-//回传指针初始化
+/* 上传指针数据格式化
+ * 将读取到的传感器数据合并
+ * 然后格式化成可以上传的十六进制数据
+ * */
 void SendBackPoint(u8 *TXString, u8 *DeepSIO, u8 *WT931SIO, u8 *GY39SIO)
 {
-	DeepSensorIO = DeepSIO;
-	WT931SensorIO = WT931SIO;
-	GY39SensorIO = GY39SIO;
-	TXString[0] = 0x25;
-	TXString[39] = 0xFF;
-	TXString[40] = 0xFF;
+	DeepSensorIO = DeepSIO; //深度传感器数据
+	WT931SensorIO = WT931SIO; //九轴传感器数据
+	GY39SensorIO = GY39SIO; //温湿度气压传感器数据
+	TXString[0] = 0x25; //起始位
+	TXString[39] = 0xFF; //结束位
+	TXString[40] = 0xFF; //结束位
+	/* 封装数据 */
 	PUString = TXString;
 	PUCabin = TXString + 1;
 	PUTemp = (u16*) (TXString + 2);
@@ -244,27 +262,30 @@ void SendBackPoint(u8 *TXString, u8 *DeepSIO, u8 *WT931SIO, u8 *GY39SIO)
 	PUWaterT = (u16*) (TXString + 34);
 	PUWaterD = (u16*) (TXString + 36);
 	PUId = TXString + 38;
-	*PUId = XorCaculate(TXString, 38);
+	*PUId = XorCaculate(TXString, 38); //获取并封装奇偶校验位
 }
 
-//上传数据处理
+/* 上传指针数据解析
+ * 将封装好的传感器数据再解析成能够回传到上位机和其他舱室的数据
+ * */
 void SendBack(u8 WaterDetect, u16 TempNum, u16 BaroNum[2], u16 HumNum,
 		u16 AccNum[3], u16 RotNum[3], u16 EulNum[3], u16 MagNum[3],
 		u16 WaterTNum, u16 WaterDNum)
 {
 	*PUCabin = CabinNum;
-	if (WaterDetect)
+
+	if (WaterDetect) //漏水检测
 	{
 		*PUCabin += WaterNum;
 	}
-	if (!(*GY39SensorIO))
+	if (!(*GY39SensorIO)) //温湿度大气压传感器
 	{
 		*PUTemp = TempNum;
 		*PUBaro[0] = BaroNum[0];
 		*PUBaro[1] = BaroNum[1];
 		*PUHum = HumNum;
 	}
-	if (!(*WT931SensorIO))
+	if (!(*WT931SensorIO)) //九轴传感器
 	{
 		*PUAcc[0] = AccNum[0];
 		*PUAcc[1] = AccNum[1];
@@ -280,6 +301,7 @@ void SendBack(u8 WaterDetect, u16 TempNum, u16 BaroNum[2], u16 HumNum,
 		*PUMag[2] = MagNum[2];
 	}
 #ifdef CtrlSide
+	//主控制仓有水深传感器，需要先检测是否正常连接
 	if (!(*DeepSensorIO))
 	{
 		*PUWaterT = WaterTNum;
@@ -288,6 +310,7 @@ void SendBack(u8 WaterDetect, u16 TempNum, u16 BaroNum[2], u16 HumNum,
 #endif
 
 #ifdef PowerSide
+	//推进器控制仓没有水深传感器
 	*PUWaterT = NULL;
 	*PUWaterD = NULL;
 #endif
