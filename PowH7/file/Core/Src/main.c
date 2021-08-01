@@ -47,7 +47,7 @@ u8 UpSideFinish = 0;
 //上位机缓存读写标志位
 volatile u8 UpIO = 0;
 
-//上位机接收缓存
+//上位机接收缓�?
 u8 UpCache[UART3RXLen];
 
 //传感器读取完成标志位
@@ -58,7 +58,7 @@ u8 GY39Finish = 0;
 volatile u8 WT931IO = 0;
 volatile u8 GY39IO = 0;
 
-//传感器缓存
+//传感器缓�?
 u8 WaterDetect = 0;
 u16 AccelerationCache[3] =
 { 0 };
@@ -73,18 +73,18 @@ u16 TemCache = 0;
 u16 BaroCache[2] =
 { 0 };
 u16 HumCache = 0;
-//传感器数据长度
+//传感器数据长�?
 u8 WT931Len = 0;
 
-//作业起始标志位
+//作业起始标志�?
 u8 DoingEnable = 0;
 
 //串口收发缓存
-u8 UART1RXCache[UART1RXLen];
-u8 UART1TXCache[UART1TXLen];
-u8 UART2RXCache[UART2RXLen];
-u8 UART3RXCache[UART3RXLen];
-u8 UART3TXCache[UART3TXLen];
+__attribute__((section(".RAM_D1")))     u8 UART1RXCache[UART1RXLen];
+__attribute__((section(".RAM_D1")))     u8 UART1TXCache[UART1TXLen];
+__attribute__((section(".RAM_D1")))     u8 UART2RXCache[UART2RXLen];
+__attribute__((section(".RAM_D1")))     u8 UART3RXCache[UART3RXLen];
+__attribute__((section(".RAM_D1")))     u8 UART3TXCache[UART3TXLen];
 
 //PWM端口定向指针
 static u32 *ThrusterPWM[6] =
@@ -166,9 +166,6 @@ int main(void)
 	/* Enable I-Cache---------------------------------------------------------*/
 	SCB_EnableICache();
 
-	/* Enable D-Cache---------------------------------------------------------*/
-	SCB_EnableDCache();
-
 	/* MCU Configuration--------------------------------------------------------*/
 
 	/* Reset of all peripherals, Initializes the Flash interface and the Systick. */
@@ -221,27 +218,22 @@ int main(void)
 
 	/* Create the thread(s) */
 	/* definition and creation of InitialTask */
-	//初始化任务
 	osThreadDef(InitialTask, InitialTaskF, osPriorityRealtime, 0, 128);
 	InitialTaskHandle = osThreadCreate(osThread(InitialTask), NULL);
 
 	/* definition and creation of SensorTask */
-	//读取传感器任务
 	osThreadDef(SensorTask, SensorTaskF, osPriorityNormal, 0, 128);
 	SensorTaskHandle = osThreadCreate(osThread(SensorTask), NULL);
 
 	/* definition and creation of UpTask */
-	//上传数据任务
 	osThreadDef(UpTask, UpTaskF, osPriorityNormal, 0, 128);
 	UpTaskHandle = osThreadCreate(osThread(UpTask), NULL);
 
 	/* definition and creation of CtrlTask */
-	//控制PWM任务
 	osThreadDef(CtrlTask, CtrlTaskF, osPriorityNormal, 0, 128);
 	CtrlTaskHandle = osThreadCreate(osThread(CtrlTask), NULL);
 
 	/* definition and creation of EmptyTask */
-	//空任务
 	osThreadDef(EmptyTask, EmptyTaskF, osPriorityIdle, 0, 128);
 	EmptyTaskHandle = osThreadCreate(osThread(EmptyTask), NULL);
 
@@ -258,7 +250,7 @@ int main(void)
 	while (1)
 	{
 		/* USER CODE END WHILE */
-		osDelay(1);
+
 		/* USER CODE BEGIN 3 */
 	}
 	/* USER CODE END 3 */
@@ -914,11 +906,11 @@ void InitialTaskF(void const *argument)
 	vTaskSuspend(SensorTaskHandle);
 	vTaskSuspend(UpTaskHandle);
 	vTaskSuspend(CtrlTaskHandle);
-	//继电器打开
+	//继电器打�?
 	HAL_GPIO_WritePin(GPIOD, GPIO_PIN_11, GPIO_PIN_RESET);
-	//初始化回传指针
+	//初始化回传指�?
 	SendBackPoint(UART3TXCache, NULL, &WT931IO, &GY39IO);
-	//初始化下传数据接收缓存
+	//初始化下传数据接收缓�?
 	DownDetectPoint(UpCache);
 	/* 初始化一大堆PWM */
 	HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_1);
@@ -937,13 +929,19 @@ void InitialTaskF(void const *argument)
 	HAL_TIM_PWM_Start(&htim5, TIM_CHANNEL_2);
 	HAL_TIM_PWM_Start(&htim5, TIM_CHANNEL_3);
 	HAL_TIM_PWM_Start(&htim5, TIM_CHANNEL_4);
-	//开启其他任务
+
+	__HAL_UART_ENABLE_IT(&huart3, UART_IT_IDLE);
+	osDelay(100);
+	UpSideFinish = 0;
+	__HAL_UART_ENABLE_IT(&huart3, UART_IT_IDLE);
+	HAL_UART_Receive_DMA(&huart3, UART1RXCache, UART1RXLen);
+	//�?启其他任�?
 	vTaskResume(UpTaskHandle);
 	vTaskResume(SensorTaskHandle);
 	vTaskResume(CtrlTaskHandle);
 	//喂狗
 	HAL_IWDG_Refresh(&hiwdg1);
-	//挂起初始化任务不再执行
+	//挂起初始化任务不再执�?
 	vTaskSuspend(InitialTaskHandle);
 	/* Infinite loop */
 	for (;;)
@@ -1040,7 +1038,7 @@ void UpTaskF(void const *argument)
 		}
 		DoingEnable = 1;
 		__HAL_UART_ENABLE_IT(&huart3, UART_IT_IDLE);
-		HAL_UART_Receive_DMA(&huart3, UART1RXCache, UART1RXLen);
+		HAL_UART_Receive_DMA(&huart3, UART3RXCache, UART3RXLen);
 		SendBack(WaterDetect, TemCache, BaroCache, HumCache, AccelerationCache,
 				RotSpeedCache, EulerAngleCache, MagnetisCache, NULL, NULL);
 		HAL_UART_Transmit_DMA(&huart3, UART3TXCache, UART3TXLen);
@@ -1078,12 +1076,13 @@ void CtrlTaskF(void const *argument)
 			osDelay(1);
 		}
 		UpIO = 1;
-		/* 接收并处理下传数据 */
+		/* 接收并处理下传数�? */
 		DownDetectReceive(&RStraightNum, &RRotateNum, &RVerticalNum, LightPWM,
 				THPWM, TranspPWM, ArmPWM, ReservePWM, &RMode, &RRelay);
-		//控制继电器
+		UpIO = 0;
+		//控制继电�?
 		HAL_GPIO_WritePin(GPIOD, GPIO_PIN_11, RRelay);
-		//通过控制PWM操作推进器来处理机器人运动
+		//通过控制PWM操作推进器来处理机器人运�?
 		MoveControl(RStraightNum, RRotateNum, RVerticalNum, RMode, ThrusterPWM);
 		HAL_IWDG_Refresh(&hiwdg1);
 	}

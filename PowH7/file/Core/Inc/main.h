@@ -71,8 +71,8 @@ void Error_Handler(void);
 #define UART1RXLen 15
 #define UART1TXLen 3
 #define UART2RXLen 60
-#define UART3TXLen 30
-#define UART3RXLen 41
+#define UART3TXLen 41
+#define UART3RXLen 30
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus

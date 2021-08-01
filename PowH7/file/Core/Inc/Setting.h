@@ -6,7 +6,7 @@
 #define PowerSide
 
 //数据校验开关
-#define DataIdentify
+//#define DataIdentify
 
 //PID数据位
 //定深PID参数
