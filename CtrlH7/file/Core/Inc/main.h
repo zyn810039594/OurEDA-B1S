@@ -54,11 +54,11 @@ typedef long unsigned int u32;
 /* USER CODE BEGIN EM */
 extern u8 UpSideFinish; 	//上位机接收完毕标志位
 extern u8 DownSideFinish; 	//下位机接收完毕标志位
-extern u8 WT931Len; 		//传感器数据长度
+extern u8 WT931Len; 		//传感器数据长�?
 
 extern u8 DeepFinish; 		//水深传感器读取完成标志位
 extern u8 GY39Finish; 		//温湿度大气压传感器读取完成标志位
-extern u8 WT931Finish; 		//九轴读取完成标志位
+extern u8 WT931Finish; 		//九轴读取完成标志�?
 
 /* USER CODE END EM */
 

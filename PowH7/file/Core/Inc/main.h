@@ -33,8 +33,8 @@ extern "C" {
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "Setting.h"
-#include "Sensor.h"
-#include "BasicCtrl.h"
+//#include "Sensor.h"
+//#include "BasicCtrl.h"
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
@@ -51,10 +51,21 @@ typedef long unsigned int u32;
 
 /* Exported macro ------------------------------------------------------------*/
 /* USER CODE BEGIN EM */
-extern u8 WT931Len;
-extern u8 UpSideFinish;
-extern u8 WT931Finish;
-extern u8 GY39Finish;
+//上位仓接收完毕标志位
+extern volatile u8 UpSideFinish;
+//传感器读取完成标志位
+extern volatile u8 WT931Finish;
+extern volatile u8 GY39Finish;
+
+//上位仓缓存读写标志位
+extern volatile u8 UpIO;
+//传感器缓存读写标志位
+extern volatile u8 WT931IO;
+extern volatile u8 GY39IO;
+
+extern volatile u8 WT931Len;
+extern volatile u8 GY39Len;
+
 /* USER CODE END EM */
 
 void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
@@ -68,11 +79,17 @@ void Error_Handler(void);
 
 /* Private defines -----------------------------------------------------------*/
 /* USER CODE BEGIN Private defines */
-#define UART1RXLen 15
+#define UART1RXLen 24
 #define UART1TXLen 3
 #define UART2RXLen 60
-#define UART3TXLen 41
-#define UART3RXLen 30
+#define UART3TXLen 30
+#define UART3RXLen 41
+
+extern u8 UART1RXCache[UART1RXLen]; //温湿度大气压传感器数据串口缓�?????
+extern u8 UART1TXCache[UART1TXLen]; //温湿度大气压传感器指令串口缓�?????
+extern u8 UART2RXCache[UART2RXLen]; //九轴传感器数据串口缓�?????
+extern u8 UART3RXCache[UART3RXLen]; //下传指令串口缓存
+extern u8 UART3TXCache[UART3TXLen]; //上传数据串口缓存
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus

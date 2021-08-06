@@ -8,6 +8,9 @@
 //数据校验开关
 //#define DataIdentify
 
+//调试模式开关
+//#define ROV_DEBUG
+
 //PID数据位
 //定深PID参数
 //定深比例系数

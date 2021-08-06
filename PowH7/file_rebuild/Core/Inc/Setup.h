@@ -1,7 +1,6 @@
 #ifndef SETTING_H
 #define SETTING_H
 
-
 //选择运行仓位
 //#define CtrlSide
 #define PowerSide
@@ -19,7 +18,7 @@
 //接上位机
 #define Up_UART huart3
 //接下位机
-#define Down_UART huart1
+#define Down_UART huart3
 
 //PID数据位
 //定深PID参数
@@ -43,9 +42,9 @@
 #define GY39_UART_RXLen 18
 #define GY39_UART_TXLen 3
 #define WT931_UART_RXLen 60
-#define Up_UART_TXLen 45
-#define Up_UART_RXLen 35
-#define Down_UART_RXLen 45
-#define Down_UART_TXLEN 35
+#define Up_UART_TXLen 41
+#define Up_UART_RXLen 30
+#define Down_UART_RXLen 41
+#define Down_UART_TXLEN 30
 
 #endif

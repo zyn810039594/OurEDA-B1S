@@ -9,8 +9,8 @@ RM := rm -rf
 
 # All of the sources participating in the build are defined here
 -include sources.mk
+-include Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F/subdir.mk
 -include Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/subdir.mk
--include Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/subdir.mk
 -include Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/subdir.mk
 -include Middlewares/Third_Party/FreeRTOS/Source/subdir.mk
 -include Drivers/STM32H7xx_HAL_Driver/Src/subdir.mk
@@ -77,8 +77,8 @@ all: main-build
 main-build: CtrlH7.elf secondary-outputs
 
 # Tool invocations
-CtrlH7.elf: $(OBJS) $(USER_OBJS) D:\work\Emb\B1ROV\OurEDA-B1S\CtrlH7\file\STM32H750VBTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "CtrlH7.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m7 -T"D:\work\Emb\B1ROV\OurEDA-B1S\CtrlH7\file\STM32H750VBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CtrlH7.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+CtrlH7.elf: $(OBJS) $(USER_OBJS) F:\Git_repository\OurEDA\OurEDA-B1S\CtrlH7\file\STM32H750VBTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "CtrlH7.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m7 -T"F:\Git_repository\OurEDA\OurEDA-B1S\CtrlH7\file\STM32H750VBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CtrlH7.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

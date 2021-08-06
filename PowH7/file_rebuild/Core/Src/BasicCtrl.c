@@ -1,42 +1,48 @@
 #include "BasicCtrl.h"
+#include <stdio.h>
 
 static u8 XorCaculate(u8 *CacString, u8 CacStringSize);
 static u8 IdTest(u8 *String, u8 Format);
 
-__attribute__((section(".RAM_D1")))          u8 DownDataReceive[Up_UART_RXLen] =
+__attribute__((section(".RAM_D1")))                         u8 DownDataReceive[Up_UART_RXLen] =
 { 0 };
-__attribute__((section(".RAM_D1")))          u8 DownDataSend[Down_UART_TXLEN] =
+__attribute__((section(".RAM_D1")))                         u8 DownDataSend[Down_UART_TXLEN] =
 { 0 };
 
-__attribute__((section(".RAM_D1")))          u8 UpDataReceive[Down_UART_RXLen] =
+__attribute__((section(".RAM_D1")))                         u8 UpDataReceive[Down_UART_RXLen] =
 { 0 };
-__attribute__((section(".RAM_D1")))          u8 UpDataSend[Up_UART_TXLen] =
+__attribute__((section(".RAM_D1")))                         u8 UpDataSend[Up_UART_TXLen] =
 { 0 };
 
 //捕获上位向下位发送的数据
 DownDataDef CaptureDownData(void)
 {
+	/* 原来是 <<，现在改成>> */
 	DownDataDef CaptureData;
-	CaptureData.StraightNum = ((DownDataReceive[2] << 8) | DownDataReceive[1]);
-	CaptureData.RotateNum = ((DownDataReceive[4] << 8) | DownDataReceive[3]);
-	CaptureData.VerticalNum = ((DownDataReceive[6] << 8) | DownDataReceive[5]);
-	CaptureData.LightPWM = ((DownDataReceive[8] << 8) | DownDataReceive[7]);
-	CaptureData.THPWM = ((DownDataReceive[10] << 8) | DownDataReceive[9]);
-	CaptureData.TranspPWM = ((DownDataReceive[12] << 8) | DownDataReceive[11]);
-	CaptureData.ArmPWM[0] = ((DownDataReceive[14] << 8) | DownDataReceive[13]);
-	CaptureData.ArmPWM[1] = ((DownDataReceive[16] << 8) | DownDataReceive[15]);
-	CaptureData.ArmPWM[2] = ((DownDataReceive[18] << 8) | DownDataReceive[17]);
-	CaptureData.ArmPWM[3] = ((DownDataReceive[20] << 8) | DownDataReceive[19]);
-	CaptureData.ArmPWM[4] = ((DownDataReceive[22] << 8) | DownDataReceive[21]);
-	CaptureData.ArmPWM[5] = ((DownDataReceive[24] << 8) | DownDataReceive[23]);
-	CaptureData.ResPWM = ((DownDataReceive[26] << 8) | DownDataReceive[25]);
-	CaptureData.Mode = (DownDataReceive[27] & 7);
-	CaptureData.Relay = (DownDataReceive[27] & 8);
+
+	CaptureData.StraightNum = ((DownDataReceive[1] << 8) | DownDataReceive[2]);
+	CaptureData.RotateNum = ((DownDataReceive[3] << 8) | DownDataReceive[4]);
+	CaptureData.VerticalNum = ((DownDataReceive[5] << 8) | DownDataReceive[6]);
+	CaptureData.LightPWM = ((DownDataReceive[7] << 8) | DownDataReceive[8]);
+	CaptureData.THPWM = ((DownDataReceive[9] << 8) | DownDataReceive[10]);
+	CaptureData.TranspPWM = ((DownDataReceive[11] << 8) | DownDataReceive[12]);
+	CaptureData.ArmPWM[0] = ((DownDataReceive[13] << 8) | DownDataReceive[14]);
+	CaptureData.ArmPWM[1] = ((DownDataReceive[15] << 8) | DownDataReceive[16]);
+	CaptureData.ArmPWM[2] = ((DownDataReceive[17] << 8) | DownDataReceive[18]);
+	CaptureData.ArmPWM[3] = ((DownDataReceive[19] << 8) | DownDataReceive[20]);
+	CaptureData.ArmPWM[4] = ((DownDataReceive[21] << 8) | DownDataReceive[22]);
+	CaptureData.ArmPWM[5] = ((DownDataReceive[23] << 8) | DownDataReceive[24]);
+	CaptureData.ResPWM = ((DownDataReceive[25] << 8) | DownDataReceive[26]);
+	CaptureData.Mode = ((DownDataReceive[27] & 0b0001) ? 1 : 0);
+	CaptureData.Relay = (
+			(DownDataReceive[27] & 0b1000) ? GPIO_PIN_SET : GPIO_PIN_RESET);
 	CaptureData.IdTest = IdTest(DownDataReceive, 0);
 	__HAL_UART_ENABLE_IT(&Up_UART, UART_IT_IDLE);
 	HAL_UART_Receive_DMA(&Up_UART, DownDataReceive, Up_UART_RXLen);
+
 	return CaptureData;
 }
+
 //向下位发送数据
 void SendDownData(DownDataDef SendData)
 {
@@ -72,12 +78,13 @@ void SendDownData(DownDataDef SendData)
 	DownDataSend[29] = 0x21;
 	HAL_UART_Transmit_DMA(&Down_UART, DownDataSend, Down_UART_TXLEN);
 }
+
 //捕获下位向上位发送的数据
 UpDataDef CaptureUpData(void)
 {
 	UpDataDef CaptureData;
-	CaptureData.CabinNum = (UpDataReceive[1] & 1);
-	CaptureData.WaterDetect = (UpDataReceive[1] & 6);
+	CaptureData.CabinNum = ((UpDataReceive[1] & 0b0001) ? 1 : 0);
+	CaptureData.WaterDetect = (UpDataReceive[1] & 0b0110); //2控水；4电水
 	CaptureData.CabinTemperature = ((UpDataReceive[3] << 8) | UpDataReceive[2]);
 	CaptureData.CabinBaro = ((UpDataReceive[7] << 24) | (UpDataReceive[6] << 16)
 			| (UpDataReceive[5] << 8) | UpDataReceive[4]);
@@ -102,6 +109,7 @@ UpDataDef CaptureUpData(void)
 	HAL_UART_Receive_DMA(&Down_UART, DownDataReceive, Down_UART_RXLen);
 	return CaptureData;
 }
+
 //向上位机发送数据
 void SendUpData(UpDataDef SendData)
 {
@@ -148,12 +156,13 @@ void SendUpData(UpDataDef SendData)
 	UpDataSend[40] = 0xff;
 	HAL_UART_Transmit_DMA(&Up_UART, UpDataSend, Up_UART_TXLen);
 }
+
 //基本的运动控制函数
 MoveThruster MoveControl(u16 StraightNum, u16 RotateNum, u16 VerticalNum,
 		u8 ModeNum)
 {
 	MoveThruster ThrusterTemp;
-	if (ModeNum == 0)
+	if (ModeNum == 0) //转向模式
 	{
 		u8 AFlag = (RotateNum > StraightNum);
 		u8 BFlag = ((RotateNum + StraightNum) > 3000);
@@ -202,7 +211,7 @@ MoveThruster MoveControl(u16 StraightNum, u16 RotateNum, u16 VerticalNum,
 		ThrusterTemp.VerticalThruster[0] = (vu32) (VerticalNum);
 		ThrusterTemp.VerticalThruster[1] = (vu32) (VerticalNum);
 	}
-	else if (ModeNum == 1)
+	else if (ModeNum == 1) //侧推模式
 	{
 		ThrusterTemp.HorizontalThruster[0] = (vu32) (RotateNum);
 		ThrusterTemp.HorizontalThruster[1] = (vu32) ((3000 - RotateNum));
@@ -217,13 +226,13 @@ MoveThruster MoveControl(u16 StraightNum, u16 RotateNum, u16 VerticalNum,
 //PID算法运行
 u16 SpecialMovePID(u8 ModeType, u16 SetValue, u16 ActualValue)
 {
-	//当前误差
+//当前误差
 	static float Ek;
-	//前一次误差
+//前一次误差
 	static float Ek1;
-	//累计积分位置
+//累计积分位置
 	static float LocSum;
-	//数据清空标志位
+//数据清空标志位
 	static u8 PIDData = 0;
 
 	if (ModeType == 4)
@@ -268,7 +277,7 @@ u16 SpecialMovePID(u8 ModeType, u16 SetValue, u16 ActualValue)
 //异或运算位检查，其中Format上传格式为1下传格式为0，正确为1错误为0
 static u8 IdTest(u8 *String, u8 Format)
 {
-	if (Format)
+	if (Format) //上传数据格式
 	{
 		if (*(String + 38) == XorCaculate(String, 38))
 		{
@@ -279,7 +288,7 @@ static u8 IdTest(u8 *String, u8 Format)
 			return 0;
 		}
 	}
-	else
+	else //下传指令格式
 	{
 		if (*(String + 28) == XorCaculate(String, 28))
 		{

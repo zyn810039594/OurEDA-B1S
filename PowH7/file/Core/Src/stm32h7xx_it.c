@@ -176,14 +176,9 @@ void DMA1_Stream0_IRQHandler(void)
   /* USER CODE BEGIN DMA1_Stream0_IRQn 0 */
 
   /* USER CODE END DMA1_Stream0_IRQn 0 */
-  HAL_DMA_IRQHandler(&hdma_usart1_rx);
+  HAL_DMA_IRQHandler(&hdma_usart3_rx);
   /* USER CODE BEGIN DMA1_Stream0_IRQn 1 */
-//	huart1.gState = HAL_UART_STATE_READY;
-//	hdma_usart1_rx.State = HAL_DMA_STATE_READY;
-//	__HAL_DMA_CLEAR_FLAG(&hdma_usart1_rx, DMA_FLAG_TCIF3_7);
-//	__HAL_DMA_CLEAR_FLAG(&hdma_usart1_rx, DMA_FLAG_HTIF3_7);
-//	__HAL_DMA_CLEAR_FLAG(&hdma_usart1_rx, DMA_FLAG_FEIF3_7);
-//	__HAL_UNLOCK(&hdma_usart1_rx);
+
   /* USER CODE END DMA1_Stream0_IRQn 1 */
 }
 
@@ -195,14 +190,9 @@ void DMA1_Stream1_IRQHandler(void)
   /* USER CODE BEGIN DMA1_Stream1_IRQn 0 */
 
   /* USER CODE END DMA1_Stream1_IRQn 0 */
-  HAL_DMA_IRQHandler(&hdma_usart2_rx);
+  HAL_DMA_IRQHandler(&hdma_usart3_tx);
   /* USER CODE BEGIN DMA1_Stream1_IRQn 1 */
-//	huart2.gState = HAL_UART_STATE_READY;
-//	hdma_usart2_rx.State = HAL_DMA_STATE_READY;
-//	__HAL_DMA_CLEAR_FLAG(&hdma_usart2_rx, DMA_FLAG_TCIF3_7);
-//	__HAL_DMA_CLEAR_FLAG(&hdma_usart2_rx, DMA_FLAG_HTIF3_7);
-//	__HAL_DMA_CLEAR_FLAG(&hdma_usart2_rx, DMA_FLAG_FEIF3_7);
-//	__HAL_UNLOCK(&hdma_usart2_rx);
+
   /* USER CODE END DMA1_Stream1_IRQn 1 */
 }
 
@@ -214,34 +204,10 @@ void DMA1_Stream2_IRQHandler(void)
   /* USER CODE BEGIN DMA1_Stream2_IRQn 0 */
 
   /* USER CODE END DMA1_Stream2_IRQn 0 */
-  HAL_DMA_IRQHandler(&hdma_usart3_rx);
+  HAL_DMA_IRQHandler(&hdma_usart2_rx);
   /* USER CODE BEGIN DMA1_Stream2_IRQn 1 */
-//	huart3.gState = HAL_UART_STATE_READY;
-//	hdma_usart3_rx.State = HAL_DMA_STATE_READY;
-//	__HAL_DMA_CLEAR_FLAG(&hdma_usart3_rx, DMA_FLAG_TCIF3_7);
-//	__HAL_DMA_CLEAR_FLAG(&hdma_usart3_rx, DMA_FLAG_HTIF3_7);
-//	__HAL_DMA_CLEAR_FLAG(&hdma_usart3_rx, DMA_FLAG_FEIF3_7);
-//	__HAL_UNLOCK(&hdma_usart3_rx);
+
   /* USER CODE END DMA1_Stream2_IRQn 1 */
-}
-
-/**
-  * @brief This function handles DMA1 stream3 global interrupt.
-  */
-void DMA1_Stream3_IRQHandler(void)
-{
-  /* USER CODE BEGIN DMA1_Stream3_IRQn 0 */
-
-  /* USER CODE END DMA1_Stream3_IRQn 0 */
-  HAL_DMA_IRQHandler(&hdma_usart3_tx);
-  /* USER CODE BEGIN DMA1_Stream3_IRQn 1 */
-//	huart3.gState = HAL_UART_STATE_READY;
-//	hdma_usart3_tx.State = HAL_DMA_STATE_READY;
-//	__HAL_DMA_CLEAR_FLAG(&hdma_usart3_tx, DMA_FLAG_TCIF3_7);
-//	__HAL_DMA_CLEAR_FLAG(&hdma_usart3_tx, DMA_FLAG_HTIF3_7);
-//	__HAL_DMA_CLEAR_FLAG(&hdma_usart3_tx, DMA_FLAG_FEIF3_7);
-//	__HAL_UNLOCK(&hdma_usart3_tx);
-  /* USER CODE END DMA1_Stream3_IRQn 1 */
 }
 
 /**
@@ -252,15 +218,24 @@ void DMA1_Stream4_IRQHandler(void)
   /* USER CODE BEGIN DMA1_Stream4_IRQn 0 */
 
   /* USER CODE END DMA1_Stream4_IRQn 0 */
-  HAL_DMA_IRQHandler(&hdma_usart1_tx);
+  HAL_DMA_IRQHandler(&hdma_usart1_rx);
   /* USER CODE BEGIN DMA1_Stream4_IRQn 1 */
-//	huart1.gState = HAL_UART_STATE_READY;
-//	hdma_usart1_tx.State = HAL_DMA_STATE_READY;
-//	__HAL_DMA_CLEAR_FLAG(&hdma_usart1_tx, DMA_FLAG_TCIF3_7);
-//	__HAL_DMA_CLEAR_FLAG(&hdma_usart1_tx, DMA_FLAG_HTIF3_7);
-//	__HAL_DMA_CLEAR_FLAG(&hdma_usart1_tx, DMA_FLAG_FEIF3_7);
-//	__HAL_UNLOCK(&hdma_usart1_tx);
+
   /* USER CODE END DMA1_Stream4_IRQn 1 */
+}
+
+/**
+  * @brief This function handles DMA1 stream5 global interrupt.
+  */
+void DMA1_Stream5_IRQHandler(void)
+{
+  /* USER CODE BEGIN DMA1_Stream5_IRQn 0 */
+
+  /* USER CODE END DMA1_Stream5_IRQn 0 */
+  HAL_DMA_IRQHandler(&hdma_usart1_tx);
+  /* USER CODE BEGIN DMA1_Stream5_IRQn 1 */
+
+  /* USER CODE END DMA1_Stream5_IRQn 1 */
 }
 
 /**
@@ -269,14 +244,18 @@ void DMA1_Stream4_IRQHandler(void)
 void USART1_IRQHandler(void)
 {
   /* USER CODE BEGIN USART1_IRQn 0 */
-	uint32_t tmp_flag = 0;
-	tmp_flag = __HAL_UART_GET_FLAG(&huart1, UART_FLAG_IDLE);
-	if ((tmp_flag != RESET))
+	uint32_t temp = 0;
+	if ((__HAL_UART_GET_FLAG(&huart1, UART_FLAG_IDLE) != RESET)) //idle标志被置�?
 	{
-		__HAL_UART_CLEAR_IDLEFLAG(&huart1);
+		__HAL_UART_CLEAR_IDLEFLAG(&huart1); //清除标志�?
 		HAL_UART_DMAStop(&huart1);
-		GY39Finish = 1;
+		temp = __HAL_DMA_GET_COUNTER(&hdma_usart1_rx); // 获取DMA中未传输的数据个�?
+		GY39Len = UART1RXLen - temp; //总计数减去未传输的数据个数，得到已经接收的数据个�?
+#ifdef ROV_DEBUG
+		//HAL_UART_RxCpltCallback(&huart1); //回调函数
+#endif
 		__HAL_UART_DISABLE_IT(&huart1, UART_IT_IDLE);
+		GY39Finish = 1;	//接收完成标志位置1
 	}
   /* USER CODE END USART1_IRQn 0 */
   HAL_UART_IRQHandler(&huart1);
@@ -291,15 +270,18 @@ void USART1_IRQHandler(void)
 void USART2_IRQHandler(void)
 {
   /* USER CODE BEGIN USART2_IRQn 0 */
-	uint32_t tmp_flag = 0;
-	tmp_flag = __HAL_UART_GET_FLAG(&huart2, UART_FLAG_IDLE);
-	if ((tmp_flag != RESET))
+	uint32_t temp = 0;
+	if ((__HAL_UART_GET_FLAG(&huart2, UART_FLAG_IDLE) != RESET)) //idle标志被置�?
 	{
-		__HAL_UART_CLEAR_IDLEFLAG(&huart2);
+		__HAL_UART_CLEAR_IDLEFLAG(&huart2); //清除标志�?
 		HAL_UART_DMAStop(&huart2);
-		WT931Len = __HAL_DMA_GET_COUNTER(&hdma_usart2_rx);
-		WT931Finish = 1;
+		temp = __HAL_DMA_GET_COUNTER(&hdma_usart2_rx); // 获取DMA中未传输的数据个�?
+		WT931Len = UART2RXLen - temp; //总计数减去未传输的数据个数，得到已经接收的数据个�?
+#ifdef ROV_DEBUG
+		//HAL_UART_RxCpltCallback(&huart2); //回调函数
+#endif
 		__HAL_UART_DISABLE_IT(&huart2, UART_IT_IDLE);
+		WT931Finish = 1; //接收完成标志位置1
 	}
   /* USER CODE END USART2_IRQn 0 */
   HAL_UART_IRQHandler(&huart2);
@@ -314,15 +296,18 @@ void USART2_IRQHandler(void)
 void USART3_IRQHandler(void)
 {
   /* USER CODE BEGIN USART3_IRQn 0 */
-	uint32_t tmp_flag = 0;
-	tmp_flag = __HAL_UART_GET_FLAG(&huart3, UART_FLAG_IDLE);
-	if ((tmp_flag != RESET))
+	if ((__HAL_UART_GET_FLAG(&huart3, UART_FLAG_IDLE)) == SET) //idle标志被置�?
 	{
-		__HAL_UART_CLEAR_IDLEFLAG(&huart3);
+		UpIO = 1; //正在使用串口接收下传数据
+		__HAL_UART_CLEAR_IDLEFLAG(&huart3); //清除标志�?
 		HAL_UART_DMAStop(&huart3);
-		__HAL_DMA_GET_COUNTER(&hdma_usart3_rx);
-		UpSideFinish = 1;
+		__HAL_DMA_GET_COUNTER(&hdma_usart3_rx); //使用这个看上去没�?么用的指令清空DMA的标志位
+#ifdef ROV_DEBUG
+		//HAL_UART_RxCpltCallback(&huart3); //回调函数
+#endif
 		__HAL_UART_DISABLE_IT(&huart3, UART_IT_IDLE);
+		UpSideFinish = 1;
+		UpIO = 0; //串口接收下传数据完毕
 	}
   /* USER CODE END USART3_IRQn 0 */
   HAL_UART_IRQHandler(&huart3);
