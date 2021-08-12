@@ -1,0 +1,8 @@
+BasicCtrl.c:18:13:CaptureDownData	80	static
+BasicCtrl.c:45:6:SendDownData	8	static
+BasicCtrl.c:144:11:CaptureUpData	64	static
+BasicCtrl.c:175:6:SendUpData	8	static
+BasicCtrl.c:222:14:MoveControl	64	static
+BasicCtrl.c:288:5:SpecialMovePID	24	static
+BasicCtrl.c:339:11:IdTest	24	static
+BasicCtrl.c:367:11:XorCaculate	24	static

@@ -4,20 +4,19 @@
 static u8 XorCaculate(u8 *CacString, u8 CacStringSize);
 static u8 IdTest(u8 *String, u8 Format);
 
-__attribute__((section(".RAM_D1")))                         u8 DownDataReceive[Up_UART_RXLen] =
+__attribute__((section(".RAM_D1")))                          u8 DownDataReceive[Up_UART_RXLen] =
 { 0 };
-__attribute__((section(".RAM_D1")))                         u8 DownDataSend[Down_UART_TXLEN] =
+__attribute__((section(".RAM_D1")))                          u8 DownDataSend[Down_UART_TXLEN] =
 { 0 };
 
-__attribute__((section(".RAM_D1")))                         u8 UpDataReceive[Down_UART_RXLen] =
+__attribute__((section(".RAM_D1")))                          u8 UpDataReceive[Down_UART_RXLen] =
 { 0 };
-__attribute__((section(".RAM_D1")))                         u8 UpDataSend[Up_UART_TXLen] =
+__attribute__((section(".RAM_D1")))                          u8 UpDataSend[Up_UART_TXLen] =
 { 0 };
 
 //捕获上位向下位发送的数据
 DownDataDef CaptureDownData(void)
 {
-	/* 原来是 <<，现在改成>> */
 	DownDataDef CaptureData;
 
 	CaptureData.StraightNum = ((DownDataReceive[1] << 8) | DownDataReceive[2]);

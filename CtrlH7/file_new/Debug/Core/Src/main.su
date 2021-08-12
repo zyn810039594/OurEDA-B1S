@@ -1,0 +1,17 @@
+main.c:116:5:main	216	static
+main.c:268:6:SystemClock_Config	120	static
+main.c:332:6:PeriphCommonClock_Config	200	static
+main.c:364:13:MX_IWDG1_Init	8	static
+main.c:393:13:MX_UART4_Init	8	static
+main.c:443:13:MX_UART8_Init	8	static
+main.c:493:13:MX_USART1_UART_Init	8	static
+main.c:543:13:MX_USART2_UART_Init	8	static
+main.c:593:13:MX_USART3_UART_Init	8	static
+main.c:641:13:MX_DMA_Init	16	static
+main.c:684:13:MX_GPIO_Init	48	static
+main.c:733:6:CtrlTaskF	16	static
+main.c:753:6:SensorTaskF	64	static
+main.c:812:6:UtBF	176	static
+main.c:885:6:BtUF	104	static
+main.c:983:6:HAL_TIM_PeriodElapsedCallback	16	static
+main.c:1001:6:Error_Handler	4	static,ignoring_inline_asm

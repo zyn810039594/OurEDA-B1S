@@ -4,20 +4,19 @@
 static u8 XorCaculate(u8 *CacString, u8 CacStringSize);
 static u8 IdTest(u8 *String, u8 Format);
 
-__attribute__((section(".RAM_D1")))                                         u8 DownDataReceive[Up_UART_RXLen] =
+__attribute__((section(".RAM_D1")))    u8 DownDataReceive[Up_UART_RXLen] =
 { 0 };
-__attribute__((section(".RAM_D1")))                                         u8 DownDataSend[Down_UART_TXLEN] =
+__attribute__((section(".RAM_D1")))    u8 DownDataSend[Down_UART_TXLEN] =
 { 0 };
 
-__attribute__((section(".RAM_D1")))                                         u8 UpDataReceive[Down_UART_RXLen] =
+__attribute__((section(".RAM_D1")))    u8 UpDataReceive[Down_UART_RXLen] =
 { 0 };
-__attribute__((section(".RAM_D1")))                                         u8 UpDataSend[Up_UART_TXLen] =
+__attribute__((section(".RAM_D1")))    u8 UpDataSend[Up_UART_TXLen] =
 { 0 };
 
 //捕获上位向下位发送的数据
 DownDataDef CaptureDownData(void)
 {
-	/* 原来是 <<，现在改成>> */
 	DownDataDef CaptureData;
 
 	CaptureData.StraightNum = ((DownDataReceive[1] << 8) | DownDataReceive[2]);
@@ -36,8 +35,7 @@ DownDataDef CaptureDownData(void)
 	CaptureData.Mode = DownDataReceive[27] & 0b0111;
 	//0b0100==4 定深模式；0b0010==2 定向模式；0b0001 侧推模式，在控制仓无用
 	//0b1000 控制继电器，在控制仓无用
-	CaptureData.Relay = (
-			(DownDataReceive[27] & 0b1000) ? GPIO_PIN_SET : GPIO_PIN_RESET);
+	CaptureData.Relay = DownDataReceive[27] & 0b1000;
 	CaptureData.IdTest = IdTest(DownDataReceive, 0);
 	__HAL_UART_ENABLE_IT(&Up_UART, UART_IT_IDLE);
 	HAL_UART_Receive_DMA(&Up_UART, DownDataReceive, Up_UART_RXLen);
@@ -85,7 +83,7 @@ void SendDownData(DownDataDef SendData)
 UpDataDef CaptureUpData(void)
 {
 	UpDataDef CaptureData;
-	CaptureData.CabinNum = ((UpDataReceive[1] & 0b0001) ? 1 : 0);
+	CaptureData.CabinNum = ((UpDataReceive[1] & 0b0001) ? 1 : 0); //0为控制仓，1为PWM仓
 	CaptureData.WaterDetect = (UpDataReceive[1] & 0b0110); //0b0010控制仓进水；0b0100推进器PWM仓进水
 	CaptureData.CabinTemperature = ((UpDataReceive[2] << 8) | UpDataReceive[3]);
 	CaptureData.CabinBaro = ((UpDataReceive[4] << 24) | (UpDataReceive[5] << 16)
