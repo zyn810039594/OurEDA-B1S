@@ -1,0 +1,3 @@
+C:\Users\admin\Desktop\AAA\标准上位机_WT931_20201104\temp\MiniIMU.exe,C:\Users\admin\Desktop\AAA\标准上位机_WT931_20201104\MiniIMU.exe
+C:\Users\admin\Desktop\AAA\标准上位机_WT931_20201104\temp\playPic\SINRT.jpg,C:\Users\admin\Desktop\AAA\标准上位机_WT931_20201104\playPic\SINRT.jpg
+C:\Users\admin\Desktop\AAA\标准上位机_WT931_20201104\temp\FirmwareUpdate.dll,C:\Users\admin\Desktop\AAA\标准上位机_WT931_20201104\FirmwareUpdate.dll

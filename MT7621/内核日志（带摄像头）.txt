@@ -1,0 +1,214 @@
+[    0.000000] Linux version 4.14.221 (haroldzhao@ubuntu) (gcc version 7.5.0 (OpenWrt GCC 7.5.0 r11306-c4a6851c72)) #0 SMP Mon Feb 15 15:22:37 2021
+[    0.000000] SoC Type: MediaTek MT7621 ver:1 eco:3
+[    0.000000] bootconsole [early0] enabled
+[    0.000000] CPU0 revision is: 0001992f (MIPS 1004Kc)
+[    0.000000] MIPS: machine is Mediatek AP-MT7621A-V60 EVB
+[    0.000000] Determined physical RAM map:
+[    0.000000]  memory: 08000000 @ 00000000 (usable)
+[    0.000000] Initrd not found or empty - disabling initrd
+[    0.000000] VPE topology {2} total 2
+[    0.000000] Primary instruction cache 32kB, VIPT, 4-way, linesize 32 bytes.
+[    0.000000] Primary data cache 32kB, 4-way, PIPT, no aliases, linesize 32 bytes
+[    0.000000] MIPS secondary cache 256kB, 8-way, linesize 32 bytes.
+[    0.000000] Zone ranges:
+[    0.000000]   Normal   [mem 0x0000000000000000-0x0000000007ffffff]
+[    0.000000]   HighMem  empty
+[    0.000000] Movable zone start for each node
+[    0.000000] Early memory node ranges
+[    0.000000]   node   0: [mem 0x0000000000000000-0x0000000007ffffff]
+[    0.000000] Initmem setup node 0 [mem 0x0000000000000000-0x0000000007ffffff]
+[    0.000000] On node 0 totalpages: 32768
+[    0.000000] free_area_init_node: node 0, pgdat 805a8420, node_mem_map 81003000
+[    0.000000]   Normal zone: 256 pages used for memmap
+[    0.000000]   Normal zone: 0 pages reserved
+[    0.000000]   Normal zone: 32768 pages, LIFO batch:7
+[    0.000000] random: get_random_bytes called from start_kernel+0x94/0x4ac with crng_init=0
+[    0.000000] percpu: Embedded 14 pages/cpu s26192 r8192 d22960 u57344
+[    0.000000] pcpu-alloc: s26192 r8192 d22960 u57344 alloc=14*4096
+[    0.000000] pcpu-alloc: [0] 0 [0] 1 
+[    0.000000] Built 1 zonelists, mobility grouping on.  Total pages: 32512
+[    0.000000] Kernel command line: console=ttyS0,57600 rootfstype=squashfs,jffs2
+[    0.000000] PID hash table entries: 512 (order: -1, 2048 bytes)
+[    0.000000] Dentry cache hash table entries: 16384 (order: 4, 65536 bytes)
+[    0.000000] Inode-cache hash table entries: 8192 (order: 3, 32768 bytes)
+[    0.000000] Writing ErrCtl register=00066650
+[    0.000000] Readback ErrCtl register=00066650
+[    0.000000] Memory: 122436K/131072K available (4548K kernel code, 232K rwdata, 1012K rodata, 1236K init, 248K bss, 8636K reserved, 0K cma-reserved, 0K highmem)
+[    0.000000] SLUB: HWalign=32, Order=0-3, MinObjects=0, CPUs=2, Nodes=1
+[    0.000000] Hierarchical RCU implementation.
+[    0.000000] 	RCU restricting CPUs from NR_CPUS=4 to nr_cpu_ids=2.
+[    0.000000] RCU: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=2
+[    0.000000] NR_IRQS: 256
+[    0.000000] CPU Clock: 1000MHz
+[    0.000000] clocksource: GIC: mask: 0xffffffffffffffff max_cycles: 0x1cd42e4dffb, max_idle_ns: 881590591483 ns
+[    0.000000] clocksource: MIPS: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 3822520893 ns
+[    0.000008] sched_clock: 32 bits at 500MHz, resolution 2ns, wraps every 4294967295ns
+[    0.015485] Calibrating delay loop... 666.41 BogoMIPS (lpj=3332096)
+[    0.087798] pid_max: default: 32768 minimum: 301
+[    0.097074] Mount-cache hash table entries: 1024 (order: 0, 4096 bytes)
+[    0.110100] Mountpoint-cache hash table entries: 1024 (order: 0, 4096 bytes)
+[    0.125487] Hierarchical SRCU implementation.
+[    0.134679] smp: Bringing up secondary CPUs ...
+[    0.144544] Primary instruction cache 32kB, VIPT, 4-way, linesize 32 bytes.
+[    0.144551] Primary data cache 32kB, 4-way, PIPT, no aliases, linesize 32 bytes
+[    0.144561] MIPS secondary cache 256kB, 8-way, linesize 32 bytes.
+[    0.144689] CPU1 revision is: 0001992f (MIPS 1004Kc)
+[    0.204297] Synchronize counters for CPU 1: done.
+[    0.263933] smp: Brought up 1 node, 2 CPUs
+[    0.275079] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604462750000 ns
+[    0.294539] futex hash table entries: 512 (order: 2, 16384 bytes)
+[    0.306737] pinctrl core: initialized pinctrl subsystem
+[    0.318250] NET: Registered protocol family 16
+[    0.337132] FPU Affinity set after 13320 emulations
+[    0.337746] pull PCIe RST: RALINK_RSTCTRL = 4000000
+[    0.647812] release PCIe RST: RALINK_RSTCTRL = 7000000
+[    0.657875] ***** Xtal 40MHz *****
+[    0.664604] release PCIe RST: RALINK_RSTCTRL = 7000000
+[    0.674812] Port 0 N_FTS = 1b102800
+[    0.681712] Port 1 N_FTS = 1b102800
+[    0.688637] Port 2 N_FTS = 1b102800
+[    1.847479] PCIE0 no card, disable it(RST&CLK)
+[    1.856163] PCIE1 no card, disable it(RST&CLK)
+[    1.864962] PCIE2 no card, disable it(RST&CLK)
+[    1.884626] mt7621_gpio 1e000600.gpio: registering 32 gpios
+[    1.895859] mt7621_gpio 1e000600.gpio: registering 32 gpios
+[    1.907037] mt7621_gpio 1e000600.gpio: registering 32 gpios
+[    1.919516] i2c-mt7621 1e000900.i2c: clock 100KHz, re-start not support
+[    1.934231] clocksource: Switched to clocksource GIC
+[    1.945375] NET: Registered protocol family 2
+[    1.954701] TCP established hash table entries: 1024 (order: 0, 4096 bytes)
+[    1.968464] TCP bind hash table entries: 1024 (order: 1, 8192 bytes)
+[    1.981042] TCP: Hash tables configured (established 1024 bind 1024)
+[    1.993762] UDP hash table entries: 256 (order: 1, 8192 bytes)
+[    2.005256] UDP-Lite hash table entries: 256 (order: 1, 8192 bytes)
+[    2.017868] NET: Registered protocol family 1
+[    2.026424] PCI: CLS 0 bytes, default 32
+[    2.254244] 4 CPUs re-calibrate udelay(lpj = 3325952)
+[    2.265203] Crashlog allocated RAM at address 0x3f00000
+[    2.275940] workingset: timestamp_bits=30 max_order=15 bucket_order=0
+[    2.295809] squashfs: version 4.0 (2009/01/31) Phillip Lougher
+[    2.307328] jffs2: version 2.2 (NAND) (SUMMARY) (LZMA) (RTIME) (CMODE_PRIORITY) (c) 2001-2006 Red Hat, Inc.
+[    2.330210] io scheduler noop registered
+[    2.337880] io scheduler deadline registered (default)
+[    2.349302] Serial: 8250/16550 driver, 3 ports, IRQ sharing disabled
+[    2.363250] console [ttyS0] disabled
+[    2.370327] 1e000c00.uartlite: ttyS0 at MMIO 0x1e000c00 (irq = 16, base_baud = 3125000) is a 16550A
+[    2.388231] console [ttyS0] enabled
+[    2.402022] bootconsole [early0] disabled
+[    2.419669] MediaTek Nand driver init, version v2.1 Fix AHB virt2phys error
+[    2.433948] spi-mt7621 1e000b00.spi: sys_freq: 250000000
+[    2.445285] m25p80 spi0.0: found w25q256, expected mx25l6405d
+[    2.458156] random: fast init done
+[    2.465852] m25p80 spi0.0: w25q256 (32768 Kbytes)
+[    2.475257] 4 fixed-partitions partitions found on MTD device spi0.0
+[    2.487910] Creating 4 MTD partitions on "spi0.0":
+[    2.497455] 0x000000000000-0x000000030000 : "u-boot"
+[    2.508393] 0x000000030000-0x000000040000 : "u-boot-env"
+[    2.519949] 0x000000040000-0x000000050000 : "factory"
+[    2.531003] 0x000000050000-0x000000800000 : "firmware"
+[    2.542347] 2 uimage-fw partitions found on MTD device firmware
+[    2.554173] Creating 2 MTD partitions on "firmware":
+[    2.564078] 0x000000000000-0x0000001d5da1 : "kernel"
+[    2.574953] 0x0000001d5da1-0x0000007b0000 : "rootfs"
+[    2.585768] mtd: device 5 (rootfs) set to be root filesystem
+[    2.597166] 1 squashfs-split partitions found on MTD device rootfs
+[    2.609499] 0x0000003b0000-0x0000007b0000 : "rootfs_data"
+[    2.621851] libphy: Fixed MDIO Bus: probed
+[    2.696227] libphy: mdio: probed
+[    4.102234] mtk_soc_eth 1e100000.ethernet: loaded mt7530 driver
+[    4.114716] mtk_soc_eth 1e100000.ethernet eth0: mediatek frame engine at 0xbe100000, irq 20
+[    4.133985] NET: Registered protocol family 10
+[    4.144283] Segment Routing with IPv6
+[    4.151659] NET: Registered protocol family 17
+[    4.160586] 8021q: 802.1Q VLAN Support v1.8
+[    4.171121] hctosys: unable to open rtc device (rtc0)
+[    4.188430] VFS: Mounted root (squashfs filesystem) readonly on device 31:5.
+[    4.206824] Freeing unused kernel memory: 1236K
+[    4.215960] This architecture does not have kernel memory protection.
+[    5.058062] init: Console is alive
+[    5.065130] init: - watchdog -
+[    5.415801] kmodloader: loading kernel modules from /etc/modules-boot.d/*
+[    5.478919] usbcore: registered new interface driver usbfs
+[    5.490048] usbcore: registered new interface driver hub
+[    5.502366] usbcore: registered new device driver usb
+[    5.520628] xhci-mtk 1e1c0000.xhci: 1e1c0000.xhci supply vbus not found, using dummy regulator
+[    5.537943] xhci-mtk 1e1c0000.xhci: 1e1c0000.xhci supply vusb33 not found, using dummy regulator
+[    5.558313] xhci-mtk 1e1c0000.xhci: xHCI Host Controller
+[    5.570468] xhci-mtk 1e1c0000.xhci: new USB bus registered, assigned bus number 1
+[    5.594385] xhci-mtk 1e1c0000.xhci: hcc params 0x01401198 hci version 0x96 quirks 0x0000000000210010
+[    5.612672] xhci-mtk 1e1c0000.xhci: irq 19, io mem 0x1e1c0000
+[    5.625477] hub 1-0:1.0: USB hub found
+[    5.633167] hub 1-0:1.0: 2 ports detected
+[    5.642014] xhci-mtk 1e1c0000.xhci: xHCI Host Controller
+[    5.653467] xhci-mtk 1e1c0000.xhci: new USB bus registered, assigned bus number 2
+[    5.668719] xhci-mtk 1e1c0000.xhci: Host supports USB 3.0  SuperSpeed
+[    5.682725] usb usb2: We don't know the algorithms for LPM for this host, disabling LPM.
+[    5.701640] hub 2-0:1.0: USB hub found
+[    5.710107] hub 2-0:1.0: 1 port detected
+[    5.722958] kmodloader: done loading kernel modules from /etc/modules-boot.d/*
+[    5.754544] init: - preinit -
+[    6.461604] mtk_soc_eth 1e100000.ethernet: PPE started
+[    7.284281] usb usb1-port2: Cannot enable. Maybe the USB cable is bad?
+[    7.647213] mtk_soc_eth 1e100000.ethernet eth0: port 3 link up
+[    8.554338] usb usb1-port2: Cannot enable. Maybe the USB cable is bad?
+[    8.567532] usb usb1-port2: attempt power cycle
+[    9.854652] jffs2: notice: (425) jffs2_build_xattr_subsystem: complete building xattr subsystem, 7 of xdatum (3 unchecked, 4 orphan) and 122 of xref (7 dead, 0 orphan) found.
+[    9.890811] mount_root: switching to jffs2 overlay
+[    9.913984] overlayfs: upper fs does not support tmpfile.
+[    9.944259] urandom-seed: Seeding with /etc/urandom.seed
+[   10.037212] mtk_soc_eth 1e100000.ethernet: 0x100 = 0x6060000c, 0x10c = 0x80818
+[   10.065013] procd: - early -
+[   10.070856] procd: - watchdog -
+[   10.648634] random: jshn: uninitialized urandom read (4 bytes read)
+[   10.664392] usb usb1-port2: Cannot enable. Maybe the USB cable is bad?
+[   10.754501] procd: - watchdog -
+[   10.761570] procd: - ubus -
+[   10.800911] random: ubusd: uninitialized urandom read (4 bytes read)
+[   10.828818] random: ubusd: uninitialized urandom read (4 bytes read)
+[   10.845925] procd: - init -
+[   11.425585] kmodloader: loading kernel modules from /etc/modules.d/*
+[   11.444182] ip6_tables: (C) 2000-2006 Netfilter Core Team
+[   11.462858] i2c /dev entries driver
+[   11.470191] ------------[ cut here ]------------
+[   11.479441] WARNING: CPU: 0 PID: 559 at kernel/module.c:1138 module_put+0x48/0x5c
+[   11.494354] Modules linked in: i2c_dev ledtrig_usbport nf_log_ipv6 nf_log_common ip6table_mangle ip6table_filter ip6_tables ip6t_REJECT x_tables nf_reject_ipv6 leds_gpio xhci_plat_hcd xhci_pci xhci_mtk xhci_hcd gpio_button_hotplug usbcore nls_base usb_common
+[   11.539969] CPU: 0 PID: 559 Comm: kmodloader Not tainted 4.14.221 #0
+[   11.552601] Stack : 00000000 00000028 86ec9288 80072a6c 805b0000 8054a1d8 00000000 00000000
+[   11.569240]         80515c8c 86e69ca4 87f0dcbc 80584907 80510a20 00000001 86e69c48 5326163c
+[   11.585876]         00000000 00000000 806e0000 00003290 00000000 000000af 00000007 00000000
+[   11.602509]         00000000 80590000 00083d41 00000000 80000000 805b0000 00000000 8051830c
+[   11.619144]         800a3d4c 00000472 00000000 00000028 00000003 8029af38 00000000 806e0000
+[   11.635779]         ...
+[   11.640637] Call Trace:
+[   11.645513] [<8000c7b0>] show_stack+0x58/0x100
+[   11.654383] [<80452f74>] dump_stack+0xa4/0xe0
+[   11.663052] [<8002f798>] __warn+0xe0/0x138
+[   11.671195] [<8002f880>] warn_slowpath_null+0x1c/0x2c
+[   11.675258] urngd: v1.0.2 started.
+[   11.681252] [<800a3d4c>] module_put+0x48/0x5c
+[   11.696646] [<800a811c>] do_init_module+0x108/0x1ec
+[   11.706345] [<800a72c8>] load_module+0x2080/0x2420
+[   11.715874] [<800a7798>] SyS_init_module+0x130/0x18c
+[   11.725761] [<80016578>] syscall_common+0x34/0x58
+[   11.735281] ---[ end trace 1caef0e4861bbcf1 ]---
+[   11.744512] ttyS ttyS0: 1 input overrun(s)
+[   11.760541] ip_tables: (C) 2000-2006 Netfilter Core Team
+[   11.779579] nf_conntrack version 0.5.0 (2048 buckets, 8192 max)
+[   11.837812] xt_time: kernel timezone is -0000
+[   11.854733] PPP generic driver version 2.4.2
+[   11.865893] NET: Registered protocol family 24
+[   11.878588] kmodloader: done loading kernel modules from /etc/modules.d/*
+[   11.909106] random: crng init done
+[   11.916563] random: 7 urandom warning(s) missed due to ratelimiting
+[   12.194300] usb usb1-port2: Cannot enable. Maybe the USB cable is bad?
+[   12.207897] usb usb1-port2: unable to enumerate USB device
+[   15.918858] mtk_soc_eth 1e100000.ethernet eth0: port 4 link up
+[   18.104916] mtk_soc_eth 1e100000.ethernet: PPE started
+[   18.123408] br-lan: port 1(eth0.1) entered blocking state
+[   18.134673] br-lan: port 1(eth0.1) entered disabled state
+[   18.146191] device eth0.1 entered promiscuous mode
+[   18.155850] device eth0 entered promiscuous mode
+[   18.169153] br-lan: port 1(eth0.1) entered blocking state
+[   18.180344] br-lan: port 1(eth0.1) entered forwarding state
+[   18.192013] IPv6: ADDRCONF(NETDEV_UP): br-lan: link is not ready
+[   19.105251] IPv6: ADDRCONF(NETDEV_CHANGE): br-lan: link becomes ready
