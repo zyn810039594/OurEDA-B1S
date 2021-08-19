@@ -46,12 +46,15 @@
 IWDG_HandleTypeDef hiwdg1;
 
 UART_HandleTypeDef huart4;
+UART_HandleTypeDef huart5;
 UART_HandleTypeDef huart8;
 UART_HandleTypeDef huart1;
 UART_HandleTypeDef huart2;
 UART_HandleTypeDef huart3;
 DMA_HandleTypeDef hdma_uart4_rx;
 DMA_HandleTypeDef hdma_uart4_tx;
+DMA_HandleTypeDef hdma_uart5_rx;
+DMA_HandleTypeDef hdma_uart5_tx;
 DMA_HandleTypeDef hdma_uart8_rx;
 DMA_HandleTypeDef hdma_uart8_tx;
 DMA_HandleTypeDef hdma_usart1_rx;
@@ -70,11 +73,13 @@ osMutexId WT931SensorDataRWFlagHandle;
 osMutexId GY39SensorDataRWFlagHandle;
 osMutexId DeepSensorDataRWFlagHandle;
 osMutexId BaseControlEnableFlagHandle;
+osMutexId P30SensorDataRWFlagHandle;
 osSemaphoreId UptoBaseTransFinishHandle;
 osSemaphoreId WT931TransFinishHandle;
 osSemaphoreId GY39TransFinishHandle;
 osSemaphoreId BasetoUpTransFinishHandleHandle;
 osSemaphoreId DeepTransFinishHandleHandle;
+osSemaphoreId P30TransFinishHandle;
 /* USER CODE BEGIN PV */
 DownDataDef UptoBaseData;
 UpDataDef BasetoUpData;
@@ -82,6 +87,7 @@ UpDataDef BasetoUpData;
 DeepData DeepSensorData;
 WT931Data WT931SensorData;
 GY39Data GY39SensorData;
+P30Data P30SensorData;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -95,6 +101,7 @@ static void MX_USART2_UART_Init(void);
 static void MX_USART3_UART_Init(void);
 static void MX_UART4_Init(void);
 static void MX_UART8_Init(void);
+static void MX_UART5_Init(void);
 void CtrlTaskF(void const *argument);
 void SensorTaskF(void const *argument);
 void UtBF(void const *argument);
@@ -147,6 +154,7 @@ int main(void)
 	MX_USART3_UART_Init();
 	MX_UART4_Init();
 	MX_UART8_Init();
+	MX_UART5_Init();
 	/* USER CODE BEGIN 2 */
 	HAL_IWDG_Refresh(&hiwdg1);
 	//初始化下位机
@@ -181,6 +189,10 @@ int main(void)
 	osMutexDef(BaseControlEnableFlag);
 	BaseControlEnableFlagHandle = osMutexCreate(osMutex(BaseControlEnableFlag));
 
+	/* definition and creation of P30SensorDataRWFlag */
+	osMutexDef(P30SensorDataRWFlag);
+	P30SensorDataRWFlagHandle = osMutexCreate(osMutex(P30SensorDataRWFlag));
+
 	/* USER CODE BEGIN RTOS_MUTEX */
 	HAL_IWDG_Refresh(&hiwdg1);
 	/* add mutexes, ... */
@@ -210,6 +222,10 @@ int main(void)
 	osSemaphoreDef(DeepTransFinishHandle);
 	DeepTransFinishHandleHandle = osSemaphoreCreate(
 			osSemaphore(DeepTransFinishHandle), 1);
+
+	/* definition and creation of P30TransFinish */
+	osSemaphoreDef(P30TransFinish);
+	P30TransFinishHandle = osSemaphoreCreate(osSemaphore(P30TransFinish), 1);
 
 	/* USER CODE BEGIN RTOS_SEMAPHORES */
 	HAL_IWDG_Refresh(&hiwdg1);
@@ -336,9 +352,9 @@ void PeriphCommonClock_Config(void)
 
 	/** Initializes the peripherals clock
 	 */
-	PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_UART8
-			| RCC_PERIPHCLK_USART1 | RCC_PERIPHCLK_UART4 | RCC_PERIPHCLK_USART2
-			| RCC_PERIPHCLK_USART3;
+	PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_UART5
+			| RCC_PERIPHCLK_UART8 | RCC_PERIPHCLK_USART1 | RCC_PERIPHCLK_UART4
+			| RCC_PERIPHCLK_USART2 | RCC_PERIPHCLK_USART3;
 	PeriphClkInitStruct.PLL3.PLL3M = 25;
 	PeriphClkInitStruct.PLL3.PLL3N = 192;
 	PeriphClkInitStruct.PLL3.PLL3P = 2;
@@ -348,7 +364,7 @@ void PeriphCommonClock_Config(void)
 	PeriphClkInitStruct.PLL3.PLL3VCOSEL = RCC_PLL3VCOWIDE;
 	PeriphClkInitStruct.PLL3.PLL3FRACN = 0;
 	PeriphClkInitStruct.Usart234578ClockSelection =
-	RCC_USART234578CLKSOURCE_PLL3;
+			RCC_USART234578CLKSOURCE_PLL3;
 	PeriphClkInitStruct.Usart16ClockSelection = RCC_USART16CLKSOURCE_PLL3;
 	if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInitStruct) != HAL_OK)
 	{
@@ -432,6 +448,56 @@ static void MX_UART4_Init(void)
 	/* USER CODE BEGIN UART4_Init 2 */
 
 	/* USER CODE END UART4_Init 2 */
+
+}
+
+/**
+ * @brief UART5 Initialization Function
+ * @param None
+ * @retval None
+ */
+static void MX_UART5_Init(void)
+{
+
+	/* USER CODE BEGIN UART5_Init 0 */
+
+	/* USER CODE END UART5_Init 0 */
+
+	/* USER CODE BEGIN UART5_Init 1 */
+
+	/* USER CODE END UART5_Init 1 */
+	huart5.Instance = UART5;
+	huart5.Init.BaudRate = 115200;
+	huart5.Init.WordLength = UART_WORDLENGTH_8B;
+	huart5.Init.StopBits = UART_STOPBITS_1;
+	huart5.Init.Parity = UART_PARITY_NONE;
+	huart5.Init.Mode = UART_MODE_TX_RX;
+	huart5.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+	huart5.Init.OverSampling = UART_OVERSAMPLING_16;
+	huart5.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
+	huart5.Init.ClockPrescaler = UART_PRESCALER_DIV1;
+	huart5.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
+	if (HAL_UART_Init(&huart5) != HAL_OK)
+	{
+		Error_Handler();
+	}
+	if (HAL_UARTEx_SetTxFifoThreshold(&huart5, UART_TXFIFO_THRESHOLD_1_8)
+			!= HAL_OK)
+	{
+		Error_Handler();
+	}
+	if (HAL_UARTEx_SetRxFifoThreshold(&huart5, UART_RXFIFO_THRESHOLD_1_8)
+			!= HAL_OK)
+	{
+		Error_Handler();
+	}
+	if (HAL_UARTEx_DisableFifoMode(&huart5) != HAL_OK)
+	{
+		Error_Handler();
+	}
+	/* USER CODE BEGIN UART5_Init 2 */
+
+	/* USER CODE END UART5_Init 2 */
 
 }
 
@@ -658,6 +724,9 @@ static void MX_DMA_Init(void)
 	/* DMA1_Stream3_IRQn interrupt configuration */
 	HAL_NVIC_SetPriority(DMA1_Stream3_IRQn, 5, 0);
 	HAL_NVIC_EnableIRQ(DMA1_Stream3_IRQn);
+	/* DMA1_Stream4_IRQn interrupt configuration */
+	HAL_NVIC_SetPriority(DMA1_Stream4_IRQn, 5, 0);
+	HAL_NVIC_EnableIRQ(DMA1_Stream4_IRQn);
 	/* DMA1_Stream5_IRQn interrupt configuration */
 	HAL_NVIC_SetPriority(DMA1_Stream5_IRQn, 5, 0);
 	HAL_NVIC_EnableIRQ(DMA1_Stream5_IRQn);
@@ -673,6 +742,9 @@ static void MX_DMA_Init(void)
 	/* DMA2_Stream1_IRQn interrupt configuration */
 	HAL_NVIC_SetPriority(DMA2_Stream1_IRQn, 5, 0);
 	HAL_NVIC_EnableIRQ(DMA2_Stream1_IRQn);
+	/* DMA2_Stream2_IRQn interrupt configuration */
+	HAL_NVIC_SetPriority(DMA2_Stream2_IRQn, 5, 0);
+	HAL_NVIC_EnableIRQ(DMA2_Stream2_IRQn);
 
 }
 
@@ -754,16 +826,20 @@ void SensorTaskF(void const *argument)
 {
 	/* USER CODE BEGIN SensorTaskF */
 	InitGY39();
+	InitP30();
 	ReceiveDeep();
 	ReceiveGY39();
 	ReceiveWT931();
+	ReceiveP30();
 	osDelay(200);
 	DeepSensorData = ReceiveDeep();
 	GY39SensorData = ReceiveGY39();
 	WT931SensorData = ReceiveWT931();
+	P30SensorData = ReceiveP30();
 	xSemaphoreGive(DeepSensorDataRWFlagHandle);
 	xSemaphoreGive(GY39SensorDataRWFlagHandle);
 	xSemaphoreGive(WT931SensorDataRWFlagHandle);
+	xSemaphoreGive(P30SensorDataRWFlagHandle);
 	/* Infinite loop */
 	for (;;)
 	{
@@ -787,7 +863,7 @@ void SensorTaskF(void const *argument)
 				xSemaphoreGive(WT931SensorDataRWFlagHandle);
 			}
 		}
-		//收取温湿度数�?
+		//收取温湿度数�????
 		if (xSemaphoreTake(GY39TransFinishHandle,portMAX_DELAY) == pdTRUE)
 		{
 			if (xSemaphoreTake(GY39SensorDataRWFlagHandle,
@@ -795,6 +871,16 @@ void SensorTaskF(void const *argument)
 			{
 				GY39SensorData = ReceiveGY39();
 				xSemaphoreGive(GY39SensorDataRWFlagHandle);
+			}
+		}
+		//收取声呐数据
+		if (xSemaphoreTake(P30TransFinishHandle,portMAX_DELAY) == pdTRUE)
+		{
+			if (xSemaphoreTake(P30SensorDataRWFlagHandle,
+					portMAX_DELAY) == pdTRUE)
+			{
+				P30SensorData = ReceiveP30();
+				xSemaphoreGive(P30SensorDataRWFlagHandle);
 			}
 		}
 		HAL_IWDG_Refresh(&hiwdg1);
@@ -813,7 +899,7 @@ void UtBF(void const *argument)
 {
 	/* USER CODE BEGIN UtBF */
 	u8 DIPFlag = 0;
-	u16 DIPStartNum = 0; //PID定向定深预期�??????
+	u16 DIPStartNum = 0; //PID定向定深预期�?????????
 
 	CaptureUpData();
 	CaptureDownData();
@@ -827,7 +913,7 @@ void UtBF(void const *argument)
 	/* Infinite loop */
 	for (;;)
 	{
-		//根据控制位判断是否执行自主定向定�?
+		//根据控制位判断是否执行自主定向定�????
 		if (UptoBaseData.Mode == 0b0010) // Mode & 0b0111 == 0b0010,使用定向模式
 		{
 			if (DIPFlag == 0)
@@ -848,10 +934,10 @@ void UtBF(void const *argument)
 		}
 		else
 		{
-			DIPFlag = 0; //不开启定向定�?
+			DIPFlag = 0; //不开启定向定�????
 		}
 
-		//收取上位机指令
+		//收取上位机指�???
 		if (xSemaphoreTake(UptoBaseTransFinishHandle,portMAX_DELAY) == pdTRUE)
 		{
 			if (xSemaphoreTake(UptoBaseDataRWFlagHandle,
@@ -887,13 +973,13 @@ void BtUF(void const *argument)
 	/* USER CODE BEGIN BtUF */
 //	xSemaphoreGive(BaseControlEnableFlagHandle);
 	//用于指示当前传输数据是哪个仓位的标志
-	//置为1的时候表示推进器控制�??????
+	//置为1的时候表示推进器控制�?????????
 	//置为0的时候表示主控仓
 	u8 SensorCarbin = 0;
 	/* Infinite loop */
 	for (;;)
 	{
-		if (SensorCarbin % 2 == 1) //发�?�推进器控制仓数�?
+		if (SensorCarbin % 2 == 1) //发�?�推进器控制仓数�????
 		{
 			//接收下位仓回传的数据
 			if (xSemaphoreTake(BasetoUpTransFinishHandleHandle,
@@ -917,54 +1003,54 @@ void BtUF(void const *argument)
 		}
 		else if (SensorCarbin % 2 == 0)	//发�?�主控仓数据
 		{
-//			//汇�?�本仓传感器数据
-//			//仓位数据
-//			BasetoUpData.CabinNum = 0;
-//			//漏水�?�?
-//			BasetoUpData.WaterDetect = HAL_GPIO_ReadPin(GPIOE,
-//			GPIO_PIN_6) << 1;
-//			//九轴数据
-//			if (xSemaphoreTake(WT931SensorDataRWFlagHandle,
-//					portMAX_DELAY) == pdTRUE)
-//			{
-//				BasetoUpData.AccNum[0] = WT931SensorData.AccNum[0];
-//				BasetoUpData.AccNum[1] = WT931SensorData.AccNum[1];
-//				BasetoUpData.AccNum[2] = WT931SensorData.AccNum[2];
-//				BasetoUpData.RotNum[0] = WT931SensorData.RotNum[0];
-//				BasetoUpData.RotNum[1] = WT931SensorData.RotNum[1];
-//				BasetoUpData.RotNum[2] = WT931SensorData.RotNum[2];
-//				BasetoUpData.EulNum[0] = WT931SensorData.EulNum[0];
-//				BasetoUpData.EulNum[1] = WT931SensorData.EulNum[1];
-//				BasetoUpData.EulNum[2] = WT931SensorData.EulNum[2];
-//				BasetoUpData.MagNum[0] = WT931SensorData.MagNum[0];
-//				BasetoUpData.MagNum[1] = WT931SensorData.MagNum[1];
-//				BasetoUpData.MagNum[2] = WT931SensorData.MagNum[2];
-//				xSemaphoreGive(WT931SensorDataRWFlagHandle);
-//			}
-//			//温湿度大气压数据
-//			if (xSemaphoreTake(GY39SensorDataRWFlagHandle,
-//					portMAX_DELAY) == pdTRUE)
-//			{
-//				BasetoUpData.CabinBaro = GY39SensorData.Baro;
-//				BasetoUpData.CabinHum = GY39SensorData.Hum;
-//				BasetoUpData.CabinTemperature = GY39SensorData.Temperature;
-//				xSemaphoreGive(GY39SensorDataRWFlagHandle);
-//			}
-//			//水深水温数据
-//			if (xSemaphoreTake(DeepSensorDataRWFlagHandle,
-//					portMAX_DELAY) == pdTRUE)
-//			{
-//				BasetoUpData.WaterDepth = DeepSensorData.WaterDepth;
-//				BasetoUpData.WaterTemperature = DeepSensorData.WaterTemperature;
-//				xSemaphoreGive(DeepSensorDataRWFlagHandle);
-//			}
-//			//上传数据
-//			if (xSemaphoreTake(UptoBaseDataRWFlagHandle,
-//					portMAX_DELAY) == pdTRUE)
-//			{
-//				SendUpData(BasetoUpData);
-//				xSemaphoreGive(UptoBaseDataRWFlagHandle);
-//			}
+			//汇�?�本仓传感器数据
+			//仓位数据
+			BasetoUpData.CabinNum = 0;
+			//漏水�????�????
+			BasetoUpData.WaterDetect = HAL_GPIO_ReadPin(GPIOE,
+			GPIO_PIN_6) << 1;
+			//九轴数据
+			if (xSemaphoreTake(WT931SensorDataRWFlagHandle,
+					portMAX_DELAY) == pdTRUE)
+			{
+				BasetoUpData.AccNum[0] = WT931SensorData.AccNum[0];
+				BasetoUpData.AccNum[1] = WT931SensorData.AccNum[1];
+				BasetoUpData.AccNum[2] = WT931SensorData.AccNum[2];
+				BasetoUpData.RotNum[0] = WT931SensorData.RotNum[0];
+				BasetoUpData.RotNum[1] = WT931SensorData.RotNum[1];
+				BasetoUpData.RotNum[2] = WT931SensorData.RotNum[2];
+				BasetoUpData.EulNum[0] = WT931SensorData.EulNum[0];
+				BasetoUpData.EulNum[1] = WT931SensorData.EulNum[1];
+				BasetoUpData.EulNum[2] = WT931SensorData.EulNum[2];
+				BasetoUpData.MagNum[0] = WT931SensorData.MagNum[0];
+				BasetoUpData.MagNum[1] = WT931SensorData.MagNum[1];
+				BasetoUpData.MagNum[2] = WT931SensorData.MagNum[2];
+				xSemaphoreGive(WT931SensorDataRWFlagHandle);
+			}
+			//温湿度大气压数据
+			if (xSemaphoreTake(GY39SensorDataRWFlagHandle,
+					portMAX_DELAY) == pdTRUE)
+			{
+				BasetoUpData.CabinBaro = GY39SensorData.Baro;
+				BasetoUpData.CabinHum = GY39SensorData.Hum;
+				BasetoUpData.CabinTemperature = GY39SensorData.Temperature;
+				xSemaphoreGive(GY39SensorDataRWFlagHandle);
+			}
+			//水深水温数据
+			if (xSemaphoreTake(DeepSensorDataRWFlagHandle,
+					portMAX_DELAY) == pdTRUE)
+			{
+				BasetoUpData.WaterDepth = DeepSensorData.WaterDepth;
+				BasetoUpData.WaterTemperature = DeepSensorData.WaterTemperature;
+				xSemaphoreGive(DeepSensorDataRWFlagHandle);
+			}
+			//上传数据
+			if (xSemaphoreTake(UptoBaseDataRWFlagHandle,
+					portMAX_DELAY) == pdTRUE)
+			{
+				SendUpData(BasetoUpData);
+				xSemaphoreGive(UptoBaseDataRWFlagHandle);
+			}
 		}
 		SensorCarbin++;
 		HAL_IWDG_Refresh(&hiwdg1);

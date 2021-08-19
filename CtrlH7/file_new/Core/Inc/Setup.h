@@ -1,5 +1,20 @@
-#ifndef SETTING_H
-#define SETTING_H
+/**
+ * @file Setup.h
+ * @brief
+ * @author Harold Zhao(zyn810039594) and RedlightASl (dddbbbdd@foxmail.com)
+ * @version 1.0
+ * @date 2021-08-19
+ *
+ * @copyright Copyright (c) 2021  RedlightASl
+ *
+ * @par 修改日志:
+ * <table>
+ * <tr><th>Date       <th>Version <th>Author  <th>Description
+ * <tr><td>2021-08-19 <td>1.0     <td>wangh     <td>Content
+ * </table>
+ */
+#ifndef __SETUP_H
+#define __SETUP_H
 
 //选择运行仓位
 #define CtrlSide
@@ -15,6 +30,8 @@
 #define GY39_UART huart2
 //接深度解算板
 #define Deep_UART huart4
+//接声呐
+#define GP30_UART huart5
 //接上位机
 #define Up_UART huart1
 //接下位机
@@ -42,9 +59,11 @@
 #define GY39_UART_RXLen 18
 #define GY39_UART_TXLen 3
 #define WT931_UART_RXLen 60
-#define Up_UART_TXLen 41
+#define P30_UART_TXLen 12
+#define P30_UART_RXLen 33
+#define Up_UART_TXLen 47
 #define Up_UART_RXLen 30
-#define Down_UART_RXLen 41
+#define Down_UART_RXLen 47
 #define Down_UART_TXLEN 30
 
 #endif

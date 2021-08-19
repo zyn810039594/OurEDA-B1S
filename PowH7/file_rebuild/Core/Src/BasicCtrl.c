@@ -1,20 +1,36 @@
+/**
+ * @file BasicCtrl.c
+ * @brief
+ * @author Harold Zhao(zyn810039594) and RedlightASl (dddbbbdd@foxmail.com)
+ * @version 1.0
+ * @date 2021-08-19
+ *
+ * @copyright Copyright (c) 2021  RedlightASl
+ *
+ * @par 修改日志:
+ * <table>
+ * <tr><th>Date       <th>Version <th>Author  <th>Description
+ * <tr><td>2021-08-19 <td>1.0     <td>wangh     <td>Content
+ * </table>
+ */
 #include "BasicCtrl.h"
-#include <stdio.h>
 
 static u8 XorCaculate(u8 *CacString, u8 CacStringSize);
-static u8 IdTest(u8 *String, u8 Format);
+static u8 IdTest(u8 *String, u8 Format, u8 SendUpLength, u8 SendDownLength);
 
-__attribute__((section(".RAM_D1")))                          u8 DownDataReceive[Up_UART_RXLen] =
+__attribute__((section(".RAM_D1")))         u8 DownDataReceive[Up_UART_RXLen] =
 { 0 };
-__attribute__((section(".RAM_D1")))                          u8 DownDataSend[Down_UART_TXLEN] =
+__attribute__((section(".RAM_D1")))         u8 DownDataSend[Down_UART_TXLEN] =
+{ 0 };
+__attribute__((section(".RAM_D1")))         u8 UpDataReceive[Down_UART_RXLen] =
+{ 0 };
+__attribute__((section(".RAM_D1")))         u8 UpDataSend[Up_UART_TXLen] =
 { 0 };
 
-__attribute__((section(".RAM_D1")))                          u8 UpDataReceive[Down_UART_RXLen] =
-{ 0 };
-__attribute__((section(".RAM_D1")))                          u8 UpDataSend[Up_UART_TXLen] =
-{ 0 };
-
-//捕获上位向下位发送的数据
+/**
+ * @brief 捕获上位机向下位机发送的指令
+ * @return DownDataDef 上位机向下位机发送的指令
+ */
 DownDataDef CaptureDownData(void)
 {
 	DownDataDef CaptureData;
@@ -32,57 +48,74 @@ DownDataDef CaptureDownData(void)
 	CaptureData.ArmPWM[4] = ((DownDataReceive[21] << 8) | DownDataReceive[22]);
 	CaptureData.ArmPWM[5] = ((DownDataReceive[23] << 8) | DownDataReceive[24]);
 	CaptureData.ResPWM = ((DownDataReceive[25] << 8) | DownDataReceive[26]);
+#ifdef CtrlSide
+	CaptureData.Mode = (DownDataReceive[27] & 0b0001);
+	CaptureData.Relay = (DownDataReceive[27] & 0b1000);
+#else
+#ifdef PowerSide
 	CaptureData.Mode = ((DownDataReceive[27] & 0b0001) ? 1 : 0);
-	CaptureData.Relay = (
-			(DownDataReceive[27] & 0b1000) ? GPIO_PIN_SET : GPIO_PIN_RESET);
-	CaptureData.IdTest = IdTest(DownDataReceive, 0);
+	CaptureData.Relay = ((DownDataReceive[27] & 0b1000) ? 1U : 0U);
+#else
+	CaptureData.Mode = (DownDataReceive[27]);
+	CaptureData.Relay = (DownDataReceive[27]);
+#endif
+#endif
+	CaptureData.IdTest = IdTest(DownDataReceive, 0, 44, 28);
+
 	__HAL_UART_ENABLE_IT(&Up_UART, UART_IT_IDLE);
 	HAL_UART_Receive_DMA(&Up_UART, DownDataReceive, Up_UART_RXLen);
 
 	return CaptureData;
 }
 
-//向下位发送数据
+/**
+ * @brief 向下位机发送数据
+ * @param  SendData         待发送的数据结构体
+ */
 void SendDownData(DownDataDef SendData)
 {
 	DownDataSend[0] = 0x25;
-	DownDataSend[1] = SendData.StraightNum;
-	DownDataSend[2] = SendData.StraightNum >> 8;
-	DownDataSend[3] = SendData.RotateNum;
-	DownDataSend[4] = SendData.RotateNum >> 8;
-	DownDataSend[5] = SendData.VerticalNum;
-	DownDataSend[6] = SendData.VerticalNum >> 8;
-	DownDataSend[7] = SendData.LightPWM;
-	DownDataSend[8] = SendData.LightPWM >> 8;
-	DownDataSend[9] = SendData.THPWM;
-	DownDataSend[10] = SendData.THPWM >> 8;
-	DownDataSend[11] = SendData.TranspPWM;
-	DownDataSend[12] = SendData.TranspPWM >> 8;
-	DownDataSend[13] = SendData.ArmPWM[0];
-	DownDataSend[14] = SendData.ArmPWM[0] >> 8;
-	DownDataSend[15] = SendData.ArmPWM[1];
-	DownDataSend[16] = SendData.ArmPWM[1] >> 8;
-	DownDataSend[17] = SendData.ArmPWM[2];
-	DownDataSend[18] = SendData.ArmPWM[2] >> 8;
-	DownDataSend[19] = SendData.ArmPWM[3];
-	DownDataSend[20] = SendData.ArmPWM[3] >> 8;
-	DownDataSend[21] = SendData.ArmPWM[4];
-	DownDataSend[22] = SendData.ArmPWM[4] >> 8;
-	DownDataSend[23] = SendData.ArmPWM[5];
-	DownDataSend[24] = SendData.ArmPWM[5] >> 8;
-	DownDataSend[25] = SendData.ResPWM;
-	DownDataSend[26] = SendData.ResPWM >> 8;
+	DownDataSend[1] = SendData.StraightNum >> 8;
+	DownDataSend[2] = SendData.StraightNum;
+	DownDataSend[3] = SendData.RotateNum >> 8;
+	DownDataSend[4] = SendData.RotateNum;
+	DownDataSend[5] = SendData.VerticalNum >> 8;
+	DownDataSend[6] = SendData.VerticalNum;
+	DownDataSend[7] = SendData.LightPWM >> 8;
+	DownDataSend[8] = SendData.LightPWM;
+	DownDataSend[9] = SendData.THPWM >> 8;
+	DownDataSend[10] = SendData.THPWM;
+	DownDataSend[11] = SendData.TranspPWM >> 8;
+	DownDataSend[12] = SendData.TranspPWM;
+	DownDataSend[13] = SendData.ArmPWM[0] >> 8;
+	DownDataSend[14] = SendData.ArmPWM[0];
+	DownDataSend[15] = SendData.ArmPWM[1] >> 8;
+	DownDataSend[16] = SendData.ArmPWM[1];
+	DownDataSend[17] = SendData.ArmPWM[2] >> 8;
+	DownDataSend[18] = SendData.ArmPWM[2];
+	DownDataSend[19] = SendData.ArmPWM[3] >> 8;
+	DownDataSend[20] = SendData.ArmPWM[3];
+	DownDataSend[21] = SendData.ArmPWM[4] >> 8;
+	DownDataSend[22] = SendData.ArmPWM[4];
+	DownDataSend[23] = SendData.ArmPWM[5] >> 8;
+	DownDataSend[24] = SendData.ArmPWM[5];
+	DownDataSend[25] = SendData.ResPWM >> 8;
+	DownDataSend[26] = SendData.ResPWM;
 	DownDataSend[27] = (SendData.Mode | SendData.Relay);
 	DownDataSend[28] = XorCaculate(DownDataSend, 28);
 	DownDataSend[29] = 0x21;
+
 	HAL_UART_Transmit_DMA(&Down_UART, DownDataSend, Down_UART_TXLEN);
 }
 
-//捕获下位向上位发送的数据
+/**
+ * @brief 捕获下位向上位发送的数据
+ * @return UpDataDef 下位机上传的数据结构体
+ */
 UpDataDef CaptureUpData(void)
 {
 	UpDataDef CaptureData;
-	CaptureData.CabinNum = ((UpDataReceive[1] & 0b0001) ? 1 : 0);
+	CaptureData.CabinNum = (UpDataReceive[1] & 0b0001); //0总控制仓，1PWM控制仓
 	CaptureData.WaterDetect = (UpDataReceive[1] & 0b0110); //2控水；4电水
 	CaptureData.CabinTemperature = ((UpDataReceive[3] << 8) | UpDataReceive[2]);
 	CaptureData.CabinBaro = ((UpDataReceive[7] << 24) | (UpDataReceive[6] << 16)
@@ -100,20 +133,29 @@ UpDataDef CaptureUpData(void)
 	CaptureData.MagNum[0] = ((UpDataReceive[29] << 8) | UpDataReceive[28]);
 	CaptureData.MagNum[1] = ((UpDataReceive[31] << 8) | UpDataReceive[30]);
 	CaptureData.MagNum[2] = ((UpDataReceive[33] << 8) | UpDataReceive[32]);
+	CaptureData.DepthToBottom = ((UpDataReceive[37] << 24)
+			| (UpDataReceive[36] << 16) | (UpDataReceive[35] << 8)
+			| UpDataReceive[34]);
+	CaptureData.Confidence = ((UpDataReceive[39] << 8) | UpDataReceive[38]);
 	CaptureData.WaterTemperature =
-			((UpDataReceive[35] << 8) | UpDataReceive[34]);
-	CaptureData.WaterDepth = ((UpDataReceive[37] << 8) | UpDataReceive[36]);
-	CaptureData.IdTest = IdTest(UpDataReceive, 1);
+			((UpDataReceive[40] << 8) | UpDataReceive[41]);
+	CaptureData.WaterDepth = ((UpDataReceive[42] << 8) | UpDataReceive[43]);
+	CaptureData.IdTest = IdTest(UpDataReceive, 1, 44, 28);
+
 	__HAL_UART_ENABLE_IT(&Down_UART, UART_IT_IDLE);
 	HAL_UART_Receive_DMA(&Down_UART, DownDataReceive, Down_UART_RXLen);
+
 	return CaptureData;
 }
 
-//向上位机发送数据
+/**
+ * @brief 向上位机发送数据
+ * @param  SendData         待发送的数据结构体
+ */
 void SendUpData(UpDataDef SendData)
 {
 	UpDataSend[0] = 0x25;
-	UpDataSend[1] = (SendData.CabinNum | SendData.WaterDetect);
+	UpDataSend[1] = ((SendData.CabinNum) | (SendData.WaterDetect));
 	UpDataSend[2] = SendData.CabinTemperature;
 	UpDataSend[3] = SendData.CabinTemperature >> 8;
 	UpDataSend[4] = SendData.CabinBaro;
@@ -146,17 +188,32 @@ void SendUpData(UpDataDef SendData)
 	UpDataSend[31] = SendData.MagNum[1] >> 8;
 	UpDataSend[32] = SendData.MagNum[2];
 	UpDataSend[33] = SendData.MagNum[2] >> 8;
-	UpDataSend[34] = SendData.WaterTemperature;
-	UpDataSend[35] = SendData.WaterTemperature >> 8;
-	UpDataSend[36] = SendData.WaterDepth;
-	UpDataSend[37] = SendData.WaterDepth >> 8;
-	UpDataSend[38] = XorCaculate(UpDataSend, 38);
-	UpDataSend[39] = 0xff;
-	UpDataSend[40] = 0xff;
+	UpDataSend[34] = SendData.DepthToBottom;
+	UpDataSend[35] = SendData.DepthToBottom >> 8;
+	UpDataSend[36] = SendData.DepthToBottom >> 16;
+	UpDataSend[37] = SendData.DepthToBottom >> 24;
+	UpDataSend[38] = SendData.Confidence;
+	UpDataSend[39] = SendData.Confidence >> 8;
+	UpDataSend[40] = SendData.WaterTemperature;
+	UpDataSend[41] = SendData.WaterTemperature >> 8;
+	UpDataSend[42] = SendData.WaterDepth;
+	UpDataSend[43] = SendData.WaterDepth >> 8;
+	UpDataSend[44] = XorCaculate(UpDataSend, 38);
+	UpDataSend[45] = 0xff;
+	UpDataSend[46] = 0xff;
+
 	HAL_UART_Transmit_DMA(&Up_UART, UpDataSend, Up_UART_TXLen);
 }
 
-//基本的运动控制函数
+/**
+ * @brief 基本的运动控制函数
+ * @param  StraightNum      前进控制参数
+ * @param  RotateNum        旋转控制参数
+ * @param  VerticalNum      垂直控制参数
+ * @param  ModeNum          模式
+ * @return MoveThruster 推进器控制数据
+ * @note 基于经验公式，不应进行改动
+ */
 MoveThruster MoveControl(u16 StraightNum, u16 RotateNum, u16 VerticalNum,
 		u8 ModeNum)
 {
@@ -222,16 +279,22 @@ MoveThruster MoveControl(u16 StraightNum, u16 RotateNum, u16 VerticalNum,
 	return ThrusterTemp;
 }
 
-//PID算法运行
+/**
+ * @brief PID算法控制函数
+ * @param  ModeType         模式
+ * @param  SetValue         目标值
+ * @param  ActualValue      当前值
+ * @return u16 位置PID数据
+ */
 u16 SpecialMovePID(u8 ModeType, u16 SetValue, u16 ActualValue)
 {
-//当前误差
+	//当前误差
 	static float Ek;
-//前一次误差
+	//前一次误差
 	static float Ek1;
-//累计积分位置
+	//累计积分位置
 	static float LocSum;
-//数据清空标志位
+	//数据清空标志位
 	static u8 PIDData = 0;
 
 	if (ModeType == 4)
@@ -240,11 +303,10 @@ u16 SpecialMovePID(u8 ModeType, u16 SetValue, u16 ActualValue)
 		u16 PIDLoc;
 		Ek = (float) (SetValue - ActualValue);
 		LocSum += Ek;
-		PIDLoc =
-				(u16) (1500
-						+ range(
-								(int16_t)(PID_D_Kp * Ek + (PID_D_Ki * LocSum) + PID_D_Kd * (Ek1 - Ek)),
-								-1000, 1000));
+		PIDLoc = (u16) (1500
+				+ BASICCTRL_RANGE(
+						(int16_t) (PID_D_Kp * Ek + (PID_D_Ki * LocSum)
+								+ PID_D_Kd * (Ek1 - Ek)), -1000, 1000));
 		return PIDLoc;
 	}
 	else if (ModeType == 2)
@@ -253,11 +315,10 @@ u16 SpecialMovePID(u8 ModeType, u16 SetValue, u16 ActualValue)
 		u16 PIDLoc;
 		Ek = (float) (SetValue - ActualValue);
 		LocSum += Ek;
-		PIDLoc =
-				(u16) (1500
-						+ range(
-								(int16_t)(PID_O_Kp * Ek + (PID_O_Ki * LocSum) + PID_O_Kd * (Ek1 - Ek)),
-								-1000, 1000));
+		PIDLoc = (u16) (1500
+				+ BASICCTRL_RANGE(
+						(int16_t) (PID_O_Kp * Ek + (PID_O_Ki * LocSum)
+								+ PID_O_Kd * (Ek1 - Ek)), -1000, 1000));
 		return PIDLoc;
 	}
 	else
@@ -270,15 +331,22 @@ u16 SpecialMovePID(u8 ModeType, u16 SetValue, u16 ActualValue)
 		}
 		return 0;
 	}
-
 }
 
-//异或运算位检查，其中Format上传格式为1下传格式为0，正确为1错误为0
-static u8 IdTest(u8 *String, u8 Format)
+/**
+ * @brief 异或运算位检查(奇偶校验)
+ * @param  String           待校验的数据
+ * @param  Format           上传格式为1；下传格式为0
+ * @param  SendUpLength     上传数据长度
+ * @param  SendDownLength   下传指令长度
+ * @return u8 正确为1；错误为0，如果不开启奇偶校验默认为1
+ */
+static u8 IdTest(u8 *String, u8 Format, u8 SendUpLength, u8 SendDownLength)
 {
+#ifdef DataIdentify
 	if (Format) //上传数据格式
 	{
-		if (*(String + 38) == XorCaculate(String, 38))
+		if (*(String + SendUpLength) == XorCaculate(String, SendUpLength))
 		{
 			return 1;
 		}
@@ -289,7 +357,7 @@ static u8 IdTest(u8 *String, u8 Format)
 	}
 	else //下传指令格式
 	{
-		if (*(String + 28) == XorCaculate(String, 28))
+		if (*(String + SendDownLength) == XorCaculate(String, SendDownLength))
 		{
 			return 1;
 		}
@@ -299,15 +367,27 @@ static u8 IdTest(u8 *String, u8 Format)
 		}
 	}
 	return 1;
+#else
+	return 1; //不开启奇偶校验时默认成功
+#endif
 }
 
-//异或运算位计算
+/**
+ * @brief 异或运算
+ * @param  CacString        待校验数据
+ * @param  CacStringSize    待校验数据长度
+ * @return u8 异或运算结果，如果不开启数据校验则默认返回0
+ */
 static u8 XorCaculate(u8 *CacString, u8 CacStringSize)
 {
+#ifdef DataIdentify
 	u8 CacResult = CacString[0];
 	for (u8 i = 0; i < CacStringSize; ++i)
 	{
 		CacResult ^= CacString[i];
 	}
 	return CacResult;
+#else
+	return 0;
+#endif
 }

@@ -101,7 +101,41 @@ void BtUF(void const * argument);
 void EmptyTaskF(void const * argument);
 
 /* USER CODE BEGIN PFP */
-
+///**
+// * 软件PWM，可用于控制灯光PB3
+// * 只开启时基单元即�?
+// * 频率�?1kHz
+// */
+//void SoftwarePwm_Init(TIM_HandleTypeDef *htimx, uint16_t psr, uint16_t arr)
+//{
+//	/* 设置定时�? */
+//	/* 调节定时器分频系数和预装载寄存器�? */
+////	htimx->Instance->PSC = psr;
+////	htimx->Instance->ARR = arr;
+//	/* 设置软件比较�? */
+//	SoftwarePwm_Control();
+//
+//	/* �?启定时器及中�? */
+////	HAL_TIM_PWM_Start();
+//}
+//
+///**
+// * 在主程序中轮询本函数来实现PWM输出
+// */
+//void SoftwarePwm_Control(TIM_HandleTypeDef *htimx, uint16_t count)
+//{
+//	/* 判断计时值和设定阈�?�的大小 */
+//	if (htimx->Instance->CNT > count)
+//	{
+//		/* GPIO有输�? */
+//		HAL_GPIO_WritePin(GPIOx, GPIO_Pin, GPIO_PIN_SET);
+//	}
+//	else
+//	{
+//		/* GPIO无输�? */
+//		HAL_GPIO_WritePin(GPIOx, GPIO_Pin, GPIO_PIN_RESET);
+//	}
+//}
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -157,7 +191,7 @@ int main(void)
 	HAL_IWDG_Refresh(&hiwdg1);
 	//继电器初始化
 	HAL_GPIO_WritePin(GPIOD, GPIO_PIN_11, GPIO_PIN_RESET);
-	//PWM初始�?????
+	//PWM初始�??????
 	HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
 	HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_1);
 	HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_2);
@@ -513,10 +547,12 @@ static void MX_TIM2_Init(void)
   {
     Error_Handler();
   }
+  sConfigOC.Pulse = 0;
   if (HAL_TIM_PWM_ConfigChannel(&htim2, &sConfigOC, TIM_CHANNEL_2) != HAL_OK)
   {
     Error_Handler();
   }
+  sConfigOC.Pulse = 1500;
   if (HAL_TIM_PWM_ConfigChannel(&htim2, &sConfigOC, TIM_CHANNEL_3) != HAL_OK)
   {
     Error_Handler();
@@ -977,9 +1013,9 @@ void CtrlTaskF(void const * argument)
 			Thurster = MoveControl(UptoBaseData.StraightNum,
 					UptoBaseData.RotateNum, UptoBaseData.VerticalNum,
 					UptoBaseData.Mode);
-			HAL_GPIO_WritePin(GPIOD, GPIO_PIN_11, UptoBaseData.Relay); //PD11 继电�?
+			HAL_GPIO_WritePin(GPIOD, GPIO_PIN_11, UptoBaseData.Relay); //PD11 继电�??
 
-			/* 下面的顺序按照从上到下排针引出顺序排�? */
+			/* 下面的顺序按照从上到下排针引出顺序排�?? */
 			/*
 			 TIM4->CCR4 = 1500; //PD15 J6
 			 TIM2->CCR4 = 1500; //PB11 J8
@@ -988,15 +1024,15 @@ void CtrlTaskF(void const * argument)
 			 TIM4->CCR3 = 1500; //PD14 J3
 			 TIM4->CCR2 = 1500; //PD13 J5
 			 TIM2->CCR2 = 1500; //PB3 灯光
-			 TIM2->CCR1 = 1500; //PA5 云台 �? 预留？（未定�?
-			 TIM1->CCR1 = 1500; //PA8 机械�?1 �?
-			 TIM3->CCR4 = 1500; //PB1 机械�?2 �?
-			 TIM3->CCR3 = 1500; //PB0 机械�?3 �?
-			 TIM5->CCR1 = 1500; //PA0 传�?�带1（预留） �? 云台（文档）
-			 TIM3->CCR2 = 1500; //PA7 传�?�带2 �? 机械�?4 水？（文档）
-			 TIM5->CCR4 = 1500; //PA3 机械�?4 �? 传�?�带2？（文档�?
-			 TIM5->CCR3 = 1500; //PA2 机械�?5 �?
-			 TIM5->CCR2 = 1500; //PA1 机械�?6（预留）
+			 TIM2->CCR1 = 1500; //PA5 云台 �?? 预留？（未定�??
+			 TIM1->CCR1 = 1500; //PA8 机械�??1 �??
+			 TIM3->CCR4 = 1500; //PB1 机械�??2 �??
+			 TIM3->CCR3 = 1500; //PB0 机械�??3 �??
+			 TIM5->CCR1 = 1500; //PA0 传�?�带1（预留） �?? 云台（文档）
+			 TIM3->CCR2 = 1500; //PA7 传�?�带2 �?? 机械�??4 水？（文档）
+			 TIM5->CCR4 = 1500; //PA3 机械�??4 �?? 传�?�带2？（文档�??
+			 TIM5->CCR3 = 1500; //PA2 机械�??5 �??
+			 TIM5->CCR2 = 1500; //PA1 机械�??6（预留）
 			 */
 			TIM4->CCR4 = Thurster.HorizontalThruster[3]; //PD15 J6
 			TIM2->CCR4 = Thurster.VerticalThruster[0]; //PB11 J8
@@ -1006,17 +1042,17 @@ void CtrlTaskF(void const * argument)
 			TIM4->CCR2 = Thurster.HorizontalThruster[0]; //PD13 J5
 
 			TIM2->CCR2 = UptoBaseData.LightPWM; //PB3 灯光
-			TIM2->CCR1 = UptoBaseData.ArmPWM[5]; //PA5 机械�?6（预留）
+			TIM2->CCR1 = UptoBaseData.ArmPWM[5]; //PA5 机械�??6（预留）
 
-			TIM1->CCR1 = UptoBaseData.ArmPWM[0]; //PA8 机械�?1 �?
-			TIM3->CCR4 = UptoBaseData.ArmPWM[1]; //PB1 机械�?2 �?
-			TIM3->CCR3 = UptoBaseData.ArmPWM[2]; //PB0 机械�?3 �?
+			TIM1->CCR1 = UptoBaseData.ArmPWM[0]; //PA8 机械�??1 �??
+			TIM3->CCR4 = UptoBaseData.ArmPWM[1]; //PB1 机械�??2 �??
+			TIM3->CCR3 = UptoBaseData.ArmPWM[2]; //PB0 机械�??3 �??
 
 			TIM5->CCR1 = UptoBaseData.THPWM; //PA0 云台
-			TIM3->CCR2 = UptoBaseData.ArmPWM[3]; //PA7 机械�?4 �?
+			TIM3->CCR2 = UptoBaseData.ArmPWM[3]; //PA7 机械�??4 �??
 
-			TIM5->CCR4 = UptoBaseData.TranspPWM; //PA3 传�?�带
-			TIM5->CCR3 = UptoBaseData.ArmPWM[4]; //PA2 机械�?5 �?
+			TIM5->CCR4 = UptoBaseData.TranspPWM; //PA3 传�?�带
+			TIM5->CCR3 = UptoBaseData.ArmPWM[4]; //PA2 机械�??5 �??
 			TIM5->CCR2 = UptoBaseData.ResPWM; //PA1 预留
 
 			xSemaphoreGive(UptoBaseDataRWFlagHandle);
@@ -1038,7 +1074,7 @@ void SensorTaskF(void const * argument)
 {
   /* USER CODE BEGIN SensorTaskF */
 	//Finish:二进制信号量，串口传输结束位
-	//RWFlag:互斥信号量，读写保护�????
+	//RWFlag:互斥信号量，读写保护�?????
 	InitGY39();
 	ReceiveGY39();
 	ReceiveWT931();
@@ -1084,7 +1120,7 @@ void UtBF(void const * argument)
 {
   /* USER CODE BEGIN UtBF */
 	//Finish:二进制信号量，串口传输结束位
-	//RWFlag:互斥信号量，读写保护�????
+	//RWFlag:互斥信号量，读写保护�?????
 	CaptureDownData();
 	osDelay(200);
 	//打开串口接收
@@ -1123,7 +1159,7 @@ void BtUF(void const * argument)
 	/* Infinite loop */
 	for (;;)
 	{
-		//汇�?�传感器数据并上�???
+		//汇�?�传感器数据并上�????
 		if (xSemaphoreTake(BasetoUpDataRWFlagHandle,portMAX_DELAY) == pdTRUE)
 		{
 			BasetoUpData.CabinNum = 1;

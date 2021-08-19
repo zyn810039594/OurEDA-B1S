@@ -1,0 +1,20 @@
+--cpu Cortex-M3
+"..\outfile\obj\main.o"
+"..\outfile\obj\stm32f10x_it.o"
+"..\outfile\obj\system_stm32f10x.o"
+"..\outfile\obj\myiic.o"
+"..\outfile\obj\ms5837.o"
+"..\outfile\obj\delay.o"
+"..\outfile\obj\sys.o"
+"..\outfile\obj\usart.o"
+"..\outfile\obj\core_cm3.o"
+"..\outfile\obj\startup_stm32f10x_md.o"
+"..\outfile\obj\misc.o"
+"..\outfile\obj\stm32f10x_gpio.o"
+"..\outfile\obj\stm32f10x_dbgmcu.o"
+"..\outfile\obj\stm32f10x_rcc.o"
+"..\outfile\obj\stm32f10x_usart.o"
+"..\outfile\obj\stm32f10x_dac.o"
+--ro-base 0x08000000 --entry 0x08000000 --rw-base 0x20000000 --entry Reset_Handler --first __Vectors --strict --summary_stderr --info summarysizes --map --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "..\OUTFILE\List\STM32F103.map" -o ..\OUTFILE\OBJ\STM32F103.axf
