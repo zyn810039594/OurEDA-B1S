@@ -42,9 +42,9 @@
 #define GY39_UART_RXLen 18
 #define GY39_UART_TXLen 3
 #define WT931_UART_RXLen 60
-#define Up_UART_TXLen 41
+#define Up_UART_TXLen 47
 #define Up_UART_RXLen 30
-#define Down_UART_RXLen 41
+#define Down_UART_RXLen 47
 #define Down_UART_TXLEN 30
 
 #endif

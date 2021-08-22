@@ -70,10 +70,10 @@ struct _UpDataDef
 	u16 RotNum[3];
 	u16 EulNum[3];
 	u16 MagNum[3];
-	u16 WaterTemperature;
-	u16 WaterDepth;
 	u16 Confidence;
 	u32 DepthToBottom;
+	u16 WaterTemperature;
+	u16 WaterDepth;
 	u8 IdTest;
 };
 typedef struct _UpDataDef UpDataDef;

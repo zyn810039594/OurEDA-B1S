@@ -18,13 +18,13 @@
 static u8 XorCaculate(u8 *CacString, u8 CacStringSize);
 static u8 IdTest(u8 *String, u8 Format, u8 SendUpLength, u8 SendDownLength);
 
-__attribute__((section(".RAM_D1")))         u8 DownDataReceive[Up_UART_RXLen] =
+__attribute__((section(".RAM_D1")))          u8 DownDataReceive[Up_UART_RXLen] =
 { 0 };
-__attribute__((section(".RAM_D1")))         u8 DownDataSend[Down_UART_TXLEN] =
+__attribute__((section(".RAM_D1")))          u8 DownDataSend[Down_UART_TXLEN] =
 { 0 };
-__attribute__((section(".RAM_D1")))         u8 UpDataReceive[Down_UART_RXLen] =
+__attribute__((section(".RAM_D1")))          u8 UpDataReceive[Down_UART_RXLen] =
 { 0 };
-__attribute__((section(".RAM_D1")))         u8 UpDataSend[Up_UART_TXLen] =
+__attribute__((section(".RAM_D1")))          u8 UpDataSend[Up_UART_TXLen] =
 { 0 };
 
 /**
@@ -198,7 +198,7 @@ void SendUpData(UpDataDef SendData)
 	UpDataSend[41] = SendData.WaterTemperature >> 8;
 	UpDataSend[42] = SendData.WaterDepth;
 	UpDataSend[43] = SendData.WaterDepth >> 8;
-	UpDataSend[44] = XorCaculate(UpDataSend, 38);
+	UpDataSend[44] = XorCaculate(UpDataSend, 44);
 	UpDataSend[45] = 0xff;
 	UpDataSend[46] = 0xff;
 
@@ -303,10 +303,11 @@ u16 SpecialMovePID(u8 ModeType, u16 SetValue, u16 ActualValue)
 		u16 PIDLoc;
 		Ek = (float) (SetValue - ActualValue);
 		LocSum += Ek;
-		PIDLoc = (u16) (1500
-				+ BASICCTRL_RANGE(
-						(int16_t) (PID_D_Kp * Ek + (PID_D_Ki * LocSum)
-								+ PID_D_Kd * (Ek1 - Ek)), -1000, 1000));
+		PIDLoc =
+				(u16) (1500
+						+ BASICCTRL_RANGE(
+								(int16_t) (PID_D_Kp * Ek + (PID_D_Ki * LocSum) + PID_D_Kd * (Ek1 - Ek)),
+								-1000, 1000));
 		return PIDLoc;
 	}
 	else if (ModeType == 2)
@@ -315,10 +316,11 @@ u16 SpecialMovePID(u8 ModeType, u16 SetValue, u16 ActualValue)
 		u16 PIDLoc;
 		Ek = (float) (SetValue - ActualValue);
 		LocSum += Ek;
-		PIDLoc = (u16) (1500
-				+ BASICCTRL_RANGE(
-						(int16_t) (PID_O_Kp * Ek + (PID_O_Ki * LocSum)
-								+ PID_O_Kd * (Ek1 - Ek)), -1000, 1000));
+		PIDLoc =
+				(u16) (1500
+						+ BASICCTRL_RANGE(
+								(int16_t) (PID_O_Kp * Ek + (PID_O_Ki * LocSum) + PID_O_Kd * (Ek1 - Ek)),
+								-1000, 1000));
 		return PIDLoc;
 	}
 	else

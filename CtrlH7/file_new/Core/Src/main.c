@@ -364,7 +364,7 @@ void PeriphCommonClock_Config(void)
 	PeriphClkInitStruct.PLL3.PLL3VCOSEL = RCC_PLL3VCOWIDE;
 	PeriphClkInitStruct.PLL3.PLL3FRACN = 0;
 	PeriphClkInitStruct.Usart234578ClockSelection =
-			RCC_USART234578CLKSOURCE_PLL3;
+	RCC_USART234578CLKSOURCE_PLL3;
 	PeriphClkInitStruct.Usart16ClockSelection = RCC_USART16CLKSOURCE_PLL3;
 	if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInitStruct) != HAL_OK)
 	{
@@ -1043,6 +1043,14 @@ void BtUF(void const *argument)
 				BasetoUpData.WaterDepth = DeepSensorData.WaterDepth;
 				BasetoUpData.WaterTemperature = DeepSensorData.WaterTemperature;
 				xSemaphoreGive(DeepSensorDataRWFlagHandle);
+			}
+			//声呐数据
+			if (xSemaphoreTake(P30SensorDataRWFlagHandle,
+					portMAX_DELAY) == pdTRUE)
+			{
+				BasetoUpData.DepthToBottom = P30SensorData.DepthToBottom;
+				BasetoUpData.Confidence = P30SensorData.Confidence;
+				xSemaphoreGive(P30SensorDataRWFlagHandle);
 			}
 			//上传数据
 			if (xSemaphoreTake(UptoBaseDataRWFlagHandle,

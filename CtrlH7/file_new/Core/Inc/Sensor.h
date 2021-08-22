@@ -49,7 +49,7 @@ struct _GY39Data
 };
 typedef struct _GY39Data GY39Data;
 
-typedef struct _P30Data
+struct _P30Data
 {
 	u32 DepthToBottom;
 	u16 Confidence;

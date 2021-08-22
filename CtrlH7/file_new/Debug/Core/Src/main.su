@@ -14,5 +14,5 @@ main.c:805:6:CtrlTaskF	16	static
 main.c:825:6:SensorTaskF	64	static
 main.c:898:6:UtBF	128	static
 main.c:971:6:BtUF	120	static
-main.c:1069:6:HAL_TIM_PeriodElapsedCallback	16	static
-main.c:1087:6:Error_Handler	4	static,ignoring_inline_asm
+main.c:1077:6:HAL_TIM_PeriodElapsedCallback	16	static
+main.c:1095:6:Error_Handler	4	static,ignoring_inline_asm
