@@ -13,425 +13,274 @@
  * <tr><td>2021-08-21 <td>1.0     <td>wangh     <td>Content
  * </table>
  */
+#include "surface.h"
+
+#ifndef DO_NOT_USING_IT_FLAG
 #include <FlexiTimer2.h>
+#endif
 
-#define u8 unsigned char
-#define NOP do { __asm__ __volatile__ ("nop"); } while (0)
+ /* 字符串输出变量 */
+u8 WATER_WARNING = 0; //漏水警报
+u8 WATER_WARNING_TIMER_COUNT = 0; //漏水警报计时
 
-u8 UART_REV_RING_FLAG = 0; //串口已接收标志位
+int StrightNum = 0; //前进后退 A0
+int RotateNum = 0; //旋转侧推 A0
+int VerticalNum = 0; //垂直 A5
+int LightNum = 0; //灯光 A2
+int CameraPanNum = 0; //云台 A4
+int ConveyerNum = 0; //传送带 A3
+int MachineArm_HorizentalNum = 0; //水平机械臂 A11
+int MachineArm_LargeNum = 0; //大臂 A12
+int MachineArm_MiddleNum = 0; //中臂 A13
+int MachineArm_SmallNum = 0; //小臂 A14
+int MachineArm_CatchingNum = 0; //夹取 A15
 
+int ReservedNum = 0; //保留位PWM控制数据
+int UserANum = 0; //自定义旋钮A A6
+int UserBNum = 0; //自定义旋钮B A7
 
-
-
-
-
-
-
-u8 DeepFlag = 0;
-u8 DeepNum = 0;
-u8 DirectFlag = 0;
-u8 DirectNum = 0;
-u8 ControlFlag = 0;
-u8 ControlNum = 0;
-u8 ArmFlag = 0;
+/* 按钮控制变量 */
+u8 KeepDeepNum = 0;
+u8 KeepDepth_FLAG = 0; //定深模式控制
+u8 KeepOrbitNum = 0;
+u8 KeepOrbit_FLAG = 0; //定向模式控制
+u8 ControlButtonNum = 0;
+u8 Control_FLAG = 0; //控制权限
 u8 ArmNum = 0;
-u8 SideFlag = 0;
+u8 MachineArm_ALL_Switch_FLAG = 0; //机械臂总开关
+u8 KeepDownNum = 0;
+u8 MachineArm_A_Switch_FLAG = 0; //机械臂A开关 下潜保持
+u8 MachineArm_B_Switch_FLAG = 0; //机械臂B开关
 u8 SideNum = 0;
-u8 LeafFlag = 0;
-u8 LeafNum = 8;
+u8 Mode_FLAG = 0; //侧推旋转模式控制
 
-int ALR[16] = { 0 };
-int ALT[16] = { 0 };
-u8 MoveState = 0;
-u8 UpState = 0;
-u8 Arm1State[5] = { 0 };
-u8 Arm2State[5] = { 0 };
-u8 LightState = 0;
-u8 THState = 0;
-u8 TimerState = 0;
-
-void PrintBlank(void)
+static void PrintBlank(void)
 {
-	int i = 50000;
-	for (;i > 0;--i)
+	for (int i = 50000;i > 0;--i)
 	{
 		NOP;
 	}
 }
 
-void Surface_ReadSerialata(void);
-
-
-
-
-
-
-
+#ifndef DO_NOT_USING_IT_FLAG
 /**
  * @brief 定时器中断服务程序
  */
 void TimerInterrupt()
 {
-	if (LeafFlag == 1)
+	if (WATER_WARNING == 1)
 	{
-		++TimerState;
-		switch (TimerState)
+		WATER_WARNING_TIMER_COUNT++;
+		if (WATER_WARNING_TIMER_COUNT >= 25) //累计25次定时器中断仍存在警报，则进入漏水处理状态
 		{
-		case 25:
-			LeafNum = 8;
-			LeafFlag = 0;
-			TimerState = 0;
-			break;
+			WaterHandler();
 		}
 	}
-
-	digitalWrite(2, UART_REV_RING_FLAG);
-
-	Serial.print('$');
-	Serial.print(ControlNum);
-	Serial.print(':');
-	Serial.print(SideNum);
-	Serial.print(':');
-	if ((ALR[1]) < 100)
-	{
-		Serial.print("0");
-		if ((ALR[1]) < 10)
-		{
-			Serial.print("0");
-		}
-	}
-	Serial.print(ALR[1]);
-	Serial.print(':');
-	if ((ALR[0]) < 100)
-	{
-		Serial.print("0");
-		if ((ALR[0]) < 10)
-		{
-			Serial.print("0");
-		}
-	}
-	Serial.print(ALR[0]);
-	Serial.print(":");
-	if ((ALR[5]) < 100)
-	{
-		Serial.print("0");
-		if ((ALR[5]) < 10)
-		{
-			Serial.print("0");
-		}
-	}
-	Serial.print(ALR[5]);
-	Serial.print(":");
-	if ((ALR[4]) < 100)
-	{
-		Serial.print("0");
-		if ((ALR[4]) < 10)
-		{
-			Serial.print("0");
-		}
-	}
-	Serial.print(ALR[4]);
-	Serial.print(":");
-	Serial.print(ArmNum);
-	Serial.print(':');
-	if ((ALR[2]) < 100)
-	{
-		Serial.print("0");
-		if ((ALR[2]) < 10)
-		{
-			Serial.print("0");
-		}
-	}
-	Serial.print(ALR[2]);
-	Serial.print(":");
-
-	Serial.print("00");
-	Serial.print(DeepNum);
-	Serial.print(':');
-	Serial.print("00");
-	Serial.print(DirectNum);
-	Serial.print(':');
-	if ((ALR[6]) < 100)
-	{
-		Serial.print("0");
-		if ((ALR[6]) < 10)
-		{
-			Serial.print("0");
-		}
-	}
-	Serial.print(ALR[6]);
-	Serial.print(":");
-	if ((ALR[7]) < 100)
-	{
-		Serial.print("0");
-		if ((ALR[7]) < 10)
-		{
-			Serial.print("0");
-		}
-	}
-	Serial.print(ALR[7]);
-	Serial.print(":");
-	if ((ALR[8]) < 100)
-	{
-		Serial.print("0");
-		if ((ALR[8]) < 10)
-		{
-			Serial.print("0");
-		}
-	}
-	Serial.print(ALR[8]);
-	Serial.print(":");
-	if ((ALR[9]) < 100)
-	{
-		Serial.print("0");
-		if ((ALR[9]) < 10)
-		{
-			Serial.print("0");
-		}
-	}
-	Serial.print(ALR[9]);
-	Serial.print(":");
-	if ((ALR[10]) < 100)
-	{
-		Serial.print("0");
-		if ((ALR[10]) < 10)
-		{
-			Serial.print("0");
-		}
-	}
-	Serial.print(ALR[10]);
-	Serial.print(":");
-	if ((ALR[11]) < 100)
-	{
-		Serial.print("0");
-		if ((ALR[11]) < 10)
-		{
-			Serial.print("0");
-		}
-	}
-	Serial.print(ALR[11]);
-	Serial.print(":");
-	if ((ALR[12]) < 100)
-	{
-		Serial.print("0");
-		if ((ALR[12]) < 10)
-		{
-			Serial.print("0");
-		}
-	}
-	Serial.print(ALR[12]);
-	Serial.print(":");
-	if ((ALR[13]) < 100)
-	{
-		Serial.print("0");
-		if ((ALR[13]) < 10)
-		{
-			Serial.print("0");
-		}
-	}
-	Serial.print(ALR[13]);
-	Serial.print(":");
-	if ((ALR[14]) < 100)
-	{
-		Serial.print("0");
-		if ((ALR[14]) < 10)
-		{
-			Serial.print("0");
-		}
-
-	}
-	Serial.print(ALR[14]);
-	Serial.print(":");
-	if ((ALR[15]) < 100)
-	{
-		Serial.print("0");
-		if ((ALR[15]) < 10)
-		{
-			Serial.print("0");
-		}
-
-	}
-	Serial.print(ALR[15]);
-	Serial.print(":");
-	Serial.print(LeafNum);
-	Serial.print('%');
-	Serial.println();
-
+	Surface_IT_SendSerialMesg();
 }
+#endif
 
 void setup()
 {
 	Serial.begin(9600);
 
-	pinMode(2, OUTPUT); //用于通知上位机接已经读取到串口数据
+	pinMode(WATER_DETECTED_WARNING, OUTPUT); //指示漏水警报
 
-	pinMode(3, INPUT);
-	pinMode(4, INPUT);
-	pinMode(9, INPUT);
-	pinMode(8, INPUT);
-	pinMode(5, INPUT);
-	pinMode(7, INPUT);
-	pinMode(6, INPUT);
+	/* 初始化开关控制引脚 */
+	pinMode(KEEP_DEPTH_BUTTON, INPUT); //定深开关
+	pinMode(ROOT_BUTTON, INPUT); //控制权限开关
+	pinMode(MACHINE_ARM_A_BUTTON, INPUT); //机械臂A开关 下潜保持
+	pinMode(MACHINE_ARM_ALL_BUTTON, INPUT); //机械臂总开关
+	pinMode(MACHINE_ARM_B_BUTTON, INPUT); //TODO:机械臂B开关暂不启用
+	pinMode(SIDE_PUSH_MODE_SWITCH_BUTTON, INPUT); //侧推模式开关
+	pinMode(KEEP_ORBIT_BUTTON, INPUT); //定向开关
 
+#ifndef DO_NOT_USING_IT_FLAG
 	FlexiTimer2::set(200, TimerInterrupt);
 	FlexiTimer2::start();
+#endif
 }
 
 void loop()
 {
-	Surface_ReadSerialata(); //读取串口数据
-
-	if (ControlNum == 1)
-	{
-		ALT[0] = map(analogRead(0), 0, 1023, 180, 20);
-		ALT[1] = map(analogRead(1), 0, 1023, 20, 180);
-		ALT[2] = map(analogRead(2), 0, 1023, 200, 0);
-		ALT[3] = map(analogRead(3), 0, 1023, 0, 200);
-		ALT[4] = map(analogRead(4), 0, 1023, 185, 75);
-		ALT[5] = map(analogRead(5), 0, 1023, 190, 10);
-		ALT[6] = map(analogRead(6), 0, 1023, 0, 200);
-		ALT[7] = map(analogRead(7), 0, 1023, 200, 0);
-		ALT[8] = map(analogRead(8), 0, 1023, 0, 200);
-		ALT[9] = map(analogRead(9), 0, 1023, 15, 185);
-		ALT[10] = map(analogRead(10), 0, 1023, 30, 120);
-		ALT[11] = map(analogRead(11), 0, 1023, 0, 200);
-		ALT[12] = map(analogRead(12), 0, 1023, 0, 200);
-		ALT[13] = map(analogRead(13), 0, 1023, 0, 200);
-		ALT[14] = map(analogRead(14), 0, 1023, 15, 185);
-		ALT[15] = map(analogRead(15), 0, 1023, 50, 120);
-		//    if ((ALR[0] != ALT[0]) || (ALR[1] != ALT[1]))
-		//    {
-		MoveState = 1;
-		ALR[0] = ALT[0];
-		ALR[1] = ALT[1];
-		//    }
-		//    if (ALR[5] != ALT[5])
-		//    {
-		UpState = 1;
-		ALR[5] = ALT[5];
-		//    }
-		//    if ((ALR[6] != ALT[6]))
-		//    {
-		Arm1State[0] = 1;
-		ALR[6] = ALT[6];
-		//    }
-		//    if ((ALR[7] != ALT[7]))
-		//    {
-		Arm1State[1] = 1;
-		ALR[7] = ALT[7];
-		//    }
-		//    if ((ALR[8] != ALT[8]))
-		//    {
-		Arm1State[2] = 1;
-		ALR[8] = ALT[8];
-		//    }
-		//    if ((ALR[9] != ALT[9]))
-		//    {
-		Arm1State[3] = 1;
-		ALR[9] = ALT[9];
-		//    }
-		//    if ((ALR[10] != ALT[10]))
-		//    {
-		Arm1State[4] = 1;
-		ALR[10] = ALT[10];
-		//    }
-		//    if ((ALR[11] != ALT[11]))
-		//    {
-		Arm2State[0] = 1;
-		ALR[11] = ALT[11];
-		//    }
-		//    if ((ALR[12] != ALT[12]))
-		//    {
-		Arm2State[1] = 1;
-		ALR[12] = ALT[12];
-		//    }
-		//    if ((ALR[13] != ALT[13]))
-		//    {
-		Arm2State[2] = 1;
-		ALR[13] = ALT[13];
-		//    }
-		//    if ((ALR[14] != ALT[14]))
-		//    {
-		Arm2State[3] = 1;
-		ALR[14] = ALT[14];
-		//    }
-		//    if ((ALR[15] != ALT[15]))
-		//    {
-		Arm2State[4] = 1;
-		ALR[15] = ALT[15];
-		//    }
-		//    if (ALR[2] != ALT[2])
-		//    {
-		LightState = 1;
-		ALR[2] = ALT[2];
-		//    }
-		//    if (ALR[4] != ALT[4])
-		//    {
-		THState = 1;
-		ALR[4] = ALT[4];
-		//    }
-
-		ALR[3] = ALT[3];
-	}
-	if (DeepNum != digitalRead(3))
-	{
-		DeepNum = digitalRead(3);
-		DeepFlag = 1;
-	}
-	if (DirectNum != digitalRead(9))
-	{
-		DirectNum = digitalRead(9);
-		DirectFlag = 1;
-	}
-	if (ControlNum != digitalRead(4))
-	{
-		ControlNum = digitalRead(4);
-		ControlFlag = 1;
-	}
-	if (ArmNum != digitalRead(6))
-	{
-		ArmNum = digitalRead(6);
-		ArmFlag = 1;
-	}
-	if (digitalRead(7) == 1)
-	{
-		if (LeafFlag != 1)
-		{
-			LeafFlag = 0;
-			LeafNum = 1;
-		}
-	}
-	if (SideNum != digitalRead(8))
-	{
-		SideNum = digitalRead(8);
-		SideFlag = 1;
-	}
+	Surface_Task_Contrl();
+	Surface_Task_ReadSerialData();
+	Surface_Task_SendSerialMesg();
 }
 
 /**
- * @brief 处理串口数据并通知定时器中断服务函数进行处理
+ * @brief 读取漏水数据并通知定时器中断服务函数进行处理
  */
-void Surface_ReadSerialata(void)
+void Surface_Task_ReadSerialData()
 {
-	u8 isRev;
+	static u8 isRev;
 	if (Serial.available())
 	{
 		isRev = Serial.read();
 		if (isRev == '1')
 		{
-			UART_REV_RING_FLAG = 1;
+			WATER_WARNING = 1;
 		}
 		else if (isRev == '0')
 		{
-			UART_REV_RING_FLAG = 0;
+			WATER_WARNING = 0;
 		}
 	}
 }
 
+/**
+ * @brief 实时读取控制按钮和控制杆数据
+ */
+void Surface_Task_Contrl(void)
+{
+	/* 控制数据映射 */
+	StrightNum = map(analogRead(FORWARD_PIN), 0, 1023, 500, 2500);
+	RotateNum = map(analogRead(ROTATE_PIN), 0, 1023, 500, 2500);
+	VerticalNum = map(analogRead(VERTICAL_PIN), 0, 1023, 500, 2500);
+	LightNum = map(analogRead(LIGHT_PIN), 0, 1023, 500, 2500);
+	CameraPanNum = map(analogRead(CAMERA_PAN_PIN), 0, 1023, 500, 2500);
+	ConveyerNum = map(analogRead(Conveyer_PIN), 0, 1023, 500, 2500);
+	MachineArm_HorizentalNum = map(analogRead(MACHINE_ARM_HORIZENTAL_PIN), 0, 1023, 500, 2500);
+	MachineArm_LargeNum = map(analogRead(MACHINE_ARM_LARGE_PIN), 0, 1023, 500, 2500);
+	MachineArm_MiddleNum = map(analogRead(MACHINE_ARM_MIDDLE_PIN), 0, 1023, 500, 2500);
+	MachineArm_SmallNum = map(analogRead(MACHINE_ARM_SMALL_PIN), 0, 1023, 500, 2500);
+	MachineArm_CatchingNum = map(analogRead(MACHINE_ARM_CATCHING_PIN), 0, 1023, 500, 2500);
 
 
+	/* 按钮判断 */
+	if (ControlButtonNum != digitalRead(ROOT_BUTTON)) //主控权限开关
+	{
+		ControlButtonNum = digitalRead(ROOT_BUTTON);
+		// Control_FLAG = 1;
+	}
+	if (KeepDeepNum != digitalRead(KEEP_DEPTH_BUTTON)) //定深开关
+	{
+		KeepDeepNum = digitalRead(KEEP_DEPTH_BUTTON);
+		// KeepDepth_FLAG = 1;
+	}
+	if (KeepOrbitNum != digitalRead(KEEP_ORBIT_BUTTON)) //定向开关
+	{
+		KeepOrbitNum = digitalRead(KEEP_ORBIT_BUTTON);
+		// KeepOrbit_FLAG = 1;
+	}
+	if (ArmNum != digitalRead(MACHINE_ARM_ALL_BUTTON)) //机械臂控制开关 直接控制继电器
+	{
+		ArmNum = digitalRead(MACHINE_ARM_ALL_BUTTON);
+		// MachineArm_ALL_Switch_FLAG = 1;
+	}
+	if (SideNum != digitalRead(SIDE_PUSH_MODE_SWITCH_BUTTON)) //侧推模式开关
+	{
+		SideNum = digitalRead(SIDE_PUSH_MODE_SWITCH_BUTTON);
+		// Mode_FLAG = 1;
+	}
+	if (KeepDownNum != digitalRead(MACHINE_ARM_A_BUTTON))//下潜保持开关
+	{
+		KeepDownNum = digitalRead(MACHINE_ARM_A_BUTTON);
+		// MachineArm_A_Switch_FLAG = 1;
+	}
+}
 
+#ifdef DO_NOT_USING_IT_FLAG
+/**
+ * @brief 当定时器中断指示主程序发送后，在主程序内进行发送，避免影响中断
+ */
+void Surface_Task_SendSerialMesg(void)
+{
+	if (ControlButtonNum)
+	{
+		Serial.print('$'); //发送起始位0x25
+		Serial.print(':');
+		Serial.print(StrightNum);
+		Serial.print(':');
+		Serial.print(RotateNum);
+		Serial.print(':');
+		if (KeepDownNum)
+		{
+			Serial.print(KeepVerticalDownSpeed);
+		}
+		else
+		{
+			Serial.print(VerticalNum);
+		}
+		Serial.print(':');
+		Serial.print(LightNum);
+		Serial.print(':');
+		Serial.print(CameraPanNum);
+		Serial.print(':');
+		Serial.print(ConveyerNum);
+		Serial.print(':');
 
+		//BUG:这里的数据排列可能存在错误
+		Serial.print(MachineArm_HorizentalNum);
+		Serial.print(':');
+		Serial.print(MachineArm_LargeNum);
+		Serial.print(':');
+		Serial.print(MachineArm_MiddleNum);
+		Serial.print(':');
+		Serial.print(MachineArm_SmallNum);
+		Serial.print(':');
+		Serial.print(MachineArm_CatchingNum);
+		Serial.print(':');
 
+		Serial.print(ReservedNum);
+		Serial.print(':');
+		Serial.print((ArmNum << 3) | (KeepDeepNum << 2) | (KeepOrbitNum << 1) | SideNum); //模式开关控制位
+		Serial.print(':');
+		Serial.print(0); //数据校验位
+		Serial.print(':');
+		Serial.print('%');
+		Serial.println();
+	}
+}
+#else
+/**
+ * @brief 在定时器中断内上传串口数据到上位机
+ */
+void Surface_IT_SendSerialMesg(void)
+{
+	Serial.print('$'); //发送起始位0x25
+	Serial.print(StrightNum);
+	Serial.print(':');
+	Serial.print(RotateNum);
+	Serial.print(':');
+	Serial.print(VerticalNum);
+	Serial.print(':');
+	Serial.print(LightNum);
+	Serial.print(':');
+	Serial.print(CameraPanNum);
+	Serial.print(':');
+	Serial.print(ConveyerNum);
+	Serial.print(':');
 
+	//BUG:这里的数据排列可能存在错误
+	Serial.print(MachineArm_HorizentalNum);
+	Serial.print(':');
+	Serial.print(MachineArm_LargeNum);
+	Serial.print(':');
+	Serial.print(MachineArm_MiddleNum);
+	Serial.print(':');
+	Serial.print(MachineArm_SmallNum);
+	Serial.print(':');
+	Serial.print(MachineArm_CatchingNum);
+	Serial.print(':');
+
+	Serial.print(ReservedNum);
+	Serial.print(':');
+	Serial.print(Mode_FLAG);
+	Serial.print(':');
+	Serial.print("0000");
+	Serial.print(':');
+	Serial.print('%');
+	Serial.println();
+}
+#endif
+
+/**
+ * @brief 漏水处理函数
+ */
+void WaterHandler()
+{
+	WATER_WARNING_TIMER_COUNT = 25;
+	digitalWrite(WATER_DETECTED_WARNING, WATER_WARNING);
+}
 

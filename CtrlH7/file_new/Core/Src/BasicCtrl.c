@@ -18,13 +18,13 @@
 static u8 XorCaculate(u8 *CacString, u8 CacStringSize);
 static u8 IdTest(u8 *String, u8 Format, u8 SendUpLength, u8 SendDownLength);
 
-__attribute__((section(".RAM_D1")))           u8 DownDataReceive[Up_UART_RXLen] =
+__attribute__((section(".RAM_D1")))  u8 DownDataReceive[Up_UART_RXLen] =
 { 0 };
-__attribute__((section(".RAM_D1")))           u8 DownDataSend[Down_UART_TXLEN] =
+__attribute__((section(".RAM_D1")))  u8 DownDataSend[Down_UART_TXLEN] =
 { 0 };
-__attribute__((section(".RAM_D1")))           u8 UpDataReceive[Down_UART_RXLen] =
+__attribute__((section(".RAM_D1")))  u8 UpDataReceive[Down_UART_RXLen] =
 { 0 };
-__attribute__((section(".RAM_D1")))           u8 UpDataSend[Up_UART_TXLen] =
+__attribute__((section(".RAM_D1")))  u8 UpDataSend[Up_UART_TXLen] =
 { 0 };
 
 /**
@@ -49,15 +49,15 @@ DownDataDef CaptureDownData(void)
 	CaptureData.ArmPWM[5] = ((DownDataReceive[23] << 8) | DownDataReceive[24]);
 	CaptureData.ResPWM = ((DownDataReceive[25] << 8) | DownDataReceive[26]);
 #ifdef CtrlSide
-	CaptureData.Mode = (DownDataReceive[27] & 0b0001);
-	CaptureData.Relay = (DownDataReceive[27] & 0b1000);
+	CaptureData.Mode = (DownDataReceive[27]); //方便数据下传与中途获取
+	CaptureData.Relay = (DownDataReceive[27]);
 #else
 #ifdef PowerSide
-	CaptureData.Mode = ((DownDataReceive[27] & 0b0001) ? 1 : 0);
-	CaptureData.Relay = ((DownDataReceive[27] & 0b1000) ? 1U : 0U);
+	CaptureData.Mode = ((DownDataReceive[27] & 0b0001) ? 1 : 0); //控制侧推模式 1侧推模式开启；0侧推模式关闭
+	CaptureData.Relay = ((DownDataReceive[27] & 0b1000) ? 1U : 0U); //控制继电器开关 8继电器开；0继电器关
 #else
-	CaptureData.Mode = (DownDataReceive[27]);
-	CaptureData.Relay = (DownDataReceive[27]);
+	CaptureData.Mode = (DownDataReceive[27] & 0b0001);
+	CaptureData.Relay = (DownDataReceive[27] & 0b1000);
 #endif
 #endif
 	CaptureData.IdTest = IdTest(DownDataReceive, 0, 44, 28);
@@ -71,6 +71,7 @@ DownDataDef CaptureDownData(void)
 /**
  * @brief 向下位机发送数据
  * @param  SendData         待发送的数据结构体
+ * @note 已完成Debug
  */
 void SendDownData(DownDataDef SendData)
 {
@@ -101,7 +102,7 @@ void SendDownData(DownDataDef SendData)
 	DownDataSend[24] = SendData.ArmPWM[5];
 	DownDataSend[25] = SendData.ResPWM >> 8;
 	DownDataSend[26] = SendData.ResPWM;
-	DownDataSend[27] = (SendData.Mode | SendData.Relay);
+	DownDataSend[27] = SendData.Relay; //直接下传数据
 	DownDataSend[28] = XorCaculate(DownDataSend, 28);
 	DownDataSend[29] = 0x21;
 
@@ -115,8 +116,9 @@ void SendDownData(DownDataDef SendData)
 UpDataDef CaptureUpData(void)
 {
 	UpDataDef CaptureData;
-	CaptureData.CabinNum = (UpDataReceive[1] & 0b0001); //0总控制仓，1PWM控制仓
-	CaptureData.WaterDetect = (UpDataReceive[1] & 0b0110); //2控水；4电水
+
+	CaptureData.CabinNum = (UpDataReceive[1] & 0b0001); //0b0000控制仓，0b0001==1电源仓
+	CaptureData.WaterDetect = (UpDataReceive[1] & 0b0010); //0b0000正常，0b0010==2漏水
 	CaptureData.CabinTemperature = ((UpDataReceive[3] << 8) | UpDataReceive[2]);
 	CaptureData.CabinBaro = ((UpDataReceive[7] << 24) | (UpDataReceive[6] << 16)
 			| (UpDataReceive[5] << 8) | UpDataReceive[4]);
@@ -155,16 +157,16 @@ UpDataDef CaptureUpData(void)
 void SendUpData(UpDataDef SendData)
 {
 	UpDataSend[0] = 0x25;
-	UpDataSend[1] = ((SendData.CabinNum) | (SendData.WaterDetect));
-	UpDataSend[2] = SendData.CabinTemperature;
-	UpDataSend[3] = SendData.CabinTemperature >> 8;
-	UpDataSend[4] = SendData.CabinBaro;
-	UpDataSend[5] = SendData.CabinBaro >> 8;
-	UpDataSend[6] = SendData.CabinBaro >> 16;
-	UpDataSend[7] = SendData.CabinBaro >> 24;
+	UpDataSend[1] = ((SendData.WaterDetect) | (SendData.CabinNum));
+	UpDataSend[2] = SendData.CabinTemperature >> 8;
+	UpDataSend[3] = SendData.CabinTemperature;
+	UpDataSend[4] = SendData.CabinBaro >> 16;
+	UpDataSend[5] = SendData.CabinBaro >> 24;
+	UpDataSend[6] = SendData.CabinBaro;
+	UpDataSend[7] = SendData.CabinBaro >> 8;
 	UpDataSend[8] = SendData.CabinHum;
 	UpDataSend[9] = SendData.CabinHum >> 8;
-	UpDataSend[10] = SendData.AccNum[0];
+	UpDataSend[10] = SendData.AccNum[0]; //DEBUG:数据位反转
 	UpDataSend[11] = SendData.AccNum[0] >> 8;
 	UpDataSend[12] = SendData.AccNum[1];
 	UpDataSend[13] = SendData.AccNum[1] >> 8;
@@ -188,16 +190,16 @@ void SendUpData(UpDataDef SendData)
 	UpDataSend[31] = SendData.MagNum[1] >> 8;
 	UpDataSend[32] = SendData.MagNum[2];
 	UpDataSend[33] = SendData.MagNum[2] >> 8;
-	UpDataSend[34] = SendData.DepthToBottom;
-	UpDataSend[35] = SendData.DepthToBottom >> 8;
-	UpDataSend[36] = SendData.DepthToBottom >> 16;
-	UpDataSend[37] = SendData.DepthToBottom >> 24;
-	UpDataSend[38] = SendData.Confidence;
-	UpDataSend[39] = SendData.Confidence >> 8;
-	UpDataSend[40] = SendData.WaterTemperature;
+	UpDataSend[34] = SendData.DepthToBottom >> 24;
+	UpDataSend[35] = SendData.DepthToBottom >> 16;
+	UpDataSend[36] = SendData.DepthToBottom >> 8;
+	UpDataSend[37] = SendData.DepthToBottom;
+	UpDataSend[38] = SendData.Confidence >> 8;
+	UpDataSend[39] = SendData.Confidence;
+	UpDataSend[40] = SendData.WaterTemperature; //DEBUG:98 08
 	UpDataSend[41] = SendData.WaterTemperature >> 8;
-	UpDataSend[42] = SendData.WaterDepth;
-	UpDataSend[43] = SendData.WaterDepth >> 8;
+	UpDataSend[42] = SendData.WaterDepth >> 8; //BUG:E2 40
+	UpDataSend[43] = SendData.WaterDepth;
 	UpDataSend[44] = XorCaculate(UpDataSend, 38);
 	UpDataSend[45] = 0xff;
 	UpDataSend[46] = 0xff;
@@ -210,7 +212,7 @@ void SendUpData(UpDataDef SendData)
  * @param  StraightNum      前进控制参数
  * @param  RotateNum        旋转控制参数
  * @param  VerticalNum      垂直控制参数
- * @param  ModeNum          模式
+ * @param  ModeNum          模式 0转向模式 1侧推模式
  * @return MoveThruster 推进器控制数据
  * @note 基于经验公式，不应进行改动
  */
@@ -281,7 +283,7 @@ MoveThruster MoveControl(u16 StraightNum, u16 RotateNum, u16 VerticalNum,
 
 /**
  * @brief PID算法控制函数
- * @param  ModeType         模式
+ * @param  ModeType         模式控制 2定向模式 4定深模式
  * @param  SetValue         目标值
  * @param  ActualValue      当前值
  * @return u16 位置PID数据
@@ -297,7 +299,7 @@ u16 SpecialMovePID(u8 ModeType, u16 SetValue, u16 ActualValue)
 	//数据清空标志位
 	static u8 PIDData = 0;
 
-	if (ModeType == 4)
+	if (ModeType == 4) //定深模式
 	{
 		PIDData = 0;
 		u16 PIDLoc;
@@ -306,11 +308,11 @@ u16 SpecialMovePID(u8 ModeType, u16 SetValue, u16 ActualValue)
 		PIDLoc =
 				(u16) (1500
 						+ BASICCTRL_RANGE(
-								(int16_t) (PID_D_Kp * Ek + (PID_D_Ki * LocSum) + PID_D_Kd * (Ek1 - Ek)),
+								(int16_t)(PID_D_Kp * Ek + (PID_D_Ki * LocSum) + PID_D_Kd * (Ek1 - Ek)),
 								-1000, 1000));
 		return PIDLoc;
 	}
-	else if (ModeType == 2)
+	else if (ModeType == 2) //定向模式
 	{
 		PIDData = 0;
 		u16 PIDLoc;
@@ -319,7 +321,7 @@ u16 SpecialMovePID(u8 ModeType, u16 SetValue, u16 ActualValue)
 		PIDLoc =
 				(u16) (1500
 						+ BASICCTRL_RANGE(
-								(int16_t) (PID_O_Kp * Ek + (PID_O_Ki * LocSum) + PID_O_Kd * (Ek1 - Ek)),
+								(int16_t)(PID_O_Kp * Ek + (PID_O_Ki * LocSum) + PID_O_Kd * (Ek1 - Ek)),
 								-1000, 1000));
 		return PIDLoc;
 	}

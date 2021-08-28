@@ -309,6 +309,7 @@ Mcu.Pin0=PC14-OSC32_IN (OSC32_IN)
 Mcu.Pin1=PC15-OSC32_OUT (OSC32_OUT)
 PD5.Mode=Asynchronous
 TIM3.Channel-PWM\ Generation1\ CH1=TIM_CHANNEL_1
+GPIO.groupedBy=Group By Peripherals
 Mcu.Pin2=PH0-OSC_IN (PH0)
 Dma.USART3_TX.4.EventEnable=DISABLE
 RCC.HRTIMFreq_Value=200000000

@@ -21,12 +21,14 @@ __attribute__((section(".RAM_D1")))	   u8 GY39Send[GY39_UART_TXLen] =
 { 0 };
 __attribute__((section(".RAM_D1")))	   u8 GY39Receive[GY39_UART_RXLen] =
 { 0 };
+#ifdef CtrlSide
 __attribute__((section(".RAM_D1")))	   u8 DeepReceive[Deep_UART_RXLen] =
 { 0 };
 __attribute__((section(".RAM_D1")))    u8 P30Send[P30_UART_TXLen] =
 { 0 };
 __attribute__((section(".RAM_D1")))	   u8 P30Receive[P30_UART_RXLen] =
 { 0 };
+#endif
 
 /**
  * @brief GY39温湿度大气压传感器初始化
@@ -85,6 +87,7 @@ WT931Data ReceiveWT931(void)
 	return RevWT931;
 }
 
+#ifdef CtrlSide
 /**
  * @brief 接收水深水温传感器数据
  * @return DeepData 水深水温传感器数据结构体
@@ -182,3 +185,5 @@ P30Data ReceiveP30(void)
 
 	return RevP30;
 }
+#endif
+

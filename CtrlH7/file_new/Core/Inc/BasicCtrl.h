@@ -44,37 +44,37 @@ typedef volatile uint32_t vu32;
 /* 下传指令格式 */
 struct _DownDataDef
 {
-	u16 StraightNum;
-	u16 RotateNum;
-	u16 VerticalNum;
-	vu32 LightPWM;
-	vu32 THPWM;
-	vu32 TranspPWM;
-	vu32 ArmPWM[6];
-	vu32 ResPWM;
-	u8 Mode;
-	u8 Relay;
-	u8 IdTest;
+	u16 StraightNum; //前进
+	u16 RotateNum; //转向
+	u16 VerticalNum; //垂直升降
+	vu32 LightPWM; //灯光
+	vu32 THPWM; //云台
+	vu32 TranspPWM; //传送带
+	vu32 ArmPWM[6]; //机械臂
+	vu32 ResPWM; //保留位PWM
+	u8 Mode; //模式控制
+	u8 Relay; //继电器
+	u8 IdTest; //奇偶校验
 };
 typedef struct _DownDataDef DownDataDef;
 
 /* 上传数据格式 */
 struct _UpDataDef
 {
-	u8 CabinNum;
-	u8 WaterDetect;
-	u16 CabinTemperature;
-	u32 CabinBaro;
-	u16 CabinHum;
-	u16 AccNum[3];
-	u16 RotNum[3];
-	u16 EulNum[3];
-	u16 MagNum[3];
-	u16 WaterTemperature;
-	u16 WaterDepth;
-	u16 Confidence;
-	u32 DepthToBottom;
-	u8 IdTest;
+	u8 CabinNum; //仓位
+	u8 WaterDetect; //漏水检测
+	u16 CabinTemperature; //舱内温度
+	u32 CabinBaro; //舱内气压
+	u16 CabinHum; //舱内湿度
+	u16 AccNum[3]; //加速度
+	u16 RotNum[3]; //角速度
+	u16 EulNum[3]; //欧拉角
+	u16 MagNum[3]; //磁场
+	u16 WaterTemperature; //水温
+	u16 WaterDepth; //当前所在水深
+	u16 Confidence; //声呐数据确信度
+	u32 DepthToBottom; //声呐测得当前所在水位高度
+	u8 IdTest; //奇偶校验
 };
 typedef struct _UpDataDef UpDataDef;
 

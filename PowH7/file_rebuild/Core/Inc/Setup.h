@@ -41,7 +41,7 @@
 #define Deep_UART_RXLen 4
 #define GY39_UART_RXLen 18
 #define GY39_UART_TXLen 3
-#define WT931_UART_RXLen 60
+#define WT931_UART_RXLen 44
 #define Up_UART_TXLen 47
 #define Up_UART_RXLen 30
 #define Down_UART_RXLen 47

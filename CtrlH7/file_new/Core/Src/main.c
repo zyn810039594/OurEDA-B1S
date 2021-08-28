@@ -162,6 +162,11 @@ int main(void)
 	HAL_GPIO_WritePin(GPIOE, GPIO_PIN_4, GPIO_PIN_RESET);
 	HAL_GPIO_WritePin(GPIOE, GPIO_PIN_4, GPIO_PIN_SET);
 	HAL_GPIO_WritePin(GPIOE, GPIO_PIN_4, GPIO_PIN_RESET);
+
+	for (int i = 0; i < 60; i++) //跳过openwrt开机时间
+	{
+		HAL_Delay(1000);
+	}
 	/* USER CODE END 2 */
 
 	/* Create the mutex(es) */
@@ -567,7 +572,7 @@ static void MX_USART1_UART_Init(void)
 
 	/* USER CODE END USART1_Init 1 */
 	huart1.Instance = USART1;
-	huart1.Init.BaudRate = 921600;
+	huart1.Init.BaudRate = 115200;
 	huart1.Init.WordLength = UART_WORDLENGTH_8B;
 	huart1.Init.StopBits = UART_STOPBITS_1;
 	huart1.Init.Parity = UART_PARITY_NONE;
@@ -844,40 +849,41 @@ void SensorTaskF(void const *argument)
 	for (;;)
 	{
 		//收取深度数据
-		if (xSemaphoreTake(DeepTransFinishHandleHandle,portMAX_DELAY) == pdTRUE)
+		if (xSemaphoreTake(DeepTransFinishHandleHandle,
+				portTICK_PERIOD_MS) == pdTRUE)
 		{
 			if (xSemaphoreTake(DeepSensorDataRWFlagHandle,
-					portMAX_DELAY) == pdTRUE)
+					portTICK_PERIOD_MS) == pdTRUE)
 			{
 				DeepSensorData = ReceiveDeep();
 				xSemaphoreGive(DeepSensorDataRWFlagHandle);
 			}
 		}
 		//收取九轴数据
-		if (xSemaphoreTake(WT931TransFinishHandle,portMAX_DELAY) == pdTRUE)
+		if (xSemaphoreTake(WT931TransFinishHandle,portTICK_PERIOD_MS) == pdTRUE)
 		{
 			if (xSemaphoreTake(WT931SensorDataRWFlagHandle,
-					portMAX_DELAY) == pdTRUE)
+					portTICK_PERIOD_MS) == pdTRUE)
 			{
 				WT931SensorData = ReceiveWT931();
 				xSemaphoreGive(WT931SensorDataRWFlagHandle);
 			}
 		}
-		//收取温湿度数�????
-		if (xSemaphoreTake(GY39TransFinishHandle,portMAX_DELAY) == pdTRUE)
+		//收取温湿度数�?????
+		if (xSemaphoreTake(GY39TransFinishHandle,portTICK_PERIOD_MS) == pdTRUE)
 		{
 			if (xSemaphoreTake(GY39SensorDataRWFlagHandle,
-					portMAX_DELAY) == pdTRUE)
+					portTICK_PERIOD_MS) == pdTRUE)
 			{
 				GY39SensorData = ReceiveGY39();
 				xSemaphoreGive(GY39SensorDataRWFlagHandle);
 			}
 		}
 		//收取声呐数据
-		if (xSemaphoreTake(P30TransFinishHandle,portMAX_DELAY) == pdTRUE)
+		if (xSemaphoreTake(P30TransFinishHandle,portTICK_PERIOD_MS) == pdTRUE)
 		{
 			if (xSemaphoreTake(P30SensorDataRWFlagHandle,
-					portMAX_DELAY) == pdTRUE)
+					portTICK_PERIOD_MS) == pdTRUE)
 			{
 				P30SensorData = ReceiveP30();
 				xSemaphoreGive(P30SensorDataRWFlagHandle);
@@ -899,7 +905,7 @@ void UtBF(void const *argument)
 {
 	/* USER CODE BEGIN UtBF */
 	u8 DIPFlag = 0;
-	u16 DIPStartNum = 0; //PID定向定深预期�?????????
+	u16 DIPStartNum = 0; //PID定向定深预期�??????????
 
 	CaptureUpData();
 	CaptureDownData();
@@ -913,8 +919,8 @@ void UtBF(void const *argument)
 	/* Infinite loop */
 	for (;;)
 	{
-		//根据控制位判断是否执行自主定向定�????
-		if (UptoBaseData.Mode == 0b0010) // Mode & 0b0111 == 0b0010,使用定向模式
+		//根据控制位判断是否执行自主定向定�?????
+		if (UptoBaseData.Mode & 0x02 == 0x02) //0b0010,使用定向模式
 		{
 			if (DIPFlag == 0)
 			{
@@ -923,7 +929,7 @@ void UtBF(void const *argument)
 			}
 			SpecialMovePID(2, DIPStartNum, WT931SensorData.EulNum[2]); //PID定向
 		}
-		else if (UptoBaseData.Mode == 0b0100) // Mode & 0b0111 == 0b100,使用定深模式
+		else if (UptoBaseData.Mode & 0x04 == 0x04) //0b0100,使用定深模式
 		{
 			if (DIPFlag == 0)
 			{
@@ -934,14 +940,15 @@ void UtBF(void const *argument)
 		}
 		else
 		{
-			DIPFlag = 0; //不开启定向定�????
+			DIPFlag = 0; //不开启定向定�?
 		}
 
-		//收取上位机指�???
-		if (xSemaphoreTake(UptoBaseTransFinishHandle,portMAX_DELAY) == pdTRUE)
+		//收取上位机指�????
+		if (xSemaphoreTake(UptoBaseTransFinishHandle,
+				portTICK_PERIOD_MS) == pdTRUE)
 		{
 			if (xSemaphoreTake(UptoBaseDataRWFlagHandle,
-					portMAX_DELAY) == pdTRUE)
+					portTICK_PERIOD_MS) == pdTRUE)
 			{
 				UptoBaseData = CaptureDownData();
 				xSemaphoreGive(UptoBaseDataRWFlagHandle);
@@ -950,7 +957,7 @@ void UtBF(void const *argument)
 
 		//下传指令
 		if (xSemaphoreTake(BasetoUpDataRWFlagHandle,
-				portMAX_DELAY) == pdTRUE)
+				portTICK_PERIOD_MS) == pdTRUE)
 		{
 			SendDownData(UptoBaseData);
 			xSemaphoreGive(BasetoUpDataRWFlagHandle);
@@ -973,25 +980,29 @@ void BtUF(void const *argument)
 	/* USER CODE BEGIN BtUF */
 //	xSemaphoreGive(BaseControlEnableFlagHandle);
 	//用于指示当前传输数据是哪个仓位的标志
-	//置为1的时候表示推进器控制�?????????
+	//置为1的时候表示推进器控制�??????????
 	//置为0的时候表示主控仓
 	u8 SensorCarbin = 0;
 	/* Infinite loop */
 	for (;;)
 	{
-		if (SensorCarbin % 2 == 1) //发�?�推进器控制仓数�????
+		if (SensorCarbin % 2 == 1) //发�?�推进器控制仓数�?????
 		{
 			//接收下位仓回传的数据
 			if (xSemaphoreTake(BasetoUpTransFinishHandleHandle,
-					portMAX_DELAY) == pdTRUE)
+					portTICK_PERIOD_MS) == pdTRUE)
 			{
 				if (xSemaphoreTake(BasetoUpDataRWFlagHandle,
-						portMAX_DELAY) == pdTRUE)
+						portTICK_PERIOD_MS) == pdTRUE)
 				{
 					BasetoUpData = CaptureUpData();
+					if (BasetoUpData.CabinNum == 1)
+					{
+						goto BAD_CABIN_NUM;
+					}
 					//上传数据
 					if (xSemaphoreTake(UptoBaseDataRWFlagHandle,
-							portMAX_DELAY) == pdTRUE)
+							portTICK_PERIOD_MS) == pdTRUE)
 					{
 						SendUpData(BasetoUpData);
 						xSemaphoreGive(UptoBaseDataRWFlagHandle);
@@ -999,19 +1010,18 @@ void BtUF(void const *argument)
 					xSemaphoreGive(BasetoUpDataRWFlagHandle);
 				}
 			}
-
 		}
 		else if (SensorCarbin % 2 == 0)	//发�?�主控仓数据
 		{
 			//汇�?�本仓传感器数据
 			//仓位数据
 			BasetoUpData.CabinNum = 0;
-			//漏水�????�????
+			//漏水�?????�?????
 			BasetoUpData.WaterDetect = HAL_GPIO_ReadPin(GPIOE,
 			GPIO_PIN_6) << 1;
 			//九轴数据
 			if (xSemaphoreTake(WT931SensorDataRWFlagHandle,
-					portMAX_DELAY) == pdTRUE)
+					portTICK_PERIOD_MS) == pdTRUE)
 			{
 				BasetoUpData.AccNum[0] = WT931SensorData.AccNum[0];
 				BasetoUpData.AccNum[1] = WT931SensorData.AccNum[1];
@@ -1029,7 +1039,7 @@ void BtUF(void const *argument)
 			}
 			//温湿度大气压数据
 			if (xSemaphoreTake(GY39SensorDataRWFlagHandle,
-					portMAX_DELAY) == pdTRUE)
+					portTICK_PERIOD_MS) == pdTRUE)
 			{
 				BasetoUpData.CabinBaro = GY39SensorData.Baro;
 				BasetoUpData.CabinHum = GY39SensorData.Hum;
@@ -1038,7 +1048,7 @@ void BtUF(void const *argument)
 			}
 			//水深水温数据
 			if (xSemaphoreTake(DeepSensorDataRWFlagHandle,
-					portMAX_DELAY) == pdTRUE)
+					portTICK_PERIOD_MS) == pdTRUE)
 			{
 				BasetoUpData.WaterDepth = DeepSensorData.WaterDepth;
 				BasetoUpData.WaterTemperature = DeepSensorData.WaterTemperature;
@@ -1046,7 +1056,7 @@ void BtUF(void const *argument)
 			}
 			//声呐数据
 			if (xSemaphoreTake(P30SensorDataRWFlagHandle,
-					portMAX_DELAY) == pdTRUE)
+					portTICK_PERIOD_MS) == pdTRUE)
 			{
 				BasetoUpData.DepthToBottom = P30SensorData.DepthToBottom;
 				BasetoUpData.Confidence = P30SensorData.Confidence;
@@ -1054,13 +1064,13 @@ void BtUF(void const *argument)
 			}
 			//上传数据
 			if (xSemaphoreTake(UptoBaseDataRWFlagHandle,
-					portMAX_DELAY) == pdTRUE)
+					portTICK_PERIOD_MS) == pdTRUE)
 			{
 				SendUpData(BasetoUpData);
 				xSemaphoreGive(UptoBaseDataRWFlagHandle);
 			}
 		}
-		SensorCarbin++;
+		BAD_CABIN_NUM: SensorCarbin++;
 		HAL_IWDG_Refresh(&hiwdg1);
 	}
 	/* USER CODE END BtUF */
