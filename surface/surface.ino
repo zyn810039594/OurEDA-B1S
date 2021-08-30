@@ -23,21 +23,21 @@
 u8 WATER_WARNING = 0; //漏水警报
 u8 WATER_WARNING_TIMER_COUNT = 0; //漏水警报计时
 
-int StrightNum = 0; //前进后退 A0
-int RotateNum = 0; //旋转侧推 A0
-int VerticalNum = 0; //垂直 A5
+int StrightNum = 1500; //前进后退 A0
+int RotateNum = 1500; //旋转侧推 A0
+int VerticalNum = 1500; //垂直 A5
 int LightNum = 0; //灯光 A2
-int CameraPanNum = 0; //云台 A4
-int ConveyerNum = 0; //传送带 A3
-int MachineArm_HorizentalNum = 0; //水平机械臂 A11
-int MachineArm_LargeNum = 0; //大臂 A12
-int MachineArm_MiddleNum = 0; //中臂 A13
-int MachineArm_SmallNum = 0; //小臂 A14
-int MachineArm_CatchingNum = 0; //夹取 A15
+int CameraPanNum = 1500; //云台 A4
+int ConveyerNum = 1500; //传送带 A3
+int MachineArm_HorizentalNum = 1500; //水平机械臂 A11
+int MachineArm_LargeNum = 1500; //大臂 A12
+int MachineArm_MiddleNum = 1500; //中臂 A13
+int MachineArm_SmallNum = 1500; //小臂 A14
+int MachineArm_CatchingNum = 1500; //夹取 A15
 
-int ReservedNum = 0; //保留位PWM控制数据
-int UserANum = 0; //自定义旋钮A A6
-int UserBNum = 0; //自定义旋钮B A7
+int ReservedNum = 1500; //保留位PWM控制数据
+int UserANum = 1500; //自定义旋钮A A6
+int UserBNum = 1500; //自定义旋钮B A7
 
 /* 按钮控制变量 */
 u8 KeepDeepNum = 0;
@@ -126,6 +126,8 @@ void Surface_Task_ReadSerialData()
 			WATER_WARNING = 0;
 		}
 	}
+
+	WaterHandler();
 }
 
 /**
@@ -133,19 +135,19 @@ void Surface_Task_ReadSerialData()
  */
 void Surface_Task_Contrl(void)
 {
-	/* 控制数据映射 */
-	StrightNum = map(analogRead(FORWARD_PIN), 0, 1023, 500, 2500);
+	/* 读取控制数据 */
+	StrightNum = map(analogRead(FORWARD_PIN), 0, 1023, 2500, 500);
 	RotateNum = map(analogRead(ROTATE_PIN), 0, 1023, 500, 2500);
-	VerticalNum = map(analogRead(VERTICAL_PIN), 0, 1023, 500, 2500);
+	VerticalNum = map(analogRead(VERTICAL_PIN), 0, 1023, 2500, 500);
 	LightNum = map(analogRead(LIGHT_PIN), 0, 1023, 500, 2500);
 	CameraPanNum = map(analogRead(CAMERA_PAN_PIN), 0, 1023, 500, 2500);
 	ConveyerNum = map(analogRead(Conveyer_PIN), 0, 1023, 500, 2500);
+
 	MachineArm_HorizentalNum = map(analogRead(MACHINE_ARM_HORIZENTAL_PIN), 0, 1023, 500, 2500);
 	MachineArm_LargeNum = map(analogRead(MACHINE_ARM_LARGE_PIN), 0, 1023, 500, 2500);
 	MachineArm_MiddleNum = map(analogRead(MACHINE_ARM_MIDDLE_PIN), 0, 1023, 500, 2500);
 	MachineArm_SmallNum = map(analogRead(MACHINE_ARM_SMALL_PIN), 0, 1023, 500, 2500);
 	MachineArm_CatchingNum = map(analogRead(MACHINE_ARM_CATCHING_PIN), 0, 1023, 500, 2500);
-
 
 	/* 按钮判断 */
 	if (ControlButtonNum != digitalRead(ROOT_BUTTON)) //主控权限开关
@@ -188,7 +190,7 @@ void Surface_Task_SendSerialMesg(void)
 {
 	if (ControlButtonNum)
 	{
-		Serial.print('$'); //发送起始位0x25
+		Serial.print('%'); //发送起始位0x25
 		Serial.print(':');
 		Serial.print(StrightNum);
 		Serial.print(':');
@@ -228,7 +230,7 @@ void Surface_Task_SendSerialMesg(void)
 		Serial.print(':');
 		Serial.print(0); //数据校验位
 		Serial.print(':');
-		Serial.print('%');
+		Serial.print('!');
 		Serial.println();
 	}
 }
@@ -280,7 +282,23 @@ void Surface_IT_SendSerialMesg(void)
  */
 void WaterHandler()
 {
-	WATER_WARNING_TIMER_COUNT = 25;
-	digitalWrite(WATER_DETECTED_WARNING, WATER_WARNING);
+	/* 以25为阈值进行滤波 */
+	if (WATER_WARNING == 1)
+	{
+		WATER_WARNING_TIMER_COUNT++;
+		if (WATER_WARNING_TIMER_COUNT >= 255) //累计25次仍存在警报，则进入漏水处理状态
+		{
+			WATER_WARNING_TIMER_COUNT = 25;
+			digitalWrite(WATER_DETECTED_WARNING, WATER_WARNING);
+		}
+	}
+	else if (WATER_WARNING == 0)
+	{
+		WATER_WARNING_TIMER_COUNT++;
+		if (WATER_WARNING_TIMER_COUNT >= 255) //累计25次警报消失，则退出漏水处理状态
+		{
+			digitalWrite(WATER_DETECTED_WARNING, LOW);
+		}
+	}
 }
 

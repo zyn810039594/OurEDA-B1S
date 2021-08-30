@@ -163,10 +163,12 @@ int main(void)
 	HAL_GPIO_WritePin(GPIOE, GPIO_PIN_4, GPIO_PIN_SET);
 	HAL_GPIO_WritePin(GPIOE, GPIO_PIN_4, GPIO_PIN_RESET);
 
-	for (int i = 0; i < 60; i++) //跳过openwrt开机时间
-	{
-		HAL_Delay(1000);
-	}
+//	for (int i = 0; i < 60; i++) //跳过openwrt开机时间
+//	{
+//		HAL_Delay(1000);
+//	}
+
+	OpenWrt_Delay();
 	/* USER CODE END 2 */
 
 	/* Create the mutex(es) */
@@ -945,10 +947,10 @@ void UtBF(void const *argument)
 
 		//收取上位机指�????
 		if (xSemaphoreTake(UptoBaseTransFinishHandle,
-				portTICK_PERIOD_MS) == pdTRUE)
+				10*portTICK_PERIOD_MS) == pdTRUE)
 		{
 			if (xSemaphoreTake(UptoBaseDataRWFlagHandle,
-					portTICK_PERIOD_MS) == pdTRUE)
+					10*portTICK_PERIOD_MS) == pdTRUE)
 			{
 				UptoBaseData = CaptureDownData();
 				xSemaphoreGive(UptoBaseDataRWFlagHandle);
@@ -957,7 +959,7 @@ void UtBF(void const *argument)
 
 		//下传指令
 		if (xSemaphoreTake(BasetoUpDataRWFlagHandle,
-				portTICK_PERIOD_MS) == pdTRUE)
+				10*portTICK_PERIOD_MS) == pdTRUE)
 		{
 			SendDownData(UptoBaseData);
 			xSemaphoreGive(BasetoUpDataRWFlagHandle);
@@ -1002,7 +1004,7 @@ void BtUF(void const *argument)
 					}
 					//上传数据
 					if (xSemaphoreTake(UptoBaseDataRWFlagHandle,
-							portTICK_PERIOD_MS) == pdTRUE)
+							10*portTICK_PERIOD_MS) == pdTRUE)
 					{
 						SendUpData(BasetoUpData);
 						xSemaphoreGive(UptoBaseDataRWFlagHandle);
@@ -1064,7 +1066,7 @@ void BtUF(void const *argument)
 			}
 			//上传数据
 			if (xSemaphoreTake(UptoBaseDataRWFlagHandle,
-					portTICK_PERIOD_MS) == pdTRUE)
+					10*portTICK_PERIOD_MS) == pdTRUE)
 			{
 				SendUpData(BasetoUpData);
 				xSemaphoreGive(UptoBaseDataRWFlagHandle);

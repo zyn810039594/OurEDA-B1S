@@ -18,14 +18,28 @@
 static u8 XorCaculate(u8 *CacString, u8 CacStringSize);
 static u8 IdTest(u8 *String, u8 Format, u8 SendUpLength, u8 SendDownLength);
 
-__attribute__((section(".RAM_D1")))  u8 DownDataReceive[Up_UART_RXLen] =
+__attribute__((section(".RAM_D1")))             u8 DownDataReceive[Up_UART_RXLen] =
 { 0 };
-__attribute__((section(".RAM_D1")))  u8 DownDataSend[Down_UART_TXLEN] =
+__attribute__((section(".RAM_D1")))             u8 DownDataSend[Down_UART_TXLEN] =
 { 0 };
-__attribute__((section(".RAM_D1")))  u8 UpDataReceive[Down_UART_RXLen] =
+__attribute__((section(".RAM_D1")))             u8 UpDataReceive[Down_UART_RXLen] =
 { 0 };
-__attribute__((section(".RAM_D1")))  u8 UpDataSend[Up_UART_TXLen] =
+__attribute__((section(".RAM_D1")))             u8 UpDataSend[Up_UART_TXLen] =
 { 0 };
+
+/**
+ * @brief  跳过OpenWrt开机启动信息(dmesg)
+ */
+void OpenWrt_Delay(void)
+{
+//	__HAL_UART_ENABLE_IT(&Up_UART, UART_IT_IDLE);
+//	HAL_UART_Receive_DMA(&Up_UART, DownDataReceive, Up_UART_RXLen);
+//	while ((DownDataReceive[0] != 0x25)
+//			| (DownDataReceive[Up_UART_RXLen - 1] != 0x21))
+//	{
+//		HAL_Delay(1);
+//	}
+}
 
 /**
  * @brief 捕获上位机向下位机发送的指令
@@ -196,10 +210,10 @@ void SendUpData(UpDataDef SendData)
 	UpDataSend[37] = SendData.DepthToBottom;
 	UpDataSend[38] = SendData.Confidence >> 8;
 	UpDataSend[39] = SendData.Confidence;
-	UpDataSend[40] = SendData.WaterTemperature; //DEBUG:98 08
+	UpDataSend[40] = SendData.WaterTemperature;
 	UpDataSend[41] = SendData.WaterTemperature >> 8;
-	UpDataSend[42] = SendData.WaterDepth >> 8; //BUG:E2 40
-	UpDataSend[43] = SendData.WaterDepth;
+	UpDataSend[42] = SendData.WaterDepth; //BUG:E2 40
+	UpDataSend[43] = SendData.WaterDepth >> 8;
 	UpDataSend[44] = XorCaculate(UpDataSend, 38);
 	UpDataSend[45] = 0xff;
 	UpDataSend[46] = 0xff;
@@ -290,13 +304,13 @@ MoveThruster MoveControl(u16 StraightNum, u16 RotateNum, u16 VerticalNum,
  */
 u16 SpecialMovePID(u8 ModeType, u16 SetValue, u16 ActualValue)
 {
-	//当前误差
+//当前误差
 	static float Ek;
-	//前一次误差
+//前一次误差
 	static float Ek1;
-	//累计积分位置
+//累计积分位置
 	static float LocSum;
-	//数据清空标志位
+//数据清空标志位
 	static u8 PIDData = 0;
 
 	if (ModeType == 4) //定深模式

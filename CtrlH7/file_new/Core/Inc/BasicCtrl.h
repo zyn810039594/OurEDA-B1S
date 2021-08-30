@@ -86,6 +86,7 @@ struct _MoveThruster
 };
 typedef struct _MoveThruster MoveThruster;
 
+void OpenWrt_Delay(void);
 DownDataDef CaptureDownData(void);
 void SendDownData(DownDataDef SendData);
 UpDataDef CaptureUpData(void);
