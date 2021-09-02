@@ -44,6 +44,7 @@ typedef volatile uint32_t vu32;
 /* 下传指令格式 */
 struct _DownDataDef
 {
+	u8 HeadOfData; //指令最前面的数据 0x25
 	u16 StraightNum; //前进
 	u16 RotateNum; //转向
 	u16 VerticalNum; //垂直升降
@@ -55,6 +56,7 @@ struct _DownDataDef
 	u8 Mode; //模式控制
 	u8 Relay; //继电器
 	u8 IdTest; //奇偶校验
+	u8 EndOfData; //指令最后的数据 0x21
 };
 typedef struct _DownDataDef DownDataDef;
 
@@ -81,17 +83,19 @@ typedef struct _UpDataDef UpDataDef;
 /* 推进器控制格式 */
 struct _MoveThruster
 {
-	vu32 HorizontalThruster[4];
-	vu32 VerticalThruster[2];
+	vu32 HorizontalThruster[4]; //四个水平方向推进器
+	vu32 VerticalThruster[2]; //两个垂直方向推进器
 };
 typedef struct _MoveThruster MoveThruster;
 
-void OpenWrt_Delay(void);
-DownDataDef CaptureDownData(void);
-void SendDownData(DownDataDef SendData);
 UpDataDef CaptureUpData(void);
+DownDataDef CaptureDownData(void);
 void SendUpData(UpDataDef SendData);
-MoveThruster MoveControl(u16 StraightNum, u16 RotateNum, u16 VerticalNum,
-		u8 ModeNum);
+#ifdef CtrlSide
+void SendDownData(DownDataDef SendData);
+#endif
+#ifdef PowerSide
+MoveThruster MoveControl(u16 StraightNum, u16 RotateNum, u16 VerticalNum, u8 ModeNum);
+#endif
 u16 SpecialMovePID(u8 ModeType, u16 SetValue, u16 ActualValue);
 #endif

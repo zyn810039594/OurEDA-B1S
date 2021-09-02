@@ -1,6 +1,6 @@
-Sensor.c:34:6:InitGY39	8	static
-Sensor.c:47:10:ReceiveGY39	40	static
-Sensor.c:66:11:ReceiveWT931	48	static
-Sensor.c:108:10:ReceiveDeep	16	static
-Sensor.c:123:6:InitP30	8	static
-Sensor.c:146:9:ReceiveP30	40	static
+Sensor.c:36:6:InitGY39	8	static
+Sensor.c:49:10:ReceiveGY39	40	static
+Sensor.c:68:11:ReceiveWT931	48	static
+Sensor.c:110:10:ReceiveDeep	16	static
+Sensor.c:125:6:InitP30	8	static
+Sensor.c:148:9:ReceiveP30	40	static

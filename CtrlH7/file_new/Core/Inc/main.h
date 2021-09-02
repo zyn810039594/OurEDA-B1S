@@ -48,6 +48,8 @@ extern UART_HandleTypeDef huart8;
 extern UART_HandleTypeDef huart1;
 extern UART_HandleTypeDef huart2;
 extern UART_HandleTypeDef huart3;
+
+extern IWDG_HandleTypeDef hiwdg1;
 /* USER CODE END EC */
 
 /* Exported macro ------------------------------------------------------------*/

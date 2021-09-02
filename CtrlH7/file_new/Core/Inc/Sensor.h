@@ -25,13 +25,6 @@ typedef volatile uint8_t vu8;
 typedef volatile uint16_t vu16;
 typedef volatile uint32_t vu32;
 
-struct _DeepData
-{
-	u16 WaterTemperature;
-	u16 WaterDepth;
-};
-typedef struct _DeepData DeepData;
-
 struct _WT931Data
 {
 	u16 AccNum[3];
@@ -49,17 +42,28 @@ struct _GY39Data
 };
 typedef struct _GY39Data GY39Data;
 
-struct _P30Data
+#ifdef CtrlSide
+struct _DeepData
+{
+	u16 WaterTemperature;
+	u16 WaterDepth;
+};
+typedef struct _DeepData DeepData;
+
+typedef struct _P30Data
 {
 	u32 DepthToBottom;
 	u16 Confidence;
 };
 typedef struct _P30Data P30Data;
+#endif
 
 void InitGY39(void);
 GY39Data ReceiveGY39(void);
 WT931Data ReceiveWT931(void);
+#ifdef CtrlSide
 DeepData ReceiveDeep(void);
 void InitP30(void);
 P30Data ReceiveP30(void);
+#endif
 #endif

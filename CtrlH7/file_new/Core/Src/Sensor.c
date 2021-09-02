@@ -15,18 +15,20 @@
  */
 #include "Sensor.h"
 
-__attribute__((section(".RAM_D1")))	      u8 WT931Receive[WT931_UART_RXLen] =
+__attribute__((section(".RAM_D1")))	     u8 WT931Receive[WT931_UART_RXLen] =
 { 0 };
-__attribute__((section(".RAM_D1")))	      u8 GY39Send[GY39_UART_TXLen] =
+__attribute__((section(".RAM_D1")))	     u8 GY39Send[GY39_UART_TXLen] =
 { 0 };
-__attribute__((section(".RAM_D1")))	      u8 GY39Receive[GY39_UART_RXLen] =
+__attribute__((section(".RAM_D1")))	     u8 GY39Receive[GY39_UART_RXLen] =
 { 0 };
-__attribute__((section(".RAM_D1")))	      u8 DeepReceive[Deep_UART_RXLen] =
+#ifdef CtrlSide
+__attribute__((section(".RAM_D1")))	     u8 DeepReceive[Deep_UART_RXLen] =
 { 0 };
-__attribute__((section(".RAM_D1")))       u8 P30Send[P30_UART_TXLen] =
+__attribute__((section(".RAM_D1")))      u8 P30Send[P30_UART_TXLen] =
 { 0 };
-__attribute__((section(".RAM_D1")))	      u8 P30Receive[P30_UART_RXLen] =
+__attribute__((section(".RAM_D1")))	     u8 P30Receive[P30_UART_RXLen] =
 { 0 };
+#endif
 
 /**
  * @brief GY39温湿度大气压传感器初始化
@@ -94,13 +96,13 @@ WT931Data ReceiveWT931(void)
 		RevWT931.MagNum[1] = ((WT931Receive[38] << 8) | WT931Receive[37]);
 		RevWT931.MagNum[2] = ((WT931Receive[40] << 8) | WT931Receive[39]);
 	}
-
 	__HAL_UART_ENABLE_IT(&WT931_UART, UART_IT_IDLE);
 	HAL_UART_Receive_DMA(&WT931_UART, WT931Receive, WT931_UART_RXLen);
 
 	return RevWT931;
 }
 
+#ifdef CtrlSide
 /**
  * @brief 接收水深水温传感器数据
  * @return DeepData 水深水温传感器数据结构体
@@ -198,3 +200,5 @@ P30Data ReceiveP30(void)
 
 	return RevP30;
 }
+#endif
+

@@ -81,9 +81,9 @@ osSemaphoreId BasetoUpTransFinishHandleHandle;
 osSemaphoreId DeepTransFinishHandleHandle;
 osSemaphoreId P30TransFinishHandle;
 /* USER CODE BEGIN PV */
-DownDataDef UptoBaseData;
-UpDataDef BasetoUpData;
-
+//DownDataDef UptoBaseData;
+//UpDataDef BasetoUpData;
+//UpDataDef Power_BasetoUpData;
 DeepData DeepSensorData;
 WT931Data WT931SensorData;
 GY39Data GY39SensorData;
@@ -108,7 +108,7 @@ void UtBF(void const *argument);
 void BtUF(void const *argument);
 
 /* USER CODE BEGIN PFP */
-
+void OpenWrt_Delay(void);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -157,18 +157,14 @@ int main(void)
 	MX_UART5_Init();
 	/* USER CODE BEGIN 2 */
 	HAL_IWDG_Refresh(&hiwdg1);
+
 	//初始化下位机
 
 	HAL_GPIO_WritePin(GPIOE, GPIO_PIN_4, GPIO_PIN_RESET);
 	HAL_GPIO_WritePin(GPIOE, GPIO_PIN_4, GPIO_PIN_SET);
 	HAL_GPIO_WritePin(GPIOE, GPIO_PIN_4, GPIO_PIN_RESET);
 
-//	for (int i = 0; i < 60; i++) //跳过openwrt开机时间
-//	{
-//		HAL_Delay(1000);
-//	}
-
-	OpenWrt_Delay();
+	HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_SET);
 	/* USER CODE END 2 */
 
 	/* Create the mutex(es) */
@@ -775,6 +771,9 @@ static void MX_GPIO_Init(void)
 	/*Configure GPIO pin Output Level */
 	HAL_GPIO_WritePin(GPIOE, GPIO_PIN_4, GPIO_PIN_RESET);
 
+	/*Configure GPIO pin Output Level */
+	HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_RESET);
+
 	/*Configure GPIO pin : PE4 */
 	GPIO_InitStruct.Pin = GPIO_PIN_4;
 	GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
@@ -788,6 +787,13 @@ static void MX_GPIO_Init(void)
 	GPIO_InitStruct.Pull = GPIO_NOPULL;
 	HAL_GPIO_Init(GPIOE, &GPIO_InitStruct);
 
+	/*Configure GPIO pin : PC13 */
+	GPIO_InitStruct.Pin = GPIO_PIN_13;
+	GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+	GPIO_InitStruct.Pull = GPIO_PULLUP;
+	GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+	HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+
 	/*Configure GPIO pin : PA8 */
 	GPIO_InitStruct.Pin = GPIO_PIN_8;
 	GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
@@ -799,7 +805,21 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-
+/**
+ * @brief  跳过OpenWrt开机启动信息(dmesg)
+ */
+void OpenWrt_Delay(void)
+{
+	for (int i = 0; i < 60; i++)
+	{
+		HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
+		for (int j = 0; j < 1000; j++)
+		{
+			osDelay(1);
+		}
+	}
+	HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_SET);
+}
 /* USER CODE END 4 */
 
 /* USER CODE BEGIN Header_CtrlTaskF */
@@ -834,25 +854,29 @@ void SensorTaskF(void const *argument)
 	/* USER CODE BEGIN SensorTaskF */
 	InitGY39();
 	InitP30();
+	osDelay(100);
 	ReceiveDeep();
 	ReceiveGY39();
 	ReceiveWT931();
 	ReceiveP30();
-	osDelay(200);
+	osDelay(100);
 	DeepSensorData = ReceiveDeep();
 	GY39SensorData = ReceiveGY39();
 	WT931SensorData = ReceiveWT931();
 	P30SensorData = ReceiveP30();
+	osDelay(100);
 	xSemaphoreGive(DeepSensorDataRWFlagHandle);
 	xSemaphoreGive(GY39SensorDataRWFlagHandle);
 	xSemaphoreGive(WT931SensorDataRWFlagHandle);
 	xSemaphoreGive(P30SensorDataRWFlagHandle);
+	vTaskSuspend(SensorTaskHandle);
+	osDelay(1);
 	/* Infinite loop */
 	for (;;)
 	{
 		//收取深度数据
 		if (xSemaphoreTake(DeepTransFinishHandleHandle,
-				portTICK_PERIOD_MS) == pdTRUE)
+				0) == pdTRUE)
 		{
 			if (xSemaphoreTake(DeepSensorDataRWFlagHandle,
 					portTICK_PERIOD_MS) == pdTRUE)
@@ -862,8 +886,10 @@ void SensorTaskF(void const *argument)
 			}
 		}
 		//收取九轴数据
-		if (xSemaphoreTake(WT931TransFinishHandle,portTICK_PERIOD_MS) == pdTRUE)
+		if (xSemaphoreTake(WT931TransFinishHandle,
+				0) == pdTRUE)
 		{
+
 			if (xSemaphoreTake(WT931SensorDataRWFlagHandle,
 					portTICK_PERIOD_MS) == pdTRUE)
 			{
@@ -871,8 +897,9 @@ void SensorTaskF(void const *argument)
 				xSemaphoreGive(WT931SensorDataRWFlagHandle);
 			}
 		}
-		//收取温湿度数�?????
-		if (xSemaphoreTake(GY39TransFinishHandle,portTICK_PERIOD_MS) == pdTRUE)
+		//收取温湿度数�??????
+		if (xSemaphoreTake(GY39TransFinishHandle,
+				0) == pdTRUE)
 		{
 			if (xSemaphoreTake(GY39SensorDataRWFlagHandle,
 					portTICK_PERIOD_MS) == pdTRUE)
@@ -882,7 +909,7 @@ void SensorTaskF(void const *argument)
 			}
 		}
 		//收取声呐数据
-		if (xSemaphoreTake(P30TransFinishHandle,portTICK_PERIOD_MS) == pdTRUE)
+		if (xSemaphoreTake(P30TransFinishHandle,0) == pdTRUE)
 		{
 			if (xSemaphoreTake(P30SensorDataRWFlagHandle,
 					portTICK_PERIOD_MS) == pdTRUE)
@@ -906,63 +933,74 @@ void SensorTaskF(void const *argument)
 void UtBF(void const *argument)
 {
 	/* USER CODE BEGIN UtBF */
+	DownDataDef UptoBaseData =
+	{ 0 };
+	DownDataDef temp_UptoBaseData =
+	{ 0 };
 	u8 DIPFlag = 0;
-	u16 DIPStartNum = 0; //PID定向定深预期�??????????
+	u16 DIPStartNum = 0; //PID定向定深预期�???????????
 
-	CaptureUpData();
+	OpenWrt_Delay(); //跳过openwrt�?机时�?
+
 	CaptureDownData();
-	osDelay(200);
+	osDelay(100);
 	//打开串口接收
-	BasetoUpData = CaptureUpData();
 	UptoBaseData = CaptureDownData();
-	xSemaphoreGive(BasetoUpDataRWFlagHandle);
 	xSemaphoreGive(UptoBaseDataRWFlagHandle);
-
+	xSemaphoreGive(BasetoUpDataRWFlagHandle);
+	vTaskResume(BasetoUpTaskHandle);
+	vTaskResume(SensorTaskHandle);
+	osDelay(1);
 	/* Infinite loop */
 	for (;;)
 	{
-		//根据控制位判断是否执行自主定向定�?????
-		if (UptoBaseData.Mode & 0x02 == 0x02) //0b0010,使用定向模式
-		{
-			if (DIPFlag == 0)
-			{
-				DIPFlag = 1;
-				DIPStartNum = WT931SensorData.EulNum[2];
-			}
-			SpecialMovePID(2, DIPStartNum, WT931SensorData.EulNum[2]); //PID定向
-		}
-		else if (UptoBaseData.Mode & 0x04 == 0x04) //0b0100,使用定深模式
-		{
-			if (DIPFlag == 0)
-			{
-				DIPFlag = 1;
-				DIPStartNum = DeepSensorData.WaterDepth;
-			}
-			SpecialMovePID(4, DIPStartNum, DeepSensorData.WaterDepth); //PID定深
-		}
-		else
-		{
-			DIPFlag = 0; //不开启定向定�?
-		}
-
-		//收取上位机指�????
+		//收取上位机指�?????
 		if (xSemaphoreTake(UptoBaseTransFinishHandle,
-				10*portTICK_PERIOD_MS) == pdTRUE)
+				0) == pdTRUE)
 		{
-			if (xSemaphoreTake(UptoBaseDataRWFlagHandle,
-					10*portTICK_PERIOD_MS) == pdTRUE)
-			{
-				UptoBaseData = CaptureDownData();
-				xSemaphoreGive(UptoBaseDataRWFlagHandle);
-			}
-		}
+//			if (xSemaphoreTake(UptoBaseDataRWFlagHandle,
+//					portTICK_PERIOD_MS) == pdTRUE)
+//			{
+			UptoBaseData = CaptureDownData();
+//				xSemaphoreGive(UptoBaseDataRWFlagHandle);
+//			}
 
-		//下传指令
-		if (xSemaphoreTake(BasetoUpDataRWFlagHandle,
-				10*portTICK_PERIOD_MS) == pdTRUE)
-		{
-			SendDownData(UptoBaseData);
-			xSemaphoreGive(BasetoUpDataRWFlagHandle);
+			//根据控制位判断是否执行自主定向定�??????
+			if (UptoBaseData.Mode & 0x02 == 0x02) //0b0010,使用定向模式
+			{
+				if (DIPFlag == 0)
+				{
+					DIPFlag = 1;
+					DIPStartNum = WT931SensorData.EulNum[2];
+				}
+				UptoBaseData.StraightNum = SpecialMovePID(2, DIPStartNum,
+						WT931SensorData.EulNum[2]); //PID定向
+			}
+			else if (UptoBaseData.Mode & 0x04 == 0x04) //0b0100,使用定深模式
+			{
+				if (DIPFlag == 0)
+				{
+					DIPFlag = 1;
+					DIPStartNum = DeepSensorData.WaterDepth;
+				}
+				UptoBaseData.VerticalNum = SpecialMovePID(4, DIPStartNum,
+						DeepSensorData.WaterDepth); //PID定深
+			}
+			else
+			{
+				DIPFlag = 0; //不开启定向定�??
+			}
+
+			//下传指令
+			if (xSemaphoreTake(BasetoUpDataRWFlagHandle,
+					portTICK_PERIOD_MS) == pdTRUE)
+			{
+//				temp_UptoBaseData = UptoBaseData;
+//				SendDownData(temp_UptoBaseData);
+				SendDownData(UptoBaseData);
+				HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
+				xSemaphoreGive(BasetoUpDataRWFlagHandle);
+			}
 		}
 
 		HAL_IWDG_Refresh(&hiwdg1);
@@ -980,48 +1018,62 @@ void UtBF(void const *argument)
 void BtUF(void const *argument)
 {
 	/* USER CODE BEGIN BtUF */
-//	xSemaphoreGive(BaseControlEnableFlagHandle);
-	//用于指示当前传输数据是哪个仓位的标志
-	//置为1的时候表示推进器控制�??????????
+	//置为1的时候表示推进器控制�???????????
 	//置为0的时候表示主控仓
+	UpDataDef Power_BasetoUpData =
+	{ 0 };
+	UpDataDef temp_Power_BasetoUpData =
+	{ 0 };
+	UpDataDef BasetoUpData =
+	{ 0 };
 	u8 SensorCarbin = 0;
+
+	vTaskSuspend(BasetoUpTaskHandle);
+	CaptureUpData();
+	osDelay(100);
+	BasetoUpData = CaptureUpData();
 	/* Infinite loop */
 	for (;;)
 	{
-		if (SensorCarbin % 2 == 1) //发�?�推进器控制仓数�?????
+		if (SensorCarbin == 1) //发送电源仓数据
 		{
-			//接收下位仓回传的数据
+			//单独接收下位仓回传的数据
 			if (xSemaphoreTake(BasetoUpTransFinishHandleHandle,
-					portTICK_PERIOD_MS) == pdTRUE)
+					0) == pdTRUE)
 			{
-				if (xSemaphoreTake(BasetoUpDataRWFlagHandle,
-						portTICK_PERIOD_MS) == pdTRUE)
+//				if (xSemaphoreTake(BasetoUpDataRWFlagHandle,
+//						portTICK_PERIOD_MS) == pdTRUE)
+//				{
+				Power_BasetoUpData = CaptureUpData();
+//					temp_Power_BasetoUpData = Power_BasetoUpData;
+				//上传数据
+//					if (temp_Power_BasetoUpData.CabinNum == 1)
+//					{
+				if (Power_BasetoUpData.CabinNum == 1)
 				{
-					BasetoUpData = CaptureUpData();
-					if (BasetoUpData.CabinNum == 1)
-					{
-						goto BAD_CABIN_NUM;
-					}
-					//上传数据
 					if (xSemaphoreTake(UptoBaseDataRWFlagHandle,
-							10*portTICK_PERIOD_MS) == pdTRUE)
+							portTICK_PERIOD_MS) == pdTRUE)
 					{
-						SendUpData(BasetoUpData);
+//							SendUpData(temp_Power_BasetoUpData);
+						SendUpData(Power_BasetoUpData);
 						xSemaphoreGive(UptoBaseDataRWFlagHandle);
 					}
-					xSemaphoreGive(BasetoUpDataRWFlagHandle);
 				}
+//					xSemaphoreGive(BasetoUpDataRWFlagHandle);
+//				}
 			}
+			SensorCarbin = 0;
 		}
-		else if (SensorCarbin % 2 == 0)	//发�?�主控仓数据
+		else if (SensorCarbin == 0)	//发�?�主控仓数据
 		{
 			//汇�?�本仓传感器数据
 			//仓位数据
 			BasetoUpData.CabinNum = 0;
-			//漏水�?????�?????
+			//漏水�??????�??????
 			BasetoUpData.WaterDetect = HAL_GPIO_ReadPin(GPIOE,
 			GPIO_PIN_6) << 1;
 			//九轴数据
+
 			if (xSemaphoreTake(WT931SensorDataRWFlagHandle,
 					portTICK_PERIOD_MS) == pdTRUE)
 			{
@@ -1066,13 +1118,13 @@ void BtUF(void const *argument)
 			}
 			//上传数据
 			if (xSemaphoreTake(UptoBaseDataRWFlagHandle,
-					10*portTICK_PERIOD_MS) == pdTRUE)
+					portTICK_PERIOD_MS) == pdTRUE)
 			{
 				SendUpData(BasetoUpData);
 				xSemaphoreGive(UptoBaseDataRWFlagHandle);
 			}
+			SensorCarbin = 1;
 		}
-		BAD_CABIN_NUM: SensorCarbin++;
 		HAL_IWDG_Refresh(&hiwdg1);
 	}
 	/* USER CODE END BtUF */

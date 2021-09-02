@@ -18,28 +18,14 @@
 static u8 XorCaculate(u8 *CacString, u8 CacStringSize);
 static u8 IdTest(u8 *String, u8 Format, u8 SendUpLength, u8 SendDownLength);
 
-__attribute__((section(".RAM_D1")))             u8 DownDataReceive[Up_UART_RXLen] =
+__attribute__((section(".RAM_D1")))    u8 DownDataReceive[Up_UART_RXLen] =
 { 0 };
-__attribute__((section(".RAM_D1")))             u8 DownDataSend[Down_UART_TXLEN] =
+__attribute__((section(".RAM_D1")))    u8 DownDataSend[Down_UART_TXLEN] =
 { 0 };
-__attribute__((section(".RAM_D1")))             u8 UpDataReceive[Down_UART_RXLen] =
+__attribute__((section(".RAM_D1")))    u8 UpDataReceive[Down_UART_RXLen] =
 { 0 };
-__attribute__((section(".RAM_D1")))             u8 UpDataSend[Up_UART_TXLen] =
+__attribute__((section(".RAM_D1")))    u8 UpDataSend[Up_UART_TXLen] =
 { 0 };
-
-/**
- * @brief  跳过OpenWrt开机启动信息(dmesg)
- */
-void OpenWrt_Delay(void)
-{
-//	__HAL_UART_ENABLE_IT(&Up_UART, UART_IT_IDLE);
-//	HAL_UART_Receive_DMA(&Up_UART, DownDataReceive, Up_UART_RXLen);
-//	while ((DownDataReceive[0] != 0x25)
-//			| (DownDataReceive[Up_UART_RXLen - 1] != 0x21))
-//	{
-//		HAL_Delay(1);
-//	}
-}
 
 /**
  * @brief 捕获上位机向下位机发送的指令
@@ -49,6 +35,7 @@ DownDataDef CaptureDownData(void)
 {
 	DownDataDef CaptureData;
 
+	CaptureData.HeadOfData = (DownDataReceive[0]);
 	CaptureData.StraightNum = ((DownDataReceive[1] << 8) | DownDataReceive[2]);
 	CaptureData.RotateNum = ((DownDataReceive[3] << 8) | DownDataReceive[4]);
 	CaptureData.VerticalNum = ((DownDataReceive[5] << 8) | DownDataReceive[6]);
@@ -75,92 +62,11 @@ DownDataDef CaptureDownData(void)
 #endif
 #endif
 	CaptureData.IdTest = IdTest(DownDataReceive, 0, 44, 28);
+	CaptureData.EndOfData = (DownDataReceive[29]);
 
 	__HAL_UART_ENABLE_IT(&Up_UART, UART_IT_IDLE);
-	HAL_UART_Receive_DMA(&Up_UART, DownDataReceive, Up_UART_RXLen);
-
-	return CaptureData;
-}
-
-/**
- * @brief 向下位机发送数据
- * @param  SendData         待发送的数据结构体
- * @note 已完成Debug
- */
-void SendDownData(DownDataDef SendData)
-{
-	DownDataSend[0] = 0x25;
-	DownDataSend[1] = SendData.StraightNum >> 8;
-	DownDataSend[2] = SendData.StraightNum;
-	DownDataSend[3] = SendData.RotateNum >> 8;
-	DownDataSend[4] = SendData.RotateNum;
-	DownDataSend[5] = SendData.VerticalNum >> 8;
-	DownDataSend[6] = SendData.VerticalNum;
-	DownDataSend[7] = SendData.LightPWM >> 8;
-	DownDataSend[8] = SendData.LightPWM;
-	DownDataSend[9] = SendData.THPWM >> 8;
-	DownDataSend[10] = SendData.THPWM;
-	DownDataSend[11] = SendData.TranspPWM >> 8;
-	DownDataSend[12] = SendData.TranspPWM;
-	DownDataSend[13] = SendData.ArmPWM[0] >> 8;
-	DownDataSend[14] = SendData.ArmPWM[0];
-	DownDataSend[15] = SendData.ArmPWM[1] >> 8;
-	DownDataSend[16] = SendData.ArmPWM[1];
-	DownDataSend[17] = SendData.ArmPWM[2] >> 8;
-	DownDataSend[18] = SendData.ArmPWM[2];
-	DownDataSend[19] = SendData.ArmPWM[3] >> 8;
-	DownDataSend[20] = SendData.ArmPWM[3];
-	DownDataSend[21] = SendData.ArmPWM[4] >> 8;
-	DownDataSend[22] = SendData.ArmPWM[4];
-	DownDataSend[23] = SendData.ArmPWM[5] >> 8;
-	DownDataSend[24] = SendData.ArmPWM[5];
-	DownDataSend[25] = SendData.ResPWM >> 8;
-	DownDataSend[26] = SendData.ResPWM;
-	DownDataSend[27] = SendData.Relay; //直接下传数据
-	DownDataSend[28] = XorCaculate(DownDataSend, 28);
-	DownDataSend[29] = 0x21;
-
-	HAL_UART_Transmit_DMA(&Down_UART, DownDataSend, Down_UART_TXLEN);
-}
-
-/**
- * @brief 捕获下位向上位发送的数据
- * @return UpDataDef 下位机上传的数据结构体
- */
-UpDataDef CaptureUpData(void)
-{
-	UpDataDef CaptureData;
-
-	CaptureData.CabinNum = (UpDataReceive[1] & 0b0001); //0b0000控制仓，0b0001==1电源仓
-	CaptureData.WaterDetect = (UpDataReceive[1] & 0b0010); //0b0000正常，0b0010==2漏水
-	CaptureData.CabinTemperature = ((UpDataReceive[3] << 8) | UpDataReceive[2]);
-	CaptureData.CabinBaro = ((UpDataReceive[7] << 24) | (UpDataReceive[6] << 16)
-			| (UpDataReceive[5] << 8) | UpDataReceive[4]);
-	CaptureData.CabinHum = ((UpDataReceive[9] << 8) | UpDataReceive[8]);
-	CaptureData.AccNum[0] = ((UpDataReceive[11] << 8) | UpDataReceive[10]);
-	CaptureData.AccNum[1] = ((UpDataReceive[13] << 8) | UpDataReceive[12]);
-	CaptureData.AccNum[2] = ((UpDataReceive[15] << 8) | UpDataReceive[14]);
-	CaptureData.RotNum[0] = ((UpDataReceive[17] << 8) | UpDataReceive[16]);
-	CaptureData.RotNum[1] = ((UpDataReceive[19] << 8) | UpDataReceive[18]);
-	CaptureData.RotNum[2] = ((UpDataReceive[21] << 8) | UpDataReceive[20]);
-	CaptureData.EulNum[0] = ((UpDataReceive[23] << 8) | UpDataReceive[22]);
-	CaptureData.EulNum[1] = ((UpDataReceive[25] << 8) | UpDataReceive[24]);
-	CaptureData.EulNum[2] = ((UpDataReceive[27] << 8) | UpDataReceive[26]);
-	CaptureData.MagNum[0] = ((UpDataReceive[29] << 8) | UpDataReceive[28]);
-	CaptureData.MagNum[1] = ((UpDataReceive[31] << 8) | UpDataReceive[30]);
-	CaptureData.MagNum[2] = ((UpDataReceive[33] << 8) | UpDataReceive[32]);
-	CaptureData.DepthToBottom = ((UpDataReceive[37] << 24)
-			| (UpDataReceive[36] << 16) | (UpDataReceive[35] << 8)
-			| UpDataReceive[34]);
-	CaptureData.Confidence = ((UpDataReceive[39] << 8) | UpDataReceive[38]);
-	CaptureData.WaterTemperature =
-			((UpDataReceive[40] << 8) | UpDataReceive[41]);
-	CaptureData.WaterDepth = ((UpDataReceive[42] << 8) | UpDataReceive[43]);
-	CaptureData.IdTest = IdTest(UpDataReceive, 1, 44, 28);
-
-	__HAL_UART_ENABLE_IT(&Down_UART, UART_IT_IDLE);
-	HAL_UART_Receive_DMA(&Down_UART, DownDataReceive, Down_UART_RXLen);
-
+//	HAL_UART_Receive_DMA(&Up_UART, DownDataReceive, Up_UART_RXLen);
+	HAL_UART_Receive_DMA(&Up_UART, DownDataReceive, 31);
 	return CaptureData;
 }
 
@@ -221,6 +127,93 @@ void SendUpData(UpDataDef SendData)
 	HAL_UART_Transmit_DMA(&Up_UART, UpDataSend, Up_UART_TXLen);
 }
 
+#ifdef CtrlSide
+/**
+ * @brief 向下位机发送指令
+ * @param  SendData         待发送的指令结构体
+ * @note 已完成Debug
+ */
+void SendDownData(DownDataDef SendData)
+{
+//	if ((SendData.HeadOfData == 0x25) && (SendData.EndOfData == 0x21))
+//	{
+	DownDataSend[0] = 0x25;
+	DownDataSend[1] = SendData.StraightNum >> 8;
+	DownDataSend[2] = SendData.StraightNum;
+	DownDataSend[3] = SendData.RotateNum >> 8;
+	DownDataSend[4] = SendData.RotateNum;
+	DownDataSend[5] = SendData.VerticalNum >> 8;
+	DownDataSend[6] = SendData.VerticalNum;
+	DownDataSend[7] = SendData.LightPWM >> 8;
+	DownDataSend[8] = SendData.LightPWM;
+	DownDataSend[9] = SendData.THPWM >> 8;
+	DownDataSend[10] = SendData.THPWM;
+	DownDataSend[11] = SendData.TranspPWM >> 8;
+	DownDataSend[12] = SendData.TranspPWM;
+	DownDataSend[13] = SendData.ArmPWM[0] >> 8;
+	DownDataSend[14] = SendData.ArmPWM[0];
+	DownDataSend[15] = SendData.ArmPWM[1] >> 8;
+	DownDataSend[16] = SendData.ArmPWM[1];
+	DownDataSend[17] = SendData.ArmPWM[2] >> 8;
+	DownDataSend[18] = SendData.ArmPWM[2];
+	DownDataSend[19] = SendData.ArmPWM[3] >> 8;
+	DownDataSend[20] = SendData.ArmPWM[3];
+	DownDataSend[21] = SendData.ArmPWM[4] >> 8;
+	DownDataSend[22] = SendData.ArmPWM[4];
+	DownDataSend[23] = SendData.ArmPWM[5] >> 8;
+	DownDataSend[24] = SendData.ArmPWM[5];
+	DownDataSend[25] = SendData.ResPWM >> 8;
+	DownDataSend[26] = SendData.ResPWM;
+	DownDataSend[27] = SendData.Relay; //直接下传数据
+	DownDataSend[28] = XorCaculate(DownDataSend, 28);
+	DownDataSend[29] = 0x21;
+//	}
+	HAL_UART_Transmit_DMA(&Down_UART, DownDataSend, Down_UART_TXLEN);
+}
+
+/**
+ * @brief 捕获下位向上位发送的数据
+ * @return UpDataDef 下位机上传的数据结构体
+ */
+UpDataDef CaptureUpData(void)
+{
+	UpDataDef CaptureData;
+
+	CaptureData.CabinNum = (UpDataReceive[1] & 0b0001); //0b0000控制仓，0b0001==1电源仓
+	CaptureData.WaterDetect = (UpDataReceive[1] & 0b0010); //0b0000正常，0b0010==2漏水
+	CaptureData.CabinTemperature = ((UpDataReceive[3] << 8) | UpDataReceive[2]);
+	CaptureData.CabinBaro = ((UpDataReceive[7] << 24) | (UpDataReceive[6] << 16)
+			| (UpDataReceive[5] << 8) | UpDataReceive[4]);
+	CaptureData.CabinHum = ((UpDataReceive[9] << 8) | UpDataReceive[8]);
+	CaptureData.AccNum[0] = ((UpDataReceive[11] << 8) | UpDataReceive[10]);
+	CaptureData.AccNum[1] = ((UpDataReceive[13] << 8) | UpDataReceive[12]);
+	CaptureData.AccNum[2] = ((UpDataReceive[15] << 8) | UpDataReceive[14]);
+	CaptureData.RotNum[0] = ((UpDataReceive[17] << 8) | UpDataReceive[16]);
+	CaptureData.RotNum[1] = ((UpDataReceive[19] << 8) | UpDataReceive[18]);
+	CaptureData.RotNum[2] = ((UpDataReceive[21] << 8) | UpDataReceive[20]);
+	CaptureData.EulNum[0] = ((UpDataReceive[23] << 8) | UpDataReceive[22]);
+	CaptureData.EulNum[1] = ((UpDataReceive[25] << 8) | UpDataReceive[24]);
+	CaptureData.EulNum[2] = ((UpDataReceive[27] << 8) | UpDataReceive[26]);
+	CaptureData.MagNum[0] = ((UpDataReceive[29] << 8) | UpDataReceive[28]);
+	CaptureData.MagNum[1] = ((UpDataReceive[31] << 8) | UpDataReceive[30]);
+	CaptureData.MagNum[2] = ((UpDataReceive[33] << 8) | UpDataReceive[32]);
+	CaptureData.DepthToBottom = ((UpDataReceive[37] << 24)
+			| (UpDataReceive[36] << 16) | (UpDataReceive[35] << 8)
+			| UpDataReceive[34]);
+	CaptureData.Confidence = ((UpDataReceive[39] << 8) | UpDataReceive[38]);
+	CaptureData.WaterTemperature =
+			((UpDataReceive[40] << 8) | UpDataReceive[41]);
+	CaptureData.WaterDepth = ((UpDataReceive[42] << 8) | UpDataReceive[43]);
+	CaptureData.IdTest = IdTest(UpDataReceive, 1, 44, 28);
+
+	__HAL_UART_ENABLE_IT(&Down_UART, UART_IT_IDLE);
+	HAL_UART_Receive_DMA(&Down_UART, UpDataReceive, Down_UART_RXLen);
+
+	return CaptureData;
+}
+#endif
+
+#ifdef PowerSide
 /**
  * @brief 基本的运动控制函数
  * @param  StraightNum      前进控制参数
@@ -231,7 +224,7 @@ void SendUpData(UpDataDef SendData)
  * @note 基于经验公式，不应进行改动
  */
 MoveThruster MoveControl(u16 StraightNum, u16 RotateNum, u16 VerticalNum,
-		u8 ModeNum)
+	u8 ModeNum)
 {
 	MoveThruster ThrusterTemp;
 	if (ModeNum == 0) //转向模式
@@ -245,55 +238,56 @@ MoveThruster MoveControl(u16 StraightNum, u16 RotateNum, u16 VerticalNum,
 		{
 		case 0:
 		case 15:
-			ThrusterTemp.HorizontalThruster[0] = (vu32) (RotateNum);
-			ThrusterTemp.HorizontalThruster[1] = (vu32) (RotateNum);
-			ThrusterTemp.HorizontalThruster[2] = (vu32) ((1500 - RotateNum
-					+ StraightNum));
-			ThrusterTemp.HorizontalThruster[3] = (vu32) ((1500 - RotateNum
-					+ StraightNum));
+			ThrusterTemp.HorizontalThruster[0] = (vu32)(RotateNum);
+			ThrusterTemp.HorizontalThruster[1] = (vu32)(RotateNum);
+			ThrusterTemp.HorizontalThruster[2] = (vu32)((1500 - RotateNum
+				+ StraightNum));
+			ThrusterTemp.HorizontalThruster[3] = (vu32)((1500 - RotateNum
+				+ StraightNum));
 			break;
 		case 7:
 		case 8:
-			ThrusterTemp.HorizontalThruster[0] = (vu32) (StraightNum);
-			ThrusterTemp.HorizontalThruster[1] = (vu32) (StraightNum);
-			ThrusterTemp.HorizontalThruster[2] = (vu32) ((1500 - RotateNum
-					+ StraightNum));
-			ThrusterTemp.HorizontalThruster[3] = (vu32) ((1500 - RotateNum
-					+ StraightNum));
+			ThrusterTemp.HorizontalThruster[0] = (vu32)(StraightNum);
+			ThrusterTemp.HorizontalThruster[1] = (vu32)(StraightNum);
+			ThrusterTemp.HorizontalThruster[2] = (vu32)((1500 - RotateNum
+				+ StraightNum));
+			ThrusterTemp.HorizontalThruster[3] = (vu32)((1500 - RotateNum
+				+ StraightNum));
 			break;
 		case 5:
 		case 10:
-			ThrusterTemp.HorizontalThruster[0] = (vu32) ((RotateNum
-					+ StraightNum - 1500));
-			ThrusterTemp.HorizontalThruster[1] = (vu32) ((RotateNum
-					+ StraightNum - 1500));
-			ThrusterTemp.HorizontalThruster[2] = (vu32) (StraightNum);
-			ThrusterTemp.HorizontalThruster[3] = (vu32) (StraightNum);
+			ThrusterTemp.HorizontalThruster[0] = (vu32)((RotateNum
+				+ StraightNum - 1500));
+			ThrusterTemp.HorizontalThruster[1] = (vu32)((RotateNum
+				+ StraightNum - 1500));
+			ThrusterTemp.HorizontalThruster[2] = (vu32)(StraightNum);
+			ThrusterTemp.HorizontalThruster[3] = (vu32)(StraightNum);
 			break;
 		case 1:
 		case 14:
-			ThrusterTemp.HorizontalThruster[0] = (vu32) ((RotateNum
-					+ StraightNum - 1500));
-			ThrusterTemp.HorizontalThruster[1] = (vu32) ((RotateNum
-					+ StraightNum - 1500));
-			ThrusterTemp.HorizontalThruster[2] = (vu32) ((3000 - RotateNum));
-			ThrusterTemp.HorizontalThruster[3] = (vu32) ((3000 - RotateNum));
+			ThrusterTemp.HorizontalThruster[0] = (vu32)((RotateNum
+				+ StraightNum - 1500));
+			ThrusterTemp.HorizontalThruster[1] = (vu32)((RotateNum
+				+ StraightNum - 1500));
+			ThrusterTemp.HorizontalThruster[2] = (vu32)((3000 - RotateNum));
+			ThrusterTemp.HorizontalThruster[3] = (vu32)((3000 - RotateNum));
 			break;
 		}
-		ThrusterTemp.VerticalThruster[0] = (vu32) (VerticalNum);
-		ThrusterTemp.VerticalThruster[1] = (vu32) (VerticalNum);
+		ThrusterTemp.VerticalThruster[0] = (vu32)(VerticalNum);
+		ThrusterTemp.VerticalThruster[1] = (vu32)(VerticalNum);
 	}
 	else if (ModeNum == 1) //侧推模式
 	{
-		ThrusterTemp.HorizontalThruster[0] = (vu32) (RotateNum);
-		ThrusterTemp.HorizontalThruster[1] = (vu32) ((3000 - RotateNum));
-		ThrusterTemp.HorizontalThruster[2] = (vu32) (RotateNum);
-		ThrusterTemp.HorizontalThruster[3] = (vu32) (3000 - RotateNum);
-		ThrusterTemp.VerticalThruster[0] = (vu32) (VerticalNum);
-		ThrusterTemp.VerticalThruster[1] = (vu32) (VerticalNum);
+		ThrusterTemp.HorizontalThruster[0] = (vu32)(RotateNum);
+		ThrusterTemp.HorizontalThruster[1] = (vu32)((3000 - RotateNum));
+		ThrusterTemp.HorizontalThruster[2] = (vu32)(RotateNum);
+		ThrusterTemp.HorizontalThruster[3] = (vu32)(3000 - RotateNum);
+		ThrusterTemp.VerticalThruster[0] = (vu32)(VerticalNum);
+		ThrusterTemp.VerticalThruster[1] = (vu32)(VerticalNum);
 	}
 	return ThrusterTemp;
 }
+#endif
 
 /**
  * @brief PID算法控制函数
@@ -304,13 +298,13 @@ MoveThruster MoveControl(u16 StraightNum, u16 RotateNum, u16 VerticalNum,
  */
 u16 SpecialMovePID(u8 ModeType, u16 SetValue, u16 ActualValue)
 {
-//当前误差
+	//当前误差
 	static float Ek;
-//前一次误差
+	//前一次误差
 	static float Ek1;
-//累计积分位置
+	//累计积分位置
 	static float LocSum;
-//数据清空标志位
+	//数据清空标志位
 	static u8 PIDData = 0;
 
 	if (ModeType == 4) //定深模式
@@ -347,6 +341,23 @@ u16 SpecialMovePID(u8 ModeType, u16 SetValue, u16 ActualValue)
 			Ek = 0;
 			LocSum = 0;
 		}
+		return 0;
+	}
+}
+
+/**
+ * @brief 检查PWM控制数据是否正确
+ * @param  pwm_value        待检查的PWM控制数据
+ * @return u8 1正确；0错误
+ */
+u8 CheckPwmValue(vu32 pwm_value)
+{
+	if ((pwm_value <= 2500) && (pwm_value >= 500))
+	{
+		return 1;
+	}
+	else
+	{
 		return 0;
 	}
 }
