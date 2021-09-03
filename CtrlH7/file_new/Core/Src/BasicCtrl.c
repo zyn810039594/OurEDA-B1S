@@ -18,13 +18,13 @@
 static u8 XorCaculate(u8 *CacString, u8 CacStringSize);
 static u8 IdTest(u8 *String, u8 Format, u8 SendUpLength, u8 SendDownLength);
 
-__attribute__((section(".RAM_D1")))    u8 DownDataReceive[Up_UART_RXLen] =
+__attribute__((section(".RAM_D1")))      u8 DownDataReceive[Up_UART_RXLen] =
 { 0 };
-__attribute__((section(".RAM_D1")))    u8 DownDataSend[Down_UART_TXLEN] =
+__attribute__((section(".RAM_D1")))      u8 DownDataSend[Down_UART_TXLEN] =
 { 0 };
-__attribute__((section(".RAM_D1")))    u8 UpDataReceive[Down_UART_RXLen] =
+__attribute__((section(".RAM_D1")))      u8 UpDataReceive[Down_UART_RXLen] =
 { 0 };
-__attribute__((section(".RAM_D1")))    u8 UpDataSend[Up_UART_TXLen] =
+__attribute__((section(".RAM_D1")))      u8 UpDataSend[Up_UART_TXLen] =
 { 0 };
 
 /**
@@ -207,8 +207,8 @@ UpDataDef CaptureUpData(void)
 	CaptureData.IdTest = IdTest(UpDataReceive, 1, 44, 28);
 
 	__HAL_UART_ENABLE_IT(&Down_UART, UART_IT_IDLE);
-	HAL_UART_Receive_DMA(&Down_UART, UpDataReceive, Down_UART_RXLen);
-
+//	HAL_UART_Receive_DMA(&Down_UART, UpDataReceive, Down_UART_RXLen);
+	HAL_UART_Receive_DMA(&Down_UART, UpDataReceive, 48);
 	return CaptureData;
 }
 #endif

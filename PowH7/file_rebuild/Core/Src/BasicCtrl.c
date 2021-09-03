@@ -18,13 +18,13 @@
 static u8 XorCaculate(u8 *CacString, u8 CacStringSize);
 static u8 IdTest(u8 *String, u8 Format, u8 SendUpLength, u8 SendDownLength);
 
-__attribute__((section(".RAM_D1")))  u8 DownDataReceive[Up_UART_RXLen] =
+__attribute__((section(".RAM_D1")))    u8 DownDataReceive[Up_UART_RXLen] =
 { 0 };
-__attribute__((section(".RAM_D1")))  u8 DownDataSend[Down_UART_TXLEN] =
+__attribute__((section(".RAM_D1")))    u8 DownDataSend[Down_UART_TXLEN] =
 { 0 };
-__attribute__((section(".RAM_D1")))  u8 UpDataReceive[Down_UART_RXLen] =
+__attribute__((section(".RAM_D1")))    u8 UpDataReceive[Down_UART_RXLen] =
 { 0 };
-__attribute__((section(".RAM_D1")))  u8 UpDataSend[Up_UART_TXLen] =
+__attribute__((section(".RAM_D1")))    u8 UpDataSend[Up_UART_TXLen] =
 { 0 };
 
 /**
@@ -35,38 +35,51 @@ DownDataDef CaptureDownData(void)
 {
 	DownDataDef CaptureData;
 
-	CaptureData.HeadOfData = (DownDataReceive[0]);
-	CaptureData.StraightNum = ((DownDataReceive[1] << 8) | DownDataReceive[2]);
-	CaptureData.RotateNum = ((DownDataReceive[3] << 8) | DownDataReceive[4]);
-	CaptureData.VerticalNum = ((DownDataReceive[5] << 8) | DownDataReceive[6]);
-	CaptureData.LightPWM = ((DownDataReceive[7] << 8) | DownDataReceive[8]);
-	CaptureData.THPWM = ((DownDataReceive[9] << 8) | DownDataReceive[10]);
-	CaptureData.TranspPWM = ((DownDataReceive[11] << 8) | DownDataReceive[12]);
-	CaptureData.ArmPWM[0] = ((DownDataReceive[13] << 8) | DownDataReceive[14]);
-	CaptureData.ArmPWM[1] = ((DownDataReceive[15] << 8) | DownDataReceive[16]);
-	CaptureData.ArmPWM[2] = ((DownDataReceive[17] << 8) | DownDataReceive[18]);
-	CaptureData.ArmPWM[3] = ((DownDataReceive[19] << 8) | DownDataReceive[20]);
-	CaptureData.ArmPWM[4] = ((DownDataReceive[21] << 8) | DownDataReceive[22]);
-	CaptureData.ArmPWM[5] = ((DownDataReceive[23] << 8) | DownDataReceive[24]);
-	CaptureData.ResPWM = ((DownDataReceive[25] << 8) | DownDataReceive[26]);
+	if ((DownDataReceive[0] == 0x25) && (DownDataReceive[29] == 0x21))
+	{
+		CaptureData.HeadOfData = (DownDataReceive[0]);
+		CaptureData.StraightNum = ((DownDataReceive[1] << 8)
+				| DownDataReceive[2]);
+		CaptureData.RotateNum =
+				((DownDataReceive[3] << 8) | DownDataReceive[4]);
+		CaptureData.VerticalNum = ((DownDataReceive[5] << 8)
+				| DownDataReceive[6]);
+		CaptureData.LightPWM = ((DownDataReceive[7] << 8) | DownDataReceive[8]);
+		CaptureData.THPWM = ((DownDataReceive[9] << 8) | DownDataReceive[10]);
+		CaptureData.TranspPWM = ((DownDataReceive[11] << 8)
+				| DownDataReceive[12]);
+		CaptureData.ArmPWM[0] = ((DownDataReceive[13] << 8)
+				| DownDataReceive[14]);
+		CaptureData.ArmPWM[1] = ((DownDataReceive[15] << 8)
+				| DownDataReceive[16]);
+		CaptureData.ArmPWM[2] = ((DownDataReceive[17] << 8)
+				| DownDataReceive[18]);
+		CaptureData.ArmPWM[3] = ((DownDataReceive[19] << 8)
+				| DownDataReceive[20]);
+		CaptureData.ArmPWM[4] = ((DownDataReceive[21] << 8)
+				| DownDataReceive[22]);
+		CaptureData.ArmPWM[5] = ((DownDataReceive[23] << 8)
+				| DownDataReceive[24]);
+		CaptureData.ResPWM = ((DownDataReceive[25] << 8) | DownDataReceive[26]);
 #ifdef CtrlSide
 	CaptureData.Mode = (DownDataReceive[27]); //方便数据下传与中途获取
 	CaptureData.Relay = (DownDataReceive[27]);
 #else
 #ifdef PowerSide
-	CaptureData.Mode = ((DownDataReceive[27] & 0b0001) ? 1 : 0); //控制侧推模式 1侧推模式开启；0侧推模式关闭
-	CaptureData.Relay = ((DownDataReceive[27] & 0b1000) ? 1U : 0U); //控制继电器开关 8继电器开；0继电器关
+		CaptureData.Mode = ((DownDataReceive[27] & 0b0001) ? 1 : 0); //控制侧推模式 1侧推模式开启；0侧推模式关闭
+		CaptureData.Relay = ((DownDataReceive[27] & 0b1000) ? 1U : 0U); //控制继电器开关 8继电器开；0继电器关
 #else
 	CaptureData.Mode = (DownDataReceive[27] & 0b0001);
 	CaptureData.Relay = (DownDataReceive[27] & 0b1000);
 #endif
 #endif
-	CaptureData.IdTest = IdTest(DownDataReceive, 0, 44, 28);
-	CaptureData.EndOfData = (DownDataReceive[29]);
+		CaptureData.IdTest = IdTest(DownDataReceive, 0, 44, 28);
+		CaptureData.EndOfData = (DownDataReceive[29]);
+	}
 
 	__HAL_UART_ENABLE_IT(&Up_UART, UART_IT_IDLE);
-	HAL_UART_Receive_DMA(&Up_UART, DownDataReceive, Up_UART_RXLen);
-
+//	HAL_UART_Receive_DMA(&Up_UART, DownDataReceive, Up_UART_RXLen);
+	HAL_UART_Receive_DMA(&Up_UART, DownDataReceive, 31);
 	return CaptureData;
 }
 

@@ -837,6 +837,7 @@ void CtrlTaskF(void const *argument)
 	for (;;)
 	{
 		/* 该任务作为空任务 */
+		osDelay(1);
 		HAL_IWDG_Refresh(&hiwdg1);
 	}
 	/* USER CODE END 5 */
@@ -935,10 +936,10 @@ void UtBF(void const *argument)
 	/* USER CODE BEGIN UtBF */
 	DownDataDef UptoBaseData =
 	{ 0 };
-	DownDataDef temp_UptoBaseData =
-	{ 0 };
-	u8 DIPFlag = 0;
-	u16 DIPStartNum = 0; //PID定向定深预期�???????????
+//	DownDataDef temp_UptoBaseData =
+//	{ 0 };
+//	u8 DIPFlag = 0;
+//	u16 DIPStartNum = 0; //PID定向定深预期�???????????
 
 	OpenWrt_Delay(); //跳过openwrt�?机时�?
 
@@ -946,8 +947,8 @@ void UtBF(void const *argument)
 	osDelay(100);
 	//打开串口接收
 	UptoBaseData = CaptureDownData();
-	xSemaphoreGive(UptoBaseDataRWFlagHandle);
 	xSemaphoreGive(BasetoUpDataRWFlagHandle);
+	xSemaphoreGive(UptoBaseDataRWFlagHandle);
 	vTaskResume(BasetoUpTaskHandle);
 	vTaskResume(SensorTaskHandle);
 	osDelay(1);
@@ -958,38 +959,38 @@ void UtBF(void const *argument)
 		if (xSemaphoreTake(UptoBaseTransFinishHandle,
 				0) == pdTRUE)
 		{
-//			if (xSemaphoreTake(UptoBaseDataRWFlagHandle,
-//					portTICK_PERIOD_MS) == pdTRUE)
-//			{
-			UptoBaseData = CaptureDownData();
-//				xSemaphoreGive(UptoBaseDataRWFlagHandle);
-//			}
+			if (xSemaphoreTake(UptoBaseDataRWFlagHandle,
+					portTICK_PERIOD_MS) == pdTRUE)
+			{
+				UptoBaseData = CaptureDownData();
+				xSemaphoreGive(UptoBaseDataRWFlagHandle);
+			}
 
 			//根据控制位判断是否执行自主定向定�??????
-			if (UptoBaseData.Mode & 0x02 == 0x02) //0b0010,使用定向模式
-			{
-				if (DIPFlag == 0)
-				{
-					DIPFlag = 1;
-					DIPStartNum = WT931SensorData.EulNum[2];
-				}
-				UptoBaseData.StraightNum = SpecialMovePID(2, DIPStartNum,
-						WT931SensorData.EulNum[2]); //PID定向
-			}
-			else if (UptoBaseData.Mode & 0x04 == 0x04) //0b0100,使用定深模式
-			{
-				if (DIPFlag == 0)
-				{
-					DIPFlag = 1;
-					DIPStartNum = DeepSensorData.WaterDepth;
-				}
-				UptoBaseData.VerticalNum = SpecialMovePID(4, DIPStartNum,
-						DeepSensorData.WaterDepth); //PID定深
-			}
-			else
-			{
-				DIPFlag = 0; //不开启定向定�??
-			}
+//			if (UptoBaseData.Mode & 0x02 == 0x02) //0b0010,使用定向模式
+//			{
+//				if (DIPFlag == 0)
+//				{
+//					DIPFlag = 1;
+//					DIPStartNum = WT931SensorData.EulNum[2];
+//				}
+//				UptoBaseData.StraightNum = SpecialMovePID(2, DIPStartNum,
+//						WT931SensorData.EulNum[2]); //PID定向
+//			}
+//			else if (UptoBaseData.Mode & 0x04 == 0x04) //0b0100,使用定深模式
+//			{
+//				if (DIPFlag == 0)
+//				{
+//					DIPFlag = 1;
+//					DIPStartNum = DeepSensorData.WaterDepth;
+//				}
+//				UptoBaseData.VerticalNum = SpecialMovePID(4, DIPStartNum,
+//						DeepSensorData.WaterDepth); //PID定深
+//			}
+//			else
+//			{
+//				DIPFlag = 0; //不开启定向定�??
+//			}
 
 			//下传指令
 			if (xSemaphoreTake(BasetoUpDataRWFlagHandle,
@@ -1032,6 +1033,9 @@ void BtUF(void const *argument)
 	CaptureUpData();
 	osDelay(100);
 	BasetoUpData = CaptureUpData();
+	osDelay(50);
+	Power_BasetoUpData = CaptureUpData();
+	osDelay(50);
 	/* Infinite loop */
 	for (;;)
 	{
@@ -1039,7 +1043,7 @@ void BtUF(void const *argument)
 		{
 			//单独接收下位仓回传的数据
 			if (xSemaphoreTake(BasetoUpTransFinishHandleHandle,
-					0) == pdTRUE)
+					portTICK_PERIOD_MS) == pdTRUE) //原来是0
 			{
 //				if (xSemaphoreTake(BasetoUpDataRWFlagHandle,
 //						portTICK_PERIOD_MS) == pdTRUE)
@@ -1049,7 +1053,7 @@ void BtUF(void const *argument)
 				//上传数据
 //					if (temp_Power_BasetoUpData.CabinNum == 1)
 //					{
-				if (Power_BasetoUpData.CabinNum == 1)
+				if (Power_BasetoUpData.CabinNum == 0b0001)
 				{
 					if (xSemaphoreTake(UptoBaseDataRWFlagHandle,
 							portTICK_PERIOD_MS) == pdTRUE)
@@ -1070,10 +1074,16 @@ void BtUF(void const *argument)
 			//仓位数据
 			BasetoUpData.CabinNum = 0;
 			//漏水�??????�??????
-			BasetoUpData.WaterDetect = HAL_GPIO_ReadPin(GPIOE,
-			GPIO_PIN_6) << 1;
+			if (HAL_GPIO_ReadPin(GPIOE,
+			GPIO_PIN_6) == GPIO_PIN_SET)
+			{
+				BasetoUpData.WaterDetect = 1 << 1;
+			}
+			else
+			{
+				BasetoUpData.WaterDetect = 0 << 1;
+			}
 			//九轴数据
-
 			if (xSemaphoreTake(WT931SensorDataRWFlagHandle,
 					portTICK_PERIOD_MS) == pdTRUE)
 			{
