@@ -382,7 +382,7 @@ void PeriphCommonClock_Config(void)
 	PeriphClkInitStruct.PLL3.PLL3VCOSEL = RCC_PLL3VCOWIDE;
 	PeriphClkInitStruct.PLL3.PLL3FRACN = 0;
 	PeriphClkInitStruct.Usart234578ClockSelection =
-			RCC_USART234578CLKSOURCE_PLL3;
+	RCC_USART234578CLKSOURCE_PLL3;
 	PeriphClkInitStruct.Usart16ClockSelection = RCC_USART16CLKSOURCE_PLL3;
 	if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInitStruct) != HAL_OK)
 	{
@@ -1115,7 +1115,7 @@ void CtrlTaskF(void const *argument)
 	DownDataDef UptoBaseData =
 	{ 0 };
 	static MoveThruster Thurster;
-
+	u8 temp_Relay = 0;
 	//	MotorAdjusterDelay();
 
 	CaptureDownData();
@@ -1128,6 +1128,82 @@ void CtrlTaskF(void const *argument)
 	/* Infinite loop */
 	for (;;)
 	{
+		if (UptoBaseData.Relay != temp_Relay)
+		{
+			temp_Relay = UptoBaseData.Relay;
+		}
+
+		SoftwarePwm_Control(UptoBaseData.LightPWM);
+
+		if (CheckPwmValue(Thurster.HorizontalThruster[3]))
+		{
+			TIM4->CCR4 = Thurster.HorizontalThruster[3]; //PD15 J6
+		}
+		if (CheckPwmValue(Thurster.VerticalThruster[0]))
+		{
+			TIM2->CCR4 = Thurster.VerticalThruster[0]; //PB11 J8
+		}
+		if (CheckPwmValue(Thurster.HorizontalThruster[2]))
+		{
+			TIM2->CCR3 = Thurster.HorizontalThruster[2]; //PB10 J9
+		}
+		if (CheckPwmValue(Thurster.HorizontalThruster[1]))
+		{
+			TIM4->CCR1 = Thurster.HorizontalThruster[1]; //PD12 J2
+		}
+		if (CheckPwmValue(Thurster.VerticalThruster[1]))
+		{
+			TIM4->CCR3 = Thurster.VerticalThruster[1]; //PD14 J3
+		}
+		if (CheckPwmValue(Thurster.HorizontalThruster[0]))
+		{
+			TIM4->CCR2 = Thurster.HorizontalThruster[0]; //PD13 J5
+		}
+
+		if (CheckPwmValue(UptoBaseData.ArmPWM[5]))
+		{
+			TIM2->CCR1 = UptoBaseData.ArmPWM[5]; //PA5 机械�?????????6（预留）
+		}
+
+		if (CheckPwmValue(UptoBaseData.ArmPWM[0]))
+		{
+			TIM1->CCR1 = UptoBaseData.ArmPWM[0]; //PA8 机械�?????????1 �?????????
+		}
+		if (CheckPwmValue(UptoBaseData.ArmPWM[1]))
+		{
+			TIM3->CCR4 = UptoBaseData.ArmPWM[1]; //PB1 机械�?????????2 �?????????
+		}
+		if (CheckPwmValue(UptoBaseData.ArmPWM[2]))
+		{
+			TIM3->CCR3 = UptoBaseData.ArmPWM[2]; //PB0 机械�?????????3 �?????????
+		}
+
+		if (CheckPwmValue(UptoBaseData.THPWM))
+		{
+			TIM5->CCR1 = UptoBaseData.THPWM; //PA0 云台
+		}
+		if (CheckPwmValue(UptoBaseData.ArmPWM[3]))
+		{
+			TIM3->CCR2 = UptoBaseData.ArmPWM[3]; //PA7 机械�?????????4 �?????????
+		}
+
+		if (CheckPwmValue(UptoBaseData.TranspPWM))
+		{
+			if ((UptoBaseData.TranspPWM < 1400)
+					|| (UptoBaseData.TranspPWM > 1600))
+			{
+				TIM5->CCR4 = UptoBaseData.TranspPWM; //PA3 传�?�带
+			}
+		}
+		if (CheckPwmValue(UptoBaseData.ArmPWM[4]))
+		{
+			TIM5->CCR3 = UptoBaseData.ArmPWM[4]; //PA2 机械�?????????5 �?????????
+		}
+		if (CheckPwmValue(UptoBaseData.ResPWM))
+		{
+			TIM5->CCR2 = UptoBaseData.ResPWM; //PA1 预留
+		}
+
 		if (xSemaphoreTake(UptoBaseTransFinishHandle,
 				0) == pdTRUE)
 		{
@@ -1141,9 +1217,9 @@ void CtrlTaskF(void const *argument)
 				Thurster = MoveControl(UptoBaseData.StraightNum,
 						UptoBaseData.RotateNum, UptoBaseData.VerticalNum,
 						UptoBaseData.Mode);
-				HAL_GPIO_WritePin(GPIOD, GPIO_PIN_11, UptoBaseData.Relay); //PD11 继电�?????????
+//				HAL_GPIO_WritePin(GPIOD, GPIO_PIN_11, UptoBaseData.Relay); //PD11 继电�?????????
 //				TIM2->CCR2 = UptoBaseData.LightPWM; //PB3 灯光
-				SoftwarePwm_Control(UptoBaseData.LightPWM);
+
 				/* 下面的顺序按照从上到下排针引出顺序排�????????? */
 				/*
 				 TIM4->CCR4 = 1500; //PD15 J6
@@ -1163,75 +1239,74 @@ void CtrlTaskF(void const *argument)
 				 TIM5->CCR3 = 1500; //PA2 机械�?????????5 �?????????
 				 TIM5->CCR2 = 1500; //PA1 机械�?????????6（预留）
 				 */
-				if (CheckPwmValue(Thurster.HorizontalThruster[3]))
-				{
-					TIM4->CCR4 = Thurster.HorizontalThruster[3]; //PD15 J6
-				}
-				if (CheckPwmValue(Thurster.VerticalThruster[0]))
-				{
-					TIM2->CCR4 = Thurster.VerticalThruster[0]; //PB11 J8
-				}
-				if (CheckPwmValue(Thurster.HorizontalThruster[2]))
-				{
-					TIM2->CCR3 = Thurster.HorizontalThruster[2]; //PB10 J9
-				}
-				if (CheckPwmValue(Thurster.HorizontalThruster[1]))
-				{
-					TIM4->CCR1 = Thurster.HorizontalThruster[1]; //PD12 J2
-				}
-				if (CheckPwmValue(Thurster.VerticalThruster[1]))
-				{
-					TIM4->CCR3 = Thurster.VerticalThruster[1]; //PD14 J3
-				}
-				if (CheckPwmValue(Thurster.HorizontalThruster[0]))
-				{
-					TIM4->CCR2 = Thurster.HorizontalThruster[0]; //PD13 J5
-				}
-
-				if (CheckPwmValue(UptoBaseData.ArmPWM[5]))
-				{
-					TIM2->CCR1 = UptoBaseData.ArmPWM[5]; //PA5 机械�?????????6（预留）
-				}
-
-				if (CheckPwmValue(UptoBaseData.ArmPWM[0]))
-				{
-					TIM1->CCR1 = UptoBaseData.ArmPWM[0]; //PA8 机械�?????????1 �?????????
-				}
-				if (CheckPwmValue(UptoBaseData.ArmPWM[1]))
-				{
-					TIM3->CCR4 = UptoBaseData.ArmPWM[1]; //PB1 机械�?????????2 �?????????
-				}
-				if (CheckPwmValue(UptoBaseData.ArmPWM[2]))
-				{
-					TIM3->CCR3 = UptoBaseData.ArmPWM[2]; //PB0 机械�?????????3 �?????????
-				}
-
-				if (CheckPwmValue(UptoBaseData.THPWM))
-				{
-					TIM5->CCR1 = UptoBaseData.THPWM; //PA0 云台
-				}
-				if (CheckPwmValue(UptoBaseData.ArmPWM[3]))
-				{
-					TIM3->CCR2 = UptoBaseData.ArmPWM[3]; //PA7 机械�?????????4 �?????????
-				}
-
-				if (CheckPwmValue(UptoBaseData.TranspPWM))
-				{
-					if ((UptoBaseData.TranspPWM < 1400)
-							&& (UptoBaseData.TranspPWM > 1600))
-					{
-						TIM5->CCR4 = UptoBaseData.TranspPWM; //PA3 传�?�带
-					}
-				}
-				if (CheckPwmValue(UptoBaseData.ArmPWM[4]))
-				{
-					TIM5->CCR3 = UptoBaseData.ArmPWM[4]; //PA2 机械�?????????5 �?????????
-				}
-				if (CheckPwmValue(UptoBaseData.ResPWM))
-				{
-					TIM5->CCR2 = UptoBaseData.ResPWM; //PA1 预留
-				}
-
+//				if (CheckPwmValue(Thurster.HorizontalThruster[3]))
+//				{
+//					TIM4->CCR4 = Thurster.HorizontalThruster[3]; //PD15 J6
+//				}
+//				if (CheckPwmValue(Thurster.VerticalThruster[0]))
+//				{
+//					TIM2->CCR4 = Thurster.VerticalThruster[0]; //PB11 J8
+//				}
+//				if (CheckPwmValue(Thurster.HorizontalThruster[2]))
+//				{
+//					TIM2->CCR3 = Thurster.HorizontalThruster[2]; //PB10 J9
+//				}
+//				if (CheckPwmValue(Thurster.HorizontalThruster[1]))
+//				{
+//					TIM4->CCR1 = Thurster.HorizontalThruster[1]; //PD12 J2
+//				}
+//				if (CheckPwmValue(Thurster.VerticalThruster[1]))
+//				{
+//					TIM4->CCR3 = Thurster.VerticalThruster[1]; //PD14 J3
+//				}
+//				if (CheckPwmValue(Thurster.HorizontalThruster[0]))
+//				{
+//					TIM4->CCR2 = Thurster.HorizontalThruster[0]; //PD13 J5
+//				}
+//
+//				if (CheckPwmValue(UptoBaseData.ArmPWM[5]))
+//				{
+//					TIM2->CCR1 = UptoBaseData.ArmPWM[5]; //PA5 机械�?????????6（预留）
+//				}
+//
+//				if (CheckPwmValue(UptoBaseData.ArmPWM[0]))
+//				{
+//					TIM1->CCR1 = UptoBaseData.ArmPWM[0]; //PA8 机械�?????????1 �?????????
+//				}
+//				if (CheckPwmValue(UptoBaseData.ArmPWM[1]))
+//				{
+//					TIM3->CCR4 = UptoBaseData.ArmPWM[1]; //PB1 机械�?????????2 �?????????
+//				}
+//				if (CheckPwmValue(UptoBaseData.ArmPWM[2]))
+//				{
+//					TIM3->CCR3 = UptoBaseData.ArmPWM[2]; //PB0 机械�?????????3 �?????????
+//				}
+//
+//				if (CheckPwmValue(UptoBaseData.THPWM))
+//				{
+//					TIM5->CCR1 = UptoBaseData.THPWM; //PA0 云台
+//				}
+//				if (CheckPwmValue(UptoBaseData.ArmPWM[3]))
+//				{
+//					TIM3->CCR2 = UptoBaseData.ArmPWM[3]; //PA7 机械�?????????4 �?????????
+//				}
+//
+//				if (CheckPwmValue(UptoBaseData.TranspPWM))
+//				{
+//					if ((UptoBaseData.TranspPWM < 1400)
+//							&& (UptoBaseData.TranspPWM > 1600))
+//					{
+//						TIM5->CCR4 = UptoBaseData.TranspPWM; //PA3 传�?�带
+//					}
+//				}
+//				if (CheckPwmValue(UptoBaseData.ArmPWM[4]))
+//				{
+//					TIM5->CCR3 = UptoBaseData.ArmPWM[4]; //PA2 机械�?????????5 �?????????
+//				}
+//				if (CheckPwmValue(UptoBaseData.ResPWM))
+//				{
+//					TIM5->CCR2 = UptoBaseData.ResPWM; //PA1 预留
+//				}
 				//			TIM4->CCR4 = Thurster.HorizontalThruster[3]; //PD15 J6
 				//			TIM2->CCR4 = Thurster.VerticalThruster[0]; //PB11 J8
 				//			TIM2->CCR3 = Thurster.HorizontalThruster[2]; //PB10 J9
@@ -1248,9 +1323,12 @@ void CtrlTaskF(void const *argument)
 				//			TIM5->CCR4 = UptoBaseData.TranspPWM; //PA3 传�?�带
 				//			TIM5->CCR3 = UptoBaseData.ArmPWM[4]; //PA2 机械�?????????5 �?????????
 				//			TIM5->CCR2 = UptoBaseData.ResPWM; //PA1 预留
-
 				xSemaphoreGive(UptoBaseDataRWFlagHandle);
 			}
+		}
+		if (UptoBaseData.Relay == temp_Relay) //滤波
+		{
+			HAL_GPIO_WritePin(GPIOD, GPIO_PIN_11, UptoBaseData.Relay); //PD11 继电�?????????
 		}
 
 		HAL_IWDG_Refresh(&hiwdg1);

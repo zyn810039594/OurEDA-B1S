@@ -18,13 +18,13 @@
 static u8 XorCaculate(u8 *CacString, u8 CacStringSize);
 static u8 IdTest(u8 *String, u8 Format, u8 SendUpLength, u8 SendDownLength);
 
-__attribute__((section(".RAM_D1")))      u8 DownDataReceive[Up_UART_RXLen] =
+__attribute__((section(".RAM_D1")))           u8 DownDataReceive[Up_UART_RXLen] =
 { 0 };
-__attribute__((section(".RAM_D1")))      u8 DownDataSend[Down_UART_TXLEN] =
+__attribute__((section(".RAM_D1")))           u8 DownDataSend[Down_UART_TXLEN] =
 { 0 };
-__attribute__((section(".RAM_D1")))      u8 UpDataReceive[Down_UART_RXLen] =
+__attribute__((section(".RAM_D1")))           u8 UpDataReceive[Down_UART_RXLen] =
 { 0 };
-__attribute__((section(".RAM_D1")))      u8 UpDataSend[Up_UART_TXLen] =
+__attribute__((section(".RAM_D1")))           u8 UpDataSend[Up_UART_TXLen] =
 { 0 };
 
 /**
@@ -80,46 +80,46 @@ void SendUpData(UpDataDef SendData)
 	UpDataSend[1] = ((SendData.WaterDetect) | (SendData.CabinNum));
 	UpDataSend[2] = SendData.CabinTemperature >> 8;
 	UpDataSend[3] = SendData.CabinTemperature;
-	UpDataSend[4] = SendData.CabinBaro >> 16;
+	UpDataSend[4] = SendData.CabinBaro >> 16; //？
 	UpDataSend[5] = SendData.CabinBaro >> 24;
 	UpDataSend[6] = SendData.CabinBaro;
 	UpDataSend[7] = SendData.CabinBaro >> 8;
 	UpDataSend[8] = SendData.CabinHum;
 	UpDataSend[9] = SendData.CabinHum >> 8;
-	UpDataSend[10] = SendData.AccNum[0]; //DEBUG:数据位反转
-	UpDataSend[11] = SendData.AccNum[0] >> 8;
-	UpDataSend[12] = SendData.AccNum[1];
-	UpDataSend[13] = SendData.AccNum[1] >> 8;
-	UpDataSend[14] = SendData.AccNum[2];
-	UpDataSend[15] = SendData.AccNum[2] >> 8;
-	UpDataSend[16] = SendData.RotNum[0];
-	UpDataSend[17] = SendData.RotNum[0] >> 8;
-	UpDataSend[18] = SendData.RotNum[1];
-	UpDataSend[19] = SendData.RotNum[1] >> 8;
-	UpDataSend[20] = SendData.RotNum[2];
-	UpDataSend[21] = SendData.RotNum[2] >> 8;
-	UpDataSend[22] = SendData.EulNum[0];
-	UpDataSend[23] = SendData.EulNum[0] >> 8;
-	UpDataSend[24] = SendData.EulNum[1];
-	UpDataSend[25] = SendData.EulNum[1] >> 8;
-	UpDataSend[26] = SendData.EulNum[2];
-	UpDataSend[27] = SendData.EulNum[2] >> 8;
-	UpDataSend[28] = SendData.MagNum[0];
-	UpDataSend[29] = SendData.MagNum[0] >> 8;
-	UpDataSend[30] = SendData.MagNum[1];
-	UpDataSend[31] = SendData.MagNum[1] >> 8;
-	UpDataSend[32] = SendData.MagNum[2];
-	UpDataSend[33] = SendData.MagNum[2] >> 8;
+	UpDataSend[10] = SendData.AccNum[0] >> 8;
+	UpDataSend[11] = SendData.AccNum[0];
+	UpDataSend[12] = SendData.AccNum[1] >> 8;
+	UpDataSend[13] = SendData.AccNum[1];
+	UpDataSend[14] = SendData.AccNum[2] >> 8;
+	UpDataSend[15] = SendData.AccNum[2];
+	UpDataSend[16] = SendData.RotNum[0] >> 8;
+	UpDataSend[17] = SendData.RotNum[0];
+	UpDataSend[18] = SendData.RotNum[1] >> 8;
+	UpDataSend[19] = SendData.RotNum[1];
+	UpDataSend[20] = SendData.RotNum[2] >> 8;
+	UpDataSend[21] = SendData.RotNum[2];
+	UpDataSend[22] = SendData.EulNum[0] >> 8;
+	UpDataSend[23] = SendData.EulNum[0];
+	UpDataSend[24] = SendData.EulNum[1] >> 8;
+	UpDataSend[25] = SendData.EulNum[1];
+	UpDataSend[26] = SendData.EulNum[2] >> 8;
+	UpDataSend[27] = SendData.EulNum[2];
+	UpDataSend[28] = SendData.MagNum[0] >> 8;
+	UpDataSend[29] = SendData.MagNum[0];
+	UpDataSend[30] = SendData.MagNum[1] >> 8;
+	UpDataSend[31] = SendData.MagNum[1];
+	UpDataSend[32] = SendData.MagNum[2] >> 8;
+	UpDataSend[33] = SendData.MagNum[2];
 	UpDataSend[34] = SendData.DepthToBottom >> 24;
 	UpDataSend[35] = SendData.DepthToBottom >> 16;
 	UpDataSend[36] = SendData.DepthToBottom >> 8;
 	UpDataSend[37] = SendData.DepthToBottom;
 	UpDataSend[38] = SendData.Confidence >> 8;
 	UpDataSend[39] = SendData.Confidence;
-	UpDataSend[40] = SendData.WaterTemperature;
-	UpDataSend[41] = SendData.WaterTemperature >> 8;
-	UpDataSend[42] = SendData.WaterDepth; //BUG:E2 40
-	UpDataSend[43] = SendData.WaterDepth >> 8;
+	UpDataSend[40] = SendData.WaterTemperature >> 8;
+	UpDataSend[41] = SendData.WaterTemperature;
+	UpDataSend[42] = SendData.WaterDepth >> 8;
+	UpDataSend[43] = SendData.WaterDepth;
 	UpDataSend[44] = XorCaculate(UpDataSend, 38);
 	UpDataSend[45] = 0xff;
 	UpDataSend[46] = 0xff;
@@ -202,8 +202,8 @@ UpDataDef CaptureUpData(void)
 			| UpDataReceive[34]);
 	CaptureData.Confidence = ((UpDataReceive[39] << 8) | UpDataReceive[38]);
 	CaptureData.WaterTemperature =
-			((UpDataReceive[40] << 8) | UpDataReceive[41]);
-	CaptureData.WaterDepth = ((UpDataReceive[42] << 8) | UpDataReceive[43]);
+			((UpDataReceive[41] << 8) | UpDataReceive[40]);
+	CaptureData.WaterDepth = ((UpDataReceive[43] << 8) | UpDataReceive[42]);
 	CaptureData.IdTest = IdTest(UpDataReceive, 1, 44, 28);
 
 	__HAL_UART_ENABLE_IT(&Down_UART, UART_IT_IDLE);

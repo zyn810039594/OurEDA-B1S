@@ -55,8 +55,8 @@
 #define PID_O_Kd 150
 
 //串口长度定义
-#define Deep_UART_RXLen 4
-#define GY39_UART_RXLen 18
+#define Deep_UART_RXLen 15
+#define GY39_UART_RXLen 15
 #define GY39_UART_TXLen 3
 #define WT931_UART_RXLen 44
 #define P30_UART_TXLen 12

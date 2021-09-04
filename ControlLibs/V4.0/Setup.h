@@ -56,14 +56,14 @@
 
 //串口长度定义
 #define Deep_UART_RXLen 4
-#define GY39_UART_RXLen 18
+#define GY39_UART_RXLen 15
 #define GY39_UART_TXLen 3
 #define WT931_UART_RXLen 44
 #define P30_UART_TXLen 12
 #define P30_UART_RXLen 33
 #define Up_UART_TXLen 47
-#define Up_UART_RXLen 30
+#define Up_UART_RXLen 31
 #define Down_UART_RXLen 47
-#define Down_UART_TXLEN 30
+#define Down_UART_TXLEN 31
 
 #endif
