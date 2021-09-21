@@ -1,8 +1,9 @@
-BasicCtrl.c:34:13:CaptureDownData	80	static
-BasicCtrl.c:77:6:SendUpData	8	static
-BasicCtrl.c:136:6:SendDownData	8	static
-BasicCtrl.c:178:11:CaptureUpData	72	static
-BasicCtrl.c:299:5:SpecialMovePID	56	static
-BasicCtrl.c:353:4:CheckPwmValue	16	static
-BasicCtrl.c:373:11:IdTest	16	static
-BasicCtrl.c:410:11:XorCaculate	16	static
+BasicCtrl.c:36:13:CaptureDownData	80	static
+BasicCtrl.c:78:6:SendUpData	8	static
+BasicCtrl.c:136:6:LocalSendUpData	8	static
+BasicCtrl.c:194:6:SendDownData	8	static
+BasicCtrl.c:234:11:CaptureUpData	72	static
+BasicCtrl.c:360:5:SpecialMovePID	56	static
+BasicCtrl.c:414:4:CheckPwmValue	16	static
+BasicCtrl.c:434:11:IdTest	16	static
+BasicCtrl.c:471:11:XorCaculate	16	static

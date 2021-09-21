@@ -18,13 +18,15 @@
 static u8 XorCaculate(u8 *CacString, u8 CacStringSize);
 static u8 IdTest(u8 *String, u8 Format, u8 SendUpLength, u8 SendDownLength);
 
-__attribute__((section(".RAM_D1")))           u8 DownDataReceive[Up_UART_RXLen] =
+__attribute__((section(".RAM_D1")))        u8 DownDataReceive[Up_UART_RXLen] =
 { 0 };
-__attribute__((section(".RAM_D1")))           u8 DownDataSend[Down_UART_TXLEN] =
+__attribute__((section(".RAM_D1")))        u8 DownDataSend[Down_UART_TXLEN] =
 { 0 };
-__attribute__((section(".RAM_D1")))           u8 UpDataReceive[Down_UART_RXLen] =
+__attribute__((section(".RAM_D1")))        u8 UpDataReceive[Down_UART_RXLen] =
 { 0 };
-__attribute__((section(".RAM_D1")))           u8 UpDataSend[Up_UART_TXLen] =
+__attribute__((section(".RAM_D1")))        u8 UpDataSend[Up_UART_TXLen] =
+{ 0 };
+__attribute__((section(".RAM_D1")))        u8 LocalUpDataSend[Up_UART_TXLen] =
 { 0 };
 
 /**
@@ -65,8 +67,7 @@ DownDataDef CaptureDownData(void)
 	CaptureData.EndOfData = (DownDataReceive[29]);
 
 	__HAL_UART_ENABLE_IT(&Up_UART, UART_IT_IDLE);
-//	HAL_UART_Receive_DMA(&Up_UART, DownDataReceive, Up_UART_RXLen);
-	HAL_UART_Receive_DMA(&Up_UART, DownDataReceive, 31);
+	HAL_UART_Receive_DMA(&Up_UART, DownDataReceive, Up_UART_RXLen);
 	return CaptureData;
 }
 
@@ -80,10 +81,10 @@ void SendUpData(UpDataDef SendData)
 	UpDataSend[1] = ((SendData.WaterDetect) | (SendData.CabinNum));
 	UpDataSend[2] = SendData.CabinTemperature >> 8;
 	UpDataSend[3] = SendData.CabinTemperature;
-	UpDataSend[4] = SendData.CabinBaro >> 16; //？
-	UpDataSend[5] = SendData.CabinBaro >> 24;
-	UpDataSend[6] = SendData.CabinBaro;
-	UpDataSend[7] = SendData.CabinBaro >> 8;
+	UpDataSend[4] = SendData.CabinBaro >> 16;
+	UpDataSend[5] = SendData.CabinBaro >> 8;
+	UpDataSend[6] = SendData.CabinBaro >> 24;
+	UpDataSend[7] = SendData.CabinBaro;
 	UpDataSend[8] = SendData.CabinHum;
 	UpDataSend[9] = SendData.CabinHum >> 8;
 	UpDataSend[10] = SendData.AccNum[0] >> 8;
@@ -110,9 +111,9 @@ void SendUpData(UpDataDef SendData)
 	UpDataSend[31] = SendData.MagNum[1];
 	UpDataSend[32] = SendData.MagNum[2] >> 8;
 	UpDataSend[33] = SendData.MagNum[2];
-	UpDataSend[34] = SendData.DepthToBottom >> 24;
-	UpDataSend[35] = SendData.DepthToBottom >> 16;
-	UpDataSend[36] = SendData.DepthToBottom >> 8;
+	UpDataSend[34] = SendData.DepthToBottom >> 16;
+	UpDataSend[35] = SendData.DepthToBottom >> 8;
+	UpDataSend[36] = SendData.DepthToBottom >> 24;
 	UpDataSend[37] = SendData.DepthToBottom;
 	UpDataSend[38] = SendData.Confidence >> 8;
 	UpDataSend[39] = SendData.Confidence;
@@ -127,6 +128,63 @@ void SendUpData(UpDataDef SendData)
 	HAL_UART_Transmit_DMA(&Up_UART, UpDataSend, Up_UART_TXLen);
 }
 
+/**
+ * @brief 向上位机发送来自控制仓的数据
+ * @param  SendData         待发送的数据结构体
+ */
+void LocalSendUpData(UpDataDef SendData)
+{
+	LocalUpDataSend[0] = 0x25;
+	LocalUpDataSend[1] = ((SendData.WaterDetect) | (SendData.CabinNum));
+	LocalUpDataSend[2] = SendData.CabinTemperature;
+	LocalUpDataSend[3] = SendData.CabinTemperature >> 8;
+	LocalUpDataSend[4] = SendData.CabinBaro >> 16;
+	LocalUpDataSend[5] = SendData.CabinBaro >> 8;
+	LocalUpDataSend[6] = SendData.CabinBaro >> 24;
+	LocalUpDataSend[7] = SendData.CabinBaro;
+	LocalUpDataSend[8] = SendData.CabinHum;
+	LocalUpDataSend[9] = SendData.CabinHum >> 8;
+	LocalUpDataSend[10] = SendData.AccNum[0] >> 8;
+	LocalUpDataSend[11] = SendData.AccNum[0];
+	LocalUpDataSend[12] = SendData.AccNum[1] >> 8;
+	LocalUpDataSend[13] = SendData.AccNum[1];
+	LocalUpDataSend[14] = SendData.AccNum[2] >> 8;
+	LocalUpDataSend[15] = SendData.AccNum[2];
+	LocalUpDataSend[16] = SendData.RotNum[0] >> 8;
+	LocalUpDataSend[17] = SendData.RotNum[0];
+	LocalUpDataSend[18] = SendData.RotNum[1] >> 8;
+	LocalUpDataSend[19] = SendData.RotNum[1];
+	LocalUpDataSend[20] = SendData.RotNum[2] >> 8;
+	LocalUpDataSend[21] = SendData.RotNum[2];
+	LocalUpDataSend[22] = SendData.EulNum[0] >> 8;
+	LocalUpDataSend[23] = SendData.EulNum[0];
+	LocalUpDataSend[24] = SendData.EulNum[1] >> 8;
+	LocalUpDataSend[25] = SendData.EulNum[1];
+	LocalUpDataSend[26] = SendData.EulNum[2] >> 8;
+	LocalUpDataSend[27] = SendData.EulNum[2];
+	LocalUpDataSend[28] = SendData.MagNum[0] >> 8;
+	LocalUpDataSend[29] = SendData.MagNum[0];
+	LocalUpDataSend[30] = SendData.MagNum[1] >> 8;
+	LocalUpDataSend[31] = SendData.MagNum[1];
+	LocalUpDataSend[32] = SendData.MagNum[2] >> 8;
+	LocalUpDataSend[33] = SendData.MagNum[2];
+	LocalUpDataSend[34] = SendData.DepthToBottom >> 24;
+	LocalUpDataSend[35] = SendData.DepthToBottom >> 16;
+	LocalUpDataSend[36] = SendData.DepthToBottom >> 8;
+	LocalUpDataSend[37] = SendData.DepthToBottom;
+	LocalUpDataSend[38] = SendData.Confidence >> 8;
+	LocalUpDataSend[39] = SendData.Confidence;
+	LocalUpDataSend[40] = SendData.WaterTemperature >> 8;
+	LocalUpDataSend[41] = SendData.WaterTemperature;
+	LocalUpDataSend[42] = SendData.WaterDepth >> 8;
+	LocalUpDataSend[43] = SendData.WaterDepth;
+	LocalUpDataSend[44] = XorCaculate(LocalUpDataSend, 38);
+	LocalUpDataSend[45] = 0xff;
+	LocalUpDataSend[46] = 0xff;
+
+	HAL_UART_Transmit_DMA(&Up_UART, LocalUpDataSend, Up_UART_TXLen);
+}
+
 #ifdef CtrlSide
 /**
  * @brief 向下位机发送指令
@@ -135,8 +193,6 @@ void SendUpData(UpDataDef SendData)
  */
 void SendDownData(DownDataDef SendData)
 {
-//	if ((SendData.HeadOfData == 0x25) && (SendData.EndOfData == 0x21))
-//	{
 	DownDataSend[0] = 0x25;
 	DownDataSend[1] = SendData.StraightNum >> 8;
 	DownDataSend[2] = SendData.StraightNum;
@@ -167,7 +223,7 @@ void SendDownData(DownDataDef SendData)
 	DownDataSend[27] = SendData.Relay; //直接下传数据
 	DownDataSend[28] = XorCaculate(DownDataSend, 28);
 	DownDataSend[29] = 0x21;
-//	}
+
 	HAL_UART_Transmit_DMA(&Down_UART, DownDataSend, Down_UART_TXLEN);
 }
 
@@ -179,37 +235,42 @@ UpDataDef CaptureUpData(void)
 {
 	UpDataDef CaptureData;
 
-	CaptureData.CabinNum = (UpDataReceive[1] & 0b0001); //0b0000控制仓，0b0001==1电源仓
-	CaptureData.WaterDetect = (UpDataReceive[1] & 0b0010); //0b0000正常，0b0010==2漏水
-	CaptureData.CabinTemperature = ((UpDataReceive[3] << 8) | UpDataReceive[2]);
-	CaptureData.CabinBaro = ((UpDataReceive[7] << 24) | (UpDataReceive[6] << 16)
-			| (UpDataReceive[5] << 8) | UpDataReceive[4]);
-	CaptureData.CabinHum = ((UpDataReceive[9] << 8) | UpDataReceive[8]);
-	CaptureData.AccNum[0] = ((UpDataReceive[11] << 8) | UpDataReceive[10]);
-	CaptureData.AccNum[1] = ((UpDataReceive[13] << 8) | UpDataReceive[12]);
-	CaptureData.AccNum[2] = ((UpDataReceive[15] << 8) | UpDataReceive[14]);
-	CaptureData.RotNum[0] = ((UpDataReceive[17] << 8) | UpDataReceive[16]);
-	CaptureData.RotNum[1] = ((UpDataReceive[19] << 8) | UpDataReceive[18]);
-	CaptureData.RotNum[2] = ((UpDataReceive[21] << 8) | UpDataReceive[20]);
-	CaptureData.EulNum[0] = ((UpDataReceive[23] << 8) | UpDataReceive[22]);
-	CaptureData.EulNum[1] = ((UpDataReceive[25] << 8) | UpDataReceive[24]);
-	CaptureData.EulNum[2] = ((UpDataReceive[27] << 8) | UpDataReceive[26]);
-	CaptureData.MagNum[0] = ((UpDataReceive[29] << 8) | UpDataReceive[28]);
-	CaptureData.MagNum[1] = ((UpDataReceive[31] << 8) | UpDataReceive[30]);
-	CaptureData.MagNum[2] = ((UpDataReceive[33] << 8) | UpDataReceive[32]);
-	CaptureData.DepthToBottom = ((UpDataReceive[37] << 24)
-			| (UpDataReceive[36] << 16) | (UpDataReceive[35] << 8)
-			| UpDataReceive[34]);
-	CaptureData.Confidence = ((UpDataReceive[39] << 8) | UpDataReceive[38]);
-	CaptureData.WaterTemperature =
-			((UpDataReceive[41] << 8) | UpDataReceive[40]);
-	CaptureData.WaterDepth = ((UpDataReceive[43] << 8) | UpDataReceive[42]);
-	CaptureData.IdTest = IdTest(UpDataReceive, 1, 44, 28);
+	if ((UpDataReceive[0] == 0x25) && (UpDataReceive[45] == 0xFF)
+			&& (UpDataReceive[46] == 0xFF))
+	{
+		CaptureData.CabinNum = (UpDataReceive[1] & 0b0001); //0b0000控制仓，0b0001==1电源仓
+		CaptureData.WaterDetect = (UpDataReceive[1] & 0b0010); //0b0000正常，0b0010==2漏水
+		CaptureData.CabinTemperature = ((UpDataReceive[3])
+				| UpDataReceive[2] << 8);
+		CaptureData.CabinBaro = ((UpDataReceive[7] << 16)
+				| (UpDataReceive[6] << 8) | (UpDataReceive[5] << 24)
+				| UpDataReceive[4]);
+		CaptureData.CabinHum = ((UpDataReceive[9]) | UpDataReceive[8] << 8);
+		CaptureData.AccNum[0] = ((UpDataReceive[11] << 8) | UpDataReceive[10]);
+		CaptureData.AccNum[1] = ((UpDataReceive[13] << 8) | UpDataReceive[12]);
+		CaptureData.AccNum[2] = ((UpDataReceive[15] << 8) | UpDataReceive[14]);
+		CaptureData.RotNum[0] = ((UpDataReceive[17] << 8) | UpDataReceive[16]);
+		CaptureData.RotNum[1] = ((UpDataReceive[19] << 8) | UpDataReceive[18]);
+		CaptureData.RotNum[2] = ((UpDataReceive[21] << 8) | UpDataReceive[20]);
+		CaptureData.EulNum[0] = ((UpDataReceive[23] << 8) | UpDataReceive[22]);
+		CaptureData.EulNum[1] = ((UpDataReceive[25] << 8) | UpDataReceive[24]);
+		CaptureData.EulNum[2] = ((UpDataReceive[27] << 8) | UpDataReceive[26]);
+		CaptureData.MagNum[0] = ((UpDataReceive[29] << 8) | UpDataReceive[28]);
+		CaptureData.MagNum[1] = ((UpDataReceive[31] << 8) | UpDataReceive[30]);
+		CaptureData.MagNum[2] = ((UpDataReceive[33] << 8) | UpDataReceive[32]);
+		CaptureData.DepthToBottom = ((UpDataReceive[37] << 16)
+				| (UpDataReceive[36] << 24) | (UpDataReceive[35] << 8)
+				| UpDataReceive[34]);
+		CaptureData.Confidence = ((UpDataReceive[39] << 8) | UpDataReceive[38]);
+		CaptureData.WaterTemperature = ((UpDataReceive[41] << 8)
+				| UpDataReceive[40]);
+		CaptureData.WaterDepth = ((UpDataReceive[43] << 8) | UpDataReceive[42]);
+		CaptureData.IdTest = IdTest(UpDataReceive, 1, 44, 28);
 
-	__HAL_UART_ENABLE_IT(&Down_UART, UART_IT_IDLE);
-//	HAL_UART_Receive_DMA(&Down_UART, UpDataReceive, Down_UART_RXLen);
-	HAL_UART_Receive_DMA(&Down_UART, UpDataReceive, 48);
-	return CaptureData;
+		__HAL_UART_ENABLE_IT(&Down_UART, UART_IT_IDLE);
+		HAL_UART_Receive_DMA(&Down_UART, UpDataReceive, Down_UART_RXLen);
+		return CaptureData;
+	}
 }
 #endif
 

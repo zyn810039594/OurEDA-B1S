@@ -92,6 +92,7 @@ UpDataDef CaptureUpData(void);
 DownDataDef CaptureDownData(void);
 void SendUpData(UpDataDef SendData);
 #ifdef CtrlSide
+void LocalSendUpData(UpDataDef SendData)
 void SendDownData(DownDataDef SendData);
 #endif
 #ifdef PowerSide

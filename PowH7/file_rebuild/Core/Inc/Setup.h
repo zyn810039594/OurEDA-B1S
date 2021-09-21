@@ -44,7 +44,7 @@
 #define WT931_UART_RXLen 44
 #define Up_UART_TXLen 47
 #define Up_UART_RXLen 30
-#define Down_UART_RXLen 47
+#define Down_UART_RXLen 48
 #define Down_UART_TXLEN 30
 
 #endif

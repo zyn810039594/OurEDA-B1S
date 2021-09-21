@@ -62,8 +62,8 @@
 #define P30_UART_TXLen 12
 #define P30_UART_RXLen 33
 #define Up_UART_TXLen 47
-#define Up_UART_RXLen 30
-#define Down_UART_RXLen 47
+#define Up_UART_RXLen 31
+#define Down_UART_RXLen 48
 #define Down_UART_TXLEN 30
 
 #endif

@@ -65,8 +65,8 @@ all: main-build
 main-build: file_new.elf secondary-outputs
 
 # Tool invocations
-file_new.elf: $(OBJS) $(USER_OBJS) F:\Git_repository\OurEDA\OurEDA-B1S\CtrlH7\file_new\STM32H750VBTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "file_new.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m7 -T"F:\Git_repository\OurEDA\OurEDA-B1S\CtrlH7\file_new\STM32H750VBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="file_new.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+file_new.elf: $(OBJS) $(USER_OBJS) F:\Git_repository\OurEDA-B1S\CtrlH7\file_new\STM32H750VBTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "file_new.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m7 -T"F:\Git_repository\OurEDA-B1S\CtrlH7\file_new\STM32H750VBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="file_new.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

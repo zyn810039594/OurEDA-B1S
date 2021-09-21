@@ -1,0 +1,3 @@
+F:\Git_repository\OurEDA-B1S\WT931\上位机\temp\MiniIMU.exe,F:\Git_repository\OurEDA-B1S\WT931\上位机\MiniIMU.exe
+F:\Git_repository\OurEDA-B1S\WT931\上位机\temp\playPic\SINRT.jpg,F:\Git_repository\OurEDA-B1S\WT931\上位机\playPic\SINRT.jpg
+F:\Git_repository\OurEDA-B1S\WT931\上位机\temp\FirmwareUpdate.dll,F:\Git_repository\OurEDA-B1S\WT931\上位机\FirmwareUpdate.dll

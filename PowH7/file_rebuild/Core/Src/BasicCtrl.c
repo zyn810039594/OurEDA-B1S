@@ -18,13 +18,13 @@
 static u8 XorCaculate(u8 *CacString, u8 CacStringSize);
 static u8 IdTest(u8 *String, u8 Format, u8 SendUpLength, u8 SendDownLength);
 
-__attribute__((section(".RAM_D1")))    u8 DownDataReceive[Up_UART_RXLen] =
+__attribute__((section(".RAM_D1")))            u8 DownDataReceive[Up_UART_RXLen] =
 { 0 };
-__attribute__((section(".RAM_D1")))    u8 DownDataSend[Down_UART_TXLEN] =
+__attribute__((section(".RAM_D1")))            u8 DownDataSend[Down_UART_TXLEN] =
 { 0 };
-__attribute__((section(".RAM_D1")))    u8 UpDataReceive[Down_UART_RXLen] =
+__attribute__((section(".RAM_D1")))            u8 UpDataReceive[Down_UART_RXLen] =
 { 0 };
-__attribute__((section(".RAM_D1")))    u8 UpDataSend[Up_UART_TXLen] =
+__attribute__((section(".RAM_D1")))            u8 UpDataSend[Up_UART_TXLen] =
 { 0 };
 
 /**
@@ -35,7 +35,8 @@ DownDataDef CaptureDownData(void)
 {
 	DownDataDef CaptureData;
 
-	if ((DownDataReceive[0] == 0x25) && (DownDataReceive[29] == 0x21))
+	if ((DownDataReceive[0] == 0x25) && (DownDataReceive[29] == 0x21)
+			&& (DownDataReceive[28] == 0x00))
 	{
 		CaptureData.HeadOfData = (DownDataReceive[0]);
 		CaptureData.StraightNum = ((DownDataReceive[1] << 8)
@@ -78,8 +79,7 @@ DownDataDef CaptureDownData(void)
 	}
 
 	__HAL_UART_ENABLE_IT(&Up_UART, UART_IT_IDLE);
-//	HAL_UART_Receive_DMA(&Up_UART, DownDataReceive, Up_UART_RXLen);
-	HAL_UART_Receive_DMA(&Up_UART, DownDataReceive, 31);
+	HAL_UART_Receive_DMA(&Up_UART, DownDataReceive, Up_UART_RXLen);
 	return CaptureData;
 }
 
@@ -91,15 +91,15 @@ void SendUpData(UpDataDef SendData)
 {
 	UpDataSend[0] = 0x25;
 	UpDataSend[1] = ((SendData.WaterDetect) | (SendData.CabinNum));
-	UpDataSend[2] = SendData.CabinTemperature >> 8;
-	UpDataSend[3] = SendData.CabinTemperature;
-	UpDataSend[4] = SendData.CabinBaro >> 16;
-	UpDataSend[5] = SendData.CabinBaro >> 24;
-	UpDataSend[6] = SendData.CabinBaro;
-	UpDataSend[7] = SendData.CabinBaro >> 8;
+	UpDataSend[2] = SendData.CabinTemperature;
+	UpDataSend[3] = SendData.CabinTemperature >> 8;
+	UpDataSend[4] = SendData.CabinBaro;
+	UpDataSend[5] = SendData.CabinBaro >> 8;
+	UpDataSend[6] = SendData.CabinBaro >> 16;
+	UpDataSend[7] = SendData.CabinBaro >> 24;
 	UpDataSend[8] = SendData.CabinHum;
 	UpDataSend[9] = SendData.CabinHum >> 8;
-	UpDataSend[10] = SendData.AccNum[0]; //DEBUG:数据位反转
+	UpDataSend[10] = SendData.AccNum[0];
 	UpDataSend[11] = SendData.AccNum[0] >> 8;
 	UpDataSend[12] = SendData.AccNum[1];
 	UpDataSend[13] = SendData.AccNum[1] >> 8;
@@ -131,7 +131,7 @@ void SendUpData(UpDataDef SendData)
 	UpDataSend[39] = SendData.Confidence;
 	UpDataSend[40] = SendData.WaterTemperature;
 	UpDataSend[41] = SendData.WaterTemperature >> 8;
-	UpDataSend[42] = SendData.WaterDepth; //BUG:E2 40
+	UpDataSend[42] = SendData.WaterDepth;
 	UpDataSend[43] = SendData.WaterDepth >> 8;
 	UpDataSend[44] = XorCaculate(UpDataSend, 38);
 	UpDataSend[45] = 0xff;
@@ -291,10 +291,12 @@ MoveThruster MoveControl(u16 StraightNum, u16 RotateNum, u16 VerticalNum,
 	}
 	else if (ModeNum == 1) //侧推模式
 	{
-		ThrusterTemp.HorizontalThruster[0] = (vu32) (RotateNum);
-		ThrusterTemp.HorizontalThruster[1] = (vu32) ((3000 - RotateNum));
-		ThrusterTemp.HorizontalThruster[2] = (vu32) (RotateNum);
-		ThrusterTemp.HorizontalThruster[3] = (vu32) (3000 - RotateNum);
+//		ThrusterTemp.HorizontalThruster[0] = (vu32) (RotateNum);
+//		ThrusterTemp.HorizontalThruster[1] = (vu32) ((3000 - RotateNum));
+		ThrusterTemp.HorizontalThruster[1] = (vu32) (RotateNum);
+		ThrusterTemp.HorizontalThruster[0] = (vu32) (3000 - RotateNum);
+		ThrusterTemp.HorizontalThruster[3] = (vu32) (RotateNum);
+		ThrusterTemp.HorizontalThruster[2] = (vu32) (3000 - RotateNum);
 		ThrusterTemp.VerticalThruster[0] = (vu32) (VerticalNum);
 		ThrusterTemp.VerticalThruster[1] = (vu32) (VerticalNum);
 	}

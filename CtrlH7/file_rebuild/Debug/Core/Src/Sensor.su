@@ -1,4 +1,0 @@
-Sensor.c:12:6:InitGY39	8	static
-Sensor.c:20:10:ReceiveGY39	40	static
-Sensor.c:32:11:ReceiveWT931	48	static
-Sensor.c:52:10:ReceiveDeep	16	static
