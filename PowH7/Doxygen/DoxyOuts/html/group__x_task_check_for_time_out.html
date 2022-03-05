@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Test: xTaskCheckForTimeOut</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Test
+   &#160;<span id="projectnumber">1.0.0</span>
+   </div>
+   <div id="projectbrief">OurEDA B1S Projext</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'搜索');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('group__x_task_check_for_time_out.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">xTaskCheckForTimeOut</div>  </div>
+</div><!--header-->
+<div class="contents">
+<p>task.h </p><pre>BaseType_t xTaskCheckForTimeOut( TimeOut_t * const pxTimeOut, TickType_t * const pxTicksToWait );</pre><p>Determines if pxTicksToWait ticks has passed since a time was captured using a call to vTaskSetTimeOutState(). The captured time includes the tick count and the number of times the tick count has overflowed.</p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pxTimeOut</td><td>The time status as captured previously using vTaskSetTimeOutState. If the timeout has not yet occurred, it is updated to reflect the current time status. </td></tr>
+    <tr><td class="paramname">pxTicksToWait</td><td>The number of ticks to check for timeout i.e. if pxTicksToWait ticks have passed since pxTimeOut was last updated (either by vTaskSetTimeOutState() or xTaskCheckForTimeOut()), the timeout has occurred. If the timeout has not occurred, pxTIcksToWait is updated to reflect the number of remaining ticks.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>If timeout has occurred, pdTRUE is returned. Otherwise pdFALSE is returned and pxTicksToWait is updated to reflect the number of remaining ticks.</dd></dl>
+<dl class="section see"><dt>参见</dt><dd><a href="https://www.freertos.org/xTaskCheckForTimeOut.html">https://www.freertos.org/xTaskCheckForTimeOut.html</a></dd></dl>
+<p>Example Usage: </p><pre>
+   // Driver library function used to receive uxWantedBytes from an Rx buffer
+   // that is filled by a UART interrupt. If there are not enough bytes in the
+   // Rx buffer then the task enters the Blocked state until it is notified that
+   // more data has been placed into the buffer. If there is still not enough
+   // data then the task re-enters the Blocked state, and xTaskCheckForTimeOut()
+   // is used to re-calculate the Block time to ensure the total amount of time
+   // spent in the Blocked state does not exceed MAX_TIME_TO_WAIT. This
+   // continues until either the buffer contains at least uxWantedBytes bytes,
+   // or the total amount of time spent in the Blocked state reaches
+   // MAX_TIME_TO_WAIT – at which point the task reads however many bytes are
+   // available up to a maximum of uxWantedBytes.</pre><pre>   size_t xUART_Receive( uint8_t *pucBuffer, size_t uxWantedBytes )
+   {
+   size_t uxReceived = 0;
+   TickType_t xTicksToWait = MAX_TIME_TO_WAIT;
+   TimeOut_t xTimeOut;</pre><pre>    // Initialize xTimeOut.  This records the time at which this function
+    // was entered.
+    vTaskSetTimeOutState( &amp;xTimeOut );</pre><pre>    // Loop until the buffer contains the wanted number of bytes, or a
+    // timeout occurs.
+    while( UART_bytes_in_rx_buffer( pxUARTInstance ) &lt; uxWantedBytes )
+    {
+        // The buffer didn't contain enough data so this task is going to
+        // enter the Blocked state. Adjusting xTicksToWait to account for
+        // any time that has been spent in the Blocked state within this
+        // function so far to ensure the total amount of time spent in the
+        // Blocked state does not exceed MAX_TIME_TO_WAIT.
+        if( xTaskCheckForTimeOut( &amp;xTimeOut, &amp;xTicksToWait ) != pdFALSE )
+        {
+            //Timed out before the wanted number of bytes were available,
+            // exit the loop.
+            break;
+        }</pre><pre>        // Wait for a maximum of xTicksToWait ticks to be notified that the
+        // receive interrupt has placed more data into the buffer.
+        ulTaskNotifyTake( pdTRUE, xTicksToWait );
+    }</pre><pre>    // Attempt to read uxWantedBytes from the receive buffer into pucBuffer.
+    // The actual number of bytes read (which might be less than
+    // uxWantedBytes) is returned.
+    uxReceived = UART_read_from_receive_buffer( pxUARTInstance,
+                                                pucBuffer,
+                                                uxWantedBytes );</pre><pre>    return uxReceived;
+   }
+</pre> </div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">生成于 2022年 二月 12日 星期六 02:15:48 , 为 Test使用 
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
+  </ul>
+</div>
+</body>
+</html>

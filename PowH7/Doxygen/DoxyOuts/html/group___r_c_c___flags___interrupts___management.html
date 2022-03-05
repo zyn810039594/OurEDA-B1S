@@ -1,0 +1,335 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Test: Flags Interrupts Management</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Test
+   &#160;<span id="projectnumber">1.0.0</span>
+   </div>
+   <div id="projectbrief">OurEDA B1S Projext</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'搜索');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('group___r_c_c___flags___interrupts___management.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#define-members">宏定义</a>  </div>
+  <div class="headertitle">
+<div class="title">Flags Interrupts Management<div class="ingroups"><a class="el" href="group___s_t_m32_h7xx___h_a_l___driver.html">STM32H7xx_HAL_Driver</a> &raquo; <a class="el" href="group___r_c_c.html">RCC</a> &raquo; <a class="el" href="group___r_c_c___exported___macros.html">RCC Exported Macros</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+宏定义</h2></td></tr>
+<tr class="memitem:ga180fb20a37b31a6e4f7e59213a6c0405"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_c_c___flags___interrupts___management.html#ga180fb20a37b31a6e4f7e59213a6c0405">__HAL_RCC_ENABLE_IT</a>(__INTERRUPT__)&#160;&#160;&#160;SET_BIT(RCC-&gt;CIER, (__INTERRUPT__))</td></tr>
+<tr class="separator:ga180fb20a37b31a6e4f7e59213a6c0405"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafc4df8cd4df0a529d11f18bf1f7e9f50"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_c_c___flags___interrupts___management.html#gafc4df8cd4df0a529d11f18bf1f7e9f50">__HAL_RCC_DISABLE_IT</a>(__INTERRUPT__)&#160;&#160;&#160;CLEAR_BIT(RCC-&gt;CIER, (__INTERRUPT__))</td></tr>
+<tr class="separator:gafc4df8cd4df0a529d11f18bf1f7e9f50"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9d8ab157f58045b8daf8136bee54f139"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_c_c___flags___interrupts___management.html#ga9d8ab157f58045b8daf8136bee54f139">__HAL_RCC_CLEAR_IT</a>(__INTERRUPT__)&#160;&#160;&#160;(RCC-&gt;CICR = (__INTERRUPT__))</td></tr>
+<tr class="separator:ga9d8ab157f58045b8daf8136bee54f139"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga134af980b892f362c05ae21922cd828d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_c_c___flags___interrupts___management.html#ga134af980b892f362c05ae21922cd828d">__HAL_RCC_GET_IT</a>(__INTERRUPT__)&#160;&#160;&#160;((RCC-&gt;CIFR &amp; (__INTERRUPT__)) == (__INTERRUPT__))</td></tr>
+<tr class="separator:ga134af980b892f362c05ae21922cd828d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga80017c6bf8a5c6f53a1a21bb8db93a82"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___r_c_c___flags___interrupts___management.html#ga80017c6bf8a5c6f53a1a21bb8db93a82">RCC_FLAG_MASK</a>&#160;&#160;&#160;((uint8_t)0x1F)</td></tr>
+<tr class="separator:ga80017c6bf8a5c6f53a1a21bb8db93a82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<h2 class="groupheader">宏定义说明</h2>
+<a id="ga180fb20a37b31a6e4f7e59213a6c0405"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga180fb20a37b31a6e4f7e59213a6c0405">&#9670;&nbsp;</a></span>__HAL_RCC_ENABLE_IT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define __HAL_RCC_ENABLE_IT</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">__INTERRUPT__</td><td>)</td>
+          <td>&#160;&#160;&#160;SET_BIT(RCC-&gt;CIER, (__INTERRUPT__))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Enable RCC interrupt. </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">&lt;strong&gt;INTERRUPT&lt;/strong&gt;</td><td>specifies the RCC interrupt sources to be enabled. This parameter can be any combination of the following values: <ul>
+<li>RCC_IT_LSIRDY: LSI ready interrupt </li>
+<li>RCC_IT_LSERDY: LSE ready interrupt </li>
+<li>RCC_IT_CSIRDY: HSI ready interrupt </li>
+<li>RCC_IT_HSIRDY: HSI ready interrupt </li>
+<li>RCC_IT_HSERDY: HSE ready interrupt </li>
+<li>RCC_IT_HSI48RDY: HSI48 ready interrupt </li>
+<li>RCC_IT_PLLRDY: main PLL ready interrupt </li>
+<li>RCC_IT_PLL2RDY: PLL2 ready interrupt </li>
+<li>RCC_IT_PLL3RDY: PLL3 ready interrupt </li>
+<li>RCC_IT_LSECSS: Clock security system interrupt </li>
+</ul>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gafc4df8cd4df0a529d11f18bf1f7e9f50"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gafc4df8cd4df0a529d11f18bf1f7e9f50">&#9670;&nbsp;</a></span>__HAL_RCC_DISABLE_IT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define __HAL_RCC_DISABLE_IT</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">__INTERRUPT__</td><td>)</td>
+          <td>&#160;&#160;&#160;CLEAR_BIT(RCC-&gt;CIER, (__INTERRUPT__))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Disable RCC interrupt </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">&lt;strong&gt;INTERRUPT&lt;/strong&gt;</td><td>specifies the RCC interrupt sources to be disabled. This parameter can be any combination of the following values: <ul>
+<li>RCC_IT_LSIRDY: LSI ready interrupt </li>
+<li>RCC_IT_LSERDY: LSE ready interrupt </li>
+<li>RCC_IT_CSIRDY: HSI ready interrupt </li>
+<li>RCC_IT_HSIRDY: HSI ready interrupt </li>
+<li>RCC_IT_HSERDY: HSE ready interrupt </li>
+<li>RCC_IT_HSI48RDY: HSI48 ready interrupt </li>
+<li>RCC_IT_PLLRDY: main PLL ready interrupt </li>
+<li>RCC_IT_PLL2RDY: PLL2 ready interrupt </li>
+<li>RCC_IT_PLL3RDY: PLL3 ready interrupt </li>
+<li>RCC_IT_LSECSS: Clock security system interrupt </li>
+</ul>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga9d8ab157f58045b8daf8136bee54f139"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga9d8ab157f58045b8daf8136bee54f139">&#9670;&nbsp;</a></span>__HAL_RCC_CLEAR_IT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define __HAL_RCC_CLEAR_IT</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">__INTERRUPT__</td><td>)</td>
+          <td>&#160;&#160;&#160;(RCC-&gt;CICR = (__INTERRUPT__))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Clear the RCC's interrupt pending bits </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">&lt;strong&gt;INTERRUPT&lt;/strong&gt;</td><td>specifies the interrupt pending bit to clear. This parameter can be any combination of the following values: <ul>
+<li>RCC_IT_LSIRDY: LSI ready interrupt </li>
+<li>RCC_IT_LSERDY: LSE ready interrupt </li>
+<li>RCC_IT_CSIRDY: CSI ready interrupt </li>
+<li>RCC_IT_HSIRDY: HSI ready interrupt </li>
+<li>RCC_IT_HSERDY: HSE ready interrupt </li>
+<li>RCC_IT_HSI48RDY: HSI48 ready interrupt </li>
+<li>RCC_IT_PLLRDY: main PLL ready interrupt </li>
+<li>RCC_IT_PLL2RDY: PLL2 ready interrupt </li>
+<li>RCC_IT_PLL3RDY: PLL3 ready interrupt </li>
+<li>RCC_IT_HSECSS: HSE Clock Security interrupt </li>
+<li>RCC_IT_LSECSS: Clock security system interrupt </li>
+</ul>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga134af980b892f362c05ae21922cd828d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga134af980b892f362c05ae21922cd828d">&#9670;&nbsp;</a></span>__HAL_RCC_GET_IT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define __HAL_RCC_GET_IT</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">__INTERRUPT__</td><td>)</td>
+          <td>&#160;&#160;&#160;((RCC-&gt;CIFR &amp; (__INTERRUPT__)) == (__INTERRUPT__))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Check the RCC's interrupt has occurred or not. </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">&lt;strong&gt;INTERRUPT&lt;/strong&gt;</td><td>specifies the RCC interrupt source to check. This parameter can be any combination of the following values: <ul>
+<li>RCC_IT_LSIRDY: LSI ready interrupt </li>
+<li>RCC_IT_LSERDY: LSE ready interrupt </li>
+<li>RCC_IT_CSIRDY: CSI ready interrupt </li>
+<li>RCC_IT_HSIRDY: HSI ready interrupt </li>
+<li>RCC_IT_HSERDY: HSE ready interrupt </li>
+<li>RCC_IT_HSI48RDY: HSI48 ready interrupt </li>
+<li>RCC_IT_PLLRDY: main PLL ready interrupt </li>
+<li>RCC_IT_PLL2RDY: PLL2 ready interrupt </li>
+<li>RCC_IT_PLL3RDY: PLL3 ready interrupt </li>
+<li>RCC_IT_HSECSS: HSE Clock Security interrupt </li>
+<li>RCC_IT_LSECSS: Clock security system interrupt </li>
+</ul>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">The</td><td>new state of <b>INTERRUPT</b> (TRUE or FALSE). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga80017c6bf8a5c6f53a1a21bb8db93a82"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga80017c6bf8a5c6f53a1a21bb8db93a82">&#9670;&nbsp;</a></span>RCC_FLAG_MASK</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RCC_FLAG_MASK&#160;&#160;&#160;((uint8_t)0x1F)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Check RCC flag is set or not. </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">&lt;strong&gt;FLAG&lt;/strong&gt;</td><td>specifies the flag to check. This parameter can be one of the following values: <ul>
+<li>RCC_FLAG_HSIRDY: HSI oscillator clock ready </li>
+<li>RCC_FLAG_HSIDIV: HSI divider flag </li>
+<li>RCC_FLAG_CSIRDY: CSI oscillator clock ready </li>
+<li>RCC_FLAG_HSI48RDY: HSI48 oscillator clock ready </li>
+<li>RCC_FLAG_HSERDY: HSE oscillator clock ready </li>
+<li>RCC_FLAG_D1CKRDY: Domain1 clock ready (*) </li>
+<li>RCC_FLAG_D2CKRDY: Domain2 clock ready (*) </li>
+<li>RCC_FLAG_CPUCKRDY: CPU Domain clock ready (CPU, APB3, bus matrix1 and related memories) (*) </li>
+<li>RCC_FLAG_CDCKRDY: CPU Domain clock ready (*) </li>
+<li>RCC_FLAG_PLLRDY: PLL1 clock ready </li>
+<li>RCC_FLAG_PLL2RDY: PLL2 clock ready </li>
+<li>RCC_FLAG_PLL3RDY: PLL3 clock ready </li>
+<li>RCC_FLAG_LSERDY: LSE oscillator clock ready </li>
+<li>RCC_FLAG_LSIRDY: LSI oscillator clock ready </li>
+<li>RCC_FLAG_CPURST: CPU reset flag </li>
+<li>RCC_FLAG_D1RST: D1 domain power switch reset flag (*) </li>
+<li>RCC_FLAG_D2RST: D2 domain power switch reset flag (*) </li>
+<li>RCC_FLAG_CDRST: CD domain power switch reset flag (*) </li>
+<li>RCC_FLAG_BORRST: BOR reset flag </li>
+<li>RCC_FLAG_PINRST: Pin reset </li>
+<li>RCC_FLAG_PORRST: POR/PDR reset </li>
+<li>RCC_FLAG_SFTRST: System reset from CPU reset flag </li>
+<li>RCC_FLAG_BORRST: D2 domain power switch reset flag </li>
+<li>RCC_FLAG_IWDG1RST: CPU Independent Watchdog reset </li>
+<li>RCC_FLAG_WWDG1RST: Window Watchdog1 reset </li>
+<li>RCC_FLAG_LPWR1RST: Reset due to illegal D1 DSTANDBY or CPU CSTOP flag </li>
+<li>RCC_FLAG_LPWR2RST: Reset due to illegal D2 DSTANDBY flag </li>
+</ul>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">The</td><td>new state of <b>FLAG</b> (TRUE or FALSE).</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>(*) Available on some STM32H7 lines only. </p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">生成于 2022年 二月 12日 星期六 02:15:48 , 为 Test使用 
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
+  </ul>
+</div>
+</body>
+</html>

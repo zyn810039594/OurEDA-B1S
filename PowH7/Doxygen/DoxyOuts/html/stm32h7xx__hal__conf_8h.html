@@ -1,0 +1,364 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Test: /mnt/f/Git_repository/OurEDA/OurEDA-B1S/PowH7/file_rebuild/Core/Inc/stm32h7xx_hal_conf.h 文件参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Test
+   &#160;<span id="projectnumber">1.0.0</span>
+   </div>
+   <div id="projectbrief">OurEDA B1S Projext</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'搜索');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('stm32h7xx__hal__conf_8h.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#define-members">宏定义</a>  </div>
+  <div class="headertitle">
+<div class="title">stm32h7xx_hal_conf.h 文件参考</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="stm32h7xx__hal__rcc_8h.html">stm32h7xx_hal_rcc.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="stm32h7xx__hal__gpio_8h.html">stm32h7xx_hal_gpio.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="stm32h7xx__hal__dma_8h.html">stm32h7xx_hal_dma.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="stm32h7xx__hal__mdma_8h.html">stm32h7xx_hal_mdma.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="stm32h7xx__hal__exti_8h.html">stm32h7xx_hal_exti.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="stm32h7xx__hal__cortex_8h.html">stm32h7xx_hal_cortex.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="stm32h7xx__hal__flash_8h.html">stm32h7xx_hal_flash.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="stm32h7xx__hal__hsem_8h.html">stm32h7xx_hal_hsem.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="stm32h7xx__hal__i2c_8h.html">stm32h7xx_hal_i2c.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="stm32h7xx__hal__iwdg_8h.html">stm32h7xx_hal_iwdg.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="stm32h7xx__hal__pwr_8h.html">stm32h7xx_hal_pwr.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="stm32h7xx__hal__tim_8h.html">stm32h7xx_hal_tim.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="stm32h7xx__hal__uart_8h.html">stm32h7xx_hal_uart.h</a>&quot;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+宏定义</h2></td></tr>
+<tr class="memitem:aeafcff4f57440c60e64812dddd13e7cb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stm32h7xx__hal__conf_8h.html#aeafcff4f57440c60e64812dddd13e7cb">HSE_VALUE</a>&#160;&#160;&#160;(25000000UL)</td></tr>
+<tr class="separator:aeafcff4f57440c60e64812dddd13e7cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68ecbc9b0a1a40a1ec9d18d5e9747c4f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stm32h7xx__hal__conf_8h.html#a68ecbc9b0a1a40a1ec9d18d5e9747c4f">HSE_STARTUP_TIMEOUT</a>&#160;&#160;&#160;(100UL)</td></tr>
+<tr class="separator:a68ecbc9b0a1a40a1ec9d18d5e9747c4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4dcbff36a4b1cfd045c01d59084255d0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stm32h7xx__hal__conf_8h.html#a4dcbff36a4b1cfd045c01d59084255d0">CSI_VALUE</a>&#160;&#160;&#160;(4000000UL)</td></tr>
+<tr class="separator:a4dcbff36a4b1cfd045c01d59084255d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa8c76e274d0f6dd2cefb5d0b17fbc37"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stm32h7xx__hal__conf_8h.html#aaa8c76e274d0f6dd2cefb5d0b17fbc37">HSI_VALUE</a>&#160;&#160;&#160;(64000000UL)</td></tr>
+<tr class="separator:aaa8c76e274d0f6dd2cefb5d0b17fbc37"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7bbb9d19e5189a6ccd0fb6fa6177d20d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stm32h7xx__hal__conf_8h.html#a7bbb9d19e5189a6ccd0fb6fa6177d20d">LSE_VALUE</a>&#160;&#160;&#160;(32768UL)</td></tr>
+<tr class="separator:a7bbb9d19e5189a6ccd0fb6fa6177d20d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85e6fc812dc26f7161a04be2568a5462"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stm32h7xx__hal__conf_8h.html#a85e6fc812dc26f7161a04be2568a5462">LSE_STARTUP_TIMEOUT</a>&#160;&#160;&#160;(5000UL)</td></tr>
+<tr class="separator:a85e6fc812dc26f7161a04be2568a5462"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4872023e65449c0506aac3ea6bec99e9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stm32h7xx__hal__conf_8h.html#a4872023e65449c0506aac3ea6bec99e9">LSI_VALUE</a>&#160;&#160;&#160;(32000UL)</td></tr>
+<tr class="separator:a4872023e65449c0506aac3ea6bec99e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c47c935e91e70569098b41718558648"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stm32h7xx__hal__conf_8h.html#a8c47c935e91e70569098b41718558648">EXTERNAL_CLOCK_VALUE</a>&#160;&#160;&#160;12288000UL</td></tr>
+<tr class="separator:a8c47c935e91e70569098b41718558648"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae550dad9f96d52cfce5e539adadbbb4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stm32h7xx__hal__conf_8h.html#aae550dad9f96d52cfce5e539adadbbb4">VDD_VALUE</a>&#160;&#160;&#160;(3300UL)</td></tr>
+<tr class="separator:aae550dad9f96d52cfce5e539adadbbb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae27809d4959b9fd5b5d974e3e1c77d2e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stm32h7xx__hal__conf_8h.html#ae27809d4959b9fd5b5d974e3e1c77d2e">TICK_INT_PRIORITY</a>&#160;&#160;&#160;(0UL)</td></tr>
+<tr class="separator:ae27809d4959b9fd5b5d974e3e1c77d2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f536ac7d8e274d77d384455b0bb994f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stm32h7xx__hal__conf_8h.html#a1f536ac7d8e274d77d384455b0bb994f">USE_SD_TRANSCEIVER</a>&#160;&#160;&#160;0U</td></tr>
+<tr class="separator:a1f536ac7d8e274d77d384455b0bb994f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c6fab687afc7ba4469b1b2d34472358"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stm32h7xx__hal__conf_8h.html#a4c6fab687afc7ba4469b1b2d34472358">USE_SPI_CRC</a>&#160;&#160;&#160;0U</td></tr>
+<tr class="separator:a4c6fab687afc7ba4469b1b2d34472358"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a631dea7b230e600555f979c62af1de21"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stm32h7xx__hal__conf_8h.html#a631dea7b230e600555f979c62af1de21">assert_param</a>(expr)&#160;&#160;&#160;((void)0U)</td></tr>
+<tr class="separator:a631dea7b230e600555f979c62af1de21"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><dl class="section author"><dt>作者</dt><dd>MCD Application Team </dd></dl>
+<dl class="section attention"><dt>注意</dt><dd></dd></dl>
+<h2><center>&copy; Copyright (c) 2017 STMicroelectronics. All rights reserved.</center></h2>
+<p>This software component is licensed by ST under BSD 3-Clause license, the "License"; You may not use this file except in compliance with the License. You may obtain a copy of the License at: opensource.org/licenses/BSD-3-Clause </p>
+</div><h2 class="groupheader">宏定义说明</h2>
+<a id="aeafcff4f57440c60e64812dddd13e7cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeafcff4f57440c60e64812dddd13e7cb">&#9670;&nbsp;</a></span>HSE_VALUE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define HSE_VALUE&#160;&#160;&#160;(25000000UL)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Adjust the value of External High Speed oscillator (HSE) used in your application. This value is used by the RCC HAL module to compute the system frequency (when HSE is used as system clock source, directly or through the PLL). </p>
+<p>Value of the External oscillator in Hz : FPGA case fixed to 60MHZ </p>
+
+</div>
+</div>
+<a id="a68ecbc9b0a1a40a1ec9d18d5e9747c4f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68ecbc9b0a1a40a1ec9d18d5e9747c4f">&#9670;&nbsp;</a></span>HSE_STARTUP_TIMEOUT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define HSE_STARTUP_TIMEOUT&#160;&#160;&#160;(100UL)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Time out for HSE start up, in ms </p>
+
+</div>
+</div>
+<a id="a4dcbff36a4b1cfd045c01d59084255d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4dcbff36a4b1cfd045c01d59084255d0">&#9670;&nbsp;</a></span>CSI_VALUE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CSI_VALUE&#160;&#160;&#160;(4000000UL)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Internal oscillator (CSI) default value. This value is the default CSI value after Reset. </p>
+<p>Value of the Internal oscillator in Hz </p>
+
+</div>
+</div>
+<a id="aaa8c76e274d0f6dd2cefb5d0b17fbc37"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa8c76e274d0f6dd2cefb5d0b17fbc37">&#9670;&nbsp;</a></span>HSI_VALUE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define HSI_VALUE&#160;&#160;&#160;(64000000UL)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Internal High Speed oscillator (HSI) value. This value is used by the RCC HAL module to compute the system frequency (when HSI is used as system clock source, directly or through the PLL). </p>
+<p>Value of the Internal oscillator in Hz </p>
+
+</div>
+</div>
+<a id="a7bbb9d19e5189a6ccd0fb6fa6177d20d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7bbb9d19e5189a6ccd0fb6fa6177d20d">&#9670;&nbsp;</a></span>LSE_VALUE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LSE_VALUE&#160;&#160;&#160;(32768UL)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>External Low Speed oscillator (LSE) value. This value is used by the UART, RTC HAL module to compute the system frequency </p>
+<p>Value of the External oscillator in Hz </p>
+
+</div>
+</div>
+<a id="a85e6fc812dc26f7161a04be2568a5462"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85e6fc812dc26f7161a04be2568a5462">&#9670;&nbsp;</a></span>LSE_STARTUP_TIMEOUT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LSE_STARTUP_TIMEOUT&#160;&#160;&#160;(5000UL)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Time out for LSE start up, in ms </p>
+
+</div>
+</div>
+<a id="a4872023e65449c0506aac3ea6bec99e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4872023e65449c0506aac3ea6bec99e9">&#9670;&nbsp;</a></span>LSI_VALUE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LSI_VALUE&#160;&#160;&#160;(32000UL)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>LSI Typical Value in Hz </p>
+
+</div>
+</div>
+<a id="a8c47c935e91e70569098b41718558648"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c47c935e91e70569098b41718558648">&#9670;&nbsp;</a></span>EXTERNAL_CLOCK_VALUE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define EXTERNAL_CLOCK_VALUE&#160;&#160;&#160;12288000UL</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>External clock source for I2S peripheral This value is used by the I2S HAL module to compute the I2S clock source frequency, this source is inserted directly through I2S_CKIN pad. </p>
+<p>&lt; Value of the Internal Low Speed oscillator in Hz The real value may vary depending on the variations in voltage and temperature. Value of the External clock in Hz </p>
+
+</div>
+</div>
+<a id="aae550dad9f96d52cfce5e539adadbbb4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae550dad9f96d52cfce5e539adadbbb4">&#9670;&nbsp;</a></span>VDD_VALUE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define VDD_VALUE&#160;&#160;&#160;(3300UL)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This is the HAL system configuration section </p>
+<p>Value of VDD in mv </p>
+
+</div>
+</div>
+<a id="ae27809d4959b9fd5b5d974e3e1c77d2e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae27809d4959b9fd5b5d974e3e1c77d2e">&#9670;&nbsp;</a></span>TICK_INT_PRIORITY</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TICK_INT_PRIORITY&#160;&#160;&#160;(0UL)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>tick interrupt priority </p>
+
+</div>
+</div>
+<a id="a1f536ac7d8e274d77d384455b0bb994f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f536ac7d8e274d77d384455b0bb994f">&#9670;&nbsp;</a></span>USE_SD_TRANSCEIVER</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define USE_SD_TRANSCEIVER&#160;&#160;&#160;0U</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>use uSD Transceiver </p>
+
+</div>
+</div>
+<a id="a4c6fab687afc7ba4469b1b2d34472358"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c6fab687afc7ba4469b1b2d34472358">&#9670;&nbsp;</a></span>USE_SPI_CRC</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define USE_SPI_CRC&#160;&#160;&#160;0U</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>use CRC in SPI </p>
+
+</div>
+</div>
+<a id="a631dea7b230e600555f979c62af1de21"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a631dea7b230e600555f979c62af1de21">&#9670;&nbsp;</a></span>assert_param</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define assert_param</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">expr</td><td>)</td>
+          <td>&#160;&#160;&#160;((void)0U)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Uncomment the line below to expanse the "assert_param" macro in the HAL drivers code </p>
+<p>Include module's header file </p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_6fda82105328d0c1fda17a2c6574589f.html">file_rebuild</a></li><li class="navelem"><a class="el" href="dir_ff56f8b97efae2d267b208e8d44ffe67.html">Core</a></li><li class="navelem"><a class="el" href="dir_b0c221a875926ee633ad9f2effd4be95.html">Inc</a></li><li class="navelem"><a class="el" href="stm32h7xx__hal__conf_8h.html">stm32h7xx_hal_conf.h</a></li>
+    <li class="footer">生成于 2022年 二月 12日 星期六 02:15:47 , 为 Test使用 
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
+  </ul>
+</div>
+</body>
+</html>

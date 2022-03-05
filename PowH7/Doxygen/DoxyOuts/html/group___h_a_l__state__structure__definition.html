@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Test: HAL state structure definition</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Test
+   &#160;<span id="projectnumber">1.0.0</span>
+   </div>
+   <div id="projectbrief">OurEDA B1S Projext</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'搜索');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('group___h_a_l__state__structure__definition.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">HAL state structure definition<div class="ingroups"><a class="el" href="group___s_t_m32_h7xx___h_a_l___driver.html">STM32H7xx_HAL_Driver</a> &raquo; <a class="el" href="group___i2_c.html">I2C</a> &raquo; <a class="el" href="group___i2_c___exported___types.html">I2C Exported Types</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<dl class="section note"><dt>注解</dt><dd>HAL I2C State value coding follow below described bitmap :<br />
+ b7-b6 Error information<br />
+ 00 : No Error<br />
+ 01 : Abort (Abort user request on going)<br />
+ 10 : Timeout<br />
+ 11 : Error<br />
+ b5 Peripheral initialization status<br />
+ 0 : Reset (peripheral not initialized)<br />
+ 1 : Init done (peripheral initialized and ready to use. HAL I2C Init function called)<br />
+ b4 (not used)<br />
+ x : Should be set to 0<br />
+ b3<br />
+ 0 : Ready or Busy (No Listen mode ongoing)<br />
+ 1 : Listen (peripheral in Address Listen Mode)<br />
+ b2 Intrinsic process state<br />
+ 0 : Ready<br />
+ 1 : Busy (peripheral busy with some configuration or internal operations)<br />
+ b1 Rx state<br />
+ 0 : Ready (no Rx operation ongoing)<br />
+ 1 : Busy (Rx operation ongoing)<br />
+ b0 Tx state<br />
+ 0 : Ready (no Tx operation ongoing)<br />
+ 1 : Busy (Tx operation ongoing) </dd></dl>
+<h2 class="groupheader">枚举类型说明</h2>
+<a id="gaef355af8eab251ae2a19ee164ad81c37"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaef355af8eab251ae2a19ee164ad81c37">&#9670;&nbsp;</a></span>HAL_I2C_StateTypeDef</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___h_a_l__state__structure__definition.html#gaef355af8eab251ae2a19ee164ad81c37">HAL_I2C_StateTypeDef</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">枚举值</th></tr><tr><td class="fieldname"><a id="ggaef355af8eab251ae2a19ee164ad81c37a91ba08634e08d7287940f1bc5a37eeff"></a>HAL_I2C_STATE_RESET&#160;</td><td class="fielddoc"><p>Peripheral is not yet Initialized </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaef355af8eab251ae2a19ee164ad81c37af859ce60c5e462b0bfde3a5010bc72d1"></a>HAL_I2C_STATE_READY&#160;</td><td class="fielddoc"><p>Peripheral Initialized and ready for use </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaef355af8eab251ae2a19ee164ad81c37a0c503d6c0388f0d872b368557e278b5a"></a>HAL_I2C_STATE_BUSY&#160;</td><td class="fielddoc"><p>An internal process is ongoing </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaef355af8eab251ae2a19ee164ad81c37acb3a9e3d4d1076e0f4e65f91ca0161bc"></a>HAL_I2C_STATE_BUSY_TX&#160;</td><td class="fielddoc"><p>Data Transmission process is ongoing </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaef355af8eab251ae2a19ee164ad81c37a4ea4ecc2dc3cb64c4877c123d9d73170"></a>HAL_I2C_STATE_BUSY_RX&#160;</td><td class="fielddoc"><p>Data Reception process is ongoing </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaef355af8eab251ae2a19ee164ad81c37a13518f06f54c7515100e86bb8d6e0779"></a>HAL_I2C_STATE_LISTEN&#160;</td><td class="fielddoc"><p>Address Listen Mode is ongoing </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaef355af8eab251ae2a19ee164ad81c37a14d22553a60819b276582e08459f30b0"></a>HAL_I2C_STATE_BUSY_TX_LISTEN&#160;</td><td class="fielddoc"><p>Address Listen Mode and Data Transmission process is ongoing </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaef355af8eab251ae2a19ee164ad81c37a8aec2547eedf1c9924f8efed33e3b5c5"></a>HAL_I2C_STATE_BUSY_RX_LISTEN&#160;</td><td class="fielddoc"><p>Address Listen Mode and Data Reception process is ongoing </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaef355af8eab251ae2a19ee164ad81c37a2c6f6d1fef0847f9da51153b5c295249"></a>HAL_I2C_STATE_ABORT&#160;</td><td class="fielddoc"><p>Abort user request ongoing </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaef355af8eab251ae2a19ee164ad81c37a378abf24301fe7a23620fd78ff3f168b"></a>HAL_I2C_STATE_TIMEOUT&#160;</td><td class="fielddoc"><p>Timeout state </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggaef355af8eab251ae2a19ee164ad81c37afe3c9b304462901099426a0d414be2a2"></a>HAL_I2C_STATE_ERROR&#160;</td><td class="fielddoc"><p>Error </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">生成于 2022年 二月 12日 星期六 02:15:47 , 为 Test使用 
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
+  </ul>
+</div>
+</body>
+</html>

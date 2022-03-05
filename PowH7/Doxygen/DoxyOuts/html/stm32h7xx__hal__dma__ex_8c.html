@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Test: /mnt/f/Git_repository/OurEDA/OurEDA-B1S/PowH7/file_rebuild/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma_ex.c 文件参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Test
+   &#160;<span id="projectnumber">1.0.0</span>
+   </div>
+   <div id="projectbrief">OurEDA B1S Projext</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'搜索');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('stm32h7xx__hal__dma__ex_8c.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">stm32h7xx_hal_dma_ex.c 文件参考</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="stm32h7xx__hal_8h.html">stm32h7xx_hal.h</a>&quot;</code><br />
+</div><a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><dl class="section author"><dt>作者</dt><dd>MCD Application Team<ul>
+<li>Extended features functions</li>
+</ul>
+</dd></dl>
+<pre class="fragment">==============================================================================
+                      ##### How to use this driver #####
+==============================================================================
+[..]
+The DMA Extension HAL driver can be used as follows:
+ (+) Start a multi buffer transfer using the HAL_DMA_MultiBufferStart() function
+     for polling mode or HAL_DMA_MultiBufferStart_IT() for interrupt mode.
+
+ (+) Configure the DMA_MUX Synchronization Block using HAL_DMAEx_ConfigMuxSync function.
+ (+) Configure the DMA_MUX Request Generator Block using HAL_DMAEx_ConfigMuxRequestGenerator function.
+     Functions HAL_DMAEx_EnableMuxRequestGenerator and HAL_DMAEx_DisableMuxRequestGenerator can then be used
+     to respectively enable/disable the request generator.
+
+ (+) To handle the DMAMUX Interrupts, the function  HAL_DMAEx_MUX_IRQHandler should be called from
+     the DMAMUX IRQ handler i.e DMAMUX1_OVR_IRQHandler or DMAMUX2_OVR_IRQHandler .
+     As only one interrupt line is available for all DMAMUX channels and request generators , HAL_DMA_MUX_IRQHandler should be
+     called with, as parameter, the appropriate DMA handle as many as used DMAs in the user project
+    (exception done if a given DMA is not using the DMAMUX SYNC block neither a request generator)
+
+   -@-  In Memory-to-Memory transfer mode, Multi (Double) Buffer mode is not allowed.
+   -@-  When Multi (Double) Buffer mode is enabled, the transfer is circular by default.
+   -@-  In Multi (Double) buffer mode, it is possible to update the base address for
+        the AHB memory port on the fly (DMA_SxM0AR or DMA_SxM1AR) when the stream is enabled.
+   -@-  Multi (Double) buffer mode is possible with DMA and BDMA instances.</pre><dl class="section attention"><dt>注意</dt><dd></dd></dl>
+<h2><center>&copy; COPYRIGHT(c) 2017 STMicroelectronics. All rights reserved.</center></h2>
+<p>This software component is licensed by ST under BSD 3-Clause license, the "License"; You may not use this file except in compliance with the License. You may obtain a copy of the License at: opensource.org/licenses/BSD-3-Clause </p>
+</div></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_6fda82105328d0c1fda17a2c6574589f.html">file_rebuild</a></li><li class="navelem"><a class="el" href="dir_f8cbf11529280ea5da80b4bb44d5f9a0.html">Drivers</a></li><li class="navelem"><a class="el" href="dir_cbe7be8b90087e52769a00bbc16dac82.html">STM32H7xx_HAL_Driver</a></li><li class="navelem"><a class="el" href="dir_7ac554ab80db6bf3832da21b902c950d.html">Src</a></li><li class="navelem"><a class="el" href="stm32h7xx__hal__dma__ex_8c.html">stm32h7xx_hal_dma_ex.c</a></li>
+    <li class="footer">生成于 2022年 二月 12日 星期六 02:15:47 , 为 Test使用 
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
+  </ul>
+</div>
+</body>
+</html>

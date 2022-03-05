@@ -1,0 +1,1622 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Test: UART Private Macros</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Test
+   &#160;<span id="projectnumber">1.0.0</span>
+   </div>
+   <div id="projectbrief">OurEDA B1S Projext</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'搜索');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('group___u_a_r_t___private___macros.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#define-members">宏定义</a>  </div>
+  <div class="headertitle">
+<div class="title">UART Private Macros<div class="ingroups"><a class="el" href="group___s_t_m32_h7xx___h_a_l___driver.html">STM32H7xx_HAL_Driver</a> &raquo; <a class="el" href="group___u_a_r_t.html">UART</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+宏定义</h2></td></tr>
+<tr class="memitem:ga3899c4107cac809b69d99f0efeb6a0b7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t___private___macros.html#ga3899c4107cac809b69d99f0efeb6a0b7">UART_GET_DIV_FACTOR</a>(__CLOCKPRESCALER__)</td></tr>
+<tr class="separator:ga3899c4107cac809b69d99f0efeb6a0b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacdbf9c41318d542f8fe3841d6981e89f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t___private___macros.html#gacdbf9c41318d542f8fe3841d6981e89f">UART_DIV_LPUART</a>(__PCLK__,  __BAUD__,  __CLOCKPRESCALER__)</td></tr>
+<tr class="separator:gacdbf9c41318d542f8fe3841d6981e89f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae18b02b9da2d07b28bfc070fec4225a4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t___private___macros.html#gae18b02b9da2d07b28bfc070fec4225a4">UART_DIV_SAMPLING8</a>(__PCLK__,  __BAUD__,  __CLOCKPRESCALER__)&#160;&#160;&#160;(((((__PCLK__)/UARTPrescTable[(__CLOCKPRESCALER__)])*2U) + ((__BAUD__)/2U)) / (__BAUD__))</td></tr>
+<tr class="separator:gae18b02b9da2d07b28bfc070fec4225a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5321c542a31ad6a0dff145a71e55c1c2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t___private___macros.html#ga5321c542a31ad6a0dff145a71e55c1c2">UART_DIV_SAMPLING16</a>(__PCLK__,  __BAUD__,  __CLOCKPRESCALER__)&#160;&#160;&#160;((((__PCLK__)/UARTPrescTable[(__CLOCKPRESCALER__)]) + ((__BAUD__)/2U)) / (__BAUD__))</td></tr>
+<tr class="separator:ga5321c542a31ad6a0dff145a71e55c1c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac0df0132f5d0ad91a86f2ee9489ba699"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t___private___macros.html#gac0df0132f5d0ad91a86f2ee9489ba699">UART_INSTANCE_LOWPOWER</a>(__HANDLE__)&#160;&#160;&#160;(IS_LPUART_INSTANCE((__HANDLE__)-&gt;Instance))</td></tr>
+<tr class="separator:gac0df0132f5d0ad91a86f2ee9489ba699"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa8f50c3cc4c04875ea490fb81a08731d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t___private___macros.html#gaa8f50c3cc4c04875ea490fb81a08731d">IS_UART_BAUDRATE</a>(__BAUDRATE__)&#160;&#160;&#160;((__BAUDRATE__) &lt; 12500001U)</td></tr>
+<tr class="separator:gaa8f50c3cc4c04875ea490fb81a08731d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8acf6b6648717b7192439f1b426321a4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t___private___macros.html#ga8acf6b6648717b7192439f1b426321a4">IS_UART_ASSERTIONTIME</a>(__TIME__)&#160;&#160;&#160;((__TIME__) &lt;= 0x1FU)</td></tr>
+<tr class="separator:ga8acf6b6648717b7192439f1b426321a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7e060b24713e3fb49f4f0f4fa71dd85f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t___private___macros.html#ga7e060b24713e3fb49f4f0f4fa71dd85f">IS_UART_DEASSERTIONTIME</a>(__TIME__)&#160;&#160;&#160;((__TIME__) &lt;= 0x1FU)</td></tr>
+<tr class="separator:ga7e060b24713e3fb49f4f0f4fa71dd85f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0fa4dec621a59f8c07f42548cdbb7f18"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t___private___macros.html#ga0fa4dec621a59f8c07f42548cdbb7f18">IS_UART_STOPBITS</a>(__STOPBITS__)</td></tr>
+<tr class="separator:ga0fa4dec621a59f8c07f42548cdbb7f18"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga165adc0070f15c78424d279cb1ea70fc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t___private___macros.html#ga165adc0070f15c78424d279cb1ea70fc">IS_LPUART_STOPBITS</a>(__STOPBITS__)</td></tr>
+<tr class="separator:ga165adc0070f15c78424d279cb1ea70fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga57b0798bfa43d210f492eb3c5e218a86"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t___private___macros.html#ga57b0798bfa43d210f492eb3c5e218a86">IS_UART_PARITY</a>(__PARITY__)</td></tr>
+<tr class="separator:ga57b0798bfa43d210f492eb3c5e218a86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga92977d9daf0c39d875df200ae0ae6acd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t___private___macros.html#ga92977d9daf0c39d875df200ae0ae6acd">IS_UART_HARDWARE_FLOW_CONTROL</a>(__CONTROL__)</td></tr>
+<tr class="separator:ga92977d9daf0c39d875df200ae0ae6acd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae5b637b9191dea1f8fd3846b886dd38b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t___private___macros.html#gae5b637b9191dea1f8fd3846b886dd38b">IS_UART_MODE</a>(__MODE__)&#160;&#160;&#160;((((__MODE__) &amp; (~((uint32_t)(<a class="el" href="group___u_a_r_t___mode.html#gab47c162935901e89322e2ce6700b6744">UART_MODE_TX_RX</a>)))) == 0x00U) &amp;&amp; ((__MODE__) != 0x00U))</td></tr>
+<tr class="separator:gae5b637b9191dea1f8fd3846b886dd38b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga754855879401ab846803a03eec2f7f10"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t___private___macros.html#ga754855879401ab846803a03eec2f7f10">IS_UART_STATE</a>(__STATE__)</td></tr>
+<tr class="separator:ga754855879401ab846803a03eec2f7f10"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8d918253e015c4a8aa07316a89f8265e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t___private___macros.html#ga8d918253e015c4a8aa07316a89f8265e">IS_UART_OVERSAMPLING</a>(__SAMPLING__)</td></tr>
+<tr class="separator:ga8d918253e015c4a8aa07316a89f8265e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6452a4420dac4abd4f0ea0e1677f37a9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t___private___macros.html#ga6452a4420dac4abd4f0ea0e1677f37a9">IS_UART_ONE_BIT_SAMPLE</a>(__ONEBIT__)</td></tr>
+<tr class="separator:ga6452a4420dac4abd4f0ea0e1677f37a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga88f07bdfe1fcdff17edbbba2f196110d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t___private___macros.html#ga88f07bdfe1fcdff17edbbba2f196110d">IS_UART_ADVFEATURE_AUTOBAUDRATEMODE</a>(__MODE__)</td></tr>
+<tr class="separator:ga88f07bdfe1fcdff17edbbba2f196110d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa2ad21da17caf46375c7bd4efbde8b17"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t___private___macros.html#gaa2ad21da17caf46375c7bd4efbde8b17">IS_UART_RECEIVER_TIMEOUT</a>(__TIMEOUT__)</td></tr>
+<tr class="separator:gaa2ad21da17caf46375c7bd4efbde8b17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaee43ee42a5b1ba061322ab0763c6ef4f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t___private___macros.html#gaee43ee42a5b1ba061322ab0763c6ef4f">IS_UART_RECEIVER_TIMEOUT_VALUE</a>(__TIMEOUTVALUE__)&#160;&#160;&#160;((__TIMEOUTVALUE__) &lt;= 0xFFFFFFU)</td></tr>
+<tr class="separator:gaee43ee42a5b1ba061322ab0763c6ef4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga13d7f9876db68d9d6316204a8a2588de"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t___private___macros.html#ga13d7f9876db68d9d6316204a8a2588de">IS_UART_LIN</a>(__LIN__)</td></tr>
+<tr class="separator:ga13d7f9876db68d9d6316204a8a2588de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac8ac0d0dc7fad5edf53150ce05d902ee"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t___private___macros.html#gac8ac0d0dc7fad5edf53150ce05d902ee">IS_UART_LIN_BREAK_DETECT_LENGTH</a>(__LENGTH__)</td></tr>
+<tr class="separator:gac8ac0d0dc7fad5edf53150ce05d902ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga433107c59f6d1c66a38e53e38fdc0a57"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t___private___macros.html#ga433107c59f6d1c66a38e53e38fdc0a57">IS_UART_DMA_TX</a>(__DMATX__)</td></tr>
+<tr class="separator:ga433107c59f6d1c66a38e53e38fdc0a57"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga85c4c9339de2076106942cd9ab61ad77"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t___private___macros.html#ga85c4c9339de2076106942cd9ab61ad77">IS_UART_DMA_RX</a>(__DMARX__)</td></tr>
+<tr class="separator:ga85c4c9339de2076106942cd9ab61ad77"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2298a324be00d275d98b336569ee3f97"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t___private___macros.html#ga2298a324be00d275d98b336569ee3f97">IS_UART_HALF_DUPLEX</a>(__HDSEL__)</td></tr>
+<tr class="separator:ga2298a324be00d275d98b336569ee3f97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga144aecf3ad6ca3ce6653ae113c9a6141"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t___private___macros.html#ga144aecf3ad6ca3ce6653ae113c9a6141">IS_UART_WAKEUPMETHOD</a>(__WAKEUP__)</td></tr>
+<tr class="separator:ga144aecf3ad6ca3ce6653ae113c9a6141"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5cf62c9c598753525888cc7c24be3cb2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t___private___macros.html#ga5cf62c9c598753525888cc7c24be3cb2">IS_UART_REQUEST_PARAMETER</a>(__PARAM__)</td></tr>
+<tr class="separator:ga5cf62c9c598753525888cc7c24be3cb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad91bec43fbbaa25cec138ef8fcfbdad5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t___private___macros.html#gad91bec43fbbaa25cec138ef8fcfbdad5">IS_UART_ADVFEATURE_INIT</a>(__INIT__)</td></tr>
+<tr class="separator:gad91bec43fbbaa25cec138ef8fcfbdad5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4295a61b0afe152975609cedb9034fdc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t___private___macros.html#ga4295a61b0afe152975609cedb9034fdc">IS_UART_ADVFEATURE_TXINV</a>(__TXINV__)</td></tr>
+<tr class="separator:ga4295a61b0afe152975609cedb9034fdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7f53ad0eca57b7ffabcae9007b7bbfa6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t___private___macros.html#ga7f53ad0eca57b7ffabcae9007b7bbfa6">IS_UART_ADVFEATURE_RXINV</a>(__RXINV__)</td></tr>
+<tr class="separator:ga7f53ad0eca57b7ffabcae9007b7bbfa6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8f6cd85ae5ce7f8dd0ed9227ef5154f6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t___private___macros.html#ga8f6cd85ae5ce7f8dd0ed9227ef5154f6">IS_UART_ADVFEATURE_DATAINV</a>(__DATAINV__)</td></tr>
+<tr class="separator:ga8f6cd85ae5ce7f8dd0ed9227ef5154f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf095ad39d3035f722c6976921a84dbea"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t___private___macros.html#gaf095ad39d3035f722c6976921a84dbea">IS_UART_ADVFEATURE_SWAP</a>(__SWAP__)</td></tr>
+<tr class="separator:gaf095ad39d3035f722c6976921a84dbea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga57b4229ecb4387a0bb9137fed8de13b8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t___private___macros.html#ga57b4229ecb4387a0bb9137fed8de13b8">IS_UART_OVERRUN</a>(__OVERRUN__)</td></tr>
+<tr class="separator:ga57b4229ecb4387a0bb9137fed8de13b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7318c3e5c175b896444697a0a9407b2f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t___private___macros.html#ga7318c3e5c175b896444697a0a9407b2f">IS_UART_ADVFEATURE_AUTOBAUDRATE</a>(__AUTOBAUDRATE__)</td></tr>
+<tr class="separator:ga7318c3e5c175b896444697a0a9407b2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga15b46dfa0d80a4583864a31da73e3c99"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t___private___macros.html#ga15b46dfa0d80a4583864a31da73e3c99">IS_UART_ADVFEATURE_DMAONRXERROR</a>(__DMA__)</td></tr>
+<tr class="separator:ga15b46dfa0d80a4583864a31da73e3c99"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga82289de330949918b037acf94fb12aef"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t___private___macros.html#ga82289de330949918b037acf94fb12aef">IS_UART_ADVFEATURE_MSBFIRST</a>(__MSBFIRST__)</td></tr>
+<tr class="separator:ga82289de330949918b037acf94fb12aef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae0055233b6372a290fe69c811d307c5e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t___private___macros.html#gae0055233b6372a290fe69c811d307c5e">IS_UART_ADVFEATURE_STOPMODE</a>(__STOPMODE__)</td></tr>
+<tr class="separator:gae0055233b6372a290fe69c811d307c5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9df22e11f8bc82847fbe16b6f073ae04"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t___private___macros.html#ga9df22e11f8bc82847fbe16b6f073ae04">IS_UART_MUTE_MODE</a>(__MUTE__)</td></tr>
+<tr class="separator:ga9df22e11f8bc82847fbe16b6f073ae04"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaab6d7b59cffaf070ac3db100c76f4654"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t___private___macros.html#gaab6d7b59cffaf070ac3db100c76f4654">IS_UART_WAKEUP_SELECTION</a>(__WAKE__)</td></tr>
+<tr class="separator:gaab6d7b59cffaf070ac3db100c76f4654"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaecf169f01673ae67b12b3155e074bf12"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t___private___macros.html#gaecf169f01673ae67b12b3155e074bf12">IS_UART_DE_POLARITY</a>(__POLARITY__)</td></tr>
+<tr class="separator:gaecf169f01673ae67b12b3155e074bf12"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9d8c59b67eaeb7e5f112e7c9123039ae"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___u_a_r_t___private___macros.html#ga9d8c59b67eaeb7e5f112e7c9123039ae">IS_UART_PRESCALER</a>(__CLOCKPRESCALER__)</td></tr>
+<tr class="separator:ga9d8c59b67eaeb7e5f112e7c9123039ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<h2 class="groupheader">宏定义说明</h2>
+<a id="ga3899c4107cac809b69d99f0efeb6a0b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga3899c4107cac809b69d99f0efeb6a0b7">&#9670;&nbsp;</a></span>UART_GET_DIV_FACTOR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UART_GET_DIV_FACTOR</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">__CLOCKPRESCALER__</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">(((__CLOCKPRESCALER__) == <a class="code" href="group___u_a_r_t___clock_prescaler.html#ga7e210157853228d94668b5ee7233087d">UART_PRESCALER_DIV1</a>)   ? 1U :       \</div><div class="line">   ((__CLOCKPRESCALER__) == <a class="code" href="group___u_a_r_t___clock_prescaler.html#gace5f0cc2723defa6e1858d6dd7328146">UART_PRESCALER_DIV2</a>)   ? 2U :       \</div><div class="line">   ((__CLOCKPRESCALER__) == <a class="code" href="group___u_a_r_t___clock_prescaler.html#gab908550eaada50e9abb57e27f2a1b32b">UART_PRESCALER_DIV4</a>)   ? 4U :       \</div><div class="line">   ((__CLOCKPRESCALER__) == <a class="code" href="group___u_a_r_t___clock_prescaler.html#ga39932cc9816584194aec27a1fe5069f4">UART_PRESCALER_DIV6</a>)   ? 6U :       \</div><div class="line">   ((__CLOCKPRESCALER__) == <a class="code" href="group___u_a_r_t___clock_prescaler.html#gaa8243381f97aa0b2c22d3d760c1828fb">UART_PRESCALER_DIV8</a>)   ? 8U :       \</div><div class="line">   ((__CLOCKPRESCALER__) == <a class="code" href="group___u_a_r_t___clock_prescaler.html#ga1e3e467c48fcb55666761454a7412640">UART_PRESCALER_DIV10</a>)  ? 10U :      \</div><div class="line">   ((__CLOCKPRESCALER__) == <a class="code" href="group___u_a_r_t___clock_prescaler.html#gad256f52714b04a7559e8f9176322be92">UART_PRESCALER_DIV12</a>)  ? 12U :      \</div><div class="line">   ((__CLOCKPRESCALER__) == <a class="code" href="group___u_a_r_t___clock_prescaler.html#ga8332f7185809795e77bce091dfd3663c">UART_PRESCALER_DIV16</a>)  ? 16U :      \</div><div class="line">   ((__CLOCKPRESCALER__) == <a class="code" href="group___u_a_r_t___clock_prescaler.html#gaad93948e7d021e2fe44dec073cafcea4">UART_PRESCALER_DIV32</a>)  ? 32U :      \</div><div class="line">   ((__CLOCKPRESCALER__) == <a class="code" href="group___u_a_r_t___clock_prescaler.html#gada8fd9635ead84946cf45aa4bf3f682e">UART_PRESCALER_DIV64</a>)  ? 64U :      \</div><div class="line">   ((__CLOCKPRESCALER__) == <a class="code" href="group___u_a_r_t___clock_prescaler.html#gac111f3090e35143688710114e1e9be6d">UART_PRESCALER_DIV128</a>) ? 128U :     \</div><div class="line">   ((__CLOCKPRESCALER__) == <a class="code" href="group___u_a_r_t___clock_prescaler.html#ga0d602ff1d466e94c5ebe85c2e9e36d11">UART_PRESCALER_DIV256</a>) ? 256U : 1U)</div><div class="ttc" id="group___u_a_r_t___clock_prescaler_html_gaa8243381f97aa0b2c22d3d760c1828fb"><div class="ttname"><a href="group___u_a_r_t___clock_prescaler.html#gaa8243381f97aa0b2c22d3d760c1828fb">UART_PRESCALER_DIV8</a></div><div class="ttdeci">#define UART_PRESCALER_DIV8</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:450</div></div>
+<div class="ttc" id="group___u_a_r_t___clock_prescaler_html_gaad93948e7d021e2fe44dec073cafcea4"><div class="ttname"><a href="group___u_a_r_t___clock_prescaler.html#gaad93948e7d021e2fe44dec073cafcea4">UART_PRESCALER_DIV32</a></div><div class="ttdeci">#define UART_PRESCALER_DIV32</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:454</div></div>
+<div class="ttc" id="group___u_a_r_t___clock_prescaler_html_gada8fd9635ead84946cf45aa4bf3f682e"><div class="ttname"><a href="group___u_a_r_t___clock_prescaler.html#gada8fd9635ead84946cf45aa4bf3f682e">UART_PRESCALER_DIV64</a></div><div class="ttdeci">#define UART_PRESCALER_DIV64</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:455</div></div>
+<div class="ttc" id="group___u_a_r_t___clock_prescaler_html_gab908550eaada50e9abb57e27f2a1b32b"><div class="ttname"><a href="group___u_a_r_t___clock_prescaler.html#gab908550eaada50e9abb57e27f2a1b32b">UART_PRESCALER_DIV4</a></div><div class="ttdeci">#define UART_PRESCALER_DIV4</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:448</div></div>
+<div class="ttc" id="group___u_a_r_t___clock_prescaler_html_ga0d602ff1d466e94c5ebe85c2e9e36d11"><div class="ttname"><a href="group___u_a_r_t___clock_prescaler.html#ga0d602ff1d466e94c5ebe85c2e9e36d11">UART_PRESCALER_DIV256</a></div><div class="ttdeci">#define UART_PRESCALER_DIV256</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:457</div></div>
+<div class="ttc" id="group___u_a_r_t___clock_prescaler_html_ga7e210157853228d94668b5ee7233087d"><div class="ttname"><a href="group___u_a_r_t___clock_prescaler.html#ga7e210157853228d94668b5ee7233087d">UART_PRESCALER_DIV1</a></div><div class="ttdeci">#define UART_PRESCALER_DIV1</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:446</div></div>
+<div class="ttc" id="group___u_a_r_t___clock_prescaler_html_gace5f0cc2723defa6e1858d6dd7328146"><div class="ttname"><a href="group___u_a_r_t___clock_prescaler.html#gace5f0cc2723defa6e1858d6dd7328146">UART_PRESCALER_DIV2</a></div><div class="ttdeci">#define UART_PRESCALER_DIV2</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:447</div></div>
+<div class="ttc" id="group___u_a_r_t___clock_prescaler_html_ga39932cc9816584194aec27a1fe5069f4"><div class="ttname"><a href="group___u_a_r_t___clock_prescaler.html#ga39932cc9816584194aec27a1fe5069f4">UART_PRESCALER_DIV6</a></div><div class="ttdeci">#define UART_PRESCALER_DIV6</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:449</div></div>
+<div class="ttc" id="group___u_a_r_t___clock_prescaler_html_ga8332f7185809795e77bce091dfd3663c"><div class="ttname"><a href="group___u_a_r_t___clock_prescaler.html#ga8332f7185809795e77bce091dfd3663c">UART_PRESCALER_DIV16</a></div><div class="ttdeci">#define UART_PRESCALER_DIV16</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:453</div></div>
+<div class="ttc" id="group___u_a_r_t___clock_prescaler_html_gad256f52714b04a7559e8f9176322be92"><div class="ttname"><a href="group___u_a_r_t___clock_prescaler.html#gad256f52714b04a7559e8f9176322be92">UART_PRESCALER_DIV12</a></div><div class="ttdeci">#define UART_PRESCALER_DIV12</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:452</div></div>
+<div class="ttc" id="group___u_a_r_t___clock_prescaler_html_ga1e3e467c48fcb55666761454a7412640"><div class="ttname"><a href="group___u_a_r_t___clock_prescaler.html#ga1e3e467c48fcb55666761454a7412640">UART_PRESCALER_DIV10</a></div><div class="ttdeci">#define UART_PRESCALER_DIV10</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:451</div></div>
+<div class="ttc" id="group___u_a_r_t___clock_prescaler_html_gac111f3090e35143688710114e1e9be6d"><div class="ttname"><a href="group___u_a_r_t___clock_prescaler.html#gac111f3090e35143688710114e1e9be6d">UART_PRESCALER_DIV128</a></div><div class="ttdeci">#define UART_PRESCALER_DIV128</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:456</div></div>
+</div><!-- fragment -->
+<p>Get UART clok division factor from clock prescaler value. </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">&lt;strong&gt;CLOCKPRESCALER&lt;/strong&gt;</td><td>UART prescaler value. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">UART</td><td>clock division factor </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gacdbf9c41318d542f8fe3841d6981e89f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gacdbf9c41318d542f8fe3841d6981e89f">&#9670;&nbsp;</a></span>UART_DIV_LPUART</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UART_DIV_LPUART</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">__PCLK__, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">__BAUD__, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">__CLOCKPRESCALER__&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">((uint32_t)((((((uint64_t)(__PCLK__))/(UARTPrescTable[(__CLOCKPRESCALER__)]))*256U)+ \</div><div class="line">               (uint32_t)((__BAUD__)/2U)) / (__BAUD__))                                \</div><div class="line">  )</div></div><!-- fragment -->
+<p>BRR division operation to set BRR register with LPUART. </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">&lt;strong&gt;PCLK&lt;/strong&gt;</td><td>LPUART clock. </td></tr>
+    <tr><td class="paramname">&lt;strong&gt;BAUD&lt;/strong&gt;</td><td>Baud rate set by the user. </td></tr>
+    <tr><td class="paramname">&lt;strong&gt;CLOCKPRESCALER&lt;/strong&gt;</td><td>UART prescaler value. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">Division</td><td>result </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gae18b02b9da2d07b28bfc070fec4225a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae18b02b9da2d07b28bfc070fec4225a4">&#9670;&nbsp;</a></span>UART_DIV_SAMPLING8</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UART_DIV_SAMPLING8</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">__PCLK__, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">__BAUD__, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">__CLOCKPRESCALER__&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;(((((__PCLK__)/UARTPrescTable[(__CLOCKPRESCALER__)])*2U) + ((__BAUD__)/2U)) / (__BAUD__))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>BRR division operation to set BRR register in 8-bit oversampling mode. </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">&lt;strong&gt;PCLK&lt;/strong&gt;</td><td>UART clock. </td></tr>
+    <tr><td class="paramname">&lt;strong&gt;BAUD&lt;/strong&gt;</td><td>Baud rate set by the user. </td></tr>
+    <tr><td class="paramname">&lt;strong&gt;CLOCKPRESCALER&lt;/strong&gt;</td><td>UART prescaler value. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">Division</td><td>result </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga5321c542a31ad6a0dff145a71e55c1c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5321c542a31ad6a0dff145a71e55c1c2">&#9670;&nbsp;</a></span>UART_DIV_SAMPLING16</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UART_DIV_SAMPLING16</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">__PCLK__, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">__BAUD__, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">__CLOCKPRESCALER__&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;((((__PCLK__)/UARTPrescTable[(__CLOCKPRESCALER__)]) + ((__BAUD__)/2U)) / (__BAUD__))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>BRR division operation to set BRR register in 16-bit oversampling mode. </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">&lt;strong&gt;PCLK&lt;/strong&gt;</td><td>UART clock. </td></tr>
+    <tr><td class="paramname">&lt;strong&gt;BAUD&lt;/strong&gt;</td><td>Baud rate set by the user. </td></tr>
+    <tr><td class="paramname">&lt;strong&gt;CLOCKPRESCALER&lt;/strong&gt;</td><td>UART prescaler value. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">Division</td><td>result </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gac0df0132f5d0ad91a86f2ee9489ba699"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gac0df0132f5d0ad91a86f2ee9489ba699">&#9670;&nbsp;</a></span>UART_INSTANCE_LOWPOWER</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UART_INSTANCE_LOWPOWER</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">__HANDLE__</td><td>)</td>
+          <td>&#160;&#160;&#160;(IS_LPUART_INSTANCE((__HANDLE__)-&gt;Instance))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Check whether or not UART instance is Low Power UART. </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">&lt;strong&gt;HANDLE&lt;/strong&gt;</td><td>specifies the UART Handle. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">SET</td><td>(instance is LPUART) or RESET (instance isn't LPUART) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gaa8f50c3cc4c04875ea490fb81a08731d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa8f50c3cc4c04875ea490fb81a08731d">&#9670;&nbsp;</a></span>IS_UART_BAUDRATE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IS_UART_BAUDRATE</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">__BAUDRATE__</td><td>)</td>
+          <td>&#160;&#160;&#160;((__BAUDRATE__) &lt; 12500001U)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Check UART Baud rate. </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">&lt;strong&gt;BAUDRATE&lt;/strong&gt;</td><td>Baudrate specified by the user. The maximum Baud Rate is derived from the maximum clock on H7 (i.e. 100 MHz) divided by the smallest oversampling used on the USART (i.e. 8) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">SET</td><td>(<b>BAUDRATE</b> is valid) or RESET (<b>BAUDRATE</b> is invalid) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga8acf6b6648717b7192439f1b426321a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga8acf6b6648717b7192439f1b426321a4">&#9670;&nbsp;</a></span>IS_UART_ASSERTIONTIME</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IS_UART_ASSERTIONTIME</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">__TIME__</td><td>)</td>
+          <td>&#160;&#160;&#160;((__TIME__) &lt;= 0x1FU)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Check UART assertion time. </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">&lt;strong&gt;TIME&lt;/strong&gt;</td><td>5-bit value assertion time. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">Test</td><td>result (TRUE or FALSE). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga7e060b24713e3fb49f4f0f4fa71dd85f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga7e060b24713e3fb49f4f0f4fa71dd85f">&#9670;&nbsp;</a></span>IS_UART_DEASSERTIONTIME</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IS_UART_DEASSERTIONTIME</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">__TIME__</td><td>)</td>
+          <td>&#160;&#160;&#160;((__TIME__) &lt;= 0x1FU)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Check UART deassertion time. </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">&lt;strong&gt;TIME&lt;/strong&gt;</td><td>5-bit value deassertion time. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">Test</td><td>result (TRUE or FALSE). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga0fa4dec621a59f8c07f42548cdbb7f18"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0fa4dec621a59f8c07f42548cdbb7f18">&#9670;&nbsp;</a></span>IS_UART_STOPBITS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IS_UART_STOPBITS</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">__STOPBITS__</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">(((__STOPBITS__) == <a class="code" href="group___u_a_r_t___stop___bits.html#ga4c280770879367f7af395b7b41f60d93">UART_STOPBITS_0_5</a>) || \</div><div class="line">                                        ((__STOPBITS__) == <a class="code" href="group___u_a_r_t___stop___bits.html#ga7cf97e555292d574de8abc596ba0e2ce">UART_STOPBITS_1</a>)   || \</div><div class="line">                                        ((__STOPBITS__) == <a class="code" href="group___u_a_r_t___stop___bits.html#ga99fcce2358d8ef0b60cf562e4d9fddd8">UART_STOPBITS_1_5</a>) || \</div><div class="line">                                        ((__STOPBITS__) == <a class="code" href="group___u_a_r_t___stop___bits.html#ga91616523380f7450aac6cb7e17f0c0f2">UART_STOPBITS_2</a>))</div><div class="ttc" id="group___u_a_r_t___stop___bits_html_ga4c280770879367f7af395b7b41f60d93"><div class="ttname"><a href="group___u_a_r_t___stop___bits.html#ga4c280770879367f7af395b7b41f60d93">UART_STOPBITS_0_5</a></div><div class="ttdeci">#define UART_STOPBITS_0_5</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:377</div></div>
+<div class="ttc" id="group___u_a_r_t___stop___bits_html_ga91616523380f7450aac6cb7e17f0c0f2"><div class="ttname"><a href="group___u_a_r_t___stop___bits.html#ga91616523380f7450aac6cb7e17f0c0f2">UART_STOPBITS_2</a></div><div class="ttdeci">#define UART_STOPBITS_2</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:380</div></div>
+<div class="ttc" id="group___u_a_r_t___stop___bits_html_ga99fcce2358d8ef0b60cf562e4d9fddd8"><div class="ttname"><a href="group___u_a_r_t___stop___bits.html#ga99fcce2358d8ef0b60cf562e4d9fddd8">UART_STOPBITS_1_5</a></div><div class="ttdeci">#define UART_STOPBITS_1_5</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:379</div></div>
+<div class="ttc" id="group___u_a_r_t___stop___bits_html_ga7cf97e555292d574de8abc596ba0e2ce"><div class="ttname"><a href="group___u_a_r_t___stop___bits.html#ga7cf97e555292d574de8abc596ba0e2ce">UART_STOPBITS_1</a></div><div class="ttdeci">#define UART_STOPBITS_1</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:378</div></div>
+</div><!-- fragment -->
+<p>Ensure that UART frame number of stop bits is valid. </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">&lt;strong&gt;STOPBITS&lt;/strong&gt;</td><td>UART frame number of stop bits. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">SET</td><td>(<b>STOPBITS</b> is valid) or RESET (<b>STOPBITS</b> is invalid) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga165adc0070f15c78424d279cb1ea70fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga165adc0070f15c78424d279cb1ea70fc">&#9670;&nbsp;</a></span>IS_LPUART_STOPBITS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IS_LPUART_STOPBITS</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">__STOPBITS__</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">(((__STOPBITS__) == <a class="code" href="group___u_a_r_t___stop___bits.html#ga7cf97e555292d574de8abc596ba0e2ce">UART_STOPBITS_1</a>) || \</div><div class="line">                                          ((__STOPBITS__) == <a class="code" href="group___u_a_r_t___stop___bits.html#ga91616523380f7450aac6cb7e17f0c0f2">UART_STOPBITS_2</a>))</div><div class="ttc" id="group___u_a_r_t___stop___bits_html_ga91616523380f7450aac6cb7e17f0c0f2"><div class="ttname"><a href="group___u_a_r_t___stop___bits.html#ga91616523380f7450aac6cb7e17f0c0f2">UART_STOPBITS_2</a></div><div class="ttdeci">#define UART_STOPBITS_2</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:380</div></div>
+<div class="ttc" id="group___u_a_r_t___stop___bits_html_ga7cf97e555292d574de8abc596ba0e2ce"><div class="ttname"><a href="group___u_a_r_t___stop___bits.html#ga7cf97e555292d574de8abc596ba0e2ce">UART_STOPBITS_1</a></div><div class="ttdeci">#define UART_STOPBITS_1</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:378</div></div>
+</div><!-- fragment -->
+<p>Ensure that LPUART frame number of stop bits is valid. </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">&lt;strong&gt;STOPBITS&lt;/strong&gt;</td><td>LPUART frame number of stop bits. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">SET</td><td>(<b>STOPBITS</b> is valid) or RESET (<b>STOPBITS</b> is invalid) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga57b0798bfa43d210f492eb3c5e218a86"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga57b0798bfa43d210f492eb3c5e218a86">&#9670;&nbsp;</a></span>IS_UART_PARITY</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IS_UART_PARITY</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">__PARITY__</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">(((__PARITY__) == <a class="code" href="group___u_a_r_t___parity.html#ga270dea6e1a92dd83fe58802450bdd60c">UART_PARITY_NONE</a>) || \</div><div class="line">                                    ((__PARITY__) == <a class="code" href="group___u_a_r_t___parity.html#ga063b14ac42ef9e8f4246c17a586b14eb">UART_PARITY_EVEN</a>) || \</div><div class="line">                                    ((__PARITY__) == <a class="code" href="group___u_a_r_t___parity.html#ga229615e64964f68f7a856ea6ffea359e">UART_PARITY_ODD</a>))</div><div class="ttc" id="group___u_a_r_t___parity_html_ga229615e64964f68f7a856ea6ffea359e"><div class="ttname"><a href="group___u_a_r_t___parity.html#ga229615e64964f68f7a856ea6ffea359e">UART_PARITY_ODD</a></div><div class="ttdeci">#define UART_PARITY_ODD</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:390</div></div>
+<div class="ttc" id="group___u_a_r_t___parity_html_ga270dea6e1a92dd83fe58802450bdd60c"><div class="ttname"><a href="group___u_a_r_t___parity.html#ga270dea6e1a92dd83fe58802450bdd60c">UART_PARITY_NONE</a></div><div class="ttdeci">#define UART_PARITY_NONE</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:388</div></div>
+<div class="ttc" id="group___u_a_r_t___parity_html_ga063b14ac42ef9e8f4246c17a586b14eb"><div class="ttname"><a href="group___u_a_r_t___parity.html#ga063b14ac42ef9e8f4246c17a586b14eb">UART_PARITY_EVEN</a></div><div class="ttdeci">#define UART_PARITY_EVEN</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:389</div></div>
+</div><!-- fragment -->
+<p>Ensure that UART frame parity is valid. </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">&lt;strong&gt;PARITY&lt;/strong&gt;</td><td>UART frame parity. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">SET</td><td>(<b>PARITY</b> is valid) or RESET (<b>PARITY</b> is invalid) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga92977d9daf0c39d875df200ae0ae6acd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga92977d9daf0c39d875df200ae0ae6acd">&#9670;&nbsp;</a></span>IS_UART_HARDWARE_FLOW_CONTROL</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IS_UART_HARDWARE_FLOW_CONTROL</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">__CONTROL__</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">(((__CONTROL__) == <a class="code" href="group___u_a_r_t___hardware___flow___control.html#gae0569001c06b7760cd38c481f84116cf">UART_HWCONTROL_NONE</a>) || \</div><div class="line">   ((__CONTROL__) == <a class="code" href="group___u_a_r_t___hardware___flow___control.html#ga6d5dad09c6abf30f252084ba0f8c0b7d">UART_HWCONTROL_RTS</a>)  || \</div><div class="line">   ((__CONTROL__) == <a class="code" href="group___u_a_r_t___hardware___flow___control.html#ga352f517245986e3b86bc75f8472c51ea">UART_HWCONTROL_CTS</a>)  || \</div><div class="line">   ((__CONTROL__) == <a class="code" href="group___u_a_r_t___hardware___flow___control.html#ga7c91698e8f08ba7ed3f2a0ba9aa27d73">UART_HWCONTROL_RTS_CTS</a>))</div><div class="ttc" id="group___u_a_r_t___hardware___flow___control_html_ga7c91698e8f08ba7ed3f2a0ba9aa27d73"><div class="ttname"><a href="group___u_a_r_t___hardware___flow___control.html#ga7c91698e8f08ba7ed3f2a0ba9aa27d73">UART_HWCONTROL_RTS_CTS</a></div><div class="ttdeci">#define UART_HWCONTROL_RTS_CTS</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:401</div></div>
+<div class="ttc" id="group___u_a_r_t___hardware___flow___control_html_ga352f517245986e3b86bc75f8472c51ea"><div class="ttname"><a href="group___u_a_r_t___hardware___flow___control.html#ga352f517245986e3b86bc75f8472c51ea">UART_HWCONTROL_CTS</a></div><div class="ttdeci">#define UART_HWCONTROL_CTS</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:400</div></div>
+<div class="ttc" id="group___u_a_r_t___hardware___flow___control_html_ga6d5dad09c6abf30f252084ba0f8c0b7d"><div class="ttname"><a href="group___u_a_r_t___hardware___flow___control.html#ga6d5dad09c6abf30f252084ba0f8c0b7d">UART_HWCONTROL_RTS</a></div><div class="ttdeci">#define UART_HWCONTROL_RTS</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:399</div></div>
+<div class="ttc" id="group___u_a_r_t___hardware___flow___control_html_gae0569001c06b7760cd38c481f84116cf"><div class="ttname"><a href="group___u_a_r_t___hardware___flow___control.html#gae0569001c06b7760cd38c481f84116cf">UART_HWCONTROL_NONE</a></div><div class="ttdeci">#define UART_HWCONTROL_NONE</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:398</div></div>
+</div><!-- fragment -->
+<p>Ensure that UART hardware flow control is valid. </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">&lt;strong&gt;CONTROL&lt;/strong&gt;</td><td>UART hardware flow control. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">SET</td><td>(<b>CONTROL</b> is valid) or RESET (<b>CONTROL</b> is invalid) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gae5b637b9191dea1f8fd3846b886dd38b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae5b637b9191dea1f8fd3846b886dd38b">&#9670;&nbsp;</a></span>IS_UART_MODE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IS_UART_MODE</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">__MODE__</td><td>)</td>
+          <td>&#160;&#160;&#160;((((__MODE__) &amp; (~((uint32_t)(<a class="el" href="group___u_a_r_t___mode.html#gab47c162935901e89322e2ce6700b6744">UART_MODE_TX_RX</a>)))) == 0x00U) &amp;&amp; ((__MODE__) != 0x00U))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Ensure that UART communication mode is valid. </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">&lt;strong&gt;MODE&lt;/strong&gt;</td><td>UART communication mode. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">SET</td><td>(<b>MODE</b> is valid) or RESET (<b>MODE</b> is invalid) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga754855879401ab846803a03eec2f7f10"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga754855879401ab846803a03eec2f7f10">&#9670;&nbsp;</a></span>IS_UART_STATE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IS_UART_STATE</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">__STATE__</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">(((__STATE__) == <a class="code" href="group___u_a_r_t___state.html#gaf32492459be708981ebc5615194cdae9">UART_STATE_DISABLE</a>) || \</div><div class="line">                                  ((__STATE__) == <a class="code" href="group___u_a_r_t___state.html#gab6b470dccef2a518a45554b171acff5b">UART_STATE_ENABLE</a>))</div><div class="ttc" id="group___u_a_r_t___state_html_gab6b470dccef2a518a45554b171acff5b"><div class="ttname"><a href="group___u_a_r_t___state.html#gab6b470dccef2a518a45554b171acff5b">UART_STATE_ENABLE</a></div><div class="ttdeci">#define UART_STATE_ENABLE</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:420</div></div>
+<div class="ttc" id="group___u_a_r_t___state_html_gaf32492459be708981ebc5615194cdae9"><div class="ttname"><a href="group___u_a_r_t___state.html#gaf32492459be708981ebc5615194cdae9">UART_STATE_DISABLE</a></div><div class="ttdeci">#define UART_STATE_DISABLE</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:419</div></div>
+</div><!-- fragment -->
+<p>Ensure that UART state is valid. </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">&lt;strong&gt;STATE&lt;/strong&gt;</td><td>UART state. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">SET</td><td>(<b>STATE</b> is valid) or RESET (<b>STATE</b> is invalid) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga8d918253e015c4a8aa07316a89f8265e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga8d918253e015c4a8aa07316a89f8265e">&#9670;&nbsp;</a></span>IS_UART_OVERSAMPLING</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IS_UART_OVERSAMPLING</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">__SAMPLING__</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">(((__SAMPLING__) == <a class="code" href="group___u_a_r_t___over___sampling.html#gaa6a320ec65d248d76f21de818db1a2f0">UART_OVERSAMPLING_16</a>) || \</div><div class="line">                                            ((__SAMPLING__) == <a class="code" href="group___u_a_r_t___over___sampling.html#gaeb13896e8bdc1bb041e01a86a868ee0b">UART_OVERSAMPLING_8</a>))</div><div class="ttc" id="group___u_a_r_t___over___sampling_html_gaa6a320ec65d248d76f21de818db1a2f0"><div class="ttname"><a href="group___u_a_r_t___over___sampling.html#gaa6a320ec65d248d76f21de818db1a2f0">UART_OVERSAMPLING_16</a></div><div class="ttdeci">#define UART_OVERSAMPLING_16</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:428</div></div>
+<div class="ttc" id="group___u_a_r_t___over___sampling_html_gaeb13896e8bdc1bb041e01a86a868ee0b"><div class="ttname"><a href="group___u_a_r_t___over___sampling.html#gaeb13896e8bdc1bb041e01a86a868ee0b">UART_OVERSAMPLING_8</a></div><div class="ttdeci">#define UART_OVERSAMPLING_8</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:429</div></div>
+</div><!-- fragment -->
+<p>Ensure that UART oversampling is valid. </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">&lt;strong&gt;SAMPLING&lt;/strong&gt;</td><td>UART oversampling. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">SET</td><td>(<b>SAMPLING</b> is valid) or RESET (<b>SAMPLING</b> is invalid) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga6452a4420dac4abd4f0ea0e1677f37a9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga6452a4420dac4abd4f0ea0e1677f37a9">&#9670;&nbsp;</a></span>IS_UART_ONE_BIT_SAMPLE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IS_UART_ONE_BIT_SAMPLE</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">__ONEBIT__</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">(((__ONEBIT__) == <a class="code" href="group___u_a_r_t___one_bit___sampling.html#gadfcb0e9db2719321048b249b2c5cc15f">UART_ONE_BIT_SAMPLE_DISABLE</a>) || \</div><div class="line">                                            ((__ONEBIT__) == <a class="code" href="group___u_a_r_t___one_bit___sampling.html#gadcc0aed6e7a466da3c45363f69dcbfb6">UART_ONE_BIT_SAMPLE_ENABLE</a>))</div><div class="ttc" id="group___u_a_r_t___one_bit___sampling_html_gadcc0aed6e7a466da3c45363f69dcbfb6"><div class="ttname"><a href="group___u_a_r_t___one_bit___sampling.html#gadcc0aed6e7a466da3c45363f69dcbfb6">UART_ONE_BIT_SAMPLE_ENABLE</a></div><div class="ttdeci">#define UART_ONE_BIT_SAMPLE_ENABLE</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:438</div></div>
+<div class="ttc" id="group___u_a_r_t___one_bit___sampling_html_gadfcb0e9db2719321048b249b2c5cc15f"><div class="ttname"><a href="group___u_a_r_t___one_bit___sampling.html#gadfcb0e9db2719321048b249b2c5cc15f">UART_ONE_BIT_SAMPLE_DISABLE</a></div><div class="ttdeci">#define UART_ONE_BIT_SAMPLE_DISABLE</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:437</div></div>
+</div><!-- fragment -->
+<p>Ensure that UART frame sampling is valid. </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">&lt;strong&gt;ONEBIT&lt;/strong&gt;</td><td>UART frame sampling. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">SET</td><td>(<b>ONEBIT</b> is valid) or RESET (<b>ONEBIT</b> is invalid) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga88f07bdfe1fcdff17edbbba2f196110d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga88f07bdfe1fcdff17edbbba2f196110d">&#9670;&nbsp;</a></span>IS_UART_ADVFEATURE_AUTOBAUDRATEMODE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IS_UART_ADVFEATURE_AUTOBAUDRATEMODE</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">__MODE__</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">(((__MODE__) == <a class="code" href="group___u_a_r_t___auto_baud___rate___mode.html#ga87bcd5d6ca1b354785788366c9c47606">UART_ADVFEATURE_AUTOBAUDRATE_ONSTARTBIT</a>)    || \</div><div class="line">                                                        ((__MODE__) == <a class="code" href="group___u_a_r_t___auto_baud___rate___mode.html#ga8ac0407640f138067bdcf2ad6cdc04cc">UART_ADVFEATURE_AUTOBAUDRATE_ONFALLINGEDGE</a>) || \</div><div class="line">                                                        ((__MODE__) == <a class="code" href="group___u_a_r_t___auto_baud___rate___mode.html#ga0bdbaec8f1186a4bbbdef5e09896a3e2">UART_ADVFEATURE_AUTOBAUDRATE_ON0X7FFRAME</a>)   || \</div><div class="line">                                                        ((__MODE__) == <a class="code" href="group___u_a_r_t___auto_baud___rate___mode.html#gaa325fa0ee642902e4746a53f9b58720d">UART_ADVFEATURE_AUTOBAUDRATE_ON0X55FRAME</a>))</div><div class="ttc" id="group___u_a_r_t___auto_baud___rate___mode_html_ga8ac0407640f138067bdcf2ad6cdc04cc"><div class="ttname"><a href="group___u_a_r_t___auto_baud___rate___mode.html#ga8ac0407640f138067bdcf2ad6cdc04cc">UART_ADVFEATURE_AUTOBAUDRATE_ONFALLINGEDGE</a></div><div class="ttdeci">#define UART_ADVFEATURE_AUTOBAUDRATE_ONFALLINGEDGE</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:468</div></div>
+<div class="ttc" id="group___u_a_r_t___auto_baud___rate___mode_html_ga0bdbaec8f1186a4bbbdef5e09896a3e2"><div class="ttname"><a href="group___u_a_r_t___auto_baud___rate___mode.html#ga0bdbaec8f1186a4bbbdef5e09896a3e2">UART_ADVFEATURE_AUTOBAUDRATE_ON0X7FFRAME</a></div><div class="ttdeci">#define UART_ADVFEATURE_AUTOBAUDRATE_ON0X7FFRAME</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:471</div></div>
+<div class="ttc" id="group___u_a_r_t___auto_baud___rate___mode_html_ga87bcd5d6ca1b354785788366c9c47606"><div class="ttname"><a href="group___u_a_r_t___auto_baud___rate___mode.html#ga87bcd5d6ca1b354785788366c9c47606">UART_ADVFEATURE_AUTOBAUDRATE_ONSTARTBIT</a></div><div class="ttdeci">#define UART_ADVFEATURE_AUTOBAUDRATE_ONSTARTBIT</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:465</div></div>
+<div class="ttc" id="group___u_a_r_t___auto_baud___rate___mode_html_gaa325fa0ee642902e4746a53f9b58720d"><div class="ttname"><a href="group___u_a_r_t___auto_baud___rate___mode.html#gaa325fa0ee642902e4746a53f9b58720d">UART_ADVFEATURE_AUTOBAUDRATE_ON0X55FRAME</a></div><div class="ttdeci">#define UART_ADVFEATURE_AUTOBAUDRATE_ON0X55FRAME</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:474</div></div>
+</div><!-- fragment -->
+<p>Ensure that UART auto Baud rate detection mode is valid. </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">&lt;strong&gt;MODE&lt;/strong&gt;</td><td>UART auto Baud rate detection mode. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">SET</td><td>(<b>MODE</b> is valid) or RESET (<b>MODE</b> is invalid) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gaa2ad21da17caf46375c7bd4efbde8b17"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa2ad21da17caf46375c7bd4efbde8b17">&#9670;&nbsp;</a></span>IS_UART_RECEIVER_TIMEOUT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IS_UART_RECEIVER_TIMEOUT</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">__TIMEOUT__</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">(((__TIMEOUT__) == <a class="code" href="group___u_a_r_t___receiver___timeout.html#ga575c43813df656b21dc39aff6a968046">UART_RECEIVER_TIMEOUT_DISABLE</a>) || \</div><div class="line">                                                ((__TIMEOUT__) == <a class="code" href="group___u_a_r_t___receiver___timeout.html#ga6e25985f0dacc3e79ae552746952ac18">UART_RECEIVER_TIMEOUT_ENABLE</a>))</div><div class="ttc" id="group___u_a_r_t___receiver___timeout_html_ga575c43813df656b21dc39aff6a968046"><div class="ttname"><a href="group___u_a_r_t___receiver___timeout.html#ga575c43813df656b21dc39aff6a968046">UART_RECEIVER_TIMEOUT_DISABLE</a></div><div class="ttdeci">#define UART_RECEIVER_TIMEOUT_DISABLE</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:484</div></div>
+<div class="ttc" id="group___u_a_r_t___receiver___timeout_html_ga6e25985f0dacc3e79ae552746952ac18"><div class="ttname"><a href="group___u_a_r_t___receiver___timeout.html#ga6e25985f0dacc3e79ae552746952ac18">UART_RECEIVER_TIMEOUT_ENABLE</a></div><div class="ttdeci">#define UART_RECEIVER_TIMEOUT_ENABLE</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:485</div></div>
+</div><!-- fragment -->
+<p>Ensure that UART receiver timeout setting is valid. </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">&lt;strong&gt;TIMEOUT&lt;/strong&gt;</td><td>UART receiver timeout setting. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">SET</td><td>(<b>TIMEOUT</b> is valid) or RESET (<b>TIMEOUT</b> is invalid) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gaee43ee42a5b1ba061322ab0763c6ef4f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaee43ee42a5b1ba061322ab0763c6ef4f">&#9670;&nbsp;</a></span>IS_UART_RECEIVER_TIMEOUT_VALUE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IS_UART_RECEIVER_TIMEOUT_VALUE</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">__TIMEOUTVALUE__</td><td>)</td>
+          <td>&#160;&#160;&#160;((__TIMEOUTVALUE__) &lt;= 0xFFFFFFU)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Check the receiver timeout value. </p>
+<dl class="section note"><dt>注解</dt><dd>The maximum UART receiver timeout value is 0xFFFFFF. </dd></dl>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">&lt;strong&gt;TIMEOUTVALUE&lt;/strong&gt;</td><td>receiver timeout value. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">Test</td><td>result (TRUE or FALSE) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga13d7f9876db68d9d6316204a8a2588de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga13d7f9876db68d9d6316204a8a2588de">&#9670;&nbsp;</a></span>IS_UART_LIN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IS_UART_LIN</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">__LIN__</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">(((__LIN__) == <a class="code" href="group___u_a_r_t___l_i_n.html#ga7bc4a2de3d6b29235188020628c4b30c">UART_LIN_DISABLE</a>) || \</div><div class="line">                                     ((__LIN__) == <a class="code" href="group___u_a_r_t___l_i_n.html#gaf3f2741d3af2737c51c3040e79fdc664">UART_LIN_ENABLE</a>))</div><div class="ttc" id="group___u_a_r_t___l_i_n_html_gaf3f2741d3af2737c51c3040e79fdc664"><div class="ttname"><a href="group___u_a_r_t___l_i_n.html#gaf3f2741d3af2737c51c3040e79fdc664">UART_LIN_ENABLE</a></div><div class="ttdeci">#define UART_LIN_ENABLE</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:494</div></div>
+<div class="ttc" id="group___u_a_r_t___l_i_n_html_ga7bc4a2de3d6b29235188020628c4b30c"><div class="ttname"><a href="group___u_a_r_t___l_i_n.html#ga7bc4a2de3d6b29235188020628c4b30c">UART_LIN_DISABLE</a></div><div class="ttdeci">#define UART_LIN_DISABLE</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:493</div></div>
+</div><!-- fragment -->
+<p>Ensure that UART LIN state is valid. </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">&lt;strong&gt;LIN&lt;/strong&gt;</td><td>UART LIN state. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">SET</td><td>(<b>LIN</b> is valid) or RESET (<b>LIN</b> is invalid) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gac8ac0d0dc7fad5edf53150ce05d902ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gac8ac0d0dc7fad5edf53150ce05d902ee">&#9670;&nbsp;</a></span>IS_UART_LIN_BREAK_DETECT_LENGTH</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IS_UART_LIN_BREAK_DETECT_LENGTH</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">__LENGTH__</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">(((__LENGTH__) == <a class="code" href="group___u_a_r_t___l_i_n___break___detection.html#ga027616b7a36b36e0e51ffee947533624">UART_LINBREAKDETECTLENGTH_10B</a>) || \</div><div class="line">                                                     ((__LENGTH__) == <a class="code" href="group___u_a_r_t___l_i_n___break___detection.html#ga2f66fcd37de7a3ca9e1101305f2e23e6">UART_LINBREAKDETECTLENGTH_11B</a>))</div><div class="ttc" id="group___u_a_r_t___l_i_n___break___detection_html_ga027616b7a36b36e0e51ffee947533624"><div class="ttname"><a href="group___u_a_r_t___l_i_n___break___detection.html#ga027616b7a36b36e0e51ffee947533624">UART_LINBREAKDETECTLENGTH_10B</a></div><div class="ttdeci">#define UART_LINBREAKDETECTLENGTH_10B</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:502</div></div>
+<div class="ttc" id="group___u_a_r_t___l_i_n___break___detection_html_ga2f66fcd37de7a3ca9e1101305f2e23e6"><div class="ttname"><a href="group___u_a_r_t___l_i_n___break___detection.html#ga2f66fcd37de7a3ca9e1101305f2e23e6">UART_LINBREAKDETECTLENGTH_11B</a></div><div class="ttdeci">#define UART_LINBREAKDETECTLENGTH_11B</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:503</div></div>
+</div><!-- fragment -->
+<p>Ensure that UART LIN break detection length is valid. </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">&lt;strong&gt;LENGTH&lt;/strong&gt;</td><td>UART LIN break detection length. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">SET</td><td>(<b>LENGTH</b> is valid) or RESET (<b>LENGTH</b> is invalid) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga433107c59f6d1c66a38e53e38fdc0a57"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga433107c59f6d1c66a38e53e38fdc0a57">&#9670;&nbsp;</a></span>IS_UART_DMA_TX</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IS_UART_DMA_TX</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">__DMATX__</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">(((__DMATX__) == <a class="code" href="group___u_a_r_t___d_m_a___tx.html#gaa318cc9c1aa55acc5bb93f378ac7d8e4">UART_DMA_TX_DISABLE</a>) || \</div><div class="line">                                       ((__DMATX__) == <a class="code" href="group___u_a_r_t___d_m_a___tx.html#gab1c3e8113617fb9c8fc63b3f3d7c8c65">UART_DMA_TX_ENABLE</a>))</div><div class="ttc" id="group___u_a_r_t___d_m_a___tx_html_gaa318cc9c1aa55acc5bb93f378ac7d8e4"><div class="ttname"><a href="group___u_a_r_t___d_m_a___tx.html#gaa318cc9c1aa55acc5bb93f378ac7d8e4">UART_DMA_TX_DISABLE</a></div><div class="ttdeci">#define UART_DMA_TX_DISABLE</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:511</div></div>
+<div class="ttc" id="group___u_a_r_t___d_m_a___tx_html_gab1c3e8113617fb9c8fc63b3f3d7c8c65"><div class="ttname"><a href="group___u_a_r_t___d_m_a___tx.html#gab1c3e8113617fb9c8fc63b3f3d7c8c65">UART_DMA_TX_ENABLE</a></div><div class="ttdeci">#define UART_DMA_TX_ENABLE</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:512</div></div>
+</div><!-- fragment -->
+<p>Ensure that UART DMA TX state is valid. </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">&lt;strong&gt;DMATX&lt;/strong&gt;</td><td>UART DMA TX state. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">SET</td><td>(<b>DMATX</b> is valid) or RESET (<b>DMATX</b> is invalid) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga85c4c9339de2076106942cd9ab61ad77"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga85c4c9339de2076106942cd9ab61ad77">&#9670;&nbsp;</a></span>IS_UART_DMA_RX</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IS_UART_DMA_RX</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">__DMARX__</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">(((__DMARX__) == <a class="code" href="group___u_a_r_t___d_m_a___rx.html#gac65987cb4d8fd5da0f7dc695312f6afa">UART_DMA_RX_DISABLE</a>) || \</div><div class="line">                                       ((__DMARX__) == <a class="code" href="group___u_a_r_t___d_m_a___rx.html#gab871994de6d36a02b8ec34af197dff1d">UART_DMA_RX_ENABLE</a>))</div><div class="ttc" id="group___u_a_r_t___d_m_a___rx_html_gab871994de6d36a02b8ec34af197dff1d"><div class="ttname"><a href="group___u_a_r_t___d_m_a___rx.html#gab871994de6d36a02b8ec34af197dff1d">UART_DMA_RX_ENABLE</a></div><div class="ttdeci">#define UART_DMA_RX_ENABLE</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:521</div></div>
+<div class="ttc" id="group___u_a_r_t___d_m_a___rx_html_gac65987cb4d8fd5da0f7dc695312f6afa"><div class="ttname"><a href="group___u_a_r_t___d_m_a___rx.html#gac65987cb4d8fd5da0f7dc695312f6afa">UART_DMA_RX_DISABLE</a></div><div class="ttdeci">#define UART_DMA_RX_DISABLE</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:520</div></div>
+</div><!-- fragment -->
+<p>Ensure that UART DMA RX state is valid. </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">&lt;strong&gt;DMARX&lt;/strong&gt;</td><td>UART DMA RX state. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">SET</td><td>(<b>DMARX</b> is valid) or RESET (<b>DMARX</b> is invalid) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga2298a324be00d275d98b336569ee3f97"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga2298a324be00d275d98b336569ee3f97">&#9670;&nbsp;</a></span>IS_UART_HALF_DUPLEX</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IS_UART_HALF_DUPLEX</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">__HDSEL__</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">(((__HDSEL__) == <a class="code" href="group___u_a_r_t___half___duplex___selection.html#ga282d253c045fd9a3785c6c3e3293346c">UART_HALF_DUPLEX_DISABLE</a>) || \</div><div class="line">                                            ((__HDSEL__) == <a class="code" href="group___u_a_r_t___half___duplex___selection.html#ga61e92cc4435c05d850f9fd5456f391e6">UART_HALF_DUPLEX_ENABLE</a>))</div><div class="ttc" id="group___u_a_r_t___half___duplex___selection_html_ga61e92cc4435c05d850f9fd5456f391e6"><div class="ttname"><a href="group___u_a_r_t___half___duplex___selection.html#ga61e92cc4435c05d850f9fd5456f391e6">UART_HALF_DUPLEX_ENABLE</a></div><div class="ttdeci">#define UART_HALF_DUPLEX_ENABLE</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:530</div></div>
+<div class="ttc" id="group___u_a_r_t___half___duplex___selection_html_ga282d253c045fd9a3785c6c3e3293346c"><div class="ttname"><a href="group___u_a_r_t___half___duplex___selection.html#ga282d253c045fd9a3785c6c3e3293346c">UART_HALF_DUPLEX_DISABLE</a></div><div class="ttdeci">#define UART_HALF_DUPLEX_DISABLE</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:529</div></div>
+</div><!-- fragment -->
+<p>Ensure that UART half-duplex state is valid. </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">&lt;strong&gt;HDSEL&lt;/strong&gt;</td><td>UART half-duplex state. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">SET</td><td>(<b>HDSEL</b> is valid) or RESET (<b>HDSEL</b> is invalid) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga144aecf3ad6ca3ce6653ae113c9a6141"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga144aecf3ad6ca3ce6653ae113c9a6141">&#9670;&nbsp;</a></span>IS_UART_WAKEUPMETHOD</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IS_UART_WAKEUPMETHOD</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">__WAKEUP__</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">(((__WAKEUP__) == <a class="code" href="group___u_a_r_t___wake_up___methods.html#ga2411ed44c5d82db84c5819e1e2b5b8b3">UART_WAKEUPMETHOD_IDLELINE</a>) || \</div><div class="line">                                          ((__WAKEUP__) == <a class="code" href="group___u_a_r_t___wake_up___methods.html#ga4c6935f26f8f2a9fe70fd6306a9882cb">UART_WAKEUPMETHOD_ADDRESSMARK</a>))</div><div class="ttc" id="group___u_a_r_t___wake_up___methods_html_ga2411ed44c5d82db84c5819e1e2b5b8b3"><div class="ttname"><a href="group___u_a_r_t___wake_up___methods.html#ga2411ed44c5d82db84c5819e1e2b5b8b3">UART_WAKEUPMETHOD_IDLELINE</a></div><div class="ttdeci">#define UART_WAKEUPMETHOD_IDLELINE</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:538</div></div>
+<div class="ttc" id="group___u_a_r_t___wake_up___methods_html_ga4c6935f26f8f2a9fe70fd6306a9882cb"><div class="ttname"><a href="group___u_a_r_t___wake_up___methods.html#ga4c6935f26f8f2a9fe70fd6306a9882cb">UART_WAKEUPMETHOD_ADDRESSMARK</a></div><div class="ttdeci">#define UART_WAKEUPMETHOD_ADDRESSMARK</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:539</div></div>
+</div><!-- fragment -->
+<p>Ensure that UART wake-up method is valid. </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">&lt;strong&gt;WAKEUP&lt;/strong&gt;</td><td>UART wake-up method . </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">SET</td><td>(<b>WAKEUP</b> is valid) or RESET (<b>WAKEUP</b> is invalid) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga5cf62c9c598753525888cc7c24be3cb2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5cf62c9c598753525888cc7c24be3cb2">&#9670;&nbsp;</a></span>IS_UART_REQUEST_PARAMETER</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IS_UART_REQUEST_PARAMETER</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">__PARAM__</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">(((__PARAM__) == <a class="code" href="group___u_a_r_t___request___parameters.html#ga8cdce81a934ab7d0c2eecb4d85300d4e">UART_AUTOBAUD_REQUEST</a>)     || \</div><div class="line">                                              ((__PARAM__) == <a class="code" href="group___u_a_r_t___request___parameters.html#ga52ced88a9f4ce90f3725901cf91f38b3">UART_SENDBREAK_REQUEST</a>)    || \</div><div class="line">                                              ((__PARAM__) == <a class="code" href="group___u_a_r_t___request___parameters.html#gadd5f511803928fd042f7fc6ef99f9cfb">UART_MUTE_MODE_REQUEST</a>)    || \</div><div class="line">                                              ((__PARAM__) == <a class="code" href="group___u_a_r_t___request___parameters.html#gaf2ee2d4b1bdcbc7772ddc0da89566936">UART_RXDATA_FLUSH_REQUEST</a>) || \</div><div class="line">                                              ((__PARAM__) == <a class="code" href="group___u_a_r_t___request___parameters.html#gafecbd800f456ed666a42ac0842cd2c4b">UART_TXDATA_FLUSH_REQUEST</a>))</div><div class="ttc" id="group___u_a_r_t___request___parameters_html_ga8cdce81a934ab7d0c2eecb4d85300d4e"><div class="ttname"><a href="group___u_a_r_t___request___parameters.html#ga8cdce81a934ab7d0c2eecb4d85300d4e">UART_AUTOBAUD_REQUEST</a></div><div class="ttdeci">#define UART_AUTOBAUD_REQUEST</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:547</div></div>
+<div class="ttc" id="group___u_a_r_t___request___parameters_html_gaf2ee2d4b1bdcbc7772ddc0da89566936"><div class="ttname"><a href="group___u_a_r_t___request___parameters.html#gaf2ee2d4b1bdcbc7772ddc0da89566936">UART_RXDATA_FLUSH_REQUEST</a></div><div class="ttdeci">#define UART_RXDATA_FLUSH_REQUEST</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:550</div></div>
+<div class="ttc" id="group___u_a_r_t___request___parameters_html_ga52ced88a9f4ce90f3725901cf91f38b3"><div class="ttname"><a href="group___u_a_r_t___request___parameters.html#ga52ced88a9f4ce90f3725901cf91f38b3">UART_SENDBREAK_REQUEST</a></div><div class="ttdeci">#define UART_SENDBREAK_REQUEST</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:548</div></div>
+<div class="ttc" id="group___u_a_r_t___request___parameters_html_gafecbd800f456ed666a42ac0842cd2c4b"><div class="ttname"><a href="group___u_a_r_t___request___parameters.html#gafecbd800f456ed666a42ac0842cd2c4b">UART_TXDATA_FLUSH_REQUEST</a></div><div class="ttdeci">#define UART_TXDATA_FLUSH_REQUEST</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:551</div></div>
+<div class="ttc" id="group___u_a_r_t___request___parameters_html_gadd5f511803928fd042f7fc6ef99f9cfb"><div class="ttname"><a href="group___u_a_r_t___request___parameters.html#gadd5f511803928fd042f7fc6ef99f9cfb">UART_MUTE_MODE_REQUEST</a></div><div class="ttdeci">#define UART_MUTE_MODE_REQUEST</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:549</div></div>
+</div><!-- fragment -->
+<p>Ensure that UART request parameter is valid. </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">&lt;strong&gt;PARAM&lt;/strong&gt;</td><td>UART request parameter. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">SET</td><td>(<b>PARAM</b> is valid) or RESET (<b>PARAM</b> is invalid) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gad91bec43fbbaa25cec138ef8fcfbdad5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad91bec43fbbaa25cec138ef8fcfbdad5">&#9670;&nbsp;</a></span>IS_UART_ADVFEATURE_INIT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IS_UART_ADVFEATURE_INIT</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">__INIT__</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">((__INIT__) &lt;= (<a class="code" href="group___u_a_r_t___advanced___features___initialization___type.html#gab696b28f33174d038e0bfd300c1b2a77">UART_ADVFEATURE_NO_INIT</a>                | \</div><div class="line">                                                            <a class="code" href="group___u_a_r_t___advanced___features___initialization___type.html#ga17c49d1895d43bfd6e0cf993103731ae">UART_ADVFEATURE_TXINVERT_INIT</a>          | \</div><div class="line">                                                            <a class="code" href="group___u_a_r_t___advanced___features___initialization___type.html#gad5a4923f3e771d276c6a5332e3945e2a">UART_ADVFEATURE_RXINVERT_INIT</a>          | \</div><div class="line">                                                            <a class="code" href="group___u_a_r_t___advanced___features___initialization___type.html#ga3066937ab29631f78820865605e83628">UART_ADVFEATURE_DATAINVERT_INIT</a>        | \</div><div class="line">                                                            <a class="code" href="group___u_a_r_t___advanced___features___initialization___type.html#ga56b48c24063e0f04b09f592c3ce7d2ac">UART_ADVFEATURE_SWAP_INIT</a>              | \</div><div class="line">                                                            <a class="code" href="group___u_a_r_t___advanced___features___initialization___type.html#ga053355b64de3105a19f3e5560f3557e4">UART_ADVFEATURE_RXOVERRUNDISABLE_INIT</a>  | \</div><div class="line">                                                            <a class="code" href="group___u_a_r_t___advanced___features___initialization___type.html#gafd2fb1991911b82d75556eafe228ef90">UART_ADVFEATURE_DMADISABLEONERROR_INIT</a> | \</div><div class="line">                                                            <a class="code" href="group___u_a_r_t___advanced___features___initialization___type.html#ga09fdbb71292c899d6dc89a41e5752564">UART_ADVFEATURE_AUTOBAUDRATE_INIT</a>      | \</div><div class="line">                                                            <a class="code" href="group___u_a_r_t___advanced___features___initialization___type.html#ga911654f44cd040f41871ec5af5ec1343">UART_ADVFEATURE_MSBFIRST_INIT</a>))</div><div class="ttc" id="group___u_a_r_t___advanced___features___initialization___type_html_gab696b28f33174d038e0bfd300c1b2a77"><div class="ttname"><a href="group___u_a_r_t___advanced___features___initialization___type.html#gab696b28f33174d038e0bfd300c1b2a77">UART_ADVFEATURE_NO_INIT</a></div><div class="ttdeci">#define UART_ADVFEATURE_NO_INIT</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:559</div></div>
+<div class="ttc" id="group___u_a_r_t___advanced___features___initialization___type_html_gafd2fb1991911b82d75556eafe228ef90"><div class="ttname"><a href="group___u_a_r_t___advanced___features___initialization___type.html#gafd2fb1991911b82d75556eafe228ef90">UART_ADVFEATURE_DMADISABLEONERROR_INIT</a></div><div class="ttdeci">#define UART_ADVFEATURE_DMADISABLEONERROR_INIT</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:565</div></div>
+<div class="ttc" id="group___u_a_r_t___advanced___features___initialization___type_html_ga56b48c24063e0f04b09f592c3ce7d2ac"><div class="ttname"><a href="group___u_a_r_t___advanced___features___initialization___type.html#ga56b48c24063e0f04b09f592c3ce7d2ac">UART_ADVFEATURE_SWAP_INIT</a></div><div class="ttdeci">#define UART_ADVFEATURE_SWAP_INIT</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:563</div></div>
+<div class="ttc" id="group___u_a_r_t___advanced___features___initialization___type_html_gad5a4923f3e771d276c6a5332e3945e2a"><div class="ttname"><a href="group___u_a_r_t___advanced___features___initialization___type.html#gad5a4923f3e771d276c6a5332e3945e2a">UART_ADVFEATURE_RXINVERT_INIT</a></div><div class="ttdeci">#define UART_ADVFEATURE_RXINVERT_INIT</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:561</div></div>
+<div class="ttc" id="group___u_a_r_t___advanced___features___initialization___type_html_ga053355b64de3105a19f3e5560f3557e4"><div class="ttname"><a href="group___u_a_r_t___advanced___features___initialization___type.html#ga053355b64de3105a19f3e5560f3557e4">UART_ADVFEATURE_RXOVERRUNDISABLE_INIT</a></div><div class="ttdeci">#define UART_ADVFEATURE_RXOVERRUNDISABLE_INIT</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:564</div></div>
+<div class="ttc" id="group___u_a_r_t___advanced___features___initialization___type_html_ga3066937ab29631f78820865605e83628"><div class="ttname"><a href="group___u_a_r_t___advanced___features___initialization___type.html#ga3066937ab29631f78820865605e83628">UART_ADVFEATURE_DATAINVERT_INIT</a></div><div class="ttdeci">#define UART_ADVFEATURE_DATAINVERT_INIT</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:562</div></div>
+<div class="ttc" id="group___u_a_r_t___advanced___features___initialization___type_html_ga09fdbb71292c899d6dc89a41e5752564"><div class="ttname"><a href="group___u_a_r_t___advanced___features___initialization___type.html#ga09fdbb71292c899d6dc89a41e5752564">UART_ADVFEATURE_AUTOBAUDRATE_INIT</a></div><div class="ttdeci">#define UART_ADVFEATURE_AUTOBAUDRATE_INIT</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:566</div></div>
+<div class="ttc" id="group___u_a_r_t___advanced___features___initialization___type_html_ga17c49d1895d43bfd6e0cf993103731ae"><div class="ttname"><a href="group___u_a_r_t___advanced___features___initialization___type.html#ga17c49d1895d43bfd6e0cf993103731ae">UART_ADVFEATURE_TXINVERT_INIT</a></div><div class="ttdeci">#define UART_ADVFEATURE_TXINVERT_INIT</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:560</div></div>
+<div class="ttc" id="group___u_a_r_t___advanced___features___initialization___type_html_ga911654f44cd040f41871ec5af5ec1343"><div class="ttname"><a href="group___u_a_r_t___advanced___features___initialization___type.html#ga911654f44cd040f41871ec5af5ec1343">UART_ADVFEATURE_MSBFIRST_INIT</a></div><div class="ttdeci">#define UART_ADVFEATURE_MSBFIRST_INIT</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:567</div></div>
+</div><!-- fragment -->
+<p>Ensure that UART advanced features initialization is valid. </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">&lt;strong&gt;INIT&lt;/strong&gt;</td><td>UART advanced features initialization. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">SET</td><td>(<b>INIT</b> is valid) or RESET (<b>INIT</b> is invalid) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga4295a61b0afe152975609cedb9034fdc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga4295a61b0afe152975609cedb9034fdc">&#9670;&nbsp;</a></span>IS_UART_ADVFEATURE_TXINV</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IS_UART_ADVFEATURE_TXINV</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">__TXINV__</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">(((__TXINV__) == <a class="code" href="group___u_a_r_t___tx___inv.html#gaf2ef53664b0d4b93758575b9ee1b949b">UART_ADVFEATURE_TXINV_DISABLE</a>) || \</div><div class="line">                                             ((__TXINV__) == <a class="code" href="group___u_a_r_t___tx___inv.html#ga1e0ddbed5fc5ddce5314f63e96e29c3d">UART_ADVFEATURE_TXINV_ENABLE</a>))</div><div class="ttc" id="group___u_a_r_t___tx___inv_html_gaf2ef53664b0d4b93758575b9ee1b949b"><div class="ttname"><a href="group___u_a_r_t___tx___inv.html#gaf2ef53664b0d4b93758575b9ee1b949b">UART_ADVFEATURE_TXINV_DISABLE</a></div><div class="ttdeci">#define UART_ADVFEATURE_TXINV_DISABLE</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:575</div></div>
+<div class="ttc" id="group___u_a_r_t___tx___inv_html_ga1e0ddbed5fc5ddce5314f63e96e29c3d"><div class="ttname"><a href="group___u_a_r_t___tx___inv.html#ga1e0ddbed5fc5ddce5314f63e96e29c3d">UART_ADVFEATURE_TXINV_ENABLE</a></div><div class="ttdeci">#define UART_ADVFEATURE_TXINV_ENABLE</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:576</div></div>
+</div><!-- fragment -->
+<p>Ensure that UART frame TX inversion setting is valid. </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">&lt;strong&gt;TXINV&lt;/strong&gt;</td><td>UART frame TX inversion setting. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">SET</td><td>(<b>TXINV</b> is valid) or RESET (<b>TXINV</b> is invalid) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga7f53ad0eca57b7ffabcae9007b7bbfa6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga7f53ad0eca57b7ffabcae9007b7bbfa6">&#9670;&nbsp;</a></span>IS_UART_ADVFEATURE_RXINV</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IS_UART_ADVFEATURE_RXINV</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">__RXINV__</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">(((__RXINV__) == <a class="code" href="group___u_a_r_t___rx___inv.html#gae9598a2e4fec4b9166ad5eab24027870">UART_ADVFEATURE_RXINV_DISABLE</a>) || \</div><div class="line">                                             ((__RXINV__) == <a class="code" href="group___u_a_r_t___rx___inv.html#gae12343bc2373080ae518ce7b536205cb">UART_ADVFEATURE_RXINV_ENABLE</a>))</div><div class="ttc" id="group___u_a_r_t___rx___inv_html_gae9598a2e4fec4b9166ad5eab24027870"><div class="ttname"><a href="group___u_a_r_t___rx___inv.html#gae9598a2e4fec4b9166ad5eab24027870">UART_ADVFEATURE_RXINV_DISABLE</a></div><div class="ttdeci">#define UART_ADVFEATURE_RXINV_DISABLE</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:584</div></div>
+<div class="ttc" id="group___u_a_r_t___rx___inv_html_gae12343bc2373080ae518ce7b536205cb"><div class="ttname"><a href="group___u_a_r_t___rx___inv.html#gae12343bc2373080ae518ce7b536205cb">UART_ADVFEATURE_RXINV_ENABLE</a></div><div class="ttdeci">#define UART_ADVFEATURE_RXINV_ENABLE</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:585</div></div>
+</div><!-- fragment -->
+<p>Ensure that UART frame RX inversion setting is valid. </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">&lt;strong&gt;RXINV&lt;/strong&gt;</td><td>UART frame RX inversion setting. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">SET</td><td>(<b>RXINV</b> is valid) or RESET (<b>RXINV</b> is invalid) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga8f6cd85ae5ce7f8dd0ed9227ef5154f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga8f6cd85ae5ce7f8dd0ed9227ef5154f6">&#9670;&nbsp;</a></span>IS_UART_ADVFEATURE_DATAINV</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IS_UART_ADVFEATURE_DATAINV</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">__DATAINV__</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">(((__DATAINV__) == <a class="code" href="group___u_a_r_t___data___inv.html#gab9aca2bdf257bd77e42213fdfdb884d3">UART_ADVFEATURE_DATAINV_DISABLE</a>) || \</div><div class="line">                                                 ((__DATAINV__) == <a class="code" href="group___u_a_r_t___data___inv.html#ga090ecbcdc57b47144aefee8faf1eaf23">UART_ADVFEATURE_DATAINV_ENABLE</a>))</div><div class="ttc" id="group___u_a_r_t___data___inv_html_gab9aca2bdf257bd77e42213fdfdb884d3"><div class="ttname"><a href="group___u_a_r_t___data___inv.html#gab9aca2bdf257bd77e42213fdfdb884d3">UART_ADVFEATURE_DATAINV_DISABLE</a></div><div class="ttdeci">#define UART_ADVFEATURE_DATAINV_DISABLE</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:593</div></div>
+<div class="ttc" id="group___u_a_r_t___data___inv_html_ga090ecbcdc57b47144aefee8faf1eaf23"><div class="ttname"><a href="group___u_a_r_t___data___inv.html#ga090ecbcdc57b47144aefee8faf1eaf23">UART_ADVFEATURE_DATAINV_ENABLE</a></div><div class="ttdeci">#define UART_ADVFEATURE_DATAINV_ENABLE</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:594</div></div>
+</div><!-- fragment -->
+<p>Ensure that UART frame data inversion setting is valid. </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">&lt;strong&gt;DATAINV&lt;/strong&gt;</td><td>UART frame data inversion setting. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">SET</td><td>(<b>DATAINV</b> is valid) or RESET (<b>DATAINV</b> is invalid) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gaf095ad39d3035f722c6976921a84dbea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf095ad39d3035f722c6976921a84dbea">&#9670;&nbsp;</a></span>IS_UART_ADVFEATURE_SWAP</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IS_UART_ADVFEATURE_SWAP</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">__SWAP__</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">(((__SWAP__) == <a class="code" href="group___u_a_r_t___rx___tx___swap.html#gad1217ff59732b36d4ee9b50e7ed81ec4">UART_ADVFEATURE_SWAP_DISABLE</a>) || \</div><div class="line">                                           ((__SWAP__) == <a class="code" href="group___u_a_r_t___rx___tx___swap.html#ga83138521e54eef41c75e9c37c2246eba">UART_ADVFEATURE_SWAP_ENABLE</a>))</div><div class="ttc" id="group___u_a_r_t___rx___tx___swap_html_gad1217ff59732b36d4ee9b50e7ed81ec4"><div class="ttname"><a href="group___u_a_r_t___rx___tx___swap.html#gad1217ff59732b36d4ee9b50e7ed81ec4">UART_ADVFEATURE_SWAP_DISABLE</a></div><div class="ttdeci">#define UART_ADVFEATURE_SWAP_DISABLE</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:602</div></div>
+<div class="ttc" id="group___u_a_r_t___rx___tx___swap_html_ga83138521e54eef41c75e9c37c2246eba"><div class="ttname"><a href="group___u_a_r_t___rx___tx___swap.html#ga83138521e54eef41c75e9c37c2246eba">UART_ADVFEATURE_SWAP_ENABLE</a></div><div class="ttdeci">#define UART_ADVFEATURE_SWAP_ENABLE</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:603</div></div>
+</div><!-- fragment -->
+<p>Ensure that UART frame RX/TX pins swap setting is valid. </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">&lt;strong&gt;SWAP&lt;/strong&gt;</td><td>UART frame RX/TX pins swap setting. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">SET</td><td>(<b>SWAP</b> is valid) or RESET (<b>SWAP</b> is invalid) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga57b4229ecb4387a0bb9137fed8de13b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga57b4229ecb4387a0bb9137fed8de13b8">&#9670;&nbsp;</a></span>IS_UART_OVERRUN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IS_UART_OVERRUN</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">__OVERRUN__</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">(((__OVERRUN__) == <a class="code" href="group___u_a_r_t___overrun___disable.html#gac467cc43fa4c3af4acb0fd161061c219">UART_ADVFEATURE_OVERRUN_ENABLE</a>) || \</div><div class="line">                                          ((__OVERRUN__) == <a class="code" href="group___u_a_r_t___overrun___disable.html#ga19961cd52b746dac7a6860faad2ab40d">UART_ADVFEATURE_OVERRUN_DISABLE</a>))</div><div class="ttc" id="group___u_a_r_t___overrun___disable_html_gac467cc43fa4c3af4acb0fd161061c219"><div class="ttname"><a href="group___u_a_r_t___overrun___disable.html#gac467cc43fa4c3af4acb0fd161061c219">UART_ADVFEATURE_OVERRUN_ENABLE</a></div><div class="ttdeci">#define UART_ADVFEATURE_OVERRUN_ENABLE</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:611</div></div>
+<div class="ttc" id="group___u_a_r_t___overrun___disable_html_ga19961cd52b746dac7a6860faad2ab40d"><div class="ttname"><a href="group___u_a_r_t___overrun___disable.html#ga19961cd52b746dac7a6860faad2ab40d">UART_ADVFEATURE_OVERRUN_DISABLE</a></div><div class="ttdeci">#define UART_ADVFEATURE_OVERRUN_DISABLE</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:612</div></div>
+</div><!-- fragment -->
+<p>Ensure that UART frame overrun setting is valid. </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">&lt;strong&gt;OVERRUN&lt;/strong&gt;</td><td>UART frame overrun setting. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">SET</td><td>(<b>OVERRUN</b> is valid) or RESET (<b>OVERRUN</b> is invalid) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga7318c3e5c175b896444697a0a9407b2f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga7318c3e5c175b896444697a0a9407b2f">&#9670;&nbsp;</a></span>IS_UART_ADVFEATURE_AUTOBAUDRATE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IS_UART_ADVFEATURE_AUTOBAUDRATE</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">__AUTOBAUDRATE__</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">(((__AUTOBAUDRATE__) == \</div><div class="line">                                                            <a class="code" href="group___u_a_r_t___auto_baud_rate___enable.html#gaca66b20599569c6b7576f0600050bb61">UART_ADVFEATURE_AUTOBAUDRATE_DISABLE</a>) || \</div><div class="line">                                                           ((__AUTOBAUDRATE__) == <a class="code" href="group___u_a_r_t___auto_baud_rate___enable.html#gad4eee70c6d23721dd95c6a2465e10ca4">UART_ADVFEATURE_AUTOBAUDRATE_ENABLE</a>))</div><div class="ttc" id="group___u_a_r_t___auto_baud_rate___enable_html_gad4eee70c6d23721dd95c6a2465e10ca4"><div class="ttname"><a href="group___u_a_r_t___auto_baud_rate___enable.html#gad4eee70c6d23721dd95c6a2465e10ca4">UART_ADVFEATURE_AUTOBAUDRATE_ENABLE</a></div><div class="ttdeci">#define UART_ADVFEATURE_AUTOBAUDRATE_ENABLE</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:621</div></div>
+<div class="ttc" id="group___u_a_r_t___auto_baud_rate___enable_html_gaca66b20599569c6b7576f0600050bb61"><div class="ttname"><a href="group___u_a_r_t___auto_baud_rate___enable.html#gaca66b20599569c6b7576f0600050bb61">UART_ADVFEATURE_AUTOBAUDRATE_DISABLE</a></div><div class="ttdeci">#define UART_ADVFEATURE_AUTOBAUDRATE_DISABLE</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:620</div></div>
+</div><!-- fragment -->
+<p>Ensure that UART auto Baud rate state is valid. </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">&lt;strong&gt;AUTOBAUDRATE&lt;/strong&gt;</td><td>UART auto Baud rate state. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">SET</td><td>(<b>AUTOBAUDRATE</b> is valid) or RESET (<b>AUTOBAUDRATE</b> is invalid) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga15b46dfa0d80a4583864a31da73e3c99"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga15b46dfa0d80a4583864a31da73e3c99">&#9670;&nbsp;</a></span>IS_UART_ADVFEATURE_DMAONRXERROR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IS_UART_ADVFEATURE_DMAONRXERROR</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">__DMA__</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">(((__DMA__) == <a class="code" href="group___u_a_r_t___d_m_a___disable__on___rx___error.html#ga14469fd73075e481184234019a7b6734">UART_ADVFEATURE_DMA_ENABLEONRXERROR</a>) || \</div><div class="line">                                                   ((__DMA__) == <a class="code" href="group___u_a_r_t___d_m_a___disable__on___rx___error.html#gae838b9dfc0c2c082d5382973b369012b">UART_ADVFEATURE_DMA_DISABLEONRXERROR</a>))</div><div class="ttc" id="group___u_a_r_t___d_m_a___disable__on___rx___error_html_gae838b9dfc0c2c082d5382973b369012b"><div class="ttname"><a href="group___u_a_r_t___d_m_a___disable__on___rx___error.html#gae838b9dfc0c2c082d5382973b369012b">UART_ADVFEATURE_DMA_DISABLEONRXERROR</a></div><div class="ttdeci">#define UART_ADVFEATURE_DMA_DISABLEONRXERROR</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:630</div></div>
+<div class="ttc" id="group___u_a_r_t___d_m_a___disable__on___rx___error_html_ga14469fd73075e481184234019a7b6734"><div class="ttname"><a href="group___u_a_r_t___d_m_a___disable__on___rx___error.html#ga14469fd73075e481184234019a7b6734">UART_ADVFEATURE_DMA_ENABLEONRXERROR</a></div><div class="ttdeci">#define UART_ADVFEATURE_DMA_ENABLEONRXERROR</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:629</div></div>
+</div><!-- fragment -->
+<p>Ensure that UART DMA enabling or disabling on error setting is valid. </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">&lt;strong&gt;DMA&lt;/strong&gt;</td><td>UART DMA enabling or disabling on error setting. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">SET</td><td>(<b>DMA</b> is valid) or RESET (<b>DMA</b> is invalid) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga82289de330949918b037acf94fb12aef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga82289de330949918b037acf94fb12aef">&#9670;&nbsp;</a></span>IS_UART_ADVFEATURE_MSBFIRST</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IS_UART_ADVFEATURE_MSBFIRST</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">__MSBFIRST__</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">(((__MSBFIRST__) == <a class="code" href="group___u_a_r_t___m_s_b___first.html#gae606b5f132b17af40d58c7d41fad35a5">UART_ADVFEATURE_MSBFIRST_DISABLE</a>) || \</div><div class="line">                                                   ((__MSBFIRST__) == <a class="code" href="group___u_a_r_t___m_s_b___first.html#gafb917e79562ccd13909c13056b34302f">UART_ADVFEATURE_MSBFIRST_ENABLE</a>))</div><div class="ttc" id="group___u_a_r_t___m_s_b___first_html_gae606b5f132b17af40d58c7d41fad35a5"><div class="ttname"><a href="group___u_a_r_t___m_s_b___first.html#gae606b5f132b17af40d58c7d41fad35a5">UART_ADVFEATURE_MSBFIRST_DISABLE</a></div><div class="ttdeci">#define UART_ADVFEATURE_MSBFIRST_DISABLE</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:638</div></div>
+<div class="ttc" id="group___u_a_r_t___m_s_b___first_html_gafb917e79562ccd13909c13056b34302f"><div class="ttname"><a href="group___u_a_r_t___m_s_b___first.html#gafb917e79562ccd13909c13056b34302f">UART_ADVFEATURE_MSBFIRST_ENABLE</a></div><div class="ttdeci">#define UART_ADVFEATURE_MSBFIRST_ENABLE</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:641</div></div>
+</div><!-- fragment -->
+<p>Ensure that UART frame MSB first setting is valid. </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">&lt;strong&gt;MSBFIRST&lt;/strong&gt;</td><td>UART frame MSB first setting. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">SET</td><td>(<b>MSBFIRST</b> is valid) or RESET (<b>MSBFIRST</b> is invalid) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gae0055233b6372a290fe69c811d307c5e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae0055233b6372a290fe69c811d307c5e">&#9670;&nbsp;</a></span>IS_UART_ADVFEATURE_STOPMODE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IS_UART_ADVFEATURE_STOPMODE</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">__STOPMODE__</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">(((__STOPMODE__) == <a class="code" href="group___u_a_r_t___stop___mode___enable.html#gab6c2929b1d4c2fe0319e412101b5dcc2">UART_ADVFEATURE_STOPMODE_DISABLE</a>) || \</div><div class="line">                                                   ((__STOPMODE__) == <a class="code" href="group___u_a_r_t___stop___mode___enable.html#gacc03fae31dda679f071909eeed2e5e22">UART_ADVFEATURE_STOPMODE_ENABLE</a>))</div><div class="ttc" id="group___u_a_r_t___stop___mode___enable_html_gab6c2929b1d4c2fe0319e412101b5dcc2"><div class="ttname"><a href="group___u_a_r_t___stop___mode___enable.html#gab6c2929b1d4c2fe0319e412101b5dcc2">UART_ADVFEATURE_STOPMODE_DISABLE</a></div><div class="ttdeci">#define UART_ADVFEATURE_STOPMODE_DISABLE</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:651</div></div>
+<div class="ttc" id="group___u_a_r_t___stop___mode___enable_html_gacc03fae31dda679f071909eeed2e5e22"><div class="ttname"><a href="group___u_a_r_t___stop___mode___enable.html#gacc03fae31dda679f071909eeed2e5e22">UART_ADVFEATURE_STOPMODE_ENABLE</a></div><div class="ttdeci">#define UART_ADVFEATURE_STOPMODE_ENABLE</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:652</div></div>
+</div><!-- fragment -->
+<p>Ensure that UART stop mode state is valid. </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">&lt;strong&gt;STOPMODE&lt;/strong&gt;</td><td>UART stop mode state. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">SET</td><td>(<b>STOPMODE</b> is valid) or RESET (<b>STOPMODE</b> is invalid) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga9df22e11f8bc82847fbe16b6f073ae04"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga9df22e11f8bc82847fbe16b6f073ae04">&#9670;&nbsp;</a></span>IS_UART_MUTE_MODE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IS_UART_MUTE_MODE</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">__MUTE__</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">(((__MUTE__) == <a class="code" href="group___u_a_r_t___mute___mode.html#ga11b6414641d82b941920c291e19aa042">UART_ADVFEATURE_MUTEMODE_DISABLE</a>) || \</div><div class="line">                                           ((__MUTE__) == <a class="code" href="group___u_a_r_t___mute___mode.html#gaa9ca3763538abf310102ac34e81cdcbc">UART_ADVFEATURE_MUTEMODE_ENABLE</a>))</div><div class="ttc" id="group___u_a_r_t___mute___mode_html_gaa9ca3763538abf310102ac34e81cdcbc"><div class="ttname"><a href="group___u_a_r_t___mute___mode.html#gaa9ca3763538abf310102ac34e81cdcbc">UART_ADVFEATURE_MUTEMODE_ENABLE</a></div><div class="ttdeci">#define UART_ADVFEATURE_MUTEMODE_ENABLE</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:661</div></div>
+<div class="ttc" id="group___u_a_r_t___mute___mode_html_ga11b6414641d82b941920c291e19aa042"><div class="ttname"><a href="group___u_a_r_t___mute___mode.html#ga11b6414641d82b941920c291e19aa042">UART_ADVFEATURE_MUTEMODE_DISABLE</a></div><div class="ttdeci">#define UART_ADVFEATURE_MUTEMODE_DISABLE</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:660</div></div>
+</div><!-- fragment -->
+<p>Ensure that UART mute mode state is valid. </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">&lt;strong&gt;MUTE&lt;/strong&gt;</td><td>UART mute mode state. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">SET</td><td>(<b>MUTE</b> is valid) or RESET (<b>MUTE</b> is invalid) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gaab6d7b59cffaf070ac3db100c76f4654"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaab6d7b59cffaf070ac3db100c76f4654">&#9670;&nbsp;</a></span>IS_UART_WAKEUP_SELECTION</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IS_UART_WAKEUP_SELECTION</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">__WAKE__</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">(((__WAKE__) == <a class="code" href="group___u_a_r_t___wake_up__from___stop___selection.html#ga926f94a665ed3d200e76aeb01f2ae275">UART_WAKEUP_ON_ADDRESS</a>)           || \</div><div class="line">                                            ((__WAKE__) == <a class="code" href="group___u_a_r_t___wake_up__from___stop___selection.html#gade5095181db7434078e904af198c1699">UART_WAKEUP_ON_STARTBIT</a>)          || \</div><div class="line">                                            ((__WAKE__) == <a class="code" href="group___u_a_r_t___wake_up__from___stop___selection.html#ga77464f7eaba9f0a34876b1df36b8292e">UART_WAKEUP_ON_READDATA_NONEMPTY</a>))</div><div class="ttc" id="group___u_a_r_t___wake_up__from___stop___selection_html_gade5095181db7434078e904af198c1699"><div class="ttname"><a href="group___u_a_r_t___wake_up__from___stop___selection.html#gade5095181db7434078e904af198c1699">UART_WAKEUP_ON_STARTBIT</a></div><div class="ttdeci">#define UART_WAKEUP_ON_STARTBIT</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:678</div></div>
+<div class="ttc" id="group___u_a_r_t___wake_up__from___stop___selection_html_ga77464f7eaba9f0a34876b1df36b8292e"><div class="ttname"><a href="group___u_a_r_t___wake_up__from___stop___selection.html#ga77464f7eaba9f0a34876b1df36b8292e">UART_WAKEUP_ON_READDATA_NONEMPTY</a></div><div class="ttdeci">#define UART_WAKEUP_ON_READDATA_NONEMPTY</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:679</div></div>
+<div class="ttc" id="group___u_a_r_t___wake_up__from___stop___selection_html_ga926f94a665ed3d200e76aeb01f2ae275"><div class="ttname"><a href="group___u_a_r_t___wake_up__from___stop___selection.html#ga926f94a665ed3d200e76aeb01f2ae275">UART_WAKEUP_ON_ADDRESS</a></div><div class="ttdeci">#define UART_WAKEUP_ON_ADDRESS</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:677</div></div>
+</div><!-- fragment -->
+<p>Ensure that UART wake-up selection is valid. </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">&lt;strong&gt;WAKE&lt;/strong&gt;</td><td>UART wake-up selection. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">SET</td><td>(<b>WAKE</b> is valid) or RESET (<b>WAKE</b> is invalid) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gaecf169f01673ae67b12b3155e074bf12"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaecf169f01673ae67b12b3155e074bf12">&#9670;&nbsp;</a></span>IS_UART_DE_POLARITY</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IS_UART_DE_POLARITY</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">__POLARITY__</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">(((__POLARITY__) == <a class="code" href="group___u_a_r_t___driver_enable___polarity.html#ga0cff167e046507f91497853b772282c5">UART_DE_POLARITY_HIGH</a>) || \</div><div class="line">                                              ((__POLARITY__) == <a class="code" href="group___u_a_r_t___driver_enable___polarity.html#ga92a5839b1b14f95ee4b8f4842a24f37b">UART_DE_POLARITY_LOW</a>))</div><div class="ttc" id="group___u_a_r_t___driver_enable___polarity_html_ga92a5839b1b14f95ee4b8f4842a24f37b"><div class="ttname"><a href="group___u_a_r_t___driver_enable___polarity.html#ga92a5839b1b14f95ee4b8f4842a24f37b">UART_DE_POLARITY_LOW</a></div><div class="ttdeci">#define UART_DE_POLARITY_LOW</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:690</div></div>
+<div class="ttc" id="group___u_a_r_t___driver_enable___polarity_html_ga0cff167e046507f91497853b772282c5"><div class="ttname"><a href="group___u_a_r_t___driver_enable___polarity.html#ga0cff167e046507f91497853b772282c5">UART_DE_POLARITY_HIGH</a></div><div class="ttdeci">#define UART_DE_POLARITY_HIGH</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:689</div></div>
+</div><!-- fragment -->
+<p>Ensure that UART driver enable polarity is valid. </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">&lt;strong&gt;POLARITY&lt;/strong&gt;</td><td>UART driver enable polarity. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">SET</td><td>(<b>POLARITY</b> is valid) or RESET (<b>POLARITY</b> is invalid) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga9d8c59b67eaeb7e5f112e7c9123039ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga9d8c59b67eaeb7e5f112e7c9123039ae">&#9670;&nbsp;</a></span>IS_UART_PRESCALER</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IS_UART_PRESCALER</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">__CLOCKPRESCALER__</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">(((__CLOCKPRESCALER__) == <a class="code" href="group___u_a_r_t___clock_prescaler.html#ga7e210157853228d94668b5ee7233087d">UART_PRESCALER_DIV1</a>)   || \</div><div class="line">                                               ((__CLOCKPRESCALER__) == <a class="code" href="group___u_a_r_t___clock_prescaler.html#gace5f0cc2723defa6e1858d6dd7328146">UART_PRESCALER_DIV2</a>)   || \</div><div class="line">                                               ((__CLOCKPRESCALER__) == <a class="code" href="group___u_a_r_t___clock_prescaler.html#gab908550eaada50e9abb57e27f2a1b32b">UART_PRESCALER_DIV4</a>)   || \</div><div class="line">                                               ((__CLOCKPRESCALER__) == <a class="code" href="group___u_a_r_t___clock_prescaler.html#ga39932cc9816584194aec27a1fe5069f4">UART_PRESCALER_DIV6</a>)   || \</div><div class="line">                                               ((__CLOCKPRESCALER__) == <a class="code" href="group___u_a_r_t___clock_prescaler.html#gaa8243381f97aa0b2c22d3d760c1828fb">UART_PRESCALER_DIV8</a>)   || \</div><div class="line">                                               ((__CLOCKPRESCALER__) == <a class="code" href="group___u_a_r_t___clock_prescaler.html#ga1e3e467c48fcb55666761454a7412640">UART_PRESCALER_DIV10</a>)  || \</div><div class="line">                                               ((__CLOCKPRESCALER__) == <a class="code" href="group___u_a_r_t___clock_prescaler.html#gad256f52714b04a7559e8f9176322be92">UART_PRESCALER_DIV12</a>)  || \</div><div class="line">                                               ((__CLOCKPRESCALER__) == <a class="code" href="group___u_a_r_t___clock_prescaler.html#ga8332f7185809795e77bce091dfd3663c">UART_PRESCALER_DIV16</a>)  || \</div><div class="line">                                               ((__CLOCKPRESCALER__) == <a class="code" href="group___u_a_r_t___clock_prescaler.html#gaad93948e7d021e2fe44dec073cafcea4">UART_PRESCALER_DIV32</a>)  || \</div><div class="line">                                               ((__CLOCKPRESCALER__) == <a class="code" href="group___u_a_r_t___clock_prescaler.html#gada8fd9635ead84946cf45aa4bf3f682e">UART_PRESCALER_DIV64</a>)  || \</div><div class="line">                                               ((__CLOCKPRESCALER__) == <a class="code" href="group___u_a_r_t___clock_prescaler.html#gac111f3090e35143688710114e1e9be6d">UART_PRESCALER_DIV128</a>) || \</div><div class="line">                                               ((__CLOCKPRESCALER__) == <a class="code" href="group___u_a_r_t___clock_prescaler.html#ga0d602ff1d466e94c5ebe85c2e9e36d11">UART_PRESCALER_DIV256</a>))</div><div class="ttc" id="group___u_a_r_t___clock_prescaler_html_gaa8243381f97aa0b2c22d3d760c1828fb"><div class="ttname"><a href="group___u_a_r_t___clock_prescaler.html#gaa8243381f97aa0b2c22d3d760c1828fb">UART_PRESCALER_DIV8</a></div><div class="ttdeci">#define UART_PRESCALER_DIV8</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:450</div></div>
+<div class="ttc" id="group___u_a_r_t___clock_prescaler_html_gaad93948e7d021e2fe44dec073cafcea4"><div class="ttname"><a href="group___u_a_r_t___clock_prescaler.html#gaad93948e7d021e2fe44dec073cafcea4">UART_PRESCALER_DIV32</a></div><div class="ttdeci">#define UART_PRESCALER_DIV32</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:454</div></div>
+<div class="ttc" id="group___u_a_r_t___clock_prescaler_html_gada8fd9635ead84946cf45aa4bf3f682e"><div class="ttname"><a href="group___u_a_r_t___clock_prescaler.html#gada8fd9635ead84946cf45aa4bf3f682e">UART_PRESCALER_DIV64</a></div><div class="ttdeci">#define UART_PRESCALER_DIV64</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:455</div></div>
+<div class="ttc" id="group___u_a_r_t___clock_prescaler_html_gab908550eaada50e9abb57e27f2a1b32b"><div class="ttname"><a href="group___u_a_r_t___clock_prescaler.html#gab908550eaada50e9abb57e27f2a1b32b">UART_PRESCALER_DIV4</a></div><div class="ttdeci">#define UART_PRESCALER_DIV4</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:448</div></div>
+<div class="ttc" id="group___u_a_r_t___clock_prescaler_html_ga0d602ff1d466e94c5ebe85c2e9e36d11"><div class="ttname"><a href="group___u_a_r_t___clock_prescaler.html#ga0d602ff1d466e94c5ebe85c2e9e36d11">UART_PRESCALER_DIV256</a></div><div class="ttdeci">#define UART_PRESCALER_DIV256</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:457</div></div>
+<div class="ttc" id="group___u_a_r_t___clock_prescaler_html_ga7e210157853228d94668b5ee7233087d"><div class="ttname"><a href="group___u_a_r_t___clock_prescaler.html#ga7e210157853228d94668b5ee7233087d">UART_PRESCALER_DIV1</a></div><div class="ttdeci">#define UART_PRESCALER_DIV1</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:446</div></div>
+<div class="ttc" id="group___u_a_r_t___clock_prescaler_html_gace5f0cc2723defa6e1858d6dd7328146"><div class="ttname"><a href="group___u_a_r_t___clock_prescaler.html#gace5f0cc2723defa6e1858d6dd7328146">UART_PRESCALER_DIV2</a></div><div class="ttdeci">#define UART_PRESCALER_DIV2</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:447</div></div>
+<div class="ttc" id="group___u_a_r_t___clock_prescaler_html_ga39932cc9816584194aec27a1fe5069f4"><div class="ttname"><a href="group___u_a_r_t___clock_prescaler.html#ga39932cc9816584194aec27a1fe5069f4">UART_PRESCALER_DIV6</a></div><div class="ttdeci">#define UART_PRESCALER_DIV6</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:449</div></div>
+<div class="ttc" id="group___u_a_r_t___clock_prescaler_html_ga8332f7185809795e77bce091dfd3663c"><div class="ttname"><a href="group___u_a_r_t___clock_prescaler.html#ga8332f7185809795e77bce091dfd3663c">UART_PRESCALER_DIV16</a></div><div class="ttdeci">#define UART_PRESCALER_DIV16</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:453</div></div>
+<div class="ttc" id="group___u_a_r_t___clock_prescaler_html_gad256f52714b04a7559e8f9176322be92"><div class="ttname"><a href="group___u_a_r_t___clock_prescaler.html#gad256f52714b04a7559e8f9176322be92">UART_PRESCALER_DIV12</a></div><div class="ttdeci">#define UART_PRESCALER_DIV12</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:452</div></div>
+<div class="ttc" id="group___u_a_r_t___clock_prescaler_html_ga1e3e467c48fcb55666761454a7412640"><div class="ttname"><a href="group___u_a_r_t___clock_prescaler.html#ga1e3e467c48fcb55666761454a7412640">UART_PRESCALER_DIV10</a></div><div class="ttdeci">#define UART_PRESCALER_DIV10</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:451</div></div>
+<div class="ttc" id="group___u_a_r_t___clock_prescaler_html_gac111f3090e35143688710114e1e9be6d"><div class="ttname"><a href="group___u_a_r_t___clock_prescaler.html#gac111f3090e35143688710114e1e9be6d">UART_PRESCALER_DIV128</a></div><div class="ttdeci">#define UART_PRESCALER_DIV128</div><div class="ttdef"><b>Definition:</b> stm32h7xx_hal_uart.h:456</div></div>
+</div><!-- fragment -->
+<p>Ensure that UART Prescaler is valid. </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">&lt;strong&gt;CLOCKPRESCALER&lt;/strong&gt;</td><td>UART Prescaler value. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">SET</td><td>(<b>CLOCKPRESCALER</b> is valid) or RESET (<b>CLOCKPRESCALER</b> is invalid) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">生成于 2022年 二月 12日 星期六 02:15:48 , 为 Test使用 
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
+  </ul>
+</div>
+</body>
+</html>

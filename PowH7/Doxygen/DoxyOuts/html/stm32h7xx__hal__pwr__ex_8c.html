@@ -1,0 +1,235 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Test: /mnt/f/Git_repository/OurEDA/OurEDA-B1S/PowH7/file_rebuild/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr_ex.c 文件参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Test
+   &#160;<span id="projectnumber">1.0.0</span>
+   </div>
+   <div id="projectbrief">OurEDA B1S Projext</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'搜索');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('stm32h7xx__hal__pwr__ex_8c.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">stm32h7xx_hal_pwr_ex.c 文件参考</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="stm32h7xx__hal_8h.html">stm32h7xx_hal.h</a>&quot;</code><br />
+</div><a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><dl class="section author"><dt>作者</dt><dd>MCD Application Team<ul>
+<li>Peripheral Extended features functions <pre class="fragment">==============================================================================
+                      ##### How to use this driver #####
+==============================================================================
+[..]
+ (#) Call HAL_PWREx_ConfigSupply() function to configure the regulator supply
+     with the following different setups according to hardware (support SMPS):
+     (+) PWR_DIRECT_SMPS_SUPPLY
+     (+) PWR_SMPS_1V8_SUPPLIES_LDO
+     (+) PWR_SMPS_2V5_SUPPLIES_LDO
+     (+) PWR_SMPS_1V8_SUPPLIES_EXT_AND_LDO
+     (+) PWR_SMPS_2V5_SUPPLIES_EXT_AND_LDO
+     (+) PWR_SMPS_1V8_SUPPLIES_EXT
+     (+) PWR_SMPS_2V5_SUPPLIES_EXT
+     (+) PWR_LDO_SUPPLY
+     (+) PWR_EXTERNAL_SOURCE_SUPPLY
+
+ (#) Call HAL_PWREx_GetSupplyConfig() function to get the current supply setup.
+
+ (#) Call HAL_PWREx_ControlVoltageScaling() function to configure the main
+     internal regulator output voltage. The voltage scaling could be one of
+     the following scales :
+     (+) PWR_REGULATOR_VOLTAGE_SCALE0
+     (+) PWR_REGULATOR_VOLTAGE_SCALE1
+     (+) PWR_REGULATOR_VOLTAGE_SCALE2
+     (+) PWR_REGULATOR_VOLTAGE_SCALE3
+
+ (#) Call HAL_PWREx_GetVoltageRange() function to get the current output
+     voltage applied to the main regulator.
+
+ (#) Call HAL_PWREx_ControlStopModeVoltageScaling() function to configure the
+     main internal regulator output voltage in STOP mode. The voltage scaling
+     in STOP mode could be one of the following scales :
+     (+) PWR_REGULATOR_SVOS_SCALE3
+     (+) PWR_REGULATOR_SVOS_SCALE4
+     (+) PWR_REGULATOR_SVOS_SCALE5
+
+ (#) Call HAL_PWREx_GetStopModeVoltageRange() function to get the current
+     output voltage applied to the main regulator in STOP mode.
+
+ (#) Call HAL_PWREx_EnterSTOP2Mode() function to enter the system in STOP mode
+     with core domain in D2STOP mode. This API is used only for STM32H7Axxx
+     and STM32H7Bxxx devices.
+     Please ensure to clear all CPU pending events by calling
+     HAL_PWREx_ClearPendingEvent() function when trying to enter the Cortex-Mx
+     in DEEP-SLEEP mode with __WFE() entry.
+
+ (#) Call HAL_PWREx_EnterSTOPMode() function to enter the selected domain in
+     DSTOP mode. Call this API with all available power domains to enter the
+     system in STOP mode.
+     Please ensure to clear all CPU pending events by calling
+     HAL_PWREx_ClearPendingEvent() function when trying to enter the Cortex-Mx
+     in DEEP-SLEEP mode with __WFE() entry.
+
+ (#) Call HAL_PWREx_ClearPendingEvent() function always before entring the
+     Cortex-Mx in any low power mode (SLEEP/DEEP-SLEEP) using WFE entry.
+
+ (#) Call HAL_PWREx_EnterSTANDBYMode() function to enter the selected domain
+     in DSTANDBY mode. Call this API with all available power domains to enter
+     the system in STANDBY mode.
+
+ (#) Call HAL_PWREx_ConfigD3Domain() function to setup the D3/SRD domain state
+     (RUN/STOP) when the system enter to low power mode.
+
+ (#) Call HAL_PWREx_ClearDomainFlags() function to clear the CPU flags for the
+     selected power domain. This API is used only for dual core devices.
+
+ (#) Call HAL_PWREx_HoldCore() and HAL_PWREx_ReleaseCore() functions to hold
+     and release the selected CPU and and their domain peripherals when
+     exiting STOP mode. These APIs are used only for dual core devices.
+
+ (#) Call HAL_PWREx_EnableFlashPowerDown() and
+     HAL_PWREx_DisableFlashPowerDown() functions to enable and disable the
+     Flash Power Down in STOP mode.
+
+ (#) Call HAL_PWREx_EnableMemoryShutOff() and
+     HAL_PWREx_DisableMemoryShutOff() functions to enable and disable the
+     memory block shut-off in DStop or DStop2. These APIs are used only for
+     STM32H7Axxx and STM32H7Bxxx lines.
+
+ (#) Call HAL_PWREx_EnableWakeUpPin() and HAL_PWREx_DisableWakeUpPin()
+     functions to enable and disable the Wake-up pin functionality for
+     the selected pin.
+
+ (#) Call HAL_PWREx_GetWakeupFlag() and HAL_PWREx_ClearWakeupFlag()
+     functions to manage wake-up flag for the selected pin.
+
+ (#) Call HAL_PWREx_WAKEUP_PIN_IRQHandler() function to handle all wake-up
+     pins interrupts.
+
+ (#) Call HAL_PWREx_EnableBkUpReg() and HAL_PWREx_DisableBkUpReg() functions
+     to enable and disable the backup domain regulator.
+
+ (#) Call HAL_PWREx_EnableUSBReg(), HAL_PWREx_DisableUSBReg(),
+     HAL_PWREx_EnableUSBVoltageDetector() and
+     HAL_PWREx_DisableUSBVoltageDetector() functions to manage USB power
+     regulation functionalities.
+
+ (#) Call HAL_PWREx_EnableBatteryCharging() and
+     HAL_PWREx_DisableBatteryCharging() functions to enable and disable the
+     battery charging feature with the selected resistor.
+
+ (#) Call HAL_PWREx_EnableAnalogBooster() and
+     HAL_PWREx_DisableAnalogBooster() functions to enable and disable the
+     AVD boost feature when the VDD supply voltage is below 2V7.
+
+ (#) Call HAL_PWREx_EnableMonitoring() and HAL_PWREx_DisableMonitoring()
+     functions to enable and disable the VBAT and Temperature monitoring.
+     When VBAT and Temperature monitoring feature is enables, use
+     HAL_PWREx_GetTemperatureLevel() and HAL_PWREx_GetVBATLevel() to get
+     respectively the Temperature level and VBAT level.
+
+ (#) Call HAL_PWREx_GetMMCVoltage() and HAL_PWREx_DisableMonitoring()
+     function to get VDDMMC voltage level. This API is used only for
+     STM32H7Axxx and STM32H7Bxxx lines
+
+ (#) Call HAL_PWREx_ConfigAVD() after setting parameter to be configured
+     (event mode and voltage threshold) in order to set up the Analog Voltage
+     Detector then use HAL_PWREx_EnableAVD() and  HAL_PWREx_DisableAVD()
+     functions to start and stop the AVD detection.
+     (+) AVD level could be one of the following values :
+           (++) 1V7
+           (++) 2V1
+           (++) 2V5
+           (++) 2V8
+
+ (#) Call HAL_PWREx_PVD_AVD_IRQHandler() function to handle the PWR PVD and
+     AVD interrupt request.</pre></li>
+</ul>
+</dd></dl>
+<dl class="section attention"><dt>注意</dt><dd></dd></dl>
+<h2><center>&copy; COPYRIGHT(c) 2017 STMicroelectronics. All rights reserved.</center></h2>
+<p>This software component is licensed by ST under BSD 3-Clause license, the "License"; You may not use this file except in compliance with the License. You may obtain a copy of the License at: opensource.org/licenses/BSD-3-Clause </p>
+</div></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_6fda82105328d0c1fda17a2c6574589f.html">file_rebuild</a></li><li class="navelem"><a class="el" href="dir_f8cbf11529280ea5da80b4bb44d5f9a0.html">Drivers</a></li><li class="navelem"><a class="el" href="dir_cbe7be8b90087e52769a00bbc16dac82.html">STM32H7xx_HAL_Driver</a></li><li class="navelem"><a class="el" href="dir_7ac554ab80db6bf3832da21b902c950d.html">Src</a></li><li class="navelem"><a class="el" href="stm32h7xx__hal__pwr__ex_8c.html">stm32h7xx_hal_pwr_ex.c</a></li>
+    <li class="footer">生成于 2022年 二月 12日 星期六 02:15:47 , 为 Test使用 
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
+  </ul>
+</div>
+</body>
+</html>

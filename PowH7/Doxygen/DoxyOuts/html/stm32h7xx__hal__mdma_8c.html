@@ -1,0 +1,233 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Test: /mnt/f/Git_repository/OurEDA/OurEDA-B1S/PowH7/file_rebuild/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_mdma.c 文件参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Test
+   &#160;<span id="projectnumber">1.0.0</span>
+   </div>
+   <div id="projectbrief">OurEDA B1S Projext</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'搜索');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('stm32h7xx__hal__mdma_8c.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">stm32h7xx_hal_mdma.c 文件参考</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="stm32h7xx__hal_8h.html">stm32h7xx_hal.h</a>&quot;</code><br />
+</div><a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><dl class="section author"><dt>作者</dt><dd>MCD Application Team<ul>
+<li>Initialization/de-initialization functions</li>
+<li>I/O operation functions</li>
+<li>Peripheral State and errors functions <pre class="fragment">==============================================================================
+                      ##### How to use this driver #####
+==============================================================================
+[..]
+ (#) Enable and configure the peripheral to be connected to the MDMA Channel
+     (except for internal SRAM/FLASH memories: no initialization is
+     necessary) please refer to Reference manual for connection between peripherals
+     and MDMA requests.
+
+ (#)
+     For a given Channel use HAL_MDMA_Init function to program the required configuration through the following parameters:
+     transfer request , channel priority, data endianness, Source increment, destination increment ,
+     source data size, destination data size, data alignment, source Burst, destination Burst ,
+     buffer Transfer Length, Transfer Trigger Mode (buffer transfer, block transfer, repeated block transfer
+     or full transfer) source and destination block address offset, mask address and data.
+
+     If using the MDMA in linked list mode then use function HAL_MDMA_LinkedList_CreateNode to fill a transfer node.
+     Note that parameters given to the function HAL_MDMA_Init corresponds always to the node zero.
+     Use function HAL_MDMA_LinkedList_AddNode to connect the created node to the linked list at a given position.
+     User can make a linked list circular using function HAL_MDMA_LinkedList_EnableCircularMode , this function will automatically connect the
+     last node of the list to the first one in order to make the list circular.
+     In this case the linked list will loop on node 1 : first node connected after the initial transfer defined by the HAL_MDMA_Init
+
+    -@-   The initial transfer itself (node 0 corresponding to the Init).
+          User can disable the circular mode using function HAL_MDMA_LinkedList_DisableCircularMode, this function will then remove
+          the connection between last node and first one.
+
+     Function HAL_MDMA_LinkedList_RemoveNode can be used to remove (disconnect) a node from the transfer linked list.
+     When a linked list is circular (last node connected to first one), if removing node1  (node where the linked list loops),
+     the linked list remains circular and node 2 becomes the first one.
+     Note that if the linked list is made circular the transfer will loop infinitely (or until aborted by the user).
+
+  [..]
+     (+) User can select the transfer trigger mode (parameter TransferTriggerMode) to define the amount of data to be
+         transfer upon a request :
+           (++) MDMA_BUFFER_TRANSFER : each request triggers a transfer of BufferTransferLength data
+             with BufferTransferLength defined within the HAL_MDMA_Init.
+           (++) MDMA_BLOCK_TRANSFER : each request triggers a transfer of a block
+             with block size defined within the function HAL_MDMA_Start/HAL_MDMA_Start_IT
+             or within the current linked list node parameters.
+           (++) MDMA_REPEAT_BLOCK_TRANSFER : each request triggers a transfer of a number of blocks
+             with block size and number of blocks defined within the function HAL_MDMA_Start/HAL_MDMA_Start_IT
+             or within the current linked list node parameters.
+           (++) MDMA_FULL_TRANSFER : each request triggers a full transfer
+            all blocks and all nodes(if a linked list has been created using HAL_MDMA_LinkedList_CreateNode \ HAL_MDMA_LinkedList_AddNode).
+
+   *** Polling mode IO operation ***
+   =================================
+  [..]
+        (+) Use HAL_MDMA_Start() to start MDMA transfer after the configuration of Source
+            address and destination address and the Length of data to be transferred.
+        (+) Use HAL_MDMA_PollForTransfer() to poll for the end of current transfer or a transfer level
+           In this case a fixed Timeout can be configured by User depending from his application.
+        (+) Use HAL_MDMA_Abort() function to abort the current transfer : blocking method this API returns
+            when the abort ends or timeout (should not be called from an interrupt service routine).
+
+   *** Interrupt mode IO operation ***
+   ===================================
+  [..]
+        (+) Configure the MDMA interrupt priority using HAL_NVIC_SetPriority()
+        (+) Enable the MDMA IRQ handler using HAL_NVIC_EnableIRQ()
+        (+) Use HAL_MDMA_Start_IT() to start MDMA transfer after the configuration of
+            Source address and destination address and the Length of data to be transferred. In this
+            case the MDMA interrupt is configured.
+        (+) Use HAL_MDMA_IRQHandler() called under MDMA_IRQHandler() Interrupt subroutine
+        (+) At the end of data transfer HAL_MDMA_IRQHandler() function is executed and user can
+            add his own function by customization of function pointer XferCpltCallback and
+            XferErrorCallback (i.e a member of MDMA handle structure).
+
+        (+) Use HAL_MDMA_Abort_IT() function to abort the current transfer : non-blocking method. This API will finish the execution immediately
+            then the callback XferAbortCallback (if specified  by the user) is asserted once the MDMA channel has effectively aborted.
+            (could be called from an interrupt service routine).
+
+        (+) Use functions HAL_MDMA_RegisterCallback and HAL_MDMA_UnRegisterCallback respectevely to register unregister user callbacks
+            from the following list :
+            (++) XferCpltCallback            : transfer complete callback.
+            (++) XferBufferCpltCallback      : buffer transfer complete callback.
+            (++) XferBlockCpltCallback       : block transfer complete callback.
+            (++) XferRepeatBlockCpltCallback : repeated block transfer complete callback.
+            (++) XferErrorCallback           : transfer error callback.
+            (++) XferAbortCallback           : transfer abort complete callback.
+
+  [..]
+       (+)  If the transfer Request corresponds to SW request (MDMA_REQUEST_SW) User can use function HAL_MDMA_GenerateSWRequest to
+            trigger requests manually. Function HAL_MDMA_GenerateSWRequest must be used with the following precautions:
+            (++) This function returns an error if used while the Transfer has ended or not started.
+            (++) If used while the current request has not been served yet (current request transfer on going)
+              this function returns an error and the new request is ignored.
+
+            Generally this function should be used in conjunctions with the MDMA callbacks:
+            (++) example 1:
+               (+++) Configure a transfer with request set to MDMA_REQUEST_SW and trigger mode set to MDMA_BUFFER_TRANSFER
+               (+++) Register a callback for buffer transfer complete (using callback ID set to HAL_MDMA_XFER_BUFFERCPLT_CB_ID)
+               (+++) After calling HAL_MDMA_Start_IT the MDMA will issue the transfer of a first BufferTransferLength data.
+               (+++) When the buffer transfer complete callback is asserted first buffer has been transferred and user can ask for a new buffer transfer
+                 request using HAL_MDMA_GenerateSWRequest.
+
+            (++) example 2:
+               (+++) Configure a transfer with request set to MDMA_REQUEST_SW and trigger mode set to MDMA_BLOCK_TRANSFER
+               (+++) Register a callback for block transfer complete (using callback ID HAL_MDMA_XFER_BLOCKCPLT_CB_ID)
+               (+++) After calling HAL_MDMA_Start_IT the MDMA will issue the transfer of a first block of data.
+               (+++) When the block transfer complete callback is asserted the first block has been transferred and user can ask
+                 for a new block transfer request using HAL_MDMA_GenerateSWRequest.
+
+  [..]  Use HAL_MDMA_GetState() function to return the MDMA state and HAL_MDMA_GetError() in case of error detection.
+
+   *** MDMA HAL driver macros list ***
+   =============================================
+   [..]
+     Below the list of most used macros in MDMA HAL driver.
+
+    (+) __HAL_MDMA_ENABLE: Enable the specified MDMA Channel.
+    (+) __HAL_MDMA_DISABLE: Disable the specified MDMA Channel.
+    (+) __HAL_MDMA_GET_FLAG: Get the MDMA Channel pending flags.
+    (+) __HAL_MDMA_CLEAR_FLAG: Clear the MDMA Channel pending flags.
+    (+) __HAL_MDMA_ENABLE_IT: Enable the specified MDMA Channel interrupts.
+    (+) __HAL_MDMA_DISABLE_IT: Disable the specified MDMA Channel interrupts.
+    (+) __HAL_MDMA_GET_IT_SOURCE: Check whether the specified MDMA Channel interrupt has occurred or not.
+
+   [..]
+    (@) You can refer to the header file of the MDMA HAL driver for more useful macros.
+
+  [..]</pre></li>
+</ul>
+</dd></dl>
+<dl class="section attention"><dt>注意</dt><dd></dd></dl>
+<h2><center>&copy; COPYRIGHT(c) 2017 STMicroelectronics. All rights reserved.</center></h2>
+<p>This software component is licensed by ST under BSD 3-Clause license, the "License"; You may not use this file except in compliance with the License. You may obtain a copy of the License at: opensource.org/licenses/BSD-3-Clause </p>
+</div></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_6fda82105328d0c1fda17a2c6574589f.html">file_rebuild</a></li><li class="navelem"><a class="el" href="dir_f8cbf11529280ea5da80b4bb44d5f9a0.html">Drivers</a></li><li class="navelem"><a class="el" href="dir_cbe7be8b90087e52769a00bbc16dac82.html">STM32H7xx_HAL_Driver</a></li><li class="navelem"><a class="el" href="dir_7ac554ab80db6bf3832da21b902c950d.html">Src</a></li><li class="navelem"><a class="el" href="stm32h7xx__hal__mdma_8c.html">stm32h7xx_hal_mdma.c</a></li>
+    <li class="footer">生成于 2022年 二月 12日 星期六 02:15:47 , 为 Test使用 
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
+  </ul>
+</div>
+</body>
+</html>

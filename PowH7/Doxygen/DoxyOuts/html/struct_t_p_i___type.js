@@ -1,0 +1,27 @@
+var struct_t_p_i___type =
+[
+    [ "SSPSR", "struct_t_p_i___type.html#a037901d7cb870199ac51d9ad0ef9fd1a", null ],
+    [ "CSPSR", "struct_t_p_i___type.html#a8826aa84e5806053395a742d38d59d0f", null ],
+    [ "ACPR", "struct_t_p_i___type.html#a9e5e4421ef9c3d5b7ff8b24abd4e99b3", null ],
+    [ "SPPR", "struct_t_p_i___type.html#a12f79d4e3ddc69893ba8bff890d04cc5", null ],
+    [ "FFSR", "struct_t_p_i___type.html#a6c47a0b4c7ffc66093ef993d36bb441c", null ],
+    [ "FFCR", "struct_t_p_i___type.html#a3f68b6e73561b4849ebf953a894df8d2", null ],
+    [ "FSCR", "struct_t_p_i___type.html#ad6901bfd8a0089ca7e8a20475cf494a8", null ],
+    [ "TRIGGER", "struct_t_p_i___type.html#a4d4cd2357f72333a82a1313228287bbd", null ],
+    [ "FIFO0", "struct_t_p_i___type.html#aa4d7b5cf39dff9f53bf7f69bc287a814", null ],
+    [ "ITATBCTR2", "struct_t_p_i___type.html#ab358319b969d3fed0f89bbe33e9f1652", null ],
+    [ "ITATBCTR0", "struct_t_p_i___type.html#aaa573b2e073e76e93c51ecec79c616d0", null ],
+    [ "FIFO1", "struct_t_p_i___type.html#a061372fcd72f1eea871e2d9c1be849bc", null ],
+    [ "ITCTRL", "struct_t_p_i___type.html#aaa4c823c10f115f7517c82ef86a5a68d", null ],
+    [ "CLAIMSET", "struct_t_p_i___type.html#af8b7d15fa5252b733dd4b11fa1b5730a", null ],
+    [ "CLAIMCLR", "struct_t_p_i___type.html#a0e10e292cb019a832b03ddd055b2f6ac", null ],
+    [ "DEVID", "struct_t_p_i___type.html#abc0ecda8a5446bc754080276bad77514", null ],
+    [ "DEVTYPE", "struct_t_p_i___type.html#ad98855854a719bbea33061e71529a472", null ],
+    [ "PSCR", "struct_t_p_i___type.html#ad092e61fccb6752d3f4adbbd4a7e1567", null ],
+    [ "LAR", "struct_t_p_i___type.html#ae3a3197c7be6ce07b50fd87cbb02f319", null ],
+    [ "LSR", "struct_t_p_i___type.html#af5373794b1c024b28a2a59a9eab6498e", null ],
+    [ "TYPE", "struct_t_p_i___type.html#a01972f64f408cec28320780ca067b142", null ],
+    [ "ITFTTD0", "struct_t_p_i___type.html#a4c53b48c6bb49037c97742136d14b4f7", null ],
+    [ "ITATBCTR2", "struct_t_p_i___type.html#afde4a3b09318d1ec4a061d5e479a01bc", null ],
+    [ "ITFTTD1", "struct_t_p_i___type.html#aaf0447dd4b2c16dc1db1e2172c9dac8f", null ]
+];

@@ -1,0 +1,815 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Test: DMA Exported Macros</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Test
+   &#160;<span id="projectnumber">1.0.0</span>
+   </div>
+   <div id="projectbrief">OurEDA B1S Projext</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'搜索');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('group___d_m_a___exported___macros.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#define-members">宏定义</a>  </div>
+  <div class="headertitle">
+<div class="title">DMA Exported Macros<div class="ingroups"><a class="el" href="group___s_t_m32_h7xx___h_a_l___driver.html">STM32H7xx_HAL_Driver</a> &raquo; <a class="el" href="group___d_m_a.html">DMA</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+宏定义</h2></td></tr>
+<tr class="memitem:gaadcee34f0999c8eafd37de2f69daa0ac"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_a___exported___macros.html#gaadcee34f0999c8eafd37de2f69daa0ac">__HAL_DMA_RESET_HANDLE_STATE</a>(__HANDLE__)&#160;&#160;&#160;((__HANDLE__)-&gt;State = <a class="el" href="group___d_m_a___exported___types.html#gga9c012af359987a240826f29073bbe463a9e7be73da32b8c837cde0318e0d5eed2">HAL_DMA_STATE_RESET</a>)</td></tr>
+<tr class="separator:gaadcee34f0999c8eafd37de2f69daa0ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8f0ff408d25904040b9d23ee7f6af080"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_a___exported___macros.html#ga8f0ff408d25904040b9d23ee7f6af080">__HAL_DMA_GET_FS</a>(__HANDLE__)&#160;&#160;&#160;((IS_DMA_STREAM_INSTANCE((__HANDLE__)-&gt;Instance))? (((<a class="el" href="struct_d_m_a___stream___type_def.html">DMA_Stream_TypeDef</a> *)(__HANDLE__)-&gt;Instance)-&gt;FCR &amp; (<a class="el" href="group___peripheral___registers___bits___definition.html#ga56094479dc9b173b00ccfb199d8a2853">DMA_SxFCR_FS</a>)) : 0)</td></tr>
+<tr class="separator:ga8f0ff408d25904040b9d23ee7f6af080"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga93900b3ef3f87ef924eb887279a434b4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_a___exported___macros.html#ga93900b3ef3f87ef924eb887279a434b4">__HAL_DMA_ENABLE</a>(__HANDLE__)</td></tr>
+<tr class="separator:ga93900b3ef3f87ef924eb887279a434b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafeef4c5e8c3f015cdecc0f37bbe063dc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_a___exported___macros.html#gafeef4c5e8c3f015cdecc0f37bbe063dc">__HAL_DMA_DISABLE</a>(__HANDLE__)</td></tr>
+<tr class="separator:gafeef4c5e8c3f015cdecc0f37bbe063dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae3feef5ea50ff13a6a5b98cb353c87b0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_a___exported___macros.html#gae3feef5ea50ff13a6a5b98cb353c87b0">__HAL_DMA_GET_TC_FLAG_INDEX</a>(__HANDLE__)</td></tr>
+<tr class="separator:gae3feef5ea50ff13a6a5b98cb353c87b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0095f5f3166a82bedc67744ac94acfba"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_a___exported___macros.html#ga0095f5f3166a82bedc67744ac94acfba">__HAL_DMA_GET_HT_FLAG_INDEX</a>(__HANDLE__)</td></tr>
+<tr class="separator:ga0095f5f3166a82bedc67744ac94acfba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5e765bb3b1c5fc9f1b1abbbb764250bc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_a___exported___macros.html#ga5e765bb3b1c5fc9f1b1abbbb764250bc">__HAL_DMA_GET_TE_FLAG_INDEX</a>(__HANDLE__)</td></tr>
+<tr class="separator:ga5e765bb3b1c5fc9f1b1abbbb764250bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5878c3a1dbcf01e6840fffcf1f244088"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_a___exported___macros.html#ga5878c3a1dbcf01e6840fffcf1f244088">__HAL_DMA_GET_FE_FLAG_INDEX</a>(__HANDLE__)</td></tr>
+<tr class="separator:ga5878c3a1dbcf01e6840fffcf1f244088"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga23d1f282af3b9aa7aa396dcad94865d8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_a___exported___macros.html#ga23d1f282af3b9aa7aa396dcad94865d8">__HAL_DMA_GET_DME_FLAG_INDEX</a>(__HANDLE__)</td></tr>
+<tr class="separator:ga23d1f282af3b9aa7aa396dcad94865d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8779acdae52ce7746973df2b83704d10"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_a___exported___macros.html#ga8779acdae52ce7746973df2b83704d10">__HAL_BDMA_GET_GI_FLAG_INDEX</a>(__HANDLE__)</td></tr>
+<tr class="separator:ga8779acdae52ce7746973df2b83704d10"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga798d4b3b3fbd32b95540967bb35b35be"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_a___exported___macros.html#ga798d4b3b3fbd32b95540967bb35b35be">__HAL_DMA_GET_FLAG</a>(__HANDLE__,  __FLAG__)</td></tr>
+<tr class="separator:ga798d4b3b3fbd32b95540967bb35b35be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabc041fb1c85ea7a3af94e42470ef7f2a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_a___exported___macros.html#gabc041fb1c85ea7a3af94e42470ef7f2a">__HAL_DMA_CLEAR_FLAG</a>(__HANDLE__,  __FLAG__)</td></tr>
+<tr class="separator:gabc041fb1c85ea7a3af94e42470ef7f2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2124233229c04ca90b790cd8cddfa98b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_a___exported___macros.html#ga2124233229c04ca90b790cd8cddfa98b">__HAL_DMA_ENABLE_IT</a>(__HANDLE__,  __INTERRUPT__)</td></tr>
+<tr class="separator:ga2124233229c04ca90b790cd8cddfa98b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2867eab09398df2daac55c3f327654da"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_a___exported___macros.html#ga2867eab09398df2daac55c3f327654da">__HAL_DMA_DISABLE_IT</a>(__HANDLE__,  __INTERRUPT__)</td></tr>
+<tr class="separator:ga2867eab09398df2daac55c3f327654da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga206f24e6bee4600515b9b6b1ec79365b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_a___exported___macros.html#ga206f24e6bee4600515b9b6b1ec79365b">__HAL_DMA_GET_IT_SOURCE</a>(__HANDLE__,  __INTERRUPT__)</td></tr>
+<tr class="separator:ga206f24e6bee4600515b9b6b1ec79365b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga448a8f809df86ccffae200ffd33d0a82"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_a___exported___macros.html#ga448a8f809df86ccffae200ffd33d0a82">__HAL_DMA_SET_COUNTER</a>(__HANDLE__,  __COUNTER__)</td></tr>
+<tr class="separator:ga448a8f809df86ccffae200ffd33d0a82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga082d691311bac96641dc35a17cfe8e63"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_a___exported___macros.html#ga082d691311bac96641dc35a17cfe8e63">__HAL_DMA_GET_COUNTER</a>(__HANDLE__)</td></tr>
+<tr class="separator:ga082d691311bac96641dc35a17cfe8e63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<h2 class="groupheader">宏定义说明</h2>
+<a id="gaadcee34f0999c8eafd37de2f69daa0ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaadcee34f0999c8eafd37de2f69daa0ac">&#9670;&nbsp;</a></span>__HAL_DMA_RESET_HANDLE_STATE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define __HAL_DMA_RESET_HANDLE_STATE</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">__HANDLE__</td><td>)</td>
+          <td>&#160;&#160;&#160;((__HANDLE__)-&gt;State = <a class="el" href="group___d_m_a___exported___types.html#gga9c012af359987a240826f29073bbe463a9e7be73da32b8c837cde0318e0d5eed2">HAL_DMA_STATE_RESET</a>)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Reset DMA handle state </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">&lt;strong&gt;HANDLE&lt;/strong&gt;</td><td>specifies the DMA handle. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga8f0ff408d25904040b9d23ee7f6af080"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga8f0ff408d25904040b9d23ee7f6af080">&#9670;&nbsp;</a></span>__HAL_DMA_GET_FS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define __HAL_DMA_GET_FS</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">__HANDLE__</td><td>)</td>
+          <td>&#160;&#160;&#160;((IS_DMA_STREAM_INSTANCE((__HANDLE__)-&gt;Instance))? (((<a class="el" href="struct_d_m_a___stream___type_def.html">DMA_Stream_TypeDef</a> *)(__HANDLE__)-&gt;Instance)-&gt;FCR &amp; (<a class="el" href="group___peripheral___registers___bits___definition.html#ga56094479dc9b173b00ccfb199d8a2853">DMA_SxFCR_FS</a>)) : 0)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Return the current DMA Stream FIFO filled level. </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">&lt;strong&gt;HANDLE&lt;/strong&gt;</td><td>DMA handle </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">The</td><td>FIFO filling state.<ul>
+<li>DMA_FIFOStatus_Less1QuarterFull: when FIFO is less than 1 quarter-full and not empty.</li>
+<li>DMA_FIFOStatus_1QuarterFull: if more than 1 quarter-full.</li>
+<li>DMA_FIFOStatus_HalfFull: if more than 1 half-full.</li>
+<li>DMA_FIFOStatus_3QuartersFull: if more than 3 quarters-full.</li>
+<li>DMA_FIFOStatus_Empty: when FIFO is empty</li>
+<li>DMA_FIFOStatus_Full: when FIFO is full </li>
+</ul>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga93900b3ef3f87ef924eb887279a434b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga93900b3ef3f87ef924eb887279a434b4">&#9670;&nbsp;</a></span>__HAL_DMA_ENABLE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define __HAL_DMA_ENABLE</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">__HANDLE__</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">((IS_DMA_STREAM_INSTANCE((__HANDLE__)-&gt;Instance))? (((<a class="code" href="struct_d_m_a___stream___type_def.html">DMA_Stream_TypeDef</a> *)(__HANDLE__)-&gt;Instance)-&gt;CR |=  <a class="code" href="group___peripheral___registers___bits___definition.html#gaabf69fe92e9a44167535365b0fe4ea9e">DMA_SxCR_EN</a>) : \</div><div class="line">(((BDMA_Channel_TypeDef *)(__HANDLE__)-&gt;Instance)-&gt;CCR |=  <a class="code" href="group___peripheral___registers___bits___definition.html#ga34ff479471bbc8eea0ca2b91431c3dd7">BDMA_CCR_EN</a>))</div><div class="ttc" id="struct_d_m_a___stream___type_def_html"><div class="ttname"><a href="struct_d_m_a___stream___type_def.html">DMA_Stream_TypeDef</a></div><div class="ttdoc">DMA Controller </div><div class="ttdef"><b>Definition:</b> stm32h750xx.h:562</div></div>
+<div class="ttc" id="group___peripheral___registers___bits___definition_html_gaabf69fe92e9a44167535365b0fe4ea9e"><div class="ttname"><a href="group___peripheral___registers___bits___definition.html#gaabf69fe92e9a44167535365b0fe4ea9e">DMA_SxCR_EN</a></div><div class="ttdeci">#define DMA_SxCR_EN</div><div class="ttdef"><b>Definition:</b> stm32h750xx.h:8850</div></div>
+<div class="ttc" id="group___peripheral___registers___bits___definition_html_ga34ff479471bbc8eea0ca2b91431c3dd7"><div class="ttname"><a href="group___peripheral___registers___bits___definition.html#ga34ff479471bbc8eea0ca2b91431c3dd7">BDMA_CCR_EN</a></div><div class="ttdeci">#define BDMA_CCR_EN</div><div class="ttdef"><b>Definition:</b> stm32h750xx.h:6840</div></div>
+</div><!-- fragment -->
+<p>Enable the specified DMA Stream. </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">&lt;strong&gt;HANDLE&lt;/strong&gt;</td><td>DMA handle </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gafeef4c5e8c3f015cdecc0f37bbe063dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gafeef4c5e8c3f015cdecc0f37bbe063dc">&#9670;&nbsp;</a></span>__HAL_DMA_DISABLE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define __HAL_DMA_DISABLE</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">__HANDLE__</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">((IS_DMA_STREAM_INSTANCE((__HANDLE__)-&gt;Instance))? (((<a class="code" href="struct_d_m_a___stream___type_def.html">DMA_Stream_TypeDef</a> *)(__HANDLE__)-&gt;Instance)-&gt;CR &amp;=  ~<a class="code" href="group___peripheral___registers___bits___definition.html#gaabf69fe92e9a44167535365b0fe4ea9e">DMA_SxCR_EN</a>) : \</div><div class="line">(((BDMA_Channel_TypeDef *)(__HANDLE__)-&gt;Instance)-&gt;CCR &amp;=  ~<a class="code" href="group___peripheral___registers___bits___definition.html#ga34ff479471bbc8eea0ca2b91431c3dd7">BDMA_CCR_EN</a>))</div><div class="ttc" id="struct_d_m_a___stream___type_def_html"><div class="ttname"><a href="struct_d_m_a___stream___type_def.html">DMA_Stream_TypeDef</a></div><div class="ttdoc">DMA Controller </div><div class="ttdef"><b>Definition:</b> stm32h750xx.h:562</div></div>
+<div class="ttc" id="group___peripheral___registers___bits___definition_html_gaabf69fe92e9a44167535365b0fe4ea9e"><div class="ttname"><a href="group___peripheral___registers___bits___definition.html#gaabf69fe92e9a44167535365b0fe4ea9e">DMA_SxCR_EN</a></div><div class="ttdeci">#define DMA_SxCR_EN</div><div class="ttdef"><b>Definition:</b> stm32h750xx.h:8850</div></div>
+<div class="ttc" id="group___peripheral___registers___bits___definition_html_ga34ff479471bbc8eea0ca2b91431c3dd7"><div class="ttname"><a href="group___peripheral___registers___bits___definition.html#ga34ff479471bbc8eea0ca2b91431c3dd7">BDMA_CCR_EN</a></div><div class="ttdeci">#define BDMA_CCR_EN</div><div class="ttdef"><b>Definition:</b> stm32h750xx.h:6840</div></div>
+</div><!-- fragment -->
+<p>Disable the specified DMA Stream. </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">&lt;strong&gt;HANDLE&lt;/strong&gt;</td><td>DMA handle </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gae3feef5ea50ff13a6a5b98cb353c87b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae3feef5ea50ff13a6a5b98cb353c87b0">&#9670;&nbsp;</a></span>__HAL_DMA_GET_TC_FLAG_INDEX</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define __HAL_DMA_GET_TC_FLAG_INDEX</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">__HANDLE__</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">(((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)DMA1_Stream0))? DMA_FLAG_TCIF0_4 :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)DMA2_Stream0))? DMA_FLAG_TCIF0_4 :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)DMA1_Stream4))? DMA_FLAG_TCIF0_4 :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)DMA2_Stream4))? DMA_FLAG_TCIF0_4 :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)DMA1_Stream1))? DMA_FLAG_TCIF1_5 :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)DMA2_Stream1))? DMA_FLAG_TCIF1_5 :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)DMA1_Stream5))? DMA_FLAG_TCIF1_5 :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)DMA2_Stream5))? DMA_FLAG_TCIF1_5 :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)DMA1_Stream2))? DMA_FLAG_TCIF2_6 :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)DMA2_Stream2))? DMA_FLAG_TCIF2_6 :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)DMA1_Stream6))? DMA_FLAG_TCIF2_6 :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)DMA2_Stream6))? DMA_FLAG_TCIF2_6 :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)DMA1_Stream3))? DMA_FLAG_TCIF3_7 :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)DMA2_Stream3))? DMA_FLAG_TCIF3_7 :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)DMA1_Stream7))? DMA_FLAG_TCIF3_7 :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)DMA2_Stream7))? DMA_FLAG_TCIF3_7 :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)BDMA_Channel0))? BDMA_FLAG_TC0   :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)BDMA_Channel1))? BDMA_FLAG_TC1   :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)BDMA_Channel2))? BDMA_FLAG_TC2   :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)BDMA_Channel3))? BDMA_FLAG_TC3   :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)BDMA_Channel4))? BDMA_FLAG_TC4   :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)BDMA_Channel5))? BDMA_FLAG_TC5   :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)BDMA_Channel6))? BDMA_FLAG_TC6   :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)BDMA_Channel7))? BDMA_FLAG_TC7   :\</div><div class="line"> (uint32_t)0x00000000)</div></div><!-- fragment -->
+<p>Return the current DMA Stream transfer complete flag. </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">&lt;strong&gt;HANDLE&lt;/strong&gt;</td><td>DMA handle </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">The</td><td>specified transfer complete flag index. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga0095f5f3166a82bedc67744ac94acfba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0095f5f3166a82bedc67744ac94acfba">&#9670;&nbsp;</a></span>__HAL_DMA_GET_HT_FLAG_INDEX</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define __HAL_DMA_GET_HT_FLAG_INDEX</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">__HANDLE__</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">(((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)DMA1_Stream0))? DMA_FLAG_HTIF0_4 :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)DMA2_Stream0))? DMA_FLAG_HTIF0_4 :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)DMA1_Stream4))? DMA_FLAG_HTIF0_4 :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)DMA2_Stream4))? DMA_FLAG_HTIF0_4 :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)DMA1_Stream1))? DMA_FLAG_HTIF1_5 :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)DMA2_Stream1))? DMA_FLAG_HTIF1_5 :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)DMA1_Stream5))? DMA_FLAG_HTIF1_5 :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)DMA2_Stream5))? DMA_FLAG_HTIF1_5 :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)DMA1_Stream2))? DMA_FLAG_HTIF2_6 :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)DMA2_Stream2))? DMA_FLAG_HTIF2_6 :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)DMA1_Stream6))? DMA_FLAG_HTIF2_6 :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)DMA2_Stream6))? DMA_FLAG_HTIF2_6 :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)DMA1_Stream3))? DMA_FLAG_HTIF3_7 :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)DMA2_Stream3))? DMA_FLAG_HTIF3_7 :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)DMA1_Stream7))? DMA_FLAG_HTIF3_7 :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)DMA2_Stream7))? DMA_FLAG_HTIF3_7 :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)BDMA_Channel0))? BDMA_FLAG_HT0   :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)BDMA_Channel1))? BDMA_FLAG_HT1   :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)BDMA_Channel2))? BDMA_FLAG_HT2   :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)BDMA_Channel3))? BDMA_FLAG_HT3   :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)BDMA_Channel4))? BDMA_FLAG_HT4   :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)BDMA_Channel5))? BDMA_FLAG_HT5   :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)BDMA_Channel6))? BDMA_FLAG_HT6   :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)BDMA_Channel7))? BDMA_FLAG_HT7   :\</div><div class="line"> (uint32_t)0x00000000)</div></div><!-- fragment -->
+<p>Return the current DMA Stream half transfer complete flag. </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">&lt;strong&gt;HANDLE&lt;/strong&gt;</td><td>DMA handle </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">The</td><td>specified half transfer complete flag index. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga5e765bb3b1c5fc9f1b1abbbb764250bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5e765bb3b1c5fc9f1b1abbbb764250bc">&#9670;&nbsp;</a></span>__HAL_DMA_GET_TE_FLAG_INDEX</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define __HAL_DMA_GET_TE_FLAG_INDEX</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">__HANDLE__</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">(((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)DMA1_Stream0))? DMA_FLAG_TEIF0_4 :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)DMA2_Stream0))? DMA_FLAG_TEIF0_4 :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)DMA1_Stream4))? DMA_FLAG_TEIF0_4 :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)DMA2_Stream4))? DMA_FLAG_TEIF0_4 :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)DMA1_Stream1))? DMA_FLAG_TEIF1_5 :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)DMA2_Stream1))? DMA_FLAG_TEIF1_5 :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)DMA1_Stream5))? DMA_FLAG_TEIF1_5 :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)DMA2_Stream5))? DMA_FLAG_TEIF1_5 :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)DMA1_Stream2))? DMA_FLAG_TEIF2_6 :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)DMA2_Stream2))? DMA_FLAG_TEIF2_6 :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)DMA1_Stream6))? DMA_FLAG_TEIF2_6 :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)DMA2_Stream6))? DMA_FLAG_TEIF2_6 :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)DMA1_Stream3))? DMA_FLAG_TEIF3_7 :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)DMA2_Stream3))? DMA_FLAG_TEIF3_7 :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)DMA1_Stream7))? DMA_FLAG_TEIF3_7 :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)DMA2_Stream7))? DMA_FLAG_TEIF3_7 :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)BDMA_Channel0))? BDMA_FLAG_TE0   :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)BDMA_Channel1))? BDMA_FLAG_TE1   :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)BDMA_Channel2))? BDMA_FLAG_TE2   :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)BDMA_Channel3))? BDMA_FLAG_TE3   :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)BDMA_Channel4))? BDMA_FLAG_TE4   :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)BDMA_Channel5))? BDMA_FLAG_TE5   :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)BDMA_Channel6))? BDMA_FLAG_TE6   :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)BDMA_Channel7))? BDMA_FLAG_TE7   :\</div><div class="line"> (uint32_t)0x00000000)</div></div><!-- fragment -->
+<p>Return the current DMA Stream transfer error flag. </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">&lt;strong&gt;HANDLE&lt;/strong&gt;</td><td>DMA handle </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">The</td><td>specified transfer error flag index. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga5878c3a1dbcf01e6840fffcf1f244088"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5878c3a1dbcf01e6840fffcf1f244088">&#9670;&nbsp;</a></span>__HAL_DMA_GET_FE_FLAG_INDEX</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define __HAL_DMA_GET_FE_FLAG_INDEX</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">__HANDLE__</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">(((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)DMA1_Stream0))? DMA_FLAG_FEIF0_4 :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)DMA2_Stream0))? DMA_FLAG_FEIF0_4 :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)DMA1_Stream4))? DMA_FLAG_FEIF0_4 :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)DMA2_Stream4))? DMA_FLAG_FEIF0_4 :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)DMA1_Stream1))? DMA_FLAG_FEIF1_5 :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)DMA2_Stream1))? DMA_FLAG_FEIF1_5 :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)DMA1_Stream5))? DMA_FLAG_FEIF1_5 :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)DMA2_Stream5))? DMA_FLAG_FEIF1_5 :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)DMA1_Stream2))? DMA_FLAG_FEIF2_6 :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)DMA2_Stream2))? DMA_FLAG_FEIF2_6 :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)DMA1_Stream6))? DMA_FLAG_FEIF2_6 :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)DMA2_Stream6))? DMA_FLAG_FEIF2_6 :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)DMA1_Stream3))? DMA_FLAG_FEIF3_7 :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)DMA2_Stream3))? DMA_FLAG_FEIF3_7 :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)DMA1_Stream7))? DMA_FLAG_FEIF3_7 :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)DMA2_Stream7))? DMA_FLAG_FEIF3_7 :\</div><div class="line">  (uint32_t)0x00000000)</div></div><!-- fragment -->
+<p>Return the current DMA Stream FIFO error flag. </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">&lt;strong&gt;HANDLE&lt;/strong&gt;</td><td>DMA handle </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">The</td><td>specified FIFO error flag index. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga23d1f282af3b9aa7aa396dcad94865d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga23d1f282af3b9aa7aa396dcad94865d8">&#9670;&nbsp;</a></span>__HAL_DMA_GET_DME_FLAG_INDEX</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define __HAL_DMA_GET_DME_FLAG_INDEX</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">__HANDLE__</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">(((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)DMA1_Stream0))? DMA_FLAG_DMEIF0_4 :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)DMA2_Stream0))? DMA_FLAG_DMEIF0_4 :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)DMA1_Stream4))? DMA_FLAG_DMEIF0_4 :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)DMA2_Stream4))? DMA_FLAG_DMEIF0_4 :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)DMA1_Stream1))? DMA_FLAG_DMEIF1_5 :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)DMA2_Stream1))? DMA_FLAG_DMEIF1_5 :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)DMA1_Stream5))? DMA_FLAG_DMEIF1_5 :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)DMA2_Stream5))? DMA_FLAG_DMEIF1_5 :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)DMA1_Stream2))? DMA_FLAG_DMEIF2_6 :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)DMA2_Stream2))? DMA_FLAG_DMEIF2_6 :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)DMA1_Stream6))? DMA_FLAG_DMEIF2_6 :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)DMA2_Stream6))? DMA_FLAG_DMEIF2_6 :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)DMA1_Stream3))? DMA_FLAG_DMEIF3_7 :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)DMA2_Stream3))? DMA_FLAG_DMEIF3_7 :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)DMA1_Stream7))? DMA_FLAG_DMEIF3_7 :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)DMA2_Stream7))? DMA_FLAG_DMEIF3_7 :\</div><div class="line">  (uint32_t)0x00000000)</div></div><!-- fragment -->
+<p>Return the current DMA Stream direct mode error flag. </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">&lt;strong&gt;HANDLE&lt;/strong&gt;</td><td>DMA handle </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">The</td><td>specified direct mode error flag index. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga8779acdae52ce7746973df2b83704d10"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga8779acdae52ce7746973df2b83704d10">&#9670;&nbsp;</a></span>__HAL_BDMA_GET_GI_FLAG_INDEX</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define __HAL_BDMA_GET_GI_FLAG_INDEX</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">__HANDLE__</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">(((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)BDMA_Channel0))? <a class="code" href="group___peripheral___registers___bits___definition.html#ga5e1cca96f3a10bfed45e2f705d25b87c">BDMA_ISR_GIF0</a> :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)BDMA_Channel1))? <a class="code" href="group___peripheral___registers___bits___definition.html#gad521e81de9add44f5871ff74b39103b6">BDMA_ISR_GIF1</a> :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)BDMA_Channel2))? <a class="code" href="group___peripheral___registers___bits___definition.html#ga01919ef840f83f1d173d22d8c408cac6">BDMA_ISR_GIF2</a> :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)BDMA_Channel3))? <a class="code" href="group___peripheral___registers___bits___definition.html#gafcad475de62a1e7886ddf2d50d7d943f">BDMA_ISR_GIF3</a> :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)BDMA_Channel4))? <a class="code" href="group___peripheral___registers___bits___definition.html#gaa1fff1b89dcabcecaef8585a1a4d442e">BDMA_ISR_GIF4</a> :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)BDMA_Channel5))? <a class="code" href="group___peripheral___registers___bits___definition.html#gad54501a1f7450bf220d14f83a72b16fe">BDMA_ISR_GIF5</a> :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)BDMA_Channel6))? <a class="code" href="group___peripheral___registers___bits___definition.html#ga3721d586718d8e475c7c50ed45e6fbab">BDMA_ISR_GIF6</a> :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) == ((uint32_t)BDMA_Channel7))? <a class="code" href="group___peripheral___registers___bits___definition.html#gab9b4ca2423db8bcf9035e67a4988fb1d">BDMA_ISR_GIF7</a> :\</div><div class="line">  (uint32_t)0x00000000)</div><div class="ttc" id="group___peripheral___registers___bits___definition_html_ga01919ef840f83f1d173d22d8c408cac6"><div class="ttname"><a href="group___peripheral___registers___bits___definition.html#ga01919ef840f83f1d173d22d8c408cac6">BDMA_ISR_GIF2</a></div><div class="ttdeci">#define BDMA_ISR_GIF2</div><div class="ttdef"><b>Definition:</b> stm32h750xx.h:6668</div></div>
+<div class="ttc" id="group___peripheral___registers___bits___definition_html_gaa1fff1b89dcabcecaef8585a1a4d442e"><div class="ttname"><a href="group___peripheral___registers___bits___definition.html#gaa1fff1b89dcabcecaef8585a1a4d442e">BDMA_ISR_GIF4</a></div><div class="ttdeci">#define BDMA_ISR_GIF4</div><div class="ttdef"><b>Definition:</b> stm32h750xx.h:6692</div></div>
+<div class="ttc" id="group___peripheral___registers___bits___definition_html_gab9b4ca2423db8bcf9035e67a4988fb1d"><div class="ttname"><a href="group___peripheral___registers___bits___definition.html#gab9b4ca2423db8bcf9035e67a4988fb1d">BDMA_ISR_GIF7</a></div><div class="ttdeci">#define BDMA_ISR_GIF7</div><div class="ttdef"><b>Definition:</b> stm32h750xx.h:6728</div></div>
+<div class="ttc" id="group___peripheral___registers___bits___definition_html_gad521e81de9add44f5871ff74b39103b6"><div class="ttname"><a href="group___peripheral___registers___bits___definition.html#gad521e81de9add44f5871ff74b39103b6">BDMA_ISR_GIF1</a></div><div class="ttdeci">#define BDMA_ISR_GIF1</div><div class="ttdef"><b>Definition:</b> stm32h750xx.h:6656</div></div>
+<div class="ttc" id="group___peripheral___registers___bits___definition_html_ga3721d586718d8e475c7c50ed45e6fbab"><div class="ttname"><a href="group___peripheral___registers___bits___definition.html#ga3721d586718d8e475c7c50ed45e6fbab">BDMA_ISR_GIF6</a></div><div class="ttdeci">#define BDMA_ISR_GIF6</div><div class="ttdef"><b>Definition:</b> stm32h750xx.h:6716</div></div>
+<div class="ttc" id="group___peripheral___registers___bits___definition_html_gad54501a1f7450bf220d14f83a72b16fe"><div class="ttname"><a href="group___peripheral___registers___bits___definition.html#gad54501a1f7450bf220d14f83a72b16fe">BDMA_ISR_GIF5</a></div><div class="ttdeci">#define BDMA_ISR_GIF5</div><div class="ttdef"><b>Definition:</b> stm32h750xx.h:6704</div></div>
+<div class="ttc" id="group___peripheral___registers___bits___definition_html_gafcad475de62a1e7886ddf2d50d7d943f"><div class="ttname"><a href="group___peripheral___registers___bits___definition.html#gafcad475de62a1e7886ddf2d50d7d943f">BDMA_ISR_GIF3</a></div><div class="ttdeci">#define BDMA_ISR_GIF3</div><div class="ttdef"><b>Definition:</b> stm32h750xx.h:6680</div></div>
+<div class="ttc" id="group___peripheral___registers___bits___definition_html_ga5e1cca96f3a10bfed45e2f705d25b87c"><div class="ttname"><a href="group___peripheral___registers___bits___definition.html#ga5e1cca96f3a10bfed45e2f705d25b87c">BDMA_ISR_GIF0</a></div><div class="ttdeci">#define BDMA_ISR_GIF0</div><div class="ttdef"><b>Definition:</b> stm32h750xx.h:6644</div></div>
+</div><!-- fragment -->
+<p>Returns the current BDMA Channel Global interrupt flag. </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">&lt;strong&gt;HANDLE&lt;/strong&gt;</td><td>DMA handle </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">The</td><td>specified transfer error flag index. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga798d4b3b3fbd32b95540967bb35b35be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga798d4b3b3fbd32b95540967bb35b35be">&#9670;&nbsp;</a></span>__HAL_DMA_GET_FLAG</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define __HAL_DMA_GET_FLAG</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">__HANDLE__, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">__FLAG__&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">(((uint32_t)((__HANDLE__)-&gt;Instance) &gt; (uint32_t)DMA2_Stream7)? (BDMA-&gt;ISR &amp; (__FLAG__))  :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) &gt; (uint32_t)DMA2_Stream3)? (DMA2-&gt;HISR &amp; (__FLAG__)) :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) &gt; (uint32_t)DMA1_Stream7)? (DMA2-&gt;LISR &amp; (__FLAG__)) :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) &gt; (uint32_t)DMA1_Stream3)? (DMA1-&gt;HISR &amp; (__FLAG__)) : (DMA1-&gt;LISR &amp; (__FLAG__)))</div></div><!-- fragment -->
+<p>Get the DMA Stream pending flags. </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">&lt;strong&gt;HANDLE&lt;/strong&gt;</td><td>DMA handle </td></tr>
+    <tr><td class="paramname">&lt;strong&gt;FLAG&lt;/strong&gt;</td><td>Get the specified flag. This parameter can be any combination of the following values: <ul>
+<li>DMA_FLAG_TCIFx: Transfer complete flag. </li>
+<li>DMA_FLAG_HTIFx: Half transfer complete flag. </li>
+<li>DMA_FLAG_TEIFx: Transfer error flag. </li>
+<li>DMA_FLAG_DMEIFx: Direct mode error flag. </li>
+<li>DMA_FLAG_FEIFx: FIFO error flag. Where x can be 0_4, 1_5, 2_6 or 3_7 to select the DMA Stream flag. </li>
+</ul>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">The</td><td>state of FLAG (SET or RESET). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gabc041fb1c85ea7a3af94e42470ef7f2a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gabc041fb1c85ea7a3af94e42470ef7f2a">&#9670;&nbsp;</a></span>__HAL_DMA_CLEAR_FLAG</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define __HAL_DMA_CLEAR_FLAG</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">__HANDLE__, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">__FLAG__&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">(((uint32_t)((__HANDLE__)-&gt;Instance) &gt; (uint32_t)DMA2_Stream7)? (BDMA-&gt;IFCR = (__FLAG__))  :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) &gt; (uint32_t)DMA2_Stream3)? (DMA2-&gt;HIFCR = (__FLAG__)) :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) &gt; (uint32_t)DMA1_Stream7)? (DMA2-&gt;LIFCR = (__FLAG__)) :\</div><div class="line"> ((uint32_t)((__HANDLE__)-&gt;Instance) &gt; (uint32_t)DMA1_Stream3)? (DMA1-&gt;HIFCR = (__FLAG__)) : (DMA1-&gt;LIFCR = (__FLAG__)))</div></div><!-- fragment -->
+<p>Clear the DMA Stream pending flags. </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">&lt;strong&gt;HANDLE&lt;/strong&gt;</td><td>DMA handle </td></tr>
+    <tr><td class="paramname">&lt;strong&gt;FLAG&lt;/strong&gt;</td><td>specifies the flag to clear. This parameter can be any combination of the following values: <ul>
+<li>DMA_FLAG_TCIFx: Transfer complete flag. </li>
+<li>DMA_FLAG_HTIFx: Half transfer complete flag. </li>
+<li>DMA_FLAG_TEIFx: Transfer error flag. </li>
+<li>DMA_FLAG_DMEIFx: Direct mode error flag. </li>
+<li>DMA_FLAG_FEIFx: FIFO error flag. Where x can be 0_4, 1_5, 2_6 or 3_7 to select the DMA Stream flag. </li>
+</ul>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga2124233229c04ca90b790cd8cddfa98b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga2124233229c04ca90b790cd8cddfa98b">&#9670;&nbsp;</a></span>__HAL_DMA_ENABLE_IT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define __HAL_DMA_ENABLE_IT</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">__HANDLE__, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">__INTERRUPT__&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">((IS_DMA_STREAM_INSTANCE((__HANDLE__)-&gt;Instance))?\</div><div class="line">                                                        (__HAL_DMA_STREAM_ENABLE_IT((__HANDLE__), (__INTERRUPT__))) :\</div><div class="line">                                                        (__HAL_BDMA_CHANNEL_ENABLE_IT((__HANDLE__), (__INTERRUPT__))))</div></div><!-- fragment -->
+<p>Enable the specified DMA Stream interrupts. </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">&lt;strong&gt;HANDLE&lt;/strong&gt;</td><td>DMA handle </td></tr>
+    <tr><td class="paramname">&lt;strong&gt;INTERRUPT&lt;/strong&gt;</td><td>specifies the DMA interrupt sources to be enabled or disabled. This parameter can be one of the following values: <ul>
+<li>DMA_IT_TC: Transfer complete interrupt mask. </li>
+<li>DMA_IT_HT: Half transfer complete interrupt mask. </li>
+<li>DMA_IT_TE: Transfer error interrupt mask. </li>
+<li>DMA_IT_FE: FIFO error interrupt mask. </li>
+<li>DMA_IT_DME: Direct mode error interrupt. </li>
+</ul>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga2867eab09398df2daac55c3f327654da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga2867eab09398df2daac55c3f327654da">&#9670;&nbsp;</a></span>__HAL_DMA_DISABLE_IT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define __HAL_DMA_DISABLE_IT</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">__HANDLE__, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">__INTERRUPT__&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">((IS_DMA_STREAM_INSTANCE((__HANDLE__)-&gt;Instance))?\</div><div class="line">                                                         (__HAL_DMA_STREAM_DISABLE_IT((__HANDLE__), (__INTERRUPT__))) :\</div><div class="line">                                                         (__HAL_BDMA_CHANNEL_DISABLE_IT((__HANDLE__), (__INTERRUPT__))))</div></div><!-- fragment -->
+<p>Disable the specified DMA Stream interrupts. </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">&lt;strong&gt;HANDLE&lt;/strong&gt;</td><td>DMA handle </td></tr>
+    <tr><td class="paramname">&lt;strong&gt;INTERRUPT&lt;/strong&gt;</td><td>specifies the DMA interrupt sources to be enabled or disabled. This parameter can be one of the following values: <ul>
+<li>DMA_IT_TC: Transfer complete interrupt mask. </li>
+<li>DMA_IT_HT: Half transfer complete interrupt mask. </li>
+<li>DMA_IT_TE: Transfer error interrupt mask. </li>
+<li>DMA_IT_FE: FIFO error interrupt mask. </li>
+<li>DMA_IT_DME: Direct mode error interrupt. </li>
+</ul>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga206f24e6bee4600515b9b6b1ec79365b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga206f24e6bee4600515b9b6b1ec79365b">&#9670;&nbsp;</a></span>__HAL_DMA_GET_IT_SOURCE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define __HAL_DMA_GET_IT_SOURCE</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">__HANDLE__, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">__INTERRUPT__&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">((IS_DMA_STREAM_INSTANCE((__HANDLE__)-&gt;Instance))? \</div><div class="line">                                                            (__HAL_DMA_STREAM_GET_IT_SOURCE((__HANDLE__), (__INTERRUPT__))) :\</div><div class="line">                                                            (__HAL_BDMA_CHANNEL_GET_IT_SOURCE((__HANDLE__), (__INTERRUPT__))))</div></div><!-- fragment -->
+<p>Check whether the specified DMA Stream interrupt is enabled or not. </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">&lt;strong&gt;HANDLE&lt;/strong&gt;</td><td>DMA handle </td></tr>
+    <tr><td class="paramname">&lt;strong&gt;INTERRUPT&lt;/strong&gt;</td><td>specifies the DMA interrupt source to check. This parameter can be one of the following values: <ul>
+<li>DMA_IT_TC: Transfer complete interrupt mask. </li>
+<li>DMA_IT_HT: Half transfer complete interrupt mask. </li>
+<li>DMA_IT_TE: Transfer error interrupt mask. </li>
+<li>DMA_IT_FE: FIFO error interrupt mask. </li>
+<li>DMA_IT_DME: Direct mode error interrupt. </li>
+</ul>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">The</td><td>state of DMA_IT. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga448a8f809df86ccffae200ffd33d0a82"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga448a8f809df86ccffae200ffd33d0a82">&#9670;&nbsp;</a></span>__HAL_DMA_SET_COUNTER</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define __HAL_DMA_SET_COUNTER</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">__HANDLE__, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">__COUNTER__&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">((IS_DMA_STREAM_INSTANCE((__HANDLE__)-&gt;Instance))? \</div><div class="line">                                                        (((<a class="code" href="struct_d_m_a___stream___type_def.html">DMA_Stream_TypeDef</a> *)(__HANDLE__)-&gt;Instance)-&gt;NDTR = (uint16_t)(__COUNTER__)) :\</div><div class="line">                                                        (((BDMA_Channel_TypeDef *)(__HANDLE__)-&gt;Instance)-&gt;CNDTR = (uint16_t)(__COUNTER__)))</div><div class="ttc" id="struct_d_m_a___stream___type_def_html"><div class="ttname"><a href="struct_d_m_a___stream___type_def.html">DMA_Stream_TypeDef</a></div><div class="ttdoc">DMA Controller </div><div class="ttdef"><b>Definition:</b> stm32h750xx.h:562</div></div>
+</div><!-- fragment -->
+<p>Writes the number of data units to be transferred on the DMA Stream. </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">&lt;strong&gt;HANDLE&lt;/strong&gt;</td><td>DMA handle </td></tr>
+    <tr><td class="paramname">&lt;strong&gt;COUNTER&lt;/strong&gt;</td><td>Number of data units to be transferred (from 0 to 65535) Number of data items depends only on the Peripheral data format.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>注解</dt><dd>If Peripheral data format is Bytes: number of data units is equal to total number of bytes to be transferred.</dd>
+<dd>
+If Peripheral data format is Half-Word: number of data units is equal to total number of bytes to be transferred / 2.</dd>
+<dd>
+If Peripheral data format is Word: number of data units is equal to total number of bytes to be transferred / 4.</dd></dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">The</td><td>number of remaining data units in the current DMAy Streamx transfer. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga082d691311bac96641dc35a17cfe8e63"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga082d691311bac96641dc35a17cfe8e63">&#9670;&nbsp;</a></span>__HAL_DMA_GET_COUNTER</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define __HAL_DMA_GET_COUNTER</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">__HANDLE__</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">((IS_DMA_STREAM_INSTANCE((__HANDLE__)-&gt;Instance))? \</div><div class="line">                                           (((<a class="code" href="struct_d_m_a___stream___type_def.html">DMA_Stream_TypeDef</a> *)(__HANDLE__)-&gt;Instance)-&gt;NDTR) :\</div><div class="line">                                           (((BDMA_Channel_TypeDef *)(__HANDLE__)-&gt;Instance)-&gt;CNDTR))</div><div class="ttc" id="struct_d_m_a___stream___type_def_html"><div class="ttname"><a href="struct_d_m_a___stream___type_def.html">DMA_Stream_TypeDef</a></div><div class="ttdoc">DMA Controller </div><div class="ttdef"><b>Definition:</b> stm32h750xx.h:562</div></div>
+</div><!-- fragment -->
+<p>Returns the number of remaining data units in the current DMAy Streamx transfer. </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">&lt;strong&gt;HANDLE&lt;/strong&gt;</td><td>DMA handle</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">The</td><td>number of remaining data units in the current DMA Stream transfer. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">生成于 2022年 二月 12日 星期六 02:15:47 , 为 Test使用 
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
+  </ul>
+</div>
+</body>
+</html>

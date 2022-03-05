@@ -1,0 +1,432 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Test: FLASH Exported Macros</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Test
+   &#160;<span id="projectnumber">1.0.0</span>
+   </div>
+   <div id="projectbrief">OurEDA B1S Projext</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'搜索');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('group___f_l_a_s_h___exported___macros.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#define-members">宏定义</a>  </div>
+  <div class="headertitle">
+<div class="title">FLASH Exported Macros<div class="ingroups"><a class="el" href="group___s_t_m32_h7xx___h_a_l___driver.html">STM32H7xx_HAL_Driver</a> &raquo; <a class="el" href="group___f_l_a_s_h.html">FLASH</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+宏定义</h2></td></tr>
+<tr class="memitem:gac1c9f459b798cc3700b90a6245df5a1a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___f_l_a_s_h___exported___macros.html#gac1c9f459b798cc3700b90a6245df5a1a">__HAL_FLASH_SET_LATENCY</a>(__LATENCY__)&#160;&#160;&#160;MODIFY_REG(FLASH-&gt;ACR, <a class="el" href="group___peripheral___registers___bits___definition.html#gaef5e44cbb084160a6004ca9951ec7318">FLASH_ACR_LATENCY</a>, (uint32_t)(__LATENCY__))</td></tr>
+<tr class="separator:gac1c9f459b798cc3700b90a6245df5a1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa537e44d74ce35ff5bfef80edf03f895"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___f_l_a_s_h___exported___macros.html#gaa537e44d74ce35ff5bfef80edf03f895">__HAL_FLASH_GET_LATENCY</a>()&#160;&#160;&#160;(READ_BIT((FLASH-&gt;ACR), <a class="el" href="group___peripheral___registers___bits___definition.html#gaef5e44cbb084160a6004ca9951ec7318">FLASH_ACR_LATENCY</a>))</td></tr>
+<tr class="separator:gaa537e44d74ce35ff5bfef80edf03f895"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga009e02a77f26c5b8ca6b81aff1b1794a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___f_l_a_s_h___exported___macros.html#ga009e02a77f26c5b8ca6b81aff1b1794a">__HAL_FLASH_ENABLE_IT_BANK1</a>(__INTERRUPT__)&#160;&#160;&#160;(FLASH-&gt;CR1 |= (__INTERRUPT__))</td></tr>
+<tr class="separator:ga009e02a77f26c5b8ca6b81aff1b1794a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac0ea4e89204dec265c2810520948df81"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___f_l_a_s_h___exported___macros.html#gac0ea4e89204dec265c2810520948df81">__HAL_FLASH_DISABLE_IT_BANK1</a>(__INTERRUPT__)&#160;&#160;&#160;(FLASH-&gt;CR1 &amp;= ~(uint32_t)(__INTERRUPT__))</td></tr>
+<tr class="separator:gac0ea4e89204dec265c2810520948df81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga05f963e88e8746c33d403ef5a8ec3d17"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___f_l_a_s_h___exported___macros.html#ga05f963e88e8746c33d403ef5a8ec3d17">__HAL_FLASH_GET_FLAG_BANK1</a>(__FLAG__)&#160;&#160;&#160;(READ_BIT(FLASH-&gt;SR1, (__FLAG__)) == (__FLAG__))</td></tr>
+<tr class="separator:ga05f963e88e8746c33d403ef5a8ec3d17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaee16e3dcaf19b900ffd24f2d572318d3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___f_l_a_s_h___exported___macros.html#gaee16e3dcaf19b900ffd24f2d572318d3">__HAL_FLASH_CLEAR_FLAG_BANK1</a>(__FLAG__)&#160;&#160;&#160;WRITE_REG(FLASH-&gt;CCR1, (__FLAG__))</td></tr>
+<tr class="separator:gaee16e3dcaf19b900ffd24f2d572318d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<h2 class="groupheader">宏定义说明</h2>
+<a id="gac1c9f459b798cc3700b90a6245df5a1a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gac1c9f459b798cc3700b90a6245df5a1a">&#9670;&nbsp;</a></span>__HAL_FLASH_SET_LATENCY</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define __HAL_FLASH_SET_LATENCY</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">__LATENCY__</td><td>)</td>
+          <td>&#160;&#160;&#160;MODIFY_REG(FLASH-&gt;ACR, <a class="el" href="group___peripheral___registers___bits___definition.html#gaef5e44cbb084160a6004ca9951ec7318">FLASH_ACR_LATENCY</a>, (uint32_t)(__LATENCY__))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the FLASH Latency. </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">&lt;strong&gt;LATENCY&lt;/strong&gt;</td><td>FLASH Latency The value of this parameter depend on device used within the same series </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">none</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gaa537e44d74ce35ff5bfef80edf03f895"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa537e44d74ce35ff5bfef80edf03f895">&#9670;&nbsp;</a></span>__HAL_FLASH_GET_LATENCY</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define __HAL_FLASH_GET_LATENCY</td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td>&#160;&#160;&#160;(READ_BIT((FLASH-&gt;ACR), <a class="el" href="group___peripheral___registers___bits___definition.html#gaef5e44cbb084160a6004ca9951ec7318">FLASH_ACR_LATENCY</a>))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the FLASH Latency. </p>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">FLASH</td><td>Latency The value of this parameter depend on device used within the same series </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga009e02a77f26c5b8ca6b81aff1b1794a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga009e02a77f26c5b8ca6b81aff1b1794a">&#9670;&nbsp;</a></span>__HAL_FLASH_ENABLE_IT_BANK1</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define __HAL_FLASH_ENABLE_IT_BANK1</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">__INTERRUPT__</td><td>)</td>
+          <td>&#160;&#160;&#160;(FLASH-&gt;CR1 |= (__INTERRUPT__))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Enable the specified FLASH interrupt. </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">&lt;strong&gt;INTERRUPT&lt;/strong&gt;</td><td>: FLASH interrupt In case of Bank 1 This parameter can be any combination of the following values: <ul>
+<li>FLASH_IT_EOP_BANK1 : End of FLASH Bank 1 Operation Interrupt source </li>
+<li>FLASH_IT_WRPERR_BANK1 : Write Protection Error on Bank 1 Interrupt source </li>
+<li>FLASH_IT_PGSERR_BANK1 : Program Sequence Error on Bank 1 Interrupt source </li>
+<li>FLASH_IT_STRBERR_BANK1 : Strobe Error on Bank 1 Interrupt source </li>
+<li>FLASH_IT_INCERR_BANK1 : Inconsistency Error on Bank 1 Interrupt source </li>
+<li>FLASH_IT_OPERR_BANK1 : Operation Error on Bank 1 Interrupt source </li>
+<li>FLASH_IT_RDPERR_BANK1 : Read protection Error on Bank 1 Interrupt source </li>
+<li>FLASH_IT_RDSERR_BANK1 : Read secure Error on Bank 1 Interrupt source </li>
+<li>FLASH_IT_SNECCERR_BANK1 : Single ECC Error Correction on Bank 1 Interrupt source </li>
+<li>FLASH_IT_DBECCERR_BANK1 : Double Detection ECC Error on Bank 1 Interrupt source </li>
+<li>FLASH_IT_CRCEND_BANK1 : CRC End on Bank 1 Interrupt source </li>
+<li>FLASH_IT_CRCRDERR_BANK1 : CRC Read error on Bank 1 Interrupt source </li>
+<li>FLASH_IT_ALL_BANK1 : All Bank 1 Interrupt sources</li>
+</ul>
+In case of Bank 2, this parameter can be any combination of the following values: <ul>
+<li>FLASH_IT_EOP_BANK2 : End of FLASH Bank 2 Operation Interrupt source </li>
+<li>FLASH_IT_WRPERR_BANK2 : Write Protection Error on Bank 2 Interrupt source </li>
+<li>FLASH_IT_PGSERR_BANK2 : Program Sequence Error on Bank 2 Interrupt source </li>
+<li>FLASH_IT_STRBERR_BANK2 : Strobe Error on Bank 2 Interrupt source </li>
+<li>FLASH_IT_INCERR_BANK2 : Inconsistency Error on Bank 2 Interrupt source </li>
+<li>FLASH_IT_OPERR_BANK2 : Operation Error on Bank 2 Interrupt source </li>
+<li>FLASH_IT_RDPERR_BANK2 : Read protection Error on Bank 2 Interrupt source </li>
+<li>FLASH_IT_RDSERR_BANK2 : Read secure Error on Bank 2 Interrupt source </li>
+<li>FLASH_IT_SNECCERR_BANK2 : Single ECC Error Correction on Bank 2 Interrupt source </li>
+<li>FLASH_IT_DBECCERR_BANK2 : Double Detection ECC Error on Bank 2 Interrupt source </li>
+<li>FLASH_IT_CRCEND_BANK2 : CRC End on Bank 2 Interrupt source </li>
+<li>FLASH_IT_CRCRDERR_BANK2 : CRC Read error on Bank 2 Interrupt source </li>
+<li>FLASH_IT_ALL_BANK2 : All Bank 2 Interrupt sources </li>
+</ul>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">none</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gac0ea4e89204dec265c2810520948df81"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gac0ea4e89204dec265c2810520948df81">&#9670;&nbsp;</a></span>__HAL_FLASH_DISABLE_IT_BANK1</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define __HAL_FLASH_DISABLE_IT_BANK1</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">__INTERRUPT__</td><td>)</td>
+          <td>&#160;&#160;&#160;(FLASH-&gt;CR1 &amp;= ~(uint32_t)(__INTERRUPT__))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Disable the specified FLASH interrupt. </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">&lt;strong&gt;INTERRUPT&lt;/strong&gt;</td><td>: FLASH interrupt In case of Bank 1 This parameter can be any combination of the following values: <ul>
+<li>FLASH_IT_EOP_BANK1 : End of FLASH Bank 1 Operation Interrupt source </li>
+<li>FLASH_IT_WRPERR_BANK1 : Write Protection Error on Bank 1 Interrupt source </li>
+<li>FLASH_IT_PGSERR_BANK1 : Program Sequence Error on Bank 1 Interrupt source </li>
+<li>FLASH_IT_STRBERR_BANK1 : Strobe Error on Bank 1 Interrupt source </li>
+<li>FLASH_IT_INCERR_BANK1 : Inconsistency Error on Bank 1 Interrupt source </li>
+<li>FLASH_IT_OPERR_BANK1 : Operation Error on Bank 1 Interrupt source </li>
+<li>FLASH_IT_RDPERR_BANK1 : Read protection Error on Bank 1 Interrupt source </li>
+<li>FLASH_IT_RDSERR_BANK1 : Read secure Error on Bank 1 Interrupt source </li>
+<li>FLASH_IT_SNECCERR_BANK1 : Single ECC Error Correction on Bank 1 Interrupt source </li>
+<li>FLASH_IT_DBECCERR_BANK1 : Double Detection ECC Error on Bank 1 Interrupt source </li>
+<li>FLASH_IT_CRCEND_BANK1 : CRC End on Bank 1 Interrupt source </li>
+<li>FLASH_IT_CRCRDERR_BANK1 : CRC Read error on Bank 1 Interrupt source </li>
+<li>FLASH_IT_ALL_BANK1 : All Bank 1 Interrupt sources</li>
+</ul>
+In case of Bank 2, this parameter can be any combination of the following values: <ul>
+<li>FLASH_IT_EOP_BANK2 : End of FLASH Bank 2 Operation Interrupt source </li>
+<li>FLASH_IT_WRPERR_BANK2 : Write Protection Error on Bank 2 Interrupt source </li>
+<li>FLASH_IT_PGSERR_BANK2 : Program Sequence Error on Bank 2 Interrupt source </li>
+<li>FLASH_IT_STRBERR_BANK2 : Strobe Error on Bank 2 Interrupt source </li>
+<li>FLASH_IT_INCERR_BANK2 : Inconsistency Error on Bank 2 Interrupt source </li>
+<li>FLASH_IT_OPERR_BANK2 : Operation Error on Bank 2 Interrupt source </li>
+<li>FLASH_IT_RDPERR_BANK2 : Read protection Error on Bank 2 Interrupt source </li>
+<li>FLASH_IT_RDSERR_BANK2 : Read secure Error on Bank 2 Interrupt source </li>
+<li>FLASH_IT_SNECCERR_BANK2 : Single ECC Error Correction on Bank 2 Interrupt source </li>
+<li>FLASH_IT_DBECCERR_BANK2 : Double Detection ECC Error on Bank 2 Interrupt source </li>
+<li>FLASH_IT_CRCEND_BANK2 : CRC End on Bank 2 Interrupt source </li>
+<li>FLASH_IT_CRCRDERR_BANK2 : CRC Read error on Bank 2 Interrupt source </li>
+<li>FLASH_IT_ALL_BANK2 : All Bank 2 Interrupt sources </li>
+</ul>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">none</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga05f963e88e8746c33d403ef5a8ec3d17"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga05f963e88e8746c33d403ef5a8ec3d17">&#9670;&nbsp;</a></span>__HAL_FLASH_GET_FLAG_BANK1</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define __HAL_FLASH_GET_FLAG_BANK1</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">__FLAG__</td><td>)</td>
+          <td>&#160;&#160;&#160;(READ_BIT(FLASH-&gt;SR1, (__FLAG__)) == (__FLAG__))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks whether the specified FLASH flag is set or not. </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">&lt;strong&gt;FLAG&lt;/strong&gt;</td><td>specifies the FLASH flag to check. In case of Bank 1 This parameter can be one of the following values : <ul>
+<li>FLASH_FLAG_BSY_BANK1 : FLASH Bank 1 Busy flag </li>
+<li>FLASH_FLAG_WBNE_BANK1 : Write Buffer Not Empty on Bank 1 flag </li>
+<li>FLASH_FLAG_QW_BANK1 : Wait Queue on Bank 1 flag </li>
+<li>FLASH_FLAG_CRC_BUSY_BANK1 : CRC module is working on Bank 1 flag </li>
+<li>FLASH_FLAG_EOP_BANK1 : End Of Program on Bank 1 flag </li>
+<li>FLASH_FLAG_WRPERR_BANK1 : Write Protection Error on Bank 1 flag </li>
+<li>FLASH_FLAG_PGSERR_BANK1 : Program Sequence Error on Bank 1 flag </li>
+<li>FLASH_FLAG_STRBER_BANK1 : Program Alignment Error on Bank 1 flag </li>
+<li>FLASH_FLAG_INCERR_BANK1 : Inconsistency Error on Bank 1 flag </li>
+<li>FLASH_FLAG_OPERR_BANK1 : Operation Error on Bank 1 flag </li>
+<li>FLASH_FLAG_RDPERR_BANK1 : Read Protection Error on Bank 1 flag </li>
+<li>FLASH_FLAG_RDSERR_BANK1 : Read secure Error on Bank 1 flag </li>
+<li>FLASH_FLAG_SNECCE_BANK1 : Single ECC Error Correction on Bank 1 flag </li>
+<li>FLASH_FLAG_DBECCE_BANK1 : Double Detection ECC Error on Bank 1 flag </li>
+<li>FLASH_FLAG_CRCEND_BANK1 : CRC End on Bank 1 flag </li>
+<li>FLASH_FLAG_CRCRDERR_BANK1 : CRC Read error on Bank 1 flag</li>
+</ul>
+In case of Bank 2 This parameter can be one of the following values : <ul>
+<li>FLASH_FLAG_BSY_BANK2 : FLASH Bank 2 Busy flag </li>
+<li>FLASH_FLAG_WBNE_BANK2 : Write Buffer Not Empty on Bank 2 flag </li>
+<li>FLASH_FLAG_QW_BANK2 : Wait Queue on Bank 2 flag </li>
+<li>FLASH_FLAG_CRC_BUSY_BANK2 : CRC module is working on Bank 2 flag </li>
+<li>FLASH_FLAG_EOP_BANK2 : End Of Program on Bank 2 flag </li>
+<li>FLASH_FLAG_WRPERR_BANK2 : Write Protection Error on Bank 2 flag </li>
+<li>FLASH_FLAG_PGSERR_BANK2 : Program Sequence Error on Bank 2 flag </li>
+<li>FLASH_FLAG_STRBER_BANK2 : Program Alignment Error on Bank 2 flag </li>
+<li>FLASH_FLAG_INCERR_BANK2 : Inconsistency Error on Bank 2 flag </li>
+<li>FLASH_FLAG_OPERR_BANK2 : Operation Error on Bank 2 flag </li>
+<li>FLASH_FLAG_RDPERR_BANK2 : Read Protection Error on Bank 2 flag </li>
+<li>FLASH_FLAG_RDSERR_BANK2 : Read secure Error on Bank 2 flag </li>
+<li>FLASH_FLAG_SNECCE_BANK2 : Single ECC Error Correction on Bank 2 flag </li>
+<li>FLASH_FLAG_DBECCE_BANK2 : Double Detection ECC Error on Bank 2 flag </li>
+<li>FLASH_FLAG_CRCEND_BANK2 : CRC End on Bank 2 flag </li>
+<li>FLASH_FLAG_CRCRDERR_BANK2 : CRC Read error on Bank 2 flag </li>
+</ul>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">The</td><td>new state of FLASH_FLAG (SET or RESET). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gaee16e3dcaf19b900ffd24f2d572318d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaee16e3dcaf19b900ffd24f2d572318d3">&#9670;&nbsp;</a></span>__HAL_FLASH_CLEAR_FLAG_BANK1</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define __HAL_FLASH_CLEAR_FLAG_BANK1</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">__FLAG__</td><td>)</td>
+          <td>&#160;&#160;&#160;WRITE_REG(FLASH-&gt;CCR1, (__FLAG__))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Clear the specified FLASH flag. </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">&lt;strong&gt;FLAG&lt;/strong&gt;</td><td>specifies the FLASH flags to clear. In case of Bank 1, this parameter can be any combination of the following values: <ul>
+<li>FLASH_FLAG_EOP_BANK1 : End Of Program on Bank 1 flag </li>
+<li>FLASH_FLAG_WRPERR_BANK1 : Write Protection Error on Bank 1 flag </li>
+<li>FLASH_FLAG_PGSERR_BANK1 : Program Sequence Error on Bank 1 flag </li>
+<li>FLASH_FLAG_STRBER_BANK1 : Program Alignment Error on Bank 1 flag </li>
+<li>FLASH_FLAG_INCERR_BANK1 : Inconsistency Error on Bank 1 flag </li>
+<li>FLASH_FLAG_OPERR_BANK1 : Operation Error on Bank 1 flag </li>
+<li>FLASH_FLAG_RDPERR_BANK1 : Read Protection Error on Bank 1 flag </li>
+<li>FLASH_FLAG_RDSERR_BANK1 : Read secure Error on Bank 1 flag </li>
+<li>FLASH_FLAG_SNECCE_BANK1 : Single ECC Error Correction on Bank 1 flag </li>
+<li>FLASH_FLAG_DBECCE_BANK1 : Double Detection ECC Error on Bank 1 flag </li>
+<li>FLASH_FLAG_CRCEND_BANK1 : CRC End on Bank 1 flag </li>
+<li>FLASH_FLAG_CRCRDERR_BANK1 : CRC Read error on Bank 1 flag </li>
+<li>FLASH_FLAG_ALL_ERRORS_BANK1 : All Bank 1 error flags </li>
+<li>FLASH_FLAG_ALL_BANK1 : All Bank 1 flags</li>
+</ul>
+In case of Bank 2, this parameter can be any combination of the following values : <ul>
+<li>FLASH_FLAG_EOP_BANK2 : End Of Program on Bank 2 flag </li>
+<li>FLASH_FLAG_WRPERR_BANK2 : Write Protection Error on Bank 2 flag </li>
+<li>FLASH_FLAG_PGSERR_BANK2 : Program Sequence Error on Bank 2 flag </li>
+<li>FLASH_FLAG_STRBER_BANK2 : Program Alignment Error on Bank 2 flag </li>
+<li>FLASH_FLAG_INCERR_BANK2 : Inconsistency Error on Bank 2 flag </li>
+<li>FLASH_FLAG_OPERR_BANK2 : Operation Error on Bank 2 flag </li>
+<li>FLASH_FLAG_RDPERR_BANK2 : Read Protection Error on Bank 2 flag </li>
+<li>FLASH_FLAG_RDSERR_BANK2 : Read secure Error on Bank 2 flag </li>
+<li>FLASH_FLAG_SNECCE_BANK2 : Single ECC Error Correction on Bank 2 flag </li>
+<li>FLASH_FLAG_DBECCE_BANK2 : Double Detection ECC Error on Bank 2 flag </li>
+<li>FLASH_FLAG_CRCEND_BANK2 : CRC End on Bank 2 flag </li>
+<li>FLASH_FLAG_CRCRDERR_BANK2 : CRC Read error on Bank 2 flag </li>
+<li>FLASH_FLAG_ALL_ERRORS_BANK2 : All Bank 2 error flags </li>
+<li>FLASH_FLAG_ALL_BANK2 : All Bank 2 flags </li>
+</ul>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">none</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">生成于 2022年 二月 12日 星期六 02:15:47 , 为 Test使用 
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
+  </ul>
+</div>
+</body>
+</html>

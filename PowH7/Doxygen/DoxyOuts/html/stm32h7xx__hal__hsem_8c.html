@@ -1,0 +1,167 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Test: /mnt/f/Git_repository/OurEDA/OurEDA-B1S/PowH7/file_rebuild/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_hsem.c 文件参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Test
+   &#160;<span id="projectnumber">1.0.0</span>
+   </div>
+   <div id="projectbrief">OurEDA B1S Projext</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'搜索');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('stm32h7xx__hal__hsem_8c.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">stm32h7xx_hal_hsem.c 文件参考</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="stm32h7xx__hal_8h.html">stm32h7xx_hal.h</a>&quot;</code><br />
+</div><a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><dl class="section author"><dt>作者</dt><dd>MCD Application Team<ul>
+<li>Semaphore Take function (2-Step Procedure) , non blocking</li>
+<li>Semaphore FastTake function (1-Step Procedure) , non blocking</li>
+<li>Semaphore Status check</li>
+<li>Semaphore Clear Key Set and Get</li>
+<li>Release and release all functions</li>
+<li>Semaphore notification enabling and disabling and callnack functions</li>
+<li>IRQ handler management</li>
+</ul>
+</dd></dl>
+<pre class="fragment">==============================================================================
+                   ##### How to use this driver #####
+==============================================================================
+[..]
+    (#)Take a semaphore In 2-Step mode Using function HAL_HSEM_Take. This function takes as parameters :
+         (++) the semaphore ID from 0 to 31
+         (++) the process ID from 0 to 255
+    (#) Fast Take semaphore In 1-Step mode Using function HAL_HSEM_FastTake. This function takes as parameter :
+         (++) the semaphore ID from 0_ID to 31. Note that the process ID value is implicitly assumed as zero
+    (#) Check if a semaphore is Taken using function HAL_HSEM_IsSemTaken. This function takes as parameter :
+        (++) the semaphore ID from 0_ID to 31
+        (++) It returns 1 if the given semaphore is taken otherwise (Free) zero
+    (#)Release a semaphore using function with HAL_HSEM_Release. This function takes as parameters :
+         (++) the semaphore ID from 0 to 31
+         (++) the process ID from 0 to 255:
+         (++) Note: If ProcessID and MasterID match, semaphore is freed, and an interrupt
+       may be generated when enabled (notification activated). If ProcessID or MasterID does not match,
+       semaphore remains taken (locked)
+
+    (#)Release all semaphores at once taken by a given Master using function HAL_HSEM_Release_All
+        This function takes as parameters :
+         (++) the Release Key (value from 0 to 0xFFFF) can be Set or Get respectively by
+            HAL_HSEM_SetClearKey() or HAL_HSEM_GetClearKey functions
+         (++) the Master ID:
+         (++) Note: If the Key and MasterID match, all semaphores taken by the given CPU that corresponds
+         to MasterID  will be freed, and an interrupt may be generated when enabled (notification activated). If the
+         Key or the MasterID doesn't match, semaphores remains taken (locked)
+
+    (#)Semaphores Release all key functions:
+       (++)  HAL_HSEM_SetClearKey() to set semaphore release all Key
+       (++)  HAL_HSEM_GetClearKey() to get release all Key
+    (#)Semaphores notification functions :
+       (++)  HAL_HSEM_ActivateNotification to activate a notification callback on
+             a given semaphores Mask (bitfield). When one or more semaphores defined by the mask are released
+             the callback HAL_HSEM_FreeCallback will be asserted giving as parameters a mask of the released
+             semaphores (bitfield).
+
+       (++)  HAL_HSEM_DeactivateNotification to deactivate the notification of a given semaphores Mask (bitfield).
+       (++) See the description of the macro __HAL_HSEM_SEMID_TO_MASK to check how to calculate a semaphore mask
+              Used by the notification functions
+   *** HSEM HAL driver macros list ***
+   =============================================
+   [..] Below the list of most used macros in HSEM HAL driver.
+
+    (+) __HAL_HSEM_SEMID_TO_MASK: Helper macro to convert a Semaphore ID to a Mask.
+    [..] Example of use :
+    [..] mask = __HAL_HSEM_SEMID_TO_MASK(8)  |  __HAL_HSEM_SEMID_TO_MASK(21) | __HAL_HSEM_SEMID_TO_MASK(25).
+    [..] All next macros take as parameter a semaphore Mask (bitfiled) that can be constructed using  __HAL_HSEM_SEMID_TO_MASK as the above example.
+    (+) __HAL_HSEM_ENABLE_IT: Enable the specified semaphores Mask interrupts.
+    (+) __HAL_HSEM_DISABLE_IT: Disable the specified semaphores Mask interrupts.
+    (+) __HAL_HSEM_GET_IT: Checks whether the specified semaphore interrupt has occurred or not.
+    (+) __HAL_HSEM_GET_FLAG: Get the semaphores status release flags.
+    (+) __HAL_HSEM_CLEAR_FLAG: Clear the semaphores status release flags.</pre><dl class="section attention"><dt>注意</dt><dd></dd></dl>
+<h2><center>&copy; Copyright (c) 2017 STMicroelectronics. All rights reserved.</center></h2>
+<p>This software component is licensed by ST under BSD 3-Clause license, the "License"; You may not use this file except in compliance with the License. You may obtain a copy of the License at: opensource.org/licenses/BSD-3-Clause </p>
+</div></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_6fda82105328d0c1fda17a2c6574589f.html">file_rebuild</a></li><li class="navelem"><a class="el" href="dir_f8cbf11529280ea5da80b4bb44d5f9a0.html">Drivers</a></li><li class="navelem"><a class="el" href="dir_cbe7be8b90087e52769a00bbc16dac82.html">STM32H7xx_HAL_Driver</a></li><li class="navelem"><a class="el" href="dir_7ac554ab80db6bf3832da21b902c950d.html">Src</a></li><li class="navelem"><a class="el" href="stm32h7xx__hal__hsem_8c.html">stm32h7xx_hal_hsem.c</a></li>
+    <li class="footer">生成于 2022年 二月 12日 星期六 02:15:47 , 为 Test使用 
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
+  </ul>
+</div>
+</body>
+</html>

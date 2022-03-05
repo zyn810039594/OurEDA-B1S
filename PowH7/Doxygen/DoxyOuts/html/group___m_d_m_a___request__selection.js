@@ -1,0 +1,26 @@
+var group___m_d_m_a___request__selection =
+[
+    [ "MDMA_REQUEST_DMA1_Stream0_TC", "group___m_d_m_a___request__selection.html#gab66b6c4ab1baa843ae1dd1804d1a756d", null ],
+    [ "MDMA_REQUEST_DMA1_Stream1_TC", "group___m_d_m_a___request__selection.html#ga3ed3d04f1e681b63455e5d7fcc05d54a", null ],
+    [ "MDMA_REQUEST_DMA1_Stream2_TC", "group___m_d_m_a___request__selection.html#gad2c10305df272532e8d39e7287d6aa47", null ],
+    [ "MDMA_REQUEST_DMA1_Stream3_TC", "group___m_d_m_a___request__selection.html#ga0988e9f420835068b5e5e47dddcf9afd", null ],
+    [ "MDMA_REQUEST_DMA1_Stream4_TC", "group___m_d_m_a___request__selection.html#gae0d8858eda5ee0b40e561b9b88968cb2", null ],
+    [ "MDMA_REQUEST_DMA1_Stream5_TC", "group___m_d_m_a___request__selection.html#ga4f43c3347bacd22689e49c38fa55e72e", null ],
+    [ "MDMA_REQUEST_DMA1_Stream6_TC", "group___m_d_m_a___request__selection.html#gaab343b59ef1ac3f5221be5a5fe6b47be", null ],
+    [ "MDMA_REQUEST_DMA1_Stream7_TC", "group___m_d_m_a___request__selection.html#ga9a58f6922a3fc7340d50fa409b6faa9b", null ],
+    [ "MDMA_REQUEST_DMA2_Stream0_TC", "group___m_d_m_a___request__selection.html#ga66db865152b296de4d7d0253707a2344", null ],
+    [ "MDMA_REQUEST_DMA2_Stream1_TC", "group___m_d_m_a___request__selection.html#gabae308ec8d08e9566c8f7a277bf9202d", null ],
+    [ "MDMA_REQUEST_DMA2_Stream2_TC", "group___m_d_m_a___request__selection.html#ga244b542f7b0248530ce9c36587724706", null ],
+    [ "MDMA_REQUEST_DMA2_Stream3_TC", "group___m_d_m_a___request__selection.html#ga73237345b9e25a942d4bbda4f05c0789", null ],
+    [ "MDMA_REQUEST_DMA2_Stream4_TC", "group___m_d_m_a___request__selection.html#ga86690ebbebdbd9753d297bb0b98ce985", null ],
+    [ "MDMA_REQUEST_DMA2_Stream5_TC", "group___m_d_m_a___request__selection.html#ga31815252c2a6acfdb76b5a0f67b2313b", null ],
+    [ "MDMA_REQUEST_DMA2_Stream6_TC", "group___m_d_m_a___request__selection.html#ga813c82abf44512f27967a480add1422a", null ],
+    [ "MDMA_REQUEST_DMA2_Stream7_TC", "group___m_d_m_a___request__selection.html#ga7661649ee69b79c2ae964afc895f92f4", null ],
+    [ "MDMA_REQUEST_DMA2D_CLUT_TC", "group___m_d_m_a___request__selection.html#ga96482eef6222a998d56097b6b9184a34", null ],
+    [ "MDMA_REQUEST_DMA2D_TC", "group___m_d_m_a___request__selection.html#gadbdc5c822dcfb78f2ea35aa0adb15435", null ],
+    [ "MDMA_REQUEST_DMA2D_TW", "group___m_d_m_a___request__selection.html#gaf6ad0e3cbacc41cf37b0304acaae2a47", null ],
+    [ "MDMA_REQUEST_SDMMC1_END_DATA", "group___m_d_m_a___request__selection.html#gab25f2721d80672afc571eb57471cfba9", null ],
+    [ "MDMA_REQUEST_SDMMC1_DMA_ENDBUFFER", "group___m_d_m_a___request__selection.html#gad73e28fb1ed41a08dab95853f8207314", null ],
+    [ "MDMA_REQUEST_SDMMC1_COMMAND_END", "group___m_d_m_a___request__selection.html#ga09e729419d056bad2d95c5fb1868bed9", null ],
+    [ "MDMA_REQUEST_SW", "group___m_d_m_a___request__selection.html#gae74213c98c7e2e2a374089d132ce51a6", null ]
+];
